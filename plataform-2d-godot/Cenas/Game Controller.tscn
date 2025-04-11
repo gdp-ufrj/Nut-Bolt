@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddk8mgmli3boc"]
+
+[ext_resource type="PackedScene" uid="uid://denase3qiamo0" path="res://Cenas/level_0.tscn" id="1_3lfqn"]
+
+[node name="Game Controller" type="Node"]
+
+[node name="Level 0" parent="." instance=ExtResource("1_3lfqn")]
+unique_name_in_owner = true
+
+[node name="Level 1" type="Node2D" parent="."]
+
+[node name="Level 2" type="Node2D" parent="."]

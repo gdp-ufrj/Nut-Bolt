@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://denase3qiamo0"]
+
+[ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/player_1.tscn" id="1_0ivv4"]
+[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/player_2.tscn" id="2_sdgiu"]
+[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_y1ous"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq2m"]
+size = Vector2(267.25, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb1dw"]
+size = Vector2(477.563, 33.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chlto"]
+size = Vector2(267.5, 50)
+
+[node name="Level 0" type="Node2D"]
+
+[node name="player_1" parent="." instance=ExtResource("1_0ivv4")]
+position = Vector2(0, -1)
+
+[node name="player_2" parent="." instance=ExtResource("2_sdgiu")]
+position = Vector2(-5, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+top_level = true
+position = Vector2(142, 304)
+shape = SubResource("RectangleShape2D_ovq2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+visibility_layer = 3
+position = Vector2(143, 303)
+scale = Vector2(0.363136, 0.678571)
+texture = ExtResource("3_y1ous")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+top_level = true
+position = Vector2(798.219, 292.375)
+shape = SubResource("RectangleShape2D_rb1dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(800, 291)
+scale = Vector2(0.671939, 0.669643)
+texture = ExtResource("3_y1ous")
+
+[node name="plataforma_movel" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma_movel"]
+position = Vector2(421, 465)
+scale = Vector2(0.375172, 1)
+texture = ExtResource("3_y1ous")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_movel"]
+top_level = true
+position = Vector2(420, 465)
+shape = SubResource("RectangleShape2D_chlto")

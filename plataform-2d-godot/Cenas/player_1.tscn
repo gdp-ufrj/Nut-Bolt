@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutaywbb4vjh"]
+
+[ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/player_1.gd" id="1_66jdp"]
+[ext_resource type="Texture2D" uid="uid://blo18fe42uahn" path="res://Sprites/Placeholders/robot-preview.png" id="2_66jdp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovq2m"]
+radius = 15.0
+height = 34.0
+
+[node name="player_1" type="CharacterBody2D"]
+script = ExtResource("1_66jdp")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(130, 241)
+scale = Vector2(0.169922, 0.148437)
+texture = ExtResource("2_66jdp")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(129, 249)
+shape = SubResource("CapsuleShape2D_ovq2m")

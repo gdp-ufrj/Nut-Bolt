@@ -34,4 +34,5 @@ func _physics_process(delta: float) -> void:
 		if distance > DISTANCE and not game_over:
 			game_over = true
 			print("YOU RE DIE")
+			
 	
