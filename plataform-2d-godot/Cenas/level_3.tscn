@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://denase3qiamo0"]
+[gd_scene load_steps=8 format=3 uid="uid://dflqgqjsku7ml"]
 
-[ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/player_1.tscn" id="1_0ivv4"]
-[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/player_2.tscn" id="2_sdgiu"]
-[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_y1ous"]
-[ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/porta.tscn" id="4_sdgiu"]
+[ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/player_1.tscn" id="1_yui43"]
+[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/player_2.tscn" id="2_nwpc2"]
+[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_4dfow"]
+[ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/porta.tscn" id="4_atywy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq2m"]
 size = Vector2(267.25, 32)
@@ -16,10 +16,10 @@ size = Vector2(267.5, 50)
 
 [node name="Level 0" type="Node2D"]
 
-[node name="player_1" parent="." groups=["Player1"] instance=ExtResource("1_0ivv4")]
+[node name="player_1" parent="." groups=["Player1"] instance=ExtResource("1_yui43")]
 position = Vector2(0, -1)
 
-[node name="player_2" parent="." groups=["Player2"] instance=ExtResource("2_sdgiu")]
+[node name="player_2" parent="." groups=["Player2"] instance=ExtResource("2_nwpc2")]
 position = Vector2(-5, 1)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_ovq2m")
 visibility_layer = 3
 position = Vector2(143, 303)
 scale = Vector2(0.363136, 0.678571)
-texture = ExtResource("3_y1ous")
+texture = ExtResource("3_4dfow")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -45,20 +45,19 @@ shape = SubResource("RectangleShape2D_rb1dw")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(707, 296)
 scale = Vector2(0.671939, 0.669643)
-texture = ExtResource("3_y1ous")
+texture = ExtResource("3_4dfow")
 
 [node name="plataforma_movel" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="plataforma_movel"]
 position = Vector2(382, 339)
 scale = Vector2(0.375172, 1)
-texture = ExtResource("3_y1ous")
+texture = ExtResource("3_4dfow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_movel"]
 top_level = true
 position = Vector2(379, 337)
 shape = SubResource("RectangleShape2D_chlto")
 
-[node name="Porta" parent="." instance=ExtResource("4_sdgiu")]
-position = Vector2(570, 229)
-next_scene = "res://Cenas/level_1.tscn"
+[node name="Porta" parent="." instance=ExtResource("4_atywy")]
+position = Vector2(378, 107)
