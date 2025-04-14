@@ -18,3 +18,10 @@ texture = ExtResource("2_66jdp")
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(129, 249)
 shape = SubResource("CapsuleShape2D_ovq2m")
+
+[node name="Timer_sem_sinal" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer_sem_sinal" to="." method="_on_timer_sem_sinal_timeout"]
