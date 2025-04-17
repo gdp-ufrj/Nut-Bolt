@@ -82,7 +82,6 @@ func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
 		if $"../plataforma/AnimationPlayer".is_playing(): 
 			$"../plataforma/AnimationPlayer".pause()
 			$"../plataforma".position.y - 10
-			print("encostou")
 
 # QUANDO O PERSONAGEM SAI DE BAIXO DA PLATAFORMA A ANIMACAO VOLTA A TOCAR
 func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
