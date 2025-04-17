@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bih7god6r8j2v"]
 
-[ext_resource type="Script" uid="uid://boio3y0ty6tnk" path="res://Cenas/porta.gd" id="1_i4fo3"]
+[ext_resource type="Script" uid="uid://boio3y0ty6tnk" path="res://Scripts/porta.gd" id="1_i4fo3"]
 [ext_resource type="Texture2D" uid="uid://hnb27m6dpn6h" path="res://icon.svg" id="2_mpfdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fq56"]

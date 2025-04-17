@@ -19,6 +19,7 @@ extends CharacterBody2D
 @export var MAX_DISTANCE: int = 100
 @export var other_character: Node2D 
 @export var conectado: bool = true
+var pode_ativar_botao = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -59,6 +60,27 @@ func _on_timer_sem_sinal_timeout() -> void:
 	self.JUMP_VELOCITY = 0
 	other_character.SPEED = 0
 	conectado = false
-	
-	
-	
+
+
+func _on_botao_body_entered(body: Node2D) -> void:
+	if body == self:
+		$"../Botao/Label".visible = true
+		pode_ativar_botao = true
+
+func _on_botao_body_exited(body: Node2D) -> void:
+	if body == self:
+		$"../Botao/Label".visible = false
+		pode_ativar_botao = false
+
+# FUNCAO PRO PERSONAGEM NAO SER ESMAGADO PELA PLATAFORMA
+func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
+	if body == self:
+		if $"../plataforma/AnimationPlayer".is_playing(): 
+			$"../plataforma/AnimationPlayer".pause()
+			$"../plataforma".position.y - 10
+			print("encostou")
+
+# QUANDO O PERSONAGEM SAI DE BAIXO DA PLATAFORMA A ANIMACAO VOLTA A TOCAR
+func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
+	if body == self:
+		$"../plataforma/AnimationPlayer".play("move")
