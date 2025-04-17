@@ -38,6 +38,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() 
 	is_conectado([other_character]) #aqui entram novos conectores
+	
+	#Reinicia a fase ao pressionar R
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 
  
 func is_conectado(conectores: Array):
