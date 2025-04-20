@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxc1ir83fse1"]
+
+[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="1_ju15d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o48vq"]
+size = Vector2(275, 30)
+
+[node name="parede" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(2.98023e-08, 5.96046e-08)
+scale = Vector2(0.377579, 0.59375)
+texture = ExtResource("1_ju15d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_o48vq")
