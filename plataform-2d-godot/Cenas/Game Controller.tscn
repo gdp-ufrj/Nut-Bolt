@@ -1,11 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddk8mgmli3boc"]
+[gd_scene load_steps=3 format=3 uid="uid://ddk8mgmli3boc"]
 
 [ext_resource type="PackedScene" uid="uid://denase3qiamo0" path="res://Cenas/level_0.tscn" id="1_3lfqn"]
+[ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_pmw02"]
 
 [node name="Game Controller" type="Node"]
+script = ExtResource("1_pmw02")
 
 [node name="Level 0" parent="." instance=ExtResource("1_3lfqn")]
-unique_name_in_owner = true
 
 [node name="Level 1" type="Node2D" parent="."]
 

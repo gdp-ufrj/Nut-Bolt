@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://denase3qiamo0"]
+[gd_scene load_steps=11 format=3 uid="uid://denase3qiamo0"]
 
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/player_1.tscn" id="1_0ivv4"]
+[ext_resource type="Script" uid="uid://m7oxg78vu4h8" path="res://Scripts/level_0.gd" id="1_dx2wo"]
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/player_2.tscn" id="2_sdgiu"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_y1ous"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/porta.tscn" id="4_sdgiu"]
@@ -18,6 +19,7 @@ size = Vector2(278, 57)
 
 [node name="Level 0" type="Node2D"]
 position = Vector2(-2, -1)
+script = ExtResource("1_dx2wo")
 
 [node name="player_1" parent="." groups=["Player1"] instance=ExtResource("1_0ivv4")]
 position = Vector2(0, -1)
@@ -66,9 +68,6 @@ shape = SubResource("RectangleShape2D_chlto")
 position = Vector2(814, 228)
 next_scene = "res://Cenas/level_1.tscn"
 
-[node name="Roteador" parent="." instance=ExtResource("5_y1ous")]
-position = Vector2(583, 158)
-
 [node name="Parede" parent="." instance=ExtResource("6_8lyfk")]
 position = Vector2(275, 393)
 rotation = 1.56501
@@ -78,3 +77,6 @@ scale = Vector2(0.8, 1)
 position = Vector2(563, 392)
 rotation = 1.57252
 scale = Vector2(0.8, 1)
+
+[node name="Roteador" parent="." instance=ExtResource("5_y1ous")]
+position = Vector2(583, 158)

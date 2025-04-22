@@ -13,13 +13,18 @@ extends CharacterBody2D
 		#if distance > DISTANCE and not game_over:
 			#game_over = true
 			#print("YOU RE DIE")
+			#
+#is_conectado([other_character, $Roteador]) #aqui entram novos conectores
+#@export var roteador: Node2D
 
 @export var SPEED: int = 300
 @export var JUMP_VELOCITY: int = -400
 @export var MAX_DISTANCE: int = 100
-@export var other_character: Node2D 
-@export var conectado: bool = true
 var pode_ativar_botao = false
+
+
+func _ready() -> void:
+	pass
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -31,6 +36,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
+	#Reinicia a fase ao pressionar R
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED 
@@ -38,32 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,0,SPEED)
 	
 	move_and_slide() 
-	is_conectado([other_character]) #aqui entram novos conectores
 	
-	#Reinicia a fase ao pressionar R
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
-
- 
-func is_conectado(conectores: Array):
-	##Checa se existe conexão ativa e age de acordo
-	var distancia
-	for objeto in conectores:
-		if objeto != null:
-			distancia =  self.global_position.distance_to(objeto.global_position)
-			if distancia > MAX_DISTANCE:
-				if $Timer_sem_sinal.is_stopped(): #se o timer não já estiver ativo
-					$Timer_sem_sinal.start()
-			else:
-				$Timer_sem_sinal.stop()
-
-
-	
-func _on_timer_sem_sinal_timeout() -> void:
-	self.SPEED = 0
-	self.JUMP_VELOCITY = 0
-	other_character.SPEED = 0
-	conectado = false
 
 
 func _on_botao_body_entered(body: Node2D) -> void:
@@ -87,3 +71,8 @@ func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
 func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body == self:
 		$"../plataforma/AnimationPlayer".play("move")
+
+
+func _on_timer_conexao_timeout() -> void:
+	self.SPEED = 0
+	self.JUMP_VELOCITY = 0

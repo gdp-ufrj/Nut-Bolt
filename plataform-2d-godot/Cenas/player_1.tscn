@@ -19,9 +19,8 @@ texture = ExtResource("2_66jdp")
 position = Vector2(129, 249)
 shape = SubResource("CapsuleShape2D_ovq2m")
 
-[node name="Timer_sem_sinal" type="Timer" parent="."]
+[node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
-one_shot = true
 ignore_time_scale = true
 
-[connection signal="timeout" from="Timer_sem_sinal" to="." method="_on_timer_sem_sinal_timeout"]
+[connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]

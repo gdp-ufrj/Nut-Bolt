@@ -67,3 +67,7 @@ func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
 func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body == self:
 		$"../plataforma/AnimationPlayer".play("move")
+
+
+func _on_timer_conexao_2_timeout() -> void:
+	self.SPEED = 0
