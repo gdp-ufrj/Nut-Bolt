@@ -1,25 +1,8 @@
 extends CharacterBody2D
 
-
-#Cemitério de Código
-#const SPEED = 300.0
-#const JUMP_VELOCITY = -400
-#signal sem_sinal
-#var game_over = false  # Variável para impedir múltiplos prints
-#funcao que determina a distancia dos players
-	#if other_character:
-		##calcula a distancia do player 1 ao 2
-		#var distance = global_position.distance_to(other_character.global_position)
-		#if distance > DISTANCE and not game_over:
-			#game_over = true
-			#print("YOU RE DIE")
-			#
-#is_conectado([other_character, $Roteador]) #aqui entram novos conectores
-#@export var roteador: Node2D
-
 @export var SPEED: int = 300
 @export var JUMP_VELOCITY: int = -400
-@export var MAX_DISTANCE: int = 100
+@export var MAX_DISTANCE: int = 250
 var pode_ativar_botao = false
 
 

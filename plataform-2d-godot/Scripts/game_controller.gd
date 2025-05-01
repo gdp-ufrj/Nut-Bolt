@@ -2,9 +2,9 @@ extends Node
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
-	"res://Cenas/level_0.tscn",
-	"res://Cenas/level_1.tscn",
-	"res://Cenas/level_2.tscn"   
+	"res://Cenas/Niveis/tutorial_1.tscn",
+	"res://Cenas/Niveis/tutorial_2.tscn",
+	"res://Cenas/Niveis/tutorial_3.tscn"   
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
