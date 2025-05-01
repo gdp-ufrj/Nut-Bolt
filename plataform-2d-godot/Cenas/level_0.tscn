@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://denase3qiamo0"]
+[gd_scene load_steps=14 format=3 uid="uid://denase3qiamo0"]
 
 [ext_resource type="Script" uid="uid://m7oxg78vu4h8" path="res://Scripts/level_0.gd" id="1_dx2wo"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_y1ous"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/porta.tscn" id="4_sdgiu"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Roteador.tscn" id="5_y1ous"]
 [ext_resource type="PackedScene" uid="uid://dyxc1ir83fse1" path="res://Cenas/parede.tscn" id="6_8lyfk"]
+[ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="6_dx2wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq2m"]
 size = Vector2(257, 37)
@@ -14,6 +15,55 @@ size = Vector2(477.563, 33.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chlto"]
 size = Vector2(278, 57)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfb4j"]
+texture = ExtResource("6_dx2wo")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+3:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+4:2/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kfoh8"]
+tile_size = Vector2i(10, 10)
+sources/0 = SubResource("TileSetAtlasSource_nfb4j")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_siag0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2gyu"]
+size = Vector2(319, 80)
 
 [node name="Level 0" type="Node2D"]
 position = Vector2(-2, -1)
@@ -77,3 +127,18 @@ scale = Vector2(0.8, 1)
 
 [node name="Roteador" parent="." instance=ExtResource("5_y1ous")]
 position = Vector2(583, 158)
+
+[node name="Chão" type="Node2D" parent="."]
+position = Vector2(695, 159)
+
+[node name="Chao" type="TileMapLayer" parent="Chão"]
+tile_set = SubResource("TileSet_kfoh8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chão"]
+visible = false
+position = Vector2(98, 304)
+physics_material_override = SubResource("PhysicsMaterial_siag0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D"]
+position = Vector2(-48.5, 16)
+shape = SubResource("RectangleShape2D_w2gyu")

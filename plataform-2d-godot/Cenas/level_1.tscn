@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=13 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="2_22kpd"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/porta.tscn" id="2_mnlen"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="3_22kpd"]
+[ext_resource type="Script" uid="uid://b7m5bjmlg863p" path="res://Cenas/fall_zone.gd" id="4_qd5lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fk4w"]
 size = Vector2(257, 37)
@@ -62,6 +63,9 @@ size = Vector2(239, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ge26e"]
 size = Vector2(91, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_engj6"]
+size = Vector2(1078, 20)
+
 [node name="level_1" type="Node2D"]
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
@@ -98,6 +102,7 @@ tile_set = SubResource("TileSet_engj6")
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão"]
 position = Vector2(98, 304)
 physics_material_override = SubResource("PhysicsMaterial_mmet4")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D"]
 position = Vector2(-48.5, 16)
@@ -105,6 +110,7 @@ shape = SubResource("RectangleShape2D_57qif")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Chão"]
 position = Vector2(374, 304)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D2"]
 position = Vector2(36.5, 16)
@@ -112,7 +118,19 @@ shape = SubResource("RectangleShape2D_7d63f")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Chão"]
 position = Vector2(251, 349)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D3"]
 position = Vector2(-4.5, 1.5)
 shape = SubResource("RectangleShape2D_ge26e")
+
+[node name="Fall-zone" type="Area2D" parent="."]
+position = Vector2(369, 428)
+script = ExtResource("4_qd5lc")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall-zone"]
+position = Vector2(-12, 0)
+shape = SubResource("RectangleShape2D_engj6")
+
+[connection signal="body_entered" from="Fall-zone" to="Fall-zone" method="_on_body_entered"]
