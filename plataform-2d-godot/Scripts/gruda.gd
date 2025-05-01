@@ -9,6 +9,7 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var game_over = false  # Variável para impedir múltiplos prints
 var pode_ativar_botao = false
+var colidiu_com_limites = false
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
@@ -16,20 +17,28 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if is_on_wall() and Input.is_action_pressed("ui_right_WASD") and Input.is_action_pressed("ui_up_WASD"):
+	if is_on_wall() and Input.is_action_pressed("ui_right_WASD"):
 		velocity.x = direction * SPEED
-		velocity.y = -gravity * delta * 5
+		velocity.y = gravity * delta * 4
+		if(Input.is_action_pressed("ui_up_WASD")):
+			velocity.x = direction * SPEED
+			velocity.y = -gravity * delta * 5
 	
 	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and Input.is_action_pressed("ui_up_WASD"):
 		velocity.x = direction * SPEED
 		velocity.y = -gravity * delta * 5
 	
 	if is_on_ceiling() and Input.is_action_pressed("ui_up_WASD"):
+		if(colidiu_com_limites):
+			gravity = -75
+			print(gravity)
+			if(Input.is_action_pressed("ui_down_WASD")):
+				gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		velocity.x = 0
-		velocity.y = 0
+		velocity.y = -velocity.y
 	
 	if direction:
-		velocity.x = direction * SPEED 
+		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED)
 	
@@ -68,6 +77,16 @@ func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body == self:
 		$"../plataforma/AnimationPlayer".play("move")
 
-
 func _on_timer_conexao_2_timeout() -> void:
 	self.SPEED = 0
+
+# FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group('limites'):
+		colidiu_com_limites = true
+
+# FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group('limites'):
+		colidiu_com_limites = false
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
