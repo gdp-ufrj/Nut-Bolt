@@ -1,8 +1,8 @@
 extends Node2D
 
 #acessando filhos 
-@onready var player1: CharacterBody2D = $player_1
-@onready var player2: CharacterBody2D = $player_2
+@onready var player1: CharacterBody2D = $"../Players/player_1"
+@onready var player2: CharacterBody2D = $"../Players/player_2"
 @onready var roteador: StaticBody2D = $Roteador
 #@onready var conectores: Array = [roteador]
 
@@ -20,12 +20,12 @@ func conexao()->void:
 		if distRoteador > player1.MAX_DISTANCE and distJogadores > player1.MAX_DISTANCE:
 			player_timers()
 		else:
-			$player_1/Timer_conexao.stop()
-			$player_2/Timer_conexao2.stop()
+			$"../Players/player_1"/Timer_conexao.stop()
+			$"../Players/player_2"/Timer_conexao2.stop()
 			
 func player_timers()->void:
-	if $player_1/Timer_conexao.is_stopped(): 
-		$player_1/Timer_conexao.start()
+	if $"../Players/player_1"/Timer_conexao.is_stopped(): 
+		$"../Players/player_1"/Timer_conexao.start()
 		
-	if $player_2/Timer_conexao2.is_stopped(): 
-		$player_2/Timer_conexao2.start()
+	if $"../Players/player_2"/Timer_conexao2.is_stopped(): 
+		$"../Players/player_2"/Timer_conexao2.start()

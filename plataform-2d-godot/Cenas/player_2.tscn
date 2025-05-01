@@ -4,19 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cd1e5e3nagbdb" path="res://Sprites/Placeholders/Robo2-ph.png" id="2_45ong"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cujcs"]
-radius = 17.0
-height = 34.0
+radius = 19.0
+height = 38.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_45ong")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(104, 240)
 scale = Vector2(0.167969, 0.167968)
 texture = ExtResource("2_45ong")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(106, 243)
+position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_cujcs")
 
 [node name="Timer_conexao2" type="Timer" parent="."]

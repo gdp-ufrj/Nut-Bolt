@@ -1,24 +1,28 @@
 extends Area2D
 
-@export var next_scene = ""
+var players_in_area: Array = []
 
-var player1_in_area := false
-var player2_in_area := false
+func _on_body_entered(body):
+	if body.name == "player_1" or body.name == "player_2":
+		if not players_in_area.has(body):
+			players_in_area.append(body)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player1"):
-		player1_in_area = true
-	elif body.is_in_group("Player2"):
-		player2_in_area = true
-	
-	_check_players()
+	if has_both_players():
+		get_tree().get_root().get_node("Game Controller").go_to_next_level()
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player1"):
-		player1_in_area = false
-	elif body.is_in_group("Player2"):
-		player2_in_area = false
-	
-func _check_players() -> void:
-	if player1_in_area and player2_in_area:
-		get_tree().change_scene_to_file(next_scene)
+
+func _on_body_exited(body):
+	if players_in_area.has(body):
+		players_in_area.erase(body)
+
+func has_both_players() -> bool:
+	var has_player1 = false
+	var has_player2 = false
+
+	for player in players_in_area:
+		if player.name == "player_1":
+			has_player1 = true
+		elif player.name == "player_2":
+			has_player2 = true
+
+	return has_player1 and has_player2

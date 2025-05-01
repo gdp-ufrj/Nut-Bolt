@@ -5,18 +5,17 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovq2m"]
 radius = 15.0
-height = 34.0
+height = 46.0
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(130, 241)
 scale = Vector2(0.169922, 0.148437)
 texture = ExtResource("2_66jdp")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(129, 249)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_ovq2m")
 
 [node name="Timer_conexao" type="Timer" parent="."]

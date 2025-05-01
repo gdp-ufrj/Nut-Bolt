@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbcfjbornagd1"]
+
+[ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_b7awa"]
+[ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/player_1.tscn" id="2_7gg3j"]
+[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/player_2.tscn" id="3_dg2gn"]
+
+[node name="Game Controller" type="Node"]
+script = ExtResource("1_b7awa")
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="player_1" parent="Players" instance=ExtResource("2_7gg3j")]
+position = Vector2(0, -1)
+
+[node name="player_2" parent="Players" instance=ExtResource("3_dg2gn")]
+position = Vector2(-5, 1)
