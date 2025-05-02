@@ -38,5 +38,18 @@ position = Vector2(502, 148)
 scale = Vector2(0.387895, 1.82143)
 texture = ExtResource("1_fterx")
 
+[node name="elevacao" type="StaticBody2D" parent="elevacao" groups=["limites"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevacao/elevacao"]
+top_level = true
+position = Vector2(140, 146)
+shape = SubResource("RectangleShape2D_bgh3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="elevacao/elevacao"]
+visibility_layer = 3
+position = Vector2(140, 147)
+scale = Vector2(0.387895, 1.82143)
+texture = ExtResource("1_fterx")
+
 [node name="player_2" parent="." instance=ExtResource("2_5jf8n")]
-position = Vector2(340, -163)
+position = Vector2(117, -172)

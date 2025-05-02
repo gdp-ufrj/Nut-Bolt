@@ -24,18 +24,27 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
 	
-	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and Input.is_action_pressed("ui_up_WASD"):
+	if is_on_wall() and Input.is_action_pressed("ui_left_WASD"):
 		velocity.x = direction * SPEED
-		velocity.y = -gravity * delta * 5
+		velocity.y = gravity * delta * 4
+		if(Input.is_action_pressed("ui_up_WASD")):
+			velocity.x = direction * SPEED
+			velocity.y = -gravity * delta * 5
 	
-	if is_on_ceiling() and Input.is_action_pressed("ui_up_WASD"):
+	if is_on_ceiling() and (Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD")):
 		if(colidiu_com_limites):
-			gravity = -75
-			print(gravity)
-			if(Input.is_action_pressed("ui_down_WASD")):
-				gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-		velocity.x = 0
-		velocity.y = -velocity.y
+			gravity = -50
+			velocity.y = -velocity.y
+	
+	if is_on_ceiling() and Input.is_action_pressed("ui_down_WASD"):
+		if gravity == -50:
+			gravity = 980
+			velocity.y = -velocity.y
+	
+	if is_on_wall() and gravity == -50:
+		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
+			gravity = 980
+			velocity.y = -velocity.y
 	
 	if direction:
 		velocity.x = direction * SPEED
