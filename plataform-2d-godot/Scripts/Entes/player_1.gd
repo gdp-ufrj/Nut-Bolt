@@ -3,13 +3,15 @@ extends CharacterBody2D
 @export var SPEED: int = 300
 @export var JUMP_VELOCITY: int = -400
 @export var MAX_DISTANCE: int = 250
+@onready var timer = $Timer_conexao
+
+var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var pode_ativar_botao = false
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _ready() -> void:
 	pass
-
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
@@ -26,6 +28,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,0,SPEED)
 	
 	move_and_slide() 
+	
+	if pode_ativar_botao and Input.is_action_just_pressed("interagir"):
+		$"../plataforma/AnimationPlayer".play("move")
+	
 	
 
 
@@ -51,7 +57,22 @@ func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body == self:
 		$"../plataforma/AnimationPlayer".play("move")
 
+	
+func conectar()->void:
+	SPEED = estado_original[0]
+	JUMP_VELOCITY = estado_original[1]
+	timer.stop()
+
+func desconectar()-> void:
+	SPEED = 0
+	JUMP_VELOCITY = 0
 
 func _on_timer_conexao_timeout() -> void:
-	self.SPEED = 0
-	self.JUMP_VELOCITY = 0
+	desconectar()
+
+func _on_player_1_area_entered(area: Area2D) -> void:
+	conectar()
+
+func _on_player_1_area_exited(area: Area2D) -> void:
+	if timer.is_stopped(): 
+		timer.start()

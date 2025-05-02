@@ -1,9 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=16 format=3 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
-[ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="3_kqia7"]
-[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="4_yddrn"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="5_b86eh"]
 [ext_resource type="Script" uid="uid://cpuy426s4cge7" path="res://Scripts/Entes/plataforma.gd" id="6_yonss"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
@@ -97,13 +95,6 @@ offset_right = 528.0
 offset_bottom = 24.0
 text = "PRESSIONE A TECLA E!"
 
-[node name="player_1" parent="." instance=ExtResource("3_kqia7")]
-position = Vector2(-89, 4)
-MAX_DISTANCE = 200
-
-[node name="player_2" parent="." instance=ExtResource("4_yddrn")]
-position = Vector2(-20, 10)
-
 [node name="chao" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
@@ -176,11 +167,8 @@ shape = SubResource("RectangleShape2D_wk01p")
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
 
-[connection signal="body_entered" from="Botao" to="player_1" method="_on_botao_body_entered"]
-[connection signal="body_entered" from="Botao" to="player_2" method="_on_botao_body_entered"]
-[connection signal="body_exited" from="Botao" to="player_1" method="_on_botao_body_exited"]
-[connection signal="body_exited" from="Botao" to="player_2" method="_on_botao_body_exited"]
-[connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="player_1" method="_on_area_para_evitar_bug_body_entered"]
-[connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="player_2" method="_on_area_para_evitar_bug_body_entered"]
-[connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="player_1" method="_on_area_para_evitar_bug_body_exited"]
-[connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="player_2" method="_on_area_para_evitar_bug_body_exited"]
+[node name="player_1_spawn" type="Marker2D" parent="."]
+position = Vector2(25, 228)
+
+[node name="player_2_spawn" type="Marker2D" parent="."]
+position = Vector2(84, 228)
