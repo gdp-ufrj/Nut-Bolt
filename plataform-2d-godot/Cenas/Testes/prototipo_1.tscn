@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://denase3qiamo0"]
+
+[ext_resource type="Script" uid="uid://m7oxg78vu4h8" path="res://Scripts/Niveis/tutorial_1.gd" id="1_1nmxu"]
+[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="2_sf5id"]
+[ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_wip82"]
+[ext_resource type="PackedScene" uid="uid://dyxc1ir83fse1" path="res://Cenas/Entes/parede.tscn" id="4_ue3j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovq2m"]
+size = Vector2(257, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb1dw"]
+size = Vector2(477.563, 33.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chlto"]
+size = Vector2(278, 57)
+
+[node name="Tutorial 1" type="Node2D"]
+script = ExtResource("1_1nmxu")
+
+[node name="player_1_spawn" type="Marker2D" parent="."]
+position = Vector2(147, 210)
+
+[node name="player_2_spawn" type="Marker2D" parent="."]
+position = Vector2(110, 209)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+top_level = true
+position = Vector2(130.5, 301.5)
+shape = SubResource("RectangleShape2D_ovq2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+visibility_layer = 3
+position = Vector2(129, 300)
+scale = Vector2(0.363136, 0.678571)
+texture = ExtResource("2_sf5id")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+top_level = true
+position = Vector2(812, 302)
+shape = SubResource("RectangleShape2D_rb1dw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(815, 300)
+scale = Vector2(0.671939, 0.669643)
+texture = ExtResource("2_sf5id")
+
+[node name="plataforma_movel" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma_movel"]
+position = Vector2(427, 466)
+scale = Vector2(0.375172, 1)
+texture = ExtResource("2_sf5id")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_movel"]
+top_level = true
+position = Vector2(424, 464.5)
+shape = SubResource("RectangleShape2D_chlto")
+
+[node name="Porta" parent="." instance=ExtResource("3_wip82")]
+position = Vector2(959, 243)
+
+[node name="Parede" parent="." instance=ExtResource("4_ue3j8")]
+position = Vector2(275, 393)
+rotation = 1.56501
+scale = Vector2(0.8, 1)
+
+[node name="parede" parent="." instance=ExtResource("4_ue3j8")]
+position = Vector2(563, 392)
+rotation = 1.57252
+scale = Vector2(0.8, 1)

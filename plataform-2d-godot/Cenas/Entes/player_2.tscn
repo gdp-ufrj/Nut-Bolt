@@ -1,28 +1,29 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3qbb7deufpm"]
 
-[ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/gruda.gd" id="1_45ong"]
+[ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://cd1e5e3nagbdb" path="res://Sprites/Placeholders/Robo2-ph.png" id="2_45ong"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cujcs"]
-radius = 17.0
-height = 34.0
+radius = 19.0
+height = 38.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
 size = Vector2(43, 41)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_45ong")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(104, 240)
 scale = Vector2(0.167969, 0.167968)
 texture = ExtResource("2_45ong")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(106, 243)
+position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_cujcs")
 
-[node name="Timer_conexao2" type="Timer" parent="."]
+[node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
 
 [node name="Area2D" type="Area2D" parent="."]

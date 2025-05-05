@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg0iyugvxt7cr"]
+
+[ext_resource type="Texture2D" uid="uid://hnb27m6dpn6h" path="res://icon.svg" id="1_eaxif"]
+[ext_resource type="Script" uid="uid://d1cru34uxmcaq" path="res://Scripts/Entes/roteador.gd" id="1_hf4jo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_if2po"]
+radius = 89.56
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf4jo"]
+size = Vector2(34, 34)
+
+[node name="Roteador" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_hf4jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.275391, 0.280098)
+texture = ExtResource("1_eaxif")
+
+[node name="zona_conexao" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao"]
+shape = SubResource("CircleShape2D_if2po")
+debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hf4jo")

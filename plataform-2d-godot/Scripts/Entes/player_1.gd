@@ -1,44 +1,22 @@
 extends CharacterBody2D
 
-
-#Cemitério de Código
-#const SPEED = 300.0
-#const JUMP_VELOCITY = -400
-#signal sem_sinal
-#var game_over = false  # Variável para impedir múltiplos prints
-#funcao que determina a distancia dos players
-	#if other_character:
-		##calcula a distancia do player 1 ao 2
-		#var distance = global_position.distance_to(other_character.global_position)
-		#if distance > DISTANCE and not game_over:
-			#game_over = true
-			#print("YOU RE DIE")
-			#
-#is_conectado([other_character, $Roteador]) #aqui entram novos conectores
-#@export var roteador: Node2D
-
 @export var SPEED: int = 300
 @export var JUMP_VELOCITY: int = -400
-@export var MAX_DISTANCE: int = 100
+#@export var MAX_DISTANCE: int = 250
+@onready var timer = $Timer_conexao
+@onready var zona_conexao = $zona_conexao
+
+var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var pode_ativar_botao = false
-
-
-func _ready() -> void:
-	pass
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+#region Physics process
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
-	#Reinicia a fase ao pressionar R
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -48,8 +26,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() 
 	
+	if pode_ativar_botao and Input.is_action_just_pressed("interagir"):
+		$"../plataforma/AnimationPlayer".play("move")
+		
+#endregion
 
-
+#region Tutorial 2 
 func _on_botao_body_entered(body: Node2D) -> void:
 	if body == self:
 		$"../Botao/Label".visible = true
@@ -71,8 +53,29 @@ func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
 func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body == self:
 		$"../plataforma/AnimationPlayer".play("move")
+		
+#endregion
+	
+#region Conexão
+func conectar()->void:
+	SPEED = estado_original[0]
+	JUMP_VELOCITY = estado_original[1]
+	timer.stop()
 
+func desconectar()-> void:
+	SPEED = 0
+	JUMP_VELOCITY = 0
 
 func _on_timer_conexao_timeout() -> void:
-	self.SPEED = 0
-	self.JUMP_VELOCITY = 0
+	desconectar()
+
+func _on_zona_conexao_area_entered(area: Area2D) -> void:
+	if area.name == "zona_conexao":
+		conectar()
+
+func _on_zona_conexao_area_exited(area: Area2D) -> void:
+	if area.name == "zona_conexao":
+		if timer.is_stopped(): 
+			timer.start()
+
+#endregion
