@@ -7,7 +7,7 @@ extends CharacterBody2D
 var estado_original = SPEED
 var pode_ativar_botao = false
 var colidiu_com_limites = false
-
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region physics process
 func _physics_process(delta: float) -> void:

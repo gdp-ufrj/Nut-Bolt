@@ -72,14 +72,16 @@ script = ExtResource("1_567s1")
 
 [node name="Porta" parent="." instance=ExtResource("2_c7i80")]
 position = Vector2(575, 47)
-collision_layer = 3
-collision_mask = 3
 
 [node name="Botao" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = SubResource("GDScript_fxmij")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Botao"]
-position = Vector2(445, 49.25)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(446, 49.25)
 shape = SubResource("RectangleShape2D_fxmij")
 
 [node name="ColorRect" type="ColorRect" parent="Botao"]
@@ -98,6 +100,8 @@ offset_bottom = 24.0
 text = "PRESSIONE A TECLA E!"
 
 [node name="chao" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
@@ -112,6 +116,8 @@ scale = Vector2(0.88033, 1.82143)
 texture = ExtResource("5_b86eh")
 
 [node name="elevacao" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="elevacao"]
 top_level = true
@@ -125,6 +131,8 @@ scale = Vector2(0.387895, 3.42857)
 texture = ExtResource("5_b86eh")
 
 [node name="limite lateral esquerdo" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="colisao" type="CollisionShape2D" parent="limite lateral esquerdo"]
 top_level = true
@@ -132,6 +140,8 @@ position = Vector2(-10, 142)
 shape = SubResource("RectangleShape2D_faoxm")
 
 [node name="limite lateral direito" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="colisao" type="CollisionShape2D" parent="limite lateral direito"]
 top_level = true
@@ -140,6 +150,8 @@ shape = SubResource("RectangleShape2D_faoxm")
 
 [node name="plataforma" type="AnimatableBody2D" parent="."]
 position = Vector2(0, 90)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("6_yonss")
 metadata/_edit_group_ = true
 
