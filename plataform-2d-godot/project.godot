@@ -23,6 +23,7 @@ window/size/viewport_height=320
 [file_customization]
 
 folder_colors={
+"res://Audio/": "pink",
 "res://Cenas/": "green",
 "res://Scripts/": "yellow",
 "res://Sprites/": "purple"
