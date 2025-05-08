@@ -53,9 +53,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 #endregion
 
-func _on_timer_conexao_2_timeout() -> void:
-	self.SPEED = 0
-
 # FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('limites'):
@@ -66,13 +63,16 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('limites'):
 		colidiu_com_limites = false
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+		
 #region conexao
 func conectar()->void:
 	SPEED = estado_original
 	timer.stop()
+	$aviso_conexao.stop()
 
 func desconectar()-> void:
 	SPEED = 0
+	$aviso_conexao.stop()
 
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
@@ -85,5 +85,6 @@ func _on_zona_conexao_area_exited(area: Area2D) -> void:
 	if area.name == "zona_conexao":
 		if timer.is_stopped():
 			timer.start()
+			$aviso_conexao.play()
 
 #endregion
