@@ -8,7 +8,6 @@ extends CharacterBody2D
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var pode_ativar_botao = false
-var aviso_tocou = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region Physics process
@@ -63,11 +62,12 @@ func conectar()->void:
 	JUMP_VELOCITY = estado_original[1]
 	timer.stop()
 	$aviso_conexao.stop()
-	aviso_tocou = false
+	
 
 func desconectar()-> void:
 	SPEED = 0
 	JUMP_VELOCITY = 0
+	$aviso_conexao.stop()
 
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
@@ -80,9 +80,8 @@ func _on_zona_conexao_area_exited(area: Area2D) -> void:
 	if area.name == "zona_conexao":
 		if timer.is_stopped(): 
 			timer.start()
-			if !aviso_tocou:
-				$aviso_conexao.play()
-				aviso_tocou = true
+			$aviso_conexao.play()
+
 			
 
 #endregion

@@ -32,5 +32,6 @@ wait_time = 4.0
 position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_45ong")
 
+[connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
