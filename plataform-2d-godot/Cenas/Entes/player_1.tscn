@@ -9,6 +9,8 @@ height = 46.0
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
+SPEED = null
+JUMP_VELOCITY = null
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.169922, 0.148437)

@@ -26,8 +26,6 @@ script = SubResource("GDScript_iks2j")
 
 [node name="player_1" parent="Players" instance=ExtResource("2_7gg3j")]
 position = Vector2(0, -1)
-SPEED = 300
-JUMP_VELOCITY = -400
 
 [node name="zona_conexao" type="Area2D" parent="Players/player_1"]
 collision_layer = 3

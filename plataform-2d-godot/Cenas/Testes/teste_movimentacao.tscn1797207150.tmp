@@ -13,6 +13,7 @@ size = Vector2(282.25, 100.375)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_5jf8n")]
 position = Vector2(95, 70)
+SPEED = 150
 
 [node name="chao" type="StaticBody2D" parent="." groups=["limites"]]
 collision_layer = 3

@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var zona_conexao = $zona_conexao
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
-var pode_ativar_botao = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region Physics process
@@ -26,9 +25,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() 
 	
-	if pode_ativar_botao and Input.is_action_just_pressed("interagir"):
-		$"../plataforma/AnimationPlayer".play("move")
-		
+	
 #endregion
 
 #region Conexão

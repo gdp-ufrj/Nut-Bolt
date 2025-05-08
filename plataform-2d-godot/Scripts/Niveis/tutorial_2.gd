@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 		print("interagiu")
 		$plataforma/AnimationPlayer.play("move")
 		$Botao/Label.visible = false
+		botao_foi_ativado = true
  
 #func conexao()->void:
 	###Checa se existe conexão ativa entre os players ou com roteadores
@@ -65,7 +66,6 @@ func _on_botao_body_entered(body: Node2D) -> void:
 		$Botao/Label.visible = true
 		pode_interagir = true
 		jogador = body
-		botao_foi_ativado = true
 
 # SCRIPT PRO BOTAO E PLATAFORMA
 func _on_botao_body_exited(body: Node2D) -> void:
