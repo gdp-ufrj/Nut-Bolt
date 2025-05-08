@@ -32,31 +32,6 @@ func _physics_process(delta: float) -> void:
 		
 #endregion
 
-#region Tutorial 2 
-func _on_botao_body_entered(body: Node2D) -> void:
-	if body == self:
-		$"../Botao/Label".visible = true
-		pode_ativar_botao = true
-
-func _on_botao_body_exited(body: Node2D) -> void:
-	if body == self:
-		$"../Botao/Label".visible = false
-		pode_ativar_botao = false
-
-# FUNCAO PRO PERSONAGEM NAO SER ESMAGADO PELA PLATAFORMA
-func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
-	if body == self:
-		if $"../plataforma/AnimationPlayer".is_playing(): 
-			$"../plataforma/AnimationPlayer".pause()
-			$"../plataforma".position.y - 10
-
-# QUANDO O PERSONAGEM SAI DE BAIXO DA PLATAFORMA A ANIMACAO VOLTA A TOCAR
-func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
-	if body == self:
-		$"../plataforma/AnimationPlayer".play("move")
-		
-#endregion
-	
 #region Conexão
 func conectar()->void:
 	SPEED = estado_original[0]

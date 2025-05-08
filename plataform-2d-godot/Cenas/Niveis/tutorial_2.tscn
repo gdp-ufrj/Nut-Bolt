@@ -6,13 +6,6 @@
 [ext_resource type="Script" uid="uid://cpuy426s4cge7" path="res://Scripts/Entes/plataforma.gd" id="6_yonss"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
 
-[sub_resource type="GDScript" id="GDScript_fxmij"]
-script/source = "extends Area2D
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
-size = Vector2(81, 79.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk7pk"]
 size = Vector2(640, 101.5)
 
@@ -67,37 +60,24 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk01p"]
 size = Vector2(104, 20)
 
+[sub_resource type="GDScript" id="GDScript_fxmij"]
+script/source = "extends Area2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
+size = Vector2(81, 73.5)
+
 [node name="Tutorial 2" type="Node2D"]
 script = ExtResource("1_567s1")
 
 [node name="Porta" parent="." instance=ExtResource("2_c7i80")]
 position = Vector2(575, 47)
 
-[node name="Botao" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-script = SubResource("GDScript_fxmij")
+[node name="player_1_spawn" type="Marker2D" parent="."]
+position = Vector2(25, 228)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Botao"]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(446, 49.25)
-shape = SubResource("RectangleShape2D_fxmij")
-
-[node name="ColorRect" type="ColorRect" parent="Botao"]
-offset_left = 424.0
-offset_top = 31.0
-offset_right = 464.0
-offset_bottom = 71.0
-color = Color(1, 0, 0.796078, 1)
-
-[node name="Label" type="Label" parent="Botao"]
-visible = false
-offset_left = 358.0
-offset_top = 1.0
-offset_right = 528.0
-offset_bottom = 24.0
-text = "PRESSIONE A TECLA E!"
+[node name="player_2_spawn" type="Marker2D" parent="."]
+position = Vector2(84, 228)
 
 [node name="chao" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -181,8 +161,34 @@ shape = SubResource("RectangleShape2D_wk01p")
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
 
-[node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(25, 228)
+[node name="Botao" type="Area2D" parent="."]
+z_index = -1
+collision_layer = 7
+collision_mask = 7
+script = SubResource("GDScript_fxmij")
 
-[node name="player_2_spawn" type="Marker2D" parent="."]
-position = Vector2(84, 228)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Botao"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(446, 46.25)
+shape = SubResource("RectangleShape2D_fxmij")
+
+[node name="ColorRect" type="ColorRect" parent="Botao"]
+offset_left = 424.0
+offset_top = 31.0
+offset_right = 464.0
+offset_bottom = 71.0
+color = Color(1, 0, 0.796078, 1)
+
+[node name="Label" type="Label" parent="Botao"]
+visible = false
+offset_left = 358.0
+offset_top = 1.0
+offset_right = 528.0
+offset_bottom = 24.0
+text = "PRESSIONE A TECLA E!"
+
+[connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_entered"]
+[connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_exited"]
+[connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
+[connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
