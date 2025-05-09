@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://boio3y0ty6tnk" path="res://Scripts/Entes/porta.gd" id="1_fa3ny"]
 [ext_resource type="Texture2D" uid="uid://hnb27m6dpn6h" path="res://icon.svg" id="2_35smw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fq56"]
-size = Vector2(89, 100)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3ny"]
+size = Vector2(40, 30)
 
 [node name="Porta" type="Area2D"]
 collision_layer = 3
@@ -12,13 +12,14 @@ collision_mask = 3
 script = ExtResource("1_fa3ny")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-1, 0.999999)
-scale = Vector2(0.691406, 0.65625)
+position = Vector2(1.19209e-07, -2.86102e-06)
+scale = Vector2(0.3125, 0.234375)
 texture = ExtResource("2_35smw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_7fq56")
+shape = SubResource("RectangleShape2D_fa3ny")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

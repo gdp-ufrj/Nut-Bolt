@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 150
+@export var SPEED: int = 90
 @onready var timer = $Timer_conexao
 @onready var zona_conexao = $zona_conexao
 
