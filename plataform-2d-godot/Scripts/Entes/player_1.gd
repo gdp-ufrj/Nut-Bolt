@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var SPEED: int = 300
-@export var JUMP_VELOCITY: int = -400
+@export var SPEED: int = 130 # Alcance de 10 tiles (100px)
+@export var JUMP_VELOCITY: int = -320 # Pulo de 5 tiles (50px)
 #@export var MAX_DISTANCE: int = 250
 @onready var timer = $Timer_conexao
 @onready var zona_conexao = $zona_conexao

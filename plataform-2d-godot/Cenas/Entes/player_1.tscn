@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
 [ext_resource type="Texture2D" uid="uid://blo18fe42uahn" path="res://Sprites/Placeholders/robot-preview.png" id="2_66jdp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovq2m"]
-radius = 15.0
-height = 46.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
+size = Vector2(20, 25)
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
@@ -13,12 +12,14 @@ SPEED = null
 JUMP_VELOCITY = null
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.169922, 0.148437)
+position = Vector2(-5.96046e-08, -3)
+scale = Vector2(0.103125, 0.095578)
 texture = ExtResource("2_66jdp")
+metadata/_edit_lock_ = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("CapsuleShape2D_ovq2m")
+shape = SubResource("RectangleShape2D_q7f8p")
+metadata/_edit_lock_ = true
 
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
