@@ -11,7 +11,8 @@ var current_level: Node = null  #Referencia para o nivel atual
 var current_index: int = -1     #Indice do nivel atual
 
 @onready var player_1: CharacterBody2D = $Players/player_1 
-@onready var player_2: CharacterBody2D = $Players/player_2  
+@onready var player_2: CharacterBody2D = $Players/player_2 
+@onready var pause_menu = $Pause_menu
 
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
@@ -21,7 +22,13 @@ func _ready():
 
 #Funcao chamada sempre que uma acao de input não tratada acontece (como pressionar teclas)
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("pause"):
+		if get_tree().paused:
+			$Pause_menu.hide_pause_menu()
+		else:
+			$Pause_menu.show_pause_menu()
+
+	elif Input.is_action_just_pressed("restart") and not get_tree().paused:
 		restart_level()
 
 #Funcao para avancar para o proximo nivel
@@ -86,3 +93,4 @@ func _load_level(index: int):
 func _add_level_to_scene(level_instance: Node):
 	#Adiciona o nivel a arvore de nos
 	add_child(level_instance)
+	
