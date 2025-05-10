@@ -14,6 +14,7 @@ var botao_foi_ativado = false
 
 
 func _process(_delta: float) -> void:
+	
 	#conexao()
 	if pode_interagir and Input.is_action_just_pressed("interagir"):
 		print("interagiu")

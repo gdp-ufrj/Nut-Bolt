@@ -7,7 +7,7 @@
 size = Vector2(20, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
-size = Vector2(26, 29)
+size = Vector2(43, 38)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -29,11 +29,11 @@ metadata/_edit_lock_ = true
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AREA PARA MOVE" type="Area2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 1.5)
+[node name="IDENTIFICA LIMITES" type="CollisionShape2D" parent="AREA PARA MOVE"]
+position = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_45ong")
 debug_color = Color(0.326914, 0.594941, 0.531051, 0.231373)
 metadata/_edit_lock_ = true
@@ -43,5 +43,5 @@ wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]

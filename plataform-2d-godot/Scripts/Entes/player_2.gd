@@ -11,6 +11,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region physics process
 func _physics_process(delta: float) -> void:
+	
+	#print(nao_pode_grudar)
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
 	
 	if not is_on_floor():
@@ -22,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
-			$Timer_grude.start()
 	
 	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and not nao_pode_grudar:
 		velocity.x = direction * SPEED
@@ -30,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
-			$Timer_grude.start()
 	
 	if is_on_ceiling() and (Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD")):
 		if(colidiu_com_limites):
@@ -58,7 +58,6 @@ func _physics_process(delta: float) -> void:
 # FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('limites'):
-		print("colidiu")
 		colidiu_com_limites = true
 
 # FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
@@ -66,7 +65,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('limites'):
 		colidiu_com_limites = false
 		nao_pode_grudar = true
+		print("pode grudar?")
+		print(nao_pode_grudar)
 		$Timer_grude.start()
+		print($Timer_grude.is_stopped());
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _on_Timer_grude_timeout():
