@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://sf2d4svmqmvo"]
+
+[ext_resource type="Script" uid="uid://tw32mpusq3s4" path="res://Scripts/pause_menu.gd" id="1_idnuk"]
+
+[node name="Pause_menu" type="CanvasLayer"]
+process_mode = 1
+script = ExtResource("1_idnuk")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.317
+anchor_top = 0.067
+anchor_right = 0.692
+anchor_bottom = 0.844
+offset_left = 0.119995
+offset_top = -0.120001
+offset_right = 0.119995
+offset_bottom = 0.159973
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.121
+anchor_right = 0.887
+anchor_bottom = 0.754
+offset_left = 4.08
+offset_top = 0.119999
+offset_right = 0.119995
+offset_bottom = -0.119995
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "    Jogo Pausado
+"
+
+[node name="Continuar" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continuar"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Sair"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

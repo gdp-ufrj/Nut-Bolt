@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbcfjbornagd1"]
+[gd_scene load_steps=8 format=3 uid="uid://cbcfjbornagd1"]
 
 [ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_b7awa"]
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="2_7gg3j"]
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="3_dg2gn"]
 [ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="5_7gg3j"]
-[ext_resource type="PackedScene" uid="uid://sf2d4svmqmvo" path="res://Cenas/pause_menu.tscn" id="5_dg2gn"]
 
 [sub_resource type="GDScript" id="GDScript_iks2j"]
 script/source = "extends Node2D
@@ -54,8 +53,6 @@ debug_color = Color(0, 0.742064, 0.316269, 0.42)
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="Players/player_2"]
 stream = ExtResource("5_7gg3j")
-
-[node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
 [connection signal="area_entered" from="Players/player_1/zona_conexao" to="Players/player_1" method="_on_zona_conexao_area_entered"]
 [connection signal="area_exited" from="Players/player_1/zona_conexao" to="Players/player_1" method="_on_zona_conexao_area_exited"]

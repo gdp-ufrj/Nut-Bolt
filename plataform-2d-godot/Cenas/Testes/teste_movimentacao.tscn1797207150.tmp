@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds0mqh8twicw6"]
+
+[ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="1_fterx"]
+[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="2_5jf8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqb8y"]
+size = Vector2(641, 101.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh3h"]
+size = Vector2(282.25, 100.375)
+
+[node name="TESTE MOVIMENTACAO" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_5jf8n")]
+position = Vector2(95, 70)
+SPEED = 150
+
+[node name="chao" type="StaticBody2D" parent="." groups=["limites"]]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
+top_level = true
+position = Vector2(320.5, 332.75)
+shape = SubResource("RectangleShape2D_oqb8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="chao"]
+visibility_layer = 3
+position = Vector2(320.5, 333)
+scale = Vector2(0.881706, 1.82143)
+texture = ExtResource("1_fterx")
+
+[node name="elevacao" type="StaticBody2D" parent="." groups=["limites"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevacao"]
+top_level = true
+position = Vector2(502, 147)
+shape = SubResource("RectangleShape2D_bgh3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="elevacao"]
+visibility_layer = 3
+position = Vector2(502, 148)
+scale = Vector2(0.387895, 1.82143)
+texture = ExtResource("1_fterx")
+
+[node name="elevacao" type="StaticBody2D" parent="elevacao" groups=["limites"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevacao/elevacao"]
+top_level = true
+position = Vector2(139.875, 146.188)
+shape = SubResource("RectangleShape2D_bgh3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="elevacao/elevacao"]
+visibility_layer = 3
+position = Vector2(140, 147)
+scale = Vector2(0.387895, 1.82143)
+texture = ExtResource("1_fterx")

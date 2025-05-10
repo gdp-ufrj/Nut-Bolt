@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj3qbb7deufpm"]
+
+[ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
+[ext_resource type="Texture2D" uid="uid://cd1e5e3nagbdb" path="res://Sprites/Placeholders/Robo2-ph.png" id="2_45ong"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63q1r"]
+size = Vector2(20, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
+size = Vector2(26, 29)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_45ong")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(0.0833333, 0.1)
+texture = ExtResource("2_45ong")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 2
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_63q1r")
+metadata/_edit_lock_ = true
+
+[node name="Timer_conexao" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_45ong")
+debug_color = Color(0.326914, 0.594941, 0.531051, 0.231373)
+metadata/_edit_lock_ = true
+
+[node name="Timer_grude" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

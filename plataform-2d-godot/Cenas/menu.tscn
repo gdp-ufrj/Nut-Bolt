@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://co6ao4k02l5al"]
+
+[ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/menu.gd" id="1_pveh2"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_pveh2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.345
+anchor_top = 0.081
+anchor_right = 0.617
+anchor_bottom = 0.347
+offset_left = 0.199982
+offset_top = -0.16
+offset_right = 0.119965
+offset_bottom = 0.0800018
+theme_override_font_sizes/font_size = 70
+text = "Robô"
+
+[node name="Start" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.439
+anchor_top = 0.472
+anchor_right = 0.548
+anchor_bottom = 0.583
+offset_left = 0.039978
+offset_top = 0.0799866
+offset_right = 0.279968
+offset_bottom = 0.119995
+theme_override_font_sizes/font_size = 20
+text = "Start"
+
+[node name="Quit" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.447
+anchor_top = 0.661
+anchor_right = 0.556
+anchor_bottom = 0.761
+offset_left = -0.0800171
+offset_top = 0.0399933
+offset_right = 0.159973
+offset_bottom = 0.039978
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Creditos" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.431
+anchor_top = 0.828
+anchor_right = 0.57
+anchor_bottom = 0.928
+offset_left = 0.159973
+offset_top = -0.0800171
+offset_right = 0.199951
+offset_bottom = -0.0800171
+theme_override_font_sizes/font_size = 20
+text = "Creditos
+"
+
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Creditos" to="." method="_on_creditos_pressed"]
