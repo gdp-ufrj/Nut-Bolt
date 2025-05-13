@@ -6,26 +6,24 @@ extends CharacterBody2D
 
 var estado_original = SPEED
 var colidiu_com_limites = false
-var nao_pode_grudar = false
+var pode_grudar = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region physics process
 func _physics_process(delta: float) -> void:
-	
-	#print(nao_pode_grudar)
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if is_on_wall() and Input.is_action_pressed("ui_right_WASD") and not nao_pode_grudar:
+	if is_on_wall() and Input.is_action_pressed("ui_right_WASD") and pode_grudar:
 		velocity.x = direction * SPEED
 		velocity.y = gravity * delta * 4
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
 	
-	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and not nao_pode_grudar:
+	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and pode_grudar:
 		velocity.x = direction * SPEED
 		velocity.y = gravity * delta * 4
 		if(Input.is_action_pressed("ui_up_WASD")):
@@ -47,6 +45,9 @@ func _physics_process(delta: float) -> void:
 			gravity = 980
 			velocity.y = -velocity.y
 	
+	if colidiu_com_limites and is_on_floor():
+		pode_grudar = true
+	
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -64,15 +65,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('limites'):
 		colidiu_com_limites = false
-		nao_pode_grudar = true
-		print("pode grudar?")
-		print(nao_pode_grudar)
-		$Timer_grude.start()
-		print($Timer_grude.is_stopped());
+		pode_grudar = false
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-func _on_Timer_grude_timeout():
-	nao_pode_grudar = false
 
 #region conexao
 func conectar()->void:

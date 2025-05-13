@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="2_5jf8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqb8y"]
-size = Vector2(318, 101.5)
+size = Vector2(239, 101.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgh3h"]
 size = Vector2(283.125, 100.375)
@@ -13,7 +13,7 @@ size = Vector2(283.125, 100.375)
 size = Vector2(303, 102)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ptkp"]
-size = Vector2(375.5, 101)
+size = Vector2(454, 101)
 
 [node name="TESTE MOVIMENTACAO" type="Node2D"]
 
@@ -29,13 +29,13 @@ metadata/_edit_group_ = true
 top_level = true
 light_mask = 3
 visibility_layer = 3
-position = Vector2(159, 332.75)
+position = Vector2(119.5, 332.75)
 shape = SubResource("RectangleShape2D_oqb8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="chao"]
 visibility_layer = 3
-position = Vector2(159, 333)
-scale = Vector2(0.437414, 1.82143)
+position = Vector2(119.5, 333)
+scale = Vector2(0.328748, 1.82143)
 texture = ExtResource("1_fterx")
 
 [node name="elevacao" type="StaticBody2D" parent="." groups=["limites"]]
@@ -65,16 +65,17 @@ texture = ExtResource("1_fterx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="elevacao" groups=["limites"]]
 position = Vector2(488.5, 148)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5crtm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["limites"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(722.75, 332)
-scale = Vector2(0.978679, 1.78571)
+position = Vector2(684.25, 332)
+scale = Vector2(1.08459, 1.78571)
 texture = ExtResource("1_fterx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(554.25, 331.5)
+position = Vector2(515, 331.5)
 shape = SubResource("RectangleShape2D_1ptkp")
