@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sf2d4svmqmvo"]
 
-[ext_resource type="Script" uid="uid://tw32mpusq3s4" path="res://Scripts/pause_menu.gd" id="1_idnuk"]
+[ext_resource type="Script" uid="uid://tw32mpusq3s4" path="res://Scripts/Telas/pause_menu.gd" id="1_idnuk"]
 
 [node name="Pause_menu" type="CanvasLayer"]
 process_mode = 1

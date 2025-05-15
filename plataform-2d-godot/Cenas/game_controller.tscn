@@ -30,11 +30,11 @@ position = Vector2(0, -1)
 SPEED = 300
 JUMP_VELOCITY = -400
 
-[node name="zona_conexao" type="Area2D" parent="Players/player_1"]
+[node name="zona_conexao_1" type="Area2D" parent="Players/player_1"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/player_1/zona_conexao"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/player_1/zona_conexao_1"]
 shape = SubResource("CircleShape2D_8skut")
 debug_color = Color(0.995776, 0, 0.199186, 0.42)
 
@@ -44,11 +44,11 @@ stream = ExtResource("5_7gg3j")
 [node name="player_2" parent="Players" instance=ExtResource("3_dg2gn")]
 position = Vector2(-5, 1)
 
-[node name="zona_conexao" type="Area2D" parent="Players/player_2"]
+[node name="zona_conexao_2" type="Area2D" parent="Players/player_2"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/player_2/zona_conexao"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Players/player_2/zona_conexao_2"]
 shape = SubResource("CircleShape2D_iks2j")
 debug_color = Color(0, 0.742064, 0.316269, 0.42)
 
@@ -57,7 +57,9 @@ stream = ExtResource("5_7gg3j")
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
-[connection signal="area_entered" from="Players/player_1/zona_conexao" to="Players/player_1" method="_on_zona_conexao_area_entered"]
-[connection signal="area_exited" from="Players/player_1/zona_conexao" to="Players/player_1" method="_on_zona_conexao_area_exited"]
-[connection signal="area_entered" from="Players/player_2/zona_conexao" to="Players/player_2" method="_on_zona_conexao_area_entered"]
-[connection signal="area_exited" from="Players/player_2/zona_conexao" to="Players/player_2" method="_on_zona_conexao_area_exited"]
+[connection signal="restart" from="." to="Players/player_1" method="_on_game_controller_restart"]
+[connection signal="restart" from="." to="Players/player_2" method="_on_game_controller_restart"]
+[connection signal="area_entered" from="Players/player_1/zona_conexao_1" to="Players/player_1" method="_on_zona_conexao_1_area_entered"]
+[connection signal="area_exited" from="Players/player_1/zona_conexao_1" to="Players/player_1" method="_on_zona_conexao_1_area_exited"]
+[connection signal="area_entered" from="Players/player_2/zona_conexao_2" to="Players/player_2" method="_on_zona_conexao_2_area_entered"]
+[connection signal="area_exited" from="Players/player_2/zona_conexao_2" to="Players/player_2" method="_on_zona_conexao_2_area_exited"]

@@ -123,29 +123,10 @@ position = Vector2(40, 236)
 [node name="player_2_spawn" type="Marker2D" parent="."]
 position = Vector2(93, 236)
 
-[node name="limite lateral esquerdo" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="colisao" type="CollisionShape2D" parent="limite lateral esquerdo"]
-top_level = true
-position = Vector2(-10, 142)
-shape = SubResource("RectangleShape2D_faoxm")
-
-[node name="limite lateral direito" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="colisao" type="CollisionShape2D" parent="limite lateral direito"]
-top_level = true
-position = Vector2(650, 142)
-shape = SubResource("RectangleShape2D_faoxm")
-
 [node name="plataforma" type="AnimatableBody2D" parent="."]
 position = Vector2(0, 90)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("6_yonss")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
