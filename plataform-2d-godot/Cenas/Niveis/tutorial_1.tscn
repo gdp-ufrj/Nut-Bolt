@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="3_pv42o"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22kpd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72cdr"]
 texture = ExtResource("3_pv42o")
 texture_region_size = Vector2i(10, 10)
 0:0/0 = 0
@@ -45,7 +45,7 @@ texture_region_size = Vector2i(10, 10)
 
 [sub_resource type="TileSet" id="TileSet_engj6"]
 tile_size = Vector2i(10, 10)
-sources/0 = SubResource("TileSetAtlasSource_22kpd")
+sources/0 = SubResource("TileSetAtlasSource_72cdr")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
 

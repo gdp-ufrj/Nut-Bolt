@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
-[ext_resource type="Texture2D" uid="uid://cd1e5e3nagbdb" path="res://Sprites/Placeholders/Robo2-ph.png" id="2_45ong"]
+[ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Quadradofinal.png" id="2_63q1r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_63q1r"]
-radius = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63q1r"]
+size = Vector2(18, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
 size = Vector2(43, 38)
@@ -15,16 +15,14 @@ collision_mask = 2
 script = ExtResource("1_45ong")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1, 2)
-scale = Vector2(0.0833333, 0.1)
-texture = ExtResource("2_45ong")
-metadata/_edit_lock_ = true
+texture_filter = 1
+position = Vector2(4.47035e-07, 0)
+scale = Vector2(0.9, 0.958333)
+texture = ExtResource("2_63q1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-position = Vector2(1, 2)
-shape = SubResource("CircleShape2D_63q1r")
-metadata/_edit_lock_ = true
+shape = SubResource("RectangleShape2D_63q1r")
 
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0

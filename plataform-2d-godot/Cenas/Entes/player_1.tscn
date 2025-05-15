@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
-[ext_resource type="Texture2D" uid="uid://blo18fe42uahn" path="res://Sprites/Placeholders/robot-preview.png" id="2_66jdp"]
+[ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/RedondoFinal.png" id="2_q7f8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
-size = Vector2(20, 25)
+size = Vector2(19, 25)
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
@@ -12,14 +12,13 @@ SPEED = null
 JUMP_VELOCITY = null
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-5.96046e-08, -3)
-scale = Vector2(0.103125, 0.095578)
-texture = ExtResource("2_66jdp")
-metadata/_edit_lock_ = true
+position = Vector2(0.500001, 0.499999)
+scale = Vector2(1.05556, 1.04167)
+texture = ExtResource("2_q7f8p")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q7f8p")
-metadata/_edit_lock_ = true
 
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
