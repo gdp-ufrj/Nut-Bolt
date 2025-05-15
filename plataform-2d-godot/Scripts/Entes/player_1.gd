@@ -2,11 +2,10 @@ extends CharacterBody2D
 
 @export var SPEED: int = 130 # Alcance de 10 tiles (100px)
 @export var JUMP_VELOCITY: int = -320 # Pulo de 5 tiles (50px)
-#@export var MAX_DISTANCE: int = 250
 @onready var timer = $Timer_conexao
-@onready var zona_conexao = $zona_conexao
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
+var conectores: Array = [true, false] #são eles o outro player e o roteador
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region Physics process
@@ -34,7 +33,6 @@ func conectar()->void:
 	JUMP_VELOCITY = estado_original[1]
 	timer.stop()
 	$aviso_conexao.stop()
-	
 
 func desconectar()-> void:
 	SPEED = 0
@@ -44,16 +42,31 @@ func desconectar()-> void:
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
-func _on_zona_conexao_area_entered(area: Area2D) -> void:
-	if area.name == "zona_conexao":
-		conectar()
+func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
+		if area.name == "zona_conexao_2":
+			conectores[0] = true
+		if area.name == "zona_conexao_rot":
+			conectores[1] = true
+			
+		if conectores[0] or conectores[1]:
+			conectar()
+			
 
-func _on_zona_conexao_area_exited(area: Area2D) -> void:
-	if area.name == "zona_conexao":
+func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
+	if area.name == "zona_conexao_2":
+		conectores[0] = false
+	if area.name == "zona_conexao_rot":
+		conectores[1] = false
+		
+	if conectores[0] or conectores[1]:
+		pass
+	else:
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
+		
 
-			
-
+func _on_game_controller_restart() -> void:
+	conectar()
+	
 #endregion

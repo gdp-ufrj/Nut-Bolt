@@ -18,11 +18,11 @@ script = ExtResource("1_hf4jo")
 scale = Vector2(0.275391, 0.280098)
 texture = ExtResource("1_eaxif")
 
-[node name="zona_conexao" type="Area2D" parent="."]
+[node name="zona_conexao_rot" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_rot"]
 shape = SubResource("CircleShape2D_if2po")
 debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
 

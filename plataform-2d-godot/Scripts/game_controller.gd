@@ -1,4 +1,5 @@
 extends Node
+signal restart
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
@@ -30,6 +31,7 @@ func _unhandled_input(event):
 
 	elif Input.is_action_just_pressed("restart") and not get_tree().paused:
 		restart_level()
+		restart.emit()
 
 #Funcao para avancar para o proximo nivel
 func go_to_next_level():

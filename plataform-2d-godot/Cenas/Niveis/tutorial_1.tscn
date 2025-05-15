@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=13 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="3_pv42o"]
@@ -64,6 +64,13 @@ size = Vector2(60, 89)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqry3"]
 size = Vector2(50, 49)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_72cdr"]
+normal = Vector2(0.024642, -0.999696)
+distance = -53.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pv42o"]
+normal = Vector2(-0.99998, -0.0063693)
+
 [node name="tutorial_1" type="Node2D"]
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
@@ -122,3 +129,25 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D5"]
 position = Vector2(325, 205.5)
 shape = SubResource("RectangleShape2D_eqry3")
+
+[node name="Limites laterais" type="Node2D" parent="."]
+
+[node name="Esquerdo" type="StaticBody2D" parent="Limites laterais"]
+position = Vector2(72, 41)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Esquerdo"]
+position = Vector2(-19, 106)
+rotation = 1.54994
+shape = SubResource("WorldBoundaryShape2D_72cdr")
+
+[node name="Direito" type="StaticBody2D" parent="Limites laterais"]
+position = Vector2(637, 141)
+rotation = -0.00783172
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Direito"]
+position = Vector2(3.01557, -1.97644)
+shape = SubResource("WorldBoundaryShape2D_pv42o")

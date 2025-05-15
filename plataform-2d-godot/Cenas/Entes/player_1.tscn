@@ -8,8 +8,6 @@ size = Vector2(20, 25)
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
-SPEED = null
-JUMP_VELOCITY = null
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-5.96046e-08, -3)

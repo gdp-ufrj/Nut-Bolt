@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="5_b86eh"]
-[ext_resource type="Script" uid="uid://cpuy426s4cge7" path="res://Scripts/Entes/plataforma.gd" id="6_yonss"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk7pk"]
@@ -11,9 +10,6 @@ size = Vector2(640, 101.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dwgg"]
 size = Vector2(282.5, 191.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_faoxm"]
-size = Vector2(20, 284)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc8i2"]
 size = Vector2(104, 19)
@@ -67,6 +63,12 @@ script/source = "extends Area2D
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
 size = Vector2(81, 73.5)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmevy"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8ipts"]
+normal = Vector2(-1, 0)
+
 [node name="Tutorial 2" type="Node2D"]
 script = ExtResource("1_567s1")
 
@@ -110,29 +112,10 @@ position = Vector2(499, 186)
 scale = Vector2(0.387895, 3.42857)
 texture = ExtResource("5_b86eh")
 
-[node name="limite lateral esquerdo" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="colisao" type="CollisionShape2D" parent="limite lateral esquerdo"]
-top_level = true
-position = Vector2(-10, 142)
-shape = SubResource("RectangleShape2D_faoxm")
-
-[node name="limite lateral direito" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
-
-[node name="colisao" type="CollisionShape2D" parent="limite lateral direito"]
-top_level = true
-position = Vector2(650, 142)
-shape = SubResource("RectangleShape2D_faoxm")
-
 [node name="plataforma" type="AnimatableBody2D" parent="."]
 position = Vector2(0, 90)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("6_yonss")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
@@ -187,6 +170,26 @@ offset_top = 1.0
 offset_right = 528.0
 offset_bottom = 24.0
 text = "PRESSIONE A TECLA E!"
+
+[node name="Limites laterais" type="Node2D" parent="."]
+
+[node name="Esquerdo" type="StaticBody2D" parent="Limites laterais"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="colisao" type="CollisionShape2D" parent="Limites laterais/Esquerdo"]
+top_level = true
+position = Vector2(0, 209)
+shape = SubResource("WorldBoundaryShape2D_kmevy")
+
+[node name="Direito" type="StaticBody2D" parent="Limites laterais"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="colisao" type="CollisionShape2D" parent="Limites laterais/Direito"]
+top_level = true
+position = Vector2(640, 71)
+shape = SubResource("WorldBoundaryShape2D_8ipts")
 
 [connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_entered"]
 [connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_exited"]

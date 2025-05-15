@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 @export var SPEED: int = 90
 @onready var timer = $Timer_conexao
-@onready var zona_conexao = $zona_conexao
 
 var estado_original = SPEED
+var conectores: Array = [true, false]
 var colidiu_com_limites = false
 var nao_pode_grudar = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 #endregion
 
+#region movimentação
 # FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('limites'):
@@ -74,6 +75,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_Timer_grude_timeout():
 	nao_pode_grudar = false
 
+#endregion
+
 #region conexao
 func conectar()->void:
 	SPEED = estado_original
@@ -87,14 +90,30 @@ func desconectar()-> void:
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
-func _on_zona_conexao_area_entered(area: Area2D) -> void:
-	if area.name == "zona_conexao":
-		conectar()
+func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
+		if area.name == "zona_conexao_1":
+			conectores[0] = true
+		if area.name == "zona_conexao_rot":
+			conectores[1] = true
+			
+		if conectores[0] or conectores[1]:
+			conectar()
 
-func _on_zona_conexao_area_exited(area: Area2D) -> void:
-	if area.name == "zona_conexao":
+func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
+	if area.name == "zona_conexao_1":
+		conectores[0] = false
+	if area.name == "zona_conexao_rot":
+		conectores[1] = false
+	
+	if conectores[0] or conectores[1]:
+		pass
+	else:
 		if timer.is_stopped():
 			timer.start()
 			$aviso_conexao.play()
+		
+
+func _on_game_controller_restart() -> void:
+	conectar()
 
 #endregion
