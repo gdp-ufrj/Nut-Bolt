@@ -7,7 +7,7 @@
 radius = 89.56
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf4jo"]
-size = Vector2(34, 34)
+size = Vector2(19, 28)
 
 [node name="Roteador" type="StaticBody2D"]
 collision_layer = 3
@@ -15,8 +15,8 @@ collision_mask = 3
 script = ExtResource("1_hf4jo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 9.53674e-07)
-scale = Vector2(1.7, 1.7)
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(1.4, 1.45)
 texture = ExtResource("2_hf4jo")
 
 [node name="zona_conexao_rot" type="Area2D" parent="."]
@@ -28,4 +28,5 @@ shape = SubResource("CircleShape2D_if2po")
 debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_hf4jo")

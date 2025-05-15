@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=11 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="3_pv42o"]
