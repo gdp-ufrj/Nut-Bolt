@@ -47,17 +47,16 @@ func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
 			conectores[0] = true
 		if area.name == "zona_conexao_rot":
 			conectores[1] = true
-			
+		# Se o jogador estiver dentro de alguma zona_conexao, conecta
 		if conectores[0] or conectores[1]:
 			conectar()
-			
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 	if area.name == "zona_conexao_2":
 		conectores[0] = false
 	if area.name == "zona_conexao_rot":
 		conectores[1] = false
-		
+	# Se o jogador estiver fora de todas as zonas_conexao, começa o timer
 	if conectores[0] or conectores[1]:
 		pass
 	else:

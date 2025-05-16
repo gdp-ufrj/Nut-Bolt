@@ -28,4 +28,4 @@ func _on_continuar_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().paused = false # Despausa o jogo
 	#Muda para a cena principal (menu), carregando a cena de menu
-	get_tree().change_scene_to_file("res://Cenas/menu.tscn")
+	get_tree().change_scene_to_file("res://Cenas/UI/menu.tscn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=7 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Quadradofinal.png" id="2_63q1r"]
+[ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_2trpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63q1r"]
 size = Vector2(18, 23)
@@ -9,7 +10,10 @@ size = Vector2(18, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
 size = Vector2(43, 38)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_63q1r"]
+radius = 81.2158
+
+[node name="player_2" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_45ong")
@@ -24,9 +28,6 @@ texture = ExtResource("2_63q1r")
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_63q1r")
 
-[node name="Timer_conexao" type="Timer" parent="."]
-wait_time = 4.0
-
 [node name="AREA PARA MOVE" type="Area2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -36,10 +37,26 @@ shape = SubResource("RectangleShape2D_45ong")
 debug_color = Color(0.326914, 0.594941, 0.531051, 0.231373)
 metadata/_edit_lock_ = true
 
+[node name="zona_conexao_2" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_2"]
+shape = SubResource("CircleShape2D_63q1r")
+debug_color = Color(0, 0.742064, 0.316269, 0.42)
+
 [node name="Timer_Grude" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
+[node name="Timer_conexao" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2trpg")
+
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_entered"]
+[connection signal="area_exited" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_exited"]
 [connection signal="timeout" from="Timer_Grude" to="." method="_on_timer_grude_timeout"]
+[connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]

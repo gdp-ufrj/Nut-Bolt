@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 
 var estado_original = SPEED
-var conectores: Array = [true, false]
+var conectores: Array = [true, false] #conectores[0] = outro player e [1] é o roteador
 var colidiu_com_limites = false
 var pode_grudar = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -69,8 +69,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		pode_grudar = false
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _on_Timer_grude_timeout():
-	nao_pode_grudar = false
+#func _on_Timer_grude_timeout():
+	#nao_pode_grudar = false
 
 #endregion
 

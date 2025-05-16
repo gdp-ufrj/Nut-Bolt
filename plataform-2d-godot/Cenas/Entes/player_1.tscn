@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dutaywbb4vjh"]
+[gd_scene load_steps=6 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
 [ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/RedondoFinal.png" id="2_q7f8p"]
+[ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_lewqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
 size = Vector2(19, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7f8p"]
+radius = 76.7919
 
 [node name="player_1" type="CharacterBody2D"]
 script = ExtResource("1_66jdp")
@@ -19,8 +23,21 @@ texture = ExtResource("2_q7f8p")
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q7f8p")
 
+[node name="zona_conexao_1" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_1"]
+shape = SubResource("CircleShape2D_q7f8p")
+debug_color = Color(0.995776, 0, 0.199186, 0.42)
+
+[node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lewqc")
+
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
 ignore_time_scale = true
 
+[connection signal="area_entered" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_entered"]
+[connection signal="area_exited" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_exited"]
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
