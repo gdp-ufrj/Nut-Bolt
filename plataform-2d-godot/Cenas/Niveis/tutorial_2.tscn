@@ -101,11 +101,11 @@ texture_region_size = Vector2i(10, 10)
 tile_size = Vector2i(10, 10)
 sources/0 = SubResource("TileSetAtlasSource_8ipts")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk7pk"]
-size = Vector2(640, 140)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmevy"]
+size = Vector2(641, 138)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dwgg"]
-size = Vector2(280.5, 189.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ipts"]
+size = Vector2(280, 189)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmevy"]
 normal = Vector2(0.0181503, -0.999835)
@@ -199,9 +199,8 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D"]
-top_level = true
-position = Vector2(320, 352)
-shape = SubResource("RectangleShape2D_mk7pk")
+position = Vector2(-11.5, -1)
+shape = SubResource("RectangleShape2D_kmevy")
 
 [node name="elevacao" type="StaticBody2D" parent="Chão"]
 position = Vector2(503, 188)
@@ -210,20 +209,23 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/elevacao"]
-top_level = true
-position = Vector2(500.25, 186.75)
-shape = SubResource("RectangleShape2D_1dwgg")
+position = Vector2(-3, -0.5)
+shape = SubResource("RectangleShape2D_8ipts")
 
 [node name="Limites laterais" type="Node2D" parent="."]
 
 [node name="esquerdo" type="StaticBody2D" parent="Limites laterais"]
 position = Vector2(-32, 200)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/esquerdo"]
 rotation = 1.55264
 shape = SubResource("WorldBoundaryShape2D_kmevy")
 
 [node name="direito" type="StaticBody2D" parent="Limites laterais"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/direito"]
 position = Vector2(640, 24)
