@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brrc4kqe3l8fn"
-path="res://.godot/imported/Botao1_on.png-cb49ffe44be49f2653c1fce753f3fc70.ctex"
+uid="uid://csncrc55p6850"
+path="res://.godot/imported/conexaoPrisma_teste.png-982d66b228c4454ab5a8cac516500434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botao1_on.png"
-dest_files=["res://.godot/imported/Botao1_on.png-cb49ffe44be49f2653c1fce753f3fc70.ctex"]
+source_file="res://Sprites/Interagíveis/conexaoPrisma_teste.png"
+dest_files=["res://.godot/imported/conexaoPrisma_teste.png-982d66b228c4454ab5a8cac516500434.ctex"]
 
 [params]
 

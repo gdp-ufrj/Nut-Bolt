@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qwd3xqmdv0hu"
-path="res://.godot/imported/Botao1_off.png-c3e1409b89cc566b732e6498e3dd420f.ctex"
+uid="uid://baxcv1ccjnwra"
+path="res://.godot/imported/Fase 3 MVP1 full.png-934e8108d8c401b003e144aacdfd1ef4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botao1_off.png"
-dest_files=["res://.godot/imported/Botao1_off.png-c3e1409b89cc566b732e6498e3dd420f.ctex"]
+source_file="res://Sprites/Backgrounds/Fase 3 MVP1 full.png"
+dest_files=["res://.godot/imported/Fase 3 MVP1 full.png-934e8108d8c401b003e144aacdfd1ef4.ctex"]
 
 [params]
 

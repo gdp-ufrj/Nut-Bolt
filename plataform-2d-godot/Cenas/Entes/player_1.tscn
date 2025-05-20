@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
-[ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/RedondoFinal.png" id="2_q7f8p"]
+[ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/Players/RedondoFinal.png" id="2_q7f8p"]
 [ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_lewqc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
@@ -11,6 +11,7 @@ size = Vector2(19, 25)
 radius = 76.7919
 
 [node name="player_1" type="CharacterBody2D"]
+top_level = true
 script = ExtResource("1_66jdp")
 metadata/_edit_lock_ = true
 

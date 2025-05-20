@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjec535dffhw3"
-path="res://.godot/imported/Porta1_fechada.png-c250b174cdbee92db820d567fa664f26.ctex"
+uid="uid://dfd8h7jlajwpf"
+path="res://.godot/imported/Quadradofinal.png-b0827642924a19d6ca08008071fdb265.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Porta1_fechada.png"
-dest_files=["res://.godot/imported/Porta1_fechada.png-c250b174cdbee92db820d567fa664f26.ctex"]
+source_file="res://Sprites/Players/Quadradofinal.png"
+dest_files=["res://.godot/imported/Quadradofinal.png-b0827642924a19d6ca08008071fdb265.ctex"]
 
 [params]
 

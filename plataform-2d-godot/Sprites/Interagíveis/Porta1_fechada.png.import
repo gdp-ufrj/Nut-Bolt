@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csncrc55p6850"
-path="res://.godot/imported/conexaoPrisma_teste.png-5b56f49fadc4f47c2371881ca9e56871.ctex"
+uid="uid://cjec535dffhw3"
+path="res://.godot/imported/Porta1_fechada.png-fd40d929ba28893dfa5641e43fcca786.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/conexaoPrisma_teste.png"
-dest_files=["res://.godot/imported/conexaoPrisma_teste.png-5b56f49fadc4f47c2371881ca9e56871.ctex"]
+source_file="res://Sprites/Interagíveis/Porta1_fechada.png"
+dest_files=["res://.godot/imported/Porta1_fechada.png-fd40d929ba28893dfa5641e43fcca786.ctex"]
 
 [params]
 

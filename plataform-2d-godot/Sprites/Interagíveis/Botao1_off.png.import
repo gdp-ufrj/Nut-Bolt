@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfd8h7jlajwpf"
-path="res://.godot/imported/Quadradofinal.png-cf3d4bf9d80ada4b035229836b340358.ctex"
+uid="uid://qwd3xqmdv0hu"
+path="res://.godot/imported/Botao1_off.png-1d1a23d882fc3b0e78a00d036ce2d979.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Quadradofinal.png"
-dest_files=["res://.godot/imported/Quadradofinal.png-cf3d4bf9d80ada4b035229836b340358.ctex"]
+source_file="res://Sprites/Interagíveis/Botao1_off.png"
+dest_files=["res://.godot/imported/Botao1_off.png-1d1a23d882fc3b0e78a00d036ce2d979.ctex"]
 
 [params]
 

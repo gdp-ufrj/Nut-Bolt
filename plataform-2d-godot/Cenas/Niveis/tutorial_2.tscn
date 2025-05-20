@@ -154,7 +154,6 @@ position = Vector2(357, 21)
 
 [node name="Botao" parent="." instance=ExtResource("4_8ipts")]
 position = Vector2(0, 25)
-script = null
 
 [node name="Chão" type="Node2D" parent="."]
 

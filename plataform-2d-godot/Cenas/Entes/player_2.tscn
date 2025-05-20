@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
-[ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Quadradofinal.png" id="2_63q1r"]
+[ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Players/Quadradofinal.png" id="2_63q1r"]
 [ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_2trpg"]
 [ext_resource type="AudioStream" uid="uid://bynnu7cuqxlfx" path="res://Audio/Gruda/sfx_roda_robo_1_loop_demo.mp3" id="4_5iqsw"]
 [ext_resource type="AudioStream" uid="uid://bk00qda42equ0" path="res://Audio/Gruda/sfx_desacoplar_robo_1_demo.mp3" id="4_l2cw4"]
@@ -17,6 +17,7 @@ size = Vector2(43, 38)
 radius = 81.2158
 
 [node name="player_2" type="CharacterBody2D"]
+top_level = true
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_45ong")
