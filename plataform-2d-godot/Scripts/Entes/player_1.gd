@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
-var conectores: Array = [true, false] #são eles o outro player e o roteador
+var conectores: Array = [false, false] #são eles o outro player e o roteador
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #region Physics process
@@ -43,12 +43,15 @@ func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
+		var eh_conector: bool = false
 		if area.name == "zona_conexao_2":
 			conectores[0] = true
+			eh_conector = true
 		if area.name == "zona_conexao_rot":
 			conectores[1] = true
+			eh_conector = true
 		# Se o jogador estiver dentro de alguma zona_conexao, conecta
-		if conectores[0] or conectores[1]:
+		if (conectores[0] or conectores[1]) and eh_conector:
 			conectar()
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
@@ -56,6 +59,7 @@ func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 		conectores[0] = false
 	if area.name == "zona_conexao_rot":
 		conectores[1] = false
+		
 	# Se o jogador estiver fora de todas as zonas_conexao, começa o timer
 	if conectores[0] or conectores[1]:
 		pass

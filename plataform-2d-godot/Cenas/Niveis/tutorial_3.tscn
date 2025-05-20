@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=18 format=4 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
@@ -57,7 +57,7 @@ size = Vector2(100, 90)
 size = Vector2(70, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tugt"]
-size = Vector2(40, 100)
+size = Vector2(40, 160)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h5va6"]
 normal = Vector2(1, 0)
@@ -66,54 +66,20 @@ distance = -8.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tsd38"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wfe"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsd38"]
 size = Vector2(40, 10)
 
-[sub_resource type="Animation" id="Animation_tu5f7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_tsd38"]
-resource_name = "move"
-length = 3.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333334, 0.2165, 1.36667, 2.13333, 2.93333, 3.46667),
-"transitions": PackedFloat32Array(1, 1, 1, 1.1487, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 20), Vector2(0, 30), Vector2(0, 20), Vector2(0, 0), Vector2(0, 30)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhx57"]
-_data = {
-&"RESET": SubResource("Animation_tu5f7"),
-&"move": SubResource("Animation_tsd38")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8urag"]
-size = Vector2(20, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wfe"]
+size = Vector2(40, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drhsi"]
 size = Vector2(40, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnrhd"]
 size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8urag"]
+size = Vector2(20, 10)
 
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
@@ -161,7 +127,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/Chao/Parede de cima"]
-position = Vector2(-5, -14)
+position = Vector2(-5, 16)
 shape = SubResource("RectangleShape2D_1tugt")
 
 [node name="Limites" type="Node2D" parent="."]
@@ -185,20 +151,44 @@ top_level = true
 position = Vector2(582, 244)
 shape = SubResource("WorldBoundaryShape2D_tsd38")
 
-[node name="Plataformas" type="Node2D" parent="."]
+[node name="plataforma_ativavel" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
-[node name="plat_1" type="AnimatableBody2D" parent="Plataformas"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_ativavel"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(120, 325)
+shape = SubResource("RectangleShape2D_tsd38")
+
+[node name="ColorRect" type="ColorRect" parent="plataforma_ativavel/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.0196078, 1, 1)
+
+[node name="Plataformas Estaticas" type="Node2D" parent="."]
+
+[node name="estatica_1" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plat_1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_1"]
 position = Vector2(90, 275)
 shape = SubResource("RectangleShape2D_v5wfe")
-debug_color = Color(0.963557, 8.66354e-07, 0.498009, 0.42)
+debug_color = Color(0, 0.59255, 0.740987, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas/plat_1/CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_1/CollisionShape2D"]
 custom_minimum_size = Vector2(40, 10)
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,48 +197,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 1, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas/plat_1"]
-libraries = {
-&"": SubResource("AnimationLibrary_qhx57")
-}
-
-[node name="plat_2" type="AnimatableBody2D" parent="Plataformas"]
+[node name="estatica_2" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plat_2"]
-position = Vector2(170, 255)
-shape = SubResource("RectangleShape2D_8urag")
-debug_color = Color(0.964466, 5.77569e-07, 0.492589, 0.42)
-
-[node name="ColorRect" type="ColorRect" parent="Plataformas/plat_2/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -5.0
-offset_right = 10.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.886275, 0.0745098, 0.886275, 1)
-
-[node name="plat_3" type="AnimatableBody2D" parent="Plataformas"]
-collision_layer = 3
-collision_mask = 3
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plat_3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_2"]
 position = Vector2(250, 255)
 shape = SubResource("RectangleShape2D_drhsi")
-debug_color = Color(0.962632, 1.92523e-07, 0.503447, 0.42)
+debug_color = Color(0.596751, 0.544938, 3.85046e-07, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas/plat_3/CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_2/CollisionShape2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -262,18 +222,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.0313726, 1, 1)
 
-[node name="plat_4" type="AnimatableBody2D" parent="Plataformas"]
+[node name="estatica_3" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas/plat_4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_3"]
 position = Vector2(360, 275)
 shape = SubResource("RectangleShape2D_tnrhd")
-debug_color = Color(0.965887, 0, 0.483941, 0.42)
+debug_color = Color(0.67091, 0.508827, 0, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas/plat_4/CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_3/CollisionShape2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -286,6 +245,31 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.0941176, 1, 1)
+
+[node name="estatica_4" type="StaticBody2D" parent="Plataformas Estaticas"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_4"]
+position = Vector2(170, 255)
+shape = SubResource("RectangleShape2D_8urag")
+debug_color = Color(0.641954, 0.522554, 0.0962435, 0.42)
+
+[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_4/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.886275, 0.0745098, 0.886275, 1)
 
 [node name="Porta" parent="." instance=ExtResource("3_h5va6")]
 position = Vector2(530, 255)
@@ -306,8 +290,7 @@ position = Vector2(562, 78)
 position = Vector2(40, 320)
 
 [node name="Botao" parent="." instance=ExtResource("5_tsd38")]
-position = Vector2(-1, 35)
-metadata/_edit_lock_ = true
+position = Vector2(-1, 42)
 
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
