@@ -31,6 +31,10 @@ folder_colors={
 "res://Sprites/": "purple"
 }
 
+[global_group]
+
+limites=""
+
 [input]
 
 ui_left_WASD={

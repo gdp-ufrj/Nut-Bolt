@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=10 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Quadradofinal.png" id="2_63q1r"]
 [ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_2trpg"]
+[ext_resource type="AudioStream" uid="uid://bynnu7cuqxlfx" path="res://Audio/Gruda/sfx_roda_robo_1_loop_demo.mp3" id="4_5iqsw"]
+[ext_resource type="AudioStream" uid="uid://bk00qda42equ0" path="res://Audio/Gruda/sfx_desacoplar_robo_1_demo.mp3" id="4_l2cw4"]
+[ext_resource type="AudioStream" uid="uid://bw610yrfev0tw" path="res://Audio/Gruda/sfx_pouso_robo_1_demo.mp3" id="5_80kl4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_63q1r"]
-size = Vector2(18, 23)
+[sub_resource type="CircleShape2D" id="CircleShape2D_2trpg"]
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45ong"]
 size = Vector2(43, 38)
@@ -26,7 +29,7 @@ texture = ExtResource("2_63q1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
-shape = SubResource("RectangleShape2D_63q1r")
+shape = SubResource("CircleShape2D_2trpg")
 
 [node name="AREA PARA MOVE" type="Area2D" parent="."]
 metadata/_edit_lock_ = true
@@ -53,6 +56,17 @@ wait_time = 4.0
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2trpg")
+
+[node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l2cw4")
+
+[node name="audio_pouso" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_80kl4")
+
+[node name="audio_andar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5iqsw")
+volume_db = -10.0
+parameters/looping = true
 
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]

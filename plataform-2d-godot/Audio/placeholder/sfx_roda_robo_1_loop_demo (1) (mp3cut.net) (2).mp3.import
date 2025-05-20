@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyc1swoxh5llg"
+path="res://.godot/imported/sfx_roda_robo_1_loop_demo (1) (mp3cut.net) (2).mp3-4bdeda2f186ec4722a34d3aaed5a9eff.mp3str"
+
+[deps]
+
+source_file="res://Audio/placeholder/sfx_roda_robo_1_loop_demo (1) (mp3cut.net) (2).mp3"
+dest_files=["res://.godot/imported/sfx_roda_robo_1_loop_demo (1) (mp3cut.net) (2).mp3-4bdeda2f186ec4722a34d3aaed5a9eff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

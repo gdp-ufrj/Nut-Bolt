@@ -7,7 +7,6 @@ var botao_foi_ativado = false
 
 func _process(_delta: float) -> void:
 	if pode_interagir and Input.is_action_just_pressed("interagir"):
-		print("interagiu")
 		$plataforma/AnimationPlayer.play("move")
 		$Botao/Label.visible = false
 		botao_foi_ativado = true
