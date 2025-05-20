@@ -6,7 +6,7 @@ extends Node2D
 @onready var plat_4 = $Plataformas/plat_4
 
 func _process(delta: float) -> void:
-	plat_1.mo
+	pass
 
 
 
