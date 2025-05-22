@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: int = 90
 @onready var timer = $Timer_conexao
+@onready var animation: AnimatedSprite2D = $"Animação"
 
 var estado_original = SPEED
 var conectores: Array = [false, false] #conectores[0] = outro player e [1] é o roteador
@@ -9,6 +10,8 @@ var colidiu_com_limites = false
 var pode_grudar = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var desacoplou = false
+var esta_desativado = false
+
 
 #region physics process
 func _physics_process(delta: float) -> void:
@@ -63,6 +66,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED)
+		
+	setAnimation(direction)
 	
 	move_and_slide()
 #endregion
@@ -73,6 +78,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('limites'):
 		colidiu_com_limites = true
 
+	
 # FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('limites'):
@@ -89,6 +95,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 #region conexao
 func conectar()->void:
+	esta_desativado = false  #ESSENCIAL
 	SPEED = estado_original
 	timer.stop()
 	$aviso_conexao.stop()
@@ -98,6 +105,9 @@ func desconectar()-> void:
 	$aviso_conexao.stop()
 
 func _on_timer_conexao_timeout() -> void:
+	#animaçao de desativado
+	esta_desativado = true
+	animation.play("Desativado") #animação
 	desconectar()
 
 func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
@@ -108,6 +118,7 @@ func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
 	if area.name == "zona_conexao_rot":
 		conectores[1] = true
 		eh_conector = true
+	
 
 	if (conectores[0] or conectores[1]) and eh_conector:
 		conectar()
@@ -128,5 +139,25 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 
 func _on_game_controller_restart() -> void:
 	conectar()
-
+	animation.play("Idle")
+	
 #endregion
+
+#Animação 
+func setAnimation(direction):
+#Anim desativado
+	if esta_desativado:
+		if animation.animation != "Desativado":
+			animation.play("Desativado")
+		return  # Não continua se estiver desativado
+		
+#flip do sprite
+	if direction > 0: animation.flip_h = false
+	elif direction < 0: animation.flip_h = true
+	
+#Parede subindo e descendo
+	if Input.is_action_pressed("ui_up_WASD"): animation.play("Parede Subindo")
+	elif  Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
+	elif  Input.is_action_pressed("ui_right_WASD"): animation.play("Corrida")
+	else: animation.play("Idle")
+	

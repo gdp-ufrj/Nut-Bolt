@@ -1,7 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqbxnpowjnvbq"]
+[gd_scene load_steps=12 format=3 uid="uid://bqbxnpowjnvbq"]
+
+[ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
+[ext_resource type="Texture2D" uid="uid://b831qoule1624" path="res://Sprites/Interagíveis/Botao1_desligar.png" id="2_1xa14"]
+[ext_resource type="Texture2D" uid="uid://bq8q58hhiathg" path="res://Sprites/Interagíveis/Botao1_ligar.png" id="3_fyg3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
 size = Vector2(28.0313, 27.375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m67r4"]
+atlas = ExtResource("2_1xa14")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4egng"]
+atlas = ExtResource("2_1xa14")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3te34"]
+atlas = ExtResource("2_1xa14")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7thn"]
+atlas = ExtResource("3_fyg3g")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tqxx"]
+atlas = ExtResource("3_fyg3g")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coort"]
+atlas = ExtResource("3_fyg3g")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nilum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m67r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4egng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3te34")
+}],
+"loop": false,
+"name": &"b_desligar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7thn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tqxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coort")
+}],
+"loop": false,
+"name": &"b_ligar",
+"speed": 5.0
+}]
 
 [node name="Botao" type="Area2D"]
 z_index = -1
@@ -16,6 +75,7 @@ shape = SubResource("RectangleShape2D_fxmij")
 debug_color = Color(0.678136, 0.425634, 0.712095, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = 438.0
 offset_top = 47.0
 offset_right = 449.0
@@ -29,3 +89,10 @@ offset_top = 1.0
 offset_right = 528.0
 offset_bottom = 24.0
 text = "PRESSIONE A TECLA E!"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d7y7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nilum")
+animation = &"b_ligar"

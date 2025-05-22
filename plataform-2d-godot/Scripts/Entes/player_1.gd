@@ -3,10 +3,12 @@ extends CharacterBody2D
 @export var SPEED: int = 130 # Alcance de 10 tiles (100px)
 @export var JUMP_VELOCITY: int = -320 # Pulo de 5 tiles (50px)
 @onready var timer = $Timer_conexao
+@onready var animation: AnimatedSprite2D = $"Animaçao"
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var conectores: Array = [false, false] #são eles o outro player e o roteador
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var esta_desativado = false
 
 #region Physics process
 func _physics_process(delta: float) -> void:
@@ -21,6 +23,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED 
 	else:
 		velocity.x = move_toward(velocity.x,0,SPEED)
+		
+	setAnimation(direction)
 	
 	move_and_slide() 
 	
@@ -29,6 +33,7 @@ func _physics_process(delta: float) -> void:
 
 #region Conexão
 func conectar()->void:
+	esta_desativado = false  #ESSENCIAL
 	SPEED = estado_original[0]
 	JUMP_VELOCITY = estado_original[1]
 	timer.stop()
@@ -40,6 +45,9 @@ func desconectar()-> void:
 	$aviso_conexao.stop()
 
 func _on_timer_conexao_timeout() -> void:
+	#animaçao de desativado
+	esta_desativado = true
+	animation.play("Desativado")
 	desconectar()
 
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
@@ -70,6 +78,36 @@ func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 		
 
 func _on_game_controller_restart() -> void:
-	conectar()
+	conectar() 
+	animation.play("Idle") 
+
 	
 #endregion
+
+
+
+#animação
+#flip
+func setAnimation(direction):
+	#Anim desativado
+	if esta_desativado:
+		if animation.animation != "Desativado":
+			animation.play("Desativado")
+		return  # Não continua se estiver desativado
+	
+	if direction > 0: 
+		animation.flip_h = false
+	elif direction < 0:
+		animation.flip_h = true
+	
+
+#Corrida e pulo
+	if not is_on_floor():
+		if animation.animation != "vertical_pular":
+			animation.play("vertical_pular")
+	elif abs(direction) > 0:
+		if animation.animation != "run":
+			animation.play("run")
+	else:
+		if animation.animation != "idle":
+			animation.play("idle")
