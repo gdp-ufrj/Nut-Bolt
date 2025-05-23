@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
 [ext_resource type="Texture2D" uid="uid://b831qoule1624" path="res://Sprites/Interagíveis/Botao1_desligar.png" id="2_1xa14"]
 [ext_resource type="Texture2D" uid="uid://bq8q58hhiathg" path="res://Sprites/Interagíveis/Botao1_ligar.png" id="3_fyg3g"]
+[gd_scene load_steps=3 format=3 uid="uid://bqbxnpowjnvbq"]
+
+[ext_resource type="Script" uid="uid://babw0oolc5ro3" path="res://Scripts/Entes/botao.gd" id="1_d7y7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
 size = Vector2(28.0313, 27.375)
@@ -64,8 +67,9 @@ animations = [{
 
 [node name="Botao" type="Area2D"]
 z_index = -1
-collision_layer = 7
-collision_mask = 7
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_d7y7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
@@ -96,3 +100,6 @@ texture = ExtResource("1_d7y7n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nilum")
 animation = &"b_ligar"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

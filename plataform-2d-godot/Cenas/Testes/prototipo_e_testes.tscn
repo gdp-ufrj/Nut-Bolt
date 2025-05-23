@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cku2qsb0pcgqi"]
+[gd_scene load_steps=9 format=3 uid="uid://cku2qsb0pcgqi"]
 
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="1_o4wdp"]
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="2_3we6d"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_8cg1q"]
+[ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="4_3we6d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc4ld"]
 size = Vector2(329, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl8fm"]
+size = Vector2(639.5, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlxev"]
 size = Vector2(499, 149)
@@ -13,92 +17,112 @@ size = Vector2(499, 149)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c75v2"]
 size = Vector2(267.5, 210)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl8fm"]
-size = Vector2(639.5, 128)
-
 [node name="Prototipo e testes" type="Node2D"]
 
-[node name="pula" parent="." instance=ExtResource("1_o4wdp")]
-position = Vector2(11, -81)
+[node name="paredes" type="Node2D" parent="."]
 
-[node name="gruda" parent="." instance=ExtResource("2_3we6d")]
-position = Vector2(85, -77)
+[node name="StaticBody2D5" type="StaticBody2D" parent="paredes"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/StaticBody2D5"]
+top_level = true
+position = Vector2(684, 138)
+rotation = 1.57568
+shape = SubResource("RectangleShape2D_gc4ld")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="paredes/StaticBody2D5"]
+visibility_layer = 3
+position = Vector2(691, 128)
+rotation = 1.57398
+scale = Vector2(0.42641, 2.57143)
+texture = ExtResource("3_8cg1q")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="paredes"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="paredes/StaticBody2D4"]
+visibility_layer = 3
+position = Vector2(318.5, -50)
+scale = Vector2(0.881706, 2.35714)
+texture = ExtResource("3_8cg1q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/StaticBody2D4"]
+position = Vector2(317.25, -51)
+shape = SubResource("RectangleShape2D_tl8fm")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="paredes"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/StaticBody2D2"]
 top_level = true
 position = Vector2(162, 308)
 shape = SubResource("RectangleShape2D_gc4ld")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="paredes/StaticBody2D2"]
 visibility_layer = 3
 position = Vector2(163, 310)
 scale = Vector2(0.451169, 2.35714)
 texture = ExtResource("3_8cg1q")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="paredes/StaticBody2D2"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/StaticBody2D2/StaticBody2D"]
 top_level = true
 position = Vector2(787.5, 265.5)
 shape = SubResource("RectangleShape2D_xlxev")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="paredes/StaticBody2D2/StaticBody2D"]
 position = Vector2(792.125, 263)
 scale = Vector2(0.693604, 2.60714)
 texture = ExtResource("3_8cg1q")
 
-[node name="plataforma_movel" type="StaticBody2D" parent="."]
+[node name="plataforma_movel" type="StaticBody2D" parent="paredes"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="plataforma_movel"]
+[node name="Sprite2D" type="Sprite2D" parent="paredes/plataforma_movel"]
 position = Vector2(421, 387)
 scale = Vector2(0.375172, 3.78571)
 texture = ExtResource("3_8cg1q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_movel"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/plataforma_movel"]
 top_level = true
 position = Vector2(420, 385)
 shape = SubResource("RectangleShape2D_c75v2")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="paredes"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paredes/StaticBody2D3"]
 top_level = true
 position = Vector2(-44, 167)
 rotation = 1.57568
 shape = SubResource("RectangleShape2D_gc4ld")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="paredes/StaticBody2D3"]
 visibility_layer = 3
 position = Vector2(-50, 156)
 rotation = 1.57398
 scale = Vector2(0.42641, 2.57143)
 texture = ExtResource("3_8cg1q")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="pula" parent="." instance=ExtResource("1_o4wdp")]
+position = Vector2(101, 132)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
-visibility_layer = 3
-position = Vector2(318.5, -50)
-scale = Vector2(0.881706, 2.35714)
-texture = ExtResource("3_8cg1q")
+[node name="gruda" parent="." instance=ExtResource("2_3we6d")]
+position = Vector2(254, 137)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(317.25, -51)
-shape = SubResource("RectangleShape2D_tl8fm")
+[node name="Roteador" parent="." instance=ExtResource("4_3we6d")]
+position = Vector2(165, 193)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="Roteador2" parent="." instance=ExtResource("4_3we6d")]
+position = Vector2(478, 215)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-top_level = true
-position = Vector2(684, 138)
-rotation = 1.57568
-shape = SubResource("RectangleShape2D_gc4ld")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
-visibility_layer = 3
-position = Vector2(691, 128)
-rotation = 1.57398
-scale = Vector2(0.42641, 2.57143)
-texture = ExtResource("3_8cg1q")
+[node name="Roteador3" parent="." instance=ExtResource("4_3we6d")]
+position = Vector2(561, 91)
