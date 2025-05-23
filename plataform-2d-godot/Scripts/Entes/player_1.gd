@@ -5,8 +5,14 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
-var conectores: Array = [false, false] #são eles o outro player e o roteador
+var _overlaping: Array = []
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready() -> void:
+	$zona_conexao_1.collision_layer = 3
+	$zona_conexao_1.collision_mask = 3
+	self.add_to_group("Players")
+	conectar()
 
 #region Physics process
 func _physics_process(delta: float) -> void:
@@ -23,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,0,SPEED)
 	
 	move_and_slide() 
-	
+	#checa_proximidade()
 	
 #endregion
 
@@ -42,34 +48,51 @@ func desconectar()-> void:
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
+func _on_game_controller_restart() -> void:
+	conectar()
+
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
-		var eh_conector: bool = false
-		if area.name == "zona_conexao_2":
-			conectores[0] = true
-			eh_conector = true
-		if area.name == "zona_conexao_rot":
-			conectores[1] = true
-			eh_conector = true
-		# Se o jogador estiver dentro de alguma zona_conexao, conecta
-		if (conectores[0] or conectores[1]) and eh_conector:
-			conectar()
+	if area.name == "zona_conexao_2" or area.name == "zona_conexao_rot":
+		_overlaping.append(area)
+		conectar()
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
-	if area.name == "zona_conexao_2":
-		conectores[0] = false
-	if area.name == "zona_conexao_rot":
-		conectores[1] = false
-		
-	# Se o jogador estiver fora de todas as zonas_conexao, começa o timer
-	if conectores[0] or conectores[1]:
-		pass
-	else:
+	_overlaping.erase(area)
+	if _overlaping.is_empty():
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
-		
 
-func _on_game_controller_restart() -> void:
-	conectar()
-	
+#endregion
+
+#region antigo codigo de conexao
+	#func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
+		##var eh_conector: bool = false
+		#if area.name == "zona_conexao_2":
+			#conectores[0] = true
+			##eh_conector = true
+		#if area.name == "zona_conexao_rot":
+			#conectores[1] = true
+			##eh_conector = true
+		## Se o jogador estiver dentro de alguma zona_conexao, conecta
+		#if (conectores[0] or conectores[1]):
+			#conectar()
+#
+#func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
+	#if $zona_conexao_1.has_overlapping_areas():
+		#pass
+	#else:
+		#if area.name == "zona_conexao_2":
+			#conectores[0] = false
+		#if area.name == "zona_conexao_rot":
+			#conectores[1] = false
+		#
+	## Se o jogador estiver fora de todas as zonas_conexao, começa o timer
+	#if conectores[0] or conectores[1]:
+		#pass
+	#else:
+		#if timer.is_stopped(): 
+			#timer.start()
+			#$aviso_conexao.play()
+		
 #endregion

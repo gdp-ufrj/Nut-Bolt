@@ -4,11 +4,16 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 
 var estado_original = SPEED
-var conectores: Array = [false, false] #conectores[0] = outro player e [1] é o roteador
+var _overlaping: Array = []
 var colidiu_com_limites = false
 var pode_grudar = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var desacoplou = false
+
+func _ready() -> void:
+	$zona_conexao_2.collision_layer = 3
+	$zona_conexao_2.collision_mask = 3
+	self.add_to_group("Players")
 
 #region physics process
 func _physics_process(delta: float) -> void:
@@ -65,6 +70,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,0,SPEED)
 	
 	move_and_slide()
+	#checa_proximidade()
 #endregion
 
 #region movimentação
@@ -82,9 +88,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		desacoplou = true
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-#func _on_Timer_grude_timeout():
-	#nao_pode_grudar = false
-
 #endregion
 
 #region conexao
@@ -100,33 +103,43 @@ func desconectar()-> void:
 func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
+func _on_game_controller_restart() -> void:
+	conectar()
+	
 func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
-	var eh_conector: bool = false
-	if area.name == "zona_conexao_1":
-		conectores[0] = true
-		eh_conector = true
-	if area.name == "zona_conexao_rot":
-		conectores[1] = true
-		eh_conector = true
-
-	if (conectores[0] or conectores[1]) and eh_conector:
+	if area.name == "zona_conexao_1" or area.name == "zona_conexao_rot":
+		_overlaping.append(area)
 		conectar()
 
 func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
-	if area.name == "zona_conexao_1":
-		conectores[0] = false
-	if area.name == "zona_conexao_rot":
-		conectores[1] = false
-	
-	if conectores[0] or conectores[1]:
-		pass
-	else:
-		if timer.is_stopped():
+	_overlaping.erase(area)
+	if _overlaping.is_empty():
+		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
-		
-
-func _on_game_controller_restart() -> void:
-	conectar()
 
 #endregion
+
+#region antiga conexao
+#func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
+	#var eh_conector: bool = false
+	#if area.name == "zona_conexao_1":
+		#conectores[0] = true
+		#eh_conector = true
+	#if area.name == "zona_conexao_rot":
+		#conectores[1] = true
+		#eh_conector = true
+#
+	#if (conectores[0] or conectores[1]) and eh_conector:
+		#conectar()
+#
+#func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
+	#if area.name == "zona_conexao_1":
+		#conectores[0] = false
+	#if area.name == "zona_conexao_rot":
+		#conectores[1] = false
+	#
+	#if conectores[0] or conectores[1]:
+		#pass
+	#else:
+	#endregion 

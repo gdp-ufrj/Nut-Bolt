@@ -26,8 +26,8 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q7f8p")
 
 [node name="zona_conexao_1" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_1"]
 shape = SubResource("CircleShape2D_q7f8p")

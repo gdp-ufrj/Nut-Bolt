@@ -34,6 +34,8 @@ folder_colors={
 [global_group]
 
 limites=""
+Players=""
+pode_ativar="grupo para manejamento do botão"
 
 [input]
 
