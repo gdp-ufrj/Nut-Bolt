@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds0mqh8twicw6"]
+[gd_scene load_steps=6 format=3 uid="uid://ds0mqh8twicw6"]
 
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="1_fterx"]
-[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="2_5jf8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqb8y"]
 size = Vector2(239, 101.5)
@@ -16,9 +15,6 @@ size = Vector2(303, 102)
 size = Vector2(454, 101)
 
 [node name="TESTE MOVIMENTACAO" type="Node2D"]
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_5jf8n")]
-position = Vector2(95, 70)
 
 [node name="chao" type="StaticBody2D" parent="." groups=["limites"]]
 collision_layer = 3

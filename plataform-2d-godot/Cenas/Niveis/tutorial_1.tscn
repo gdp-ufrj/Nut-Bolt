@@ -87,6 +87,7 @@ position = Vector2(598, 205)
 [node name="Chão" type="Node2D" parent="."]
 
 [node name="Fase1Mvp1Full" type="Sprite2D" parent="Chão"]
+z_index = -10
 position = Vector2(321, 180)
 texture = ExtResource("2_pv42o")
 

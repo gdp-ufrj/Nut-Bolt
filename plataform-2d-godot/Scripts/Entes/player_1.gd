@@ -9,6 +9,9 @@ var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var conectores: Array = [false, false] #são eles o outro player e o roteador
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var esta_desativado = false
+var pode_pular = true
+var esta_pulando = false
+var proximo_som_salto = 1
 
 #region Physics process
 func _physics_process(delta: float) -> void:
@@ -17,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED 
@@ -28,7 +31,31 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() 
 	
+	# SONS DO PULA
+	# SOM DE CAMINHAR
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") and is_on_floor():
+		if not $audio_caminhar.is_playing():
+			$audio_caminhar.play()
+	else:
+		$audio_caminhar.stop()
 	
+	# SONS DE SALTO
+	if pode_pular and Input.is_action_just_pressed("ui_up"):
+		# Inicia o pulo (adicione sua lógica de pulo aqui, por exemplo, aplicar velocidade para cima)
+		print("PULOU!")
+		esta_pulando = true
+		pode_pular = false # Não pode pular novamente até tocar o chão
+		if proximo_som_salto == 1:
+			$audio_salto1.play()
+			proximo_som_salto = 2
+		else:
+			$audio_salto2.play()
+			proximo_som_salto = 1
+	
+	if esta_pulando and is_on_floor():
+		esta_pulando = false
+		pode_pular = true
+		$audio_pouso.play()
 #endregion
 
 #region Conexão

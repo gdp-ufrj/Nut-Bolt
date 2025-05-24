@@ -58,7 +58,7 @@ size = Vector2(640, 46)
 size = Vector2(351, 222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bc8i2"]
-size = Vector2(104, 19)
+size = Vector2(60, 10.5)
 
 [sub_resource type="Animation" id="Animation_3x3p0"]
 length = 0.001
@@ -73,12 +73,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 90)]
+"values": [Vector2(-19, 134)]
 }
 
-[sub_resource type="Animation" id="Animation_wk01p"]
-resource_name = "move"
-length = 6.0
+[sub_resource type="Animation" id="Animation_v84dr"]
+resource_name = "plataforma-tutorial2"
+length = 5.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -87,20 +87,20 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6),
+"times": PackedFloat32Array(0, 2.5, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 90), Vector2(0, -80), Vector2(0, 90)]
+"values": [Vector2(-19, 134), Vector2(-19, -88), Vector2(-19, 134)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46ph7"]
 _data = {
 &"RESET": SubResource("Animation_3x3p0"),
-&"move": SubResource("Animation_wk01p")
+&"plataforma-tutorial2": SubResource("Animation_v84dr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk01p"]
-size = Vector2(104, 20)
+size = Vector2(60, 7)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmevy"]
 normal = Vector2(0.0181503, -0.999835)
@@ -115,6 +115,7 @@ script = ExtResource("1_567s1")
 [node name="Chão" type="Node2D" parent="."]
 
 [node name="Fase2Mvp1Full" type="Sprite2D" parent="Chão"]
+z_index = -10
 position = Vector2(320, 182)
 scale = Vector2(1, 1.00833)
 texture = ExtResource("5_v84dr")
@@ -153,22 +154,13 @@ position = Vector2(40, 236)
 position = Vector2(93, 236)
 
 [node name="plataforma" type="AnimatableBody2D" parent="."]
-position = Vector2(0, 90)
+position = Vector2(-19, 134)
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
-position = Vector2(301, 180)
+position = Vector2(279, 184.25)
 shape = SubResource("RectangleShape2D_bc8i2")
-
-[node name="ColorRect" type="ColorRect" parent="plataforma"]
-offset_left = 249.0
-offset_top = 170.0
-offset_right = 353.0
-offset_bottom = 190.0
-color = Color(1, 0, 0.796078, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="plataforma"]
 libraries = {
@@ -178,8 +170,14 @@ libraries = {
 [node name="AREA PARA EVITAR BUG" type="Area2D" parent="plataforma"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma/AREA PARA EVITAR BUG"]
-position = Vector2(301, 183)
+position = Vector2(279, 192.5)
 shape = SubResource("RectangleShape2D_wk01p")
+
+[node name="ColorRect" type="ColorRect" parent="plataforma"]
+offset_left = 249.0
+offset_top = 179.0
+offset_right = 309.0
+offset_bottom = 190.0
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)

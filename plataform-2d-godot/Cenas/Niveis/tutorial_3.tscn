@@ -95,7 +95,7 @@ texture = ExtResource("3_tu5f7")
 position = Vector2(0, 60)
 tile_set = SubResource("TileSet_tu5f7")
 
-[node name="Chão direita" type="StaticBody2D" parent="Chão/Chao"]
+[node name="Chão direita" type="StaticBody2D" parent="Chão/Chao" groups=["limites"]]
 position = Vector2(530, 260)
 collision_layer = 3
 collision_mask = 3
