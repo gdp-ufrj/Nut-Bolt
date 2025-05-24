@@ -20,7 +20,6 @@ func _ready():
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
 	current_index = 0
 	_load_level(current_index)
-	
 
 #Funcao chamada sempre que uma acao de input não tratada acontece (como pressionar teclas)
 func _unhandled_input(event):

@@ -206,7 +206,6 @@ collision_mask = 3
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
 
-[connection signal="botao_ativado" from="." to="Botao" method="_on_tutorial_2_botao_ativado"]
 [connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_entered"]
 [connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_exited"]
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]

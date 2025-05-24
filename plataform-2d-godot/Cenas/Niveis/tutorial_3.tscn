@@ -64,6 +64,9 @@ size = Vector2(40, 160)
 normal = Vector2(1, 0)
 distance = -8.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tsd38"]
+normal = Vector2(-1, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsd38"]
 size = Vector2(40, 10)
 
@@ -140,6 +143,15 @@ collision_mask = 3
 top_level = true
 position = Vector2(10, 270)
 shape = SubResource("WorldBoundaryShape2D_h5va6")
+
+[node name="Direito" type="StaticBody2D" parent="Limites"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="colisao" type="CollisionShape2D" parent="Limites/Direito"]
+top_level = true
+position = Vector2(582, 244)
+shape = SubResource("WorldBoundaryShape2D_tsd38")
 
 [node name="plataforma_ativavel" type="StaticBody2D" parent="."]
 collision_layer = 3

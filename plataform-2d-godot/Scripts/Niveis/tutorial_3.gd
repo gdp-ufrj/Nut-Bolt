@@ -1,8 +1,6 @@
 extends Node2D
 
 var pode_interagir: bool = false
-
-@onready var botao = $Botao
 @onready var ativavel = $plataforma_ativavel/CollisionShape2D
 @onready var estatica_1 = $"Plataformas Estaticas/estatica_1/CollisionShape2D"
 @onready var estatica_2 = $"Plataformas Estaticas/estatica_2/CollisionShape2D"
@@ -15,7 +13,7 @@ func _ready() -> void:
 	estado_inicial_plataformas()
 	
 func _process(_delta: float) -> void:
-	if botao.is_in_group("pode_ativar") and Input.is_action_just_pressed("interagir"):
+	if pode_interagir and Input.is_action_just_pressed("interagir"):
 		inverte_estado()
 		
 
@@ -32,3 +30,14 @@ func inverte_estado()->void:
 	for e in plataformas_estaticas:
 		e.disabled = not e.disabled
 		e.visible = not e.visible
+
+
+func _on_botao_body_entered(body: Node2D) -> void:
+	if body.name == "player_2":
+		$Botao/Label.visible = true
+		pode_interagir = true
+
+func _on_botao_body_exited(body: Node2D) -> void:
+	if body.name == "player_2":
+		$Botao/Label.visible = false
+		pode_interagir = false

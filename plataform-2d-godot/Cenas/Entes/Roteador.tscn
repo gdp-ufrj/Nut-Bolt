@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg0iyugvxt7cr"]
+[gd_scene load_steps=4 format=3 uid="uid://cg0iyugvxt7cr"]
 
-[ext_resource type="Script" uid="uid://bu31wafum8pii" path="res://Scripts/Entes/roteador.gd" id="1_hf4jo"]
 [ext_resource type="Texture2D" uid="uid://csncrc55p6850" path="res://Sprites/Interagíveis/conexaoPrisma_teste.png" id="2_hf4jo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if2po"]
@@ -12,7 +11,6 @@ size = Vector2(19, 28)
 [node name="Roteador" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_hf4jo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2.38419e-07)
@@ -20,8 +18,8 @@ scale = Vector2(1.4, 1.45)
 texture = ExtResource("2_hf4jo")
 
 [node name="zona_conexao_rot" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_rot"]
 shape = SubResource("CircleShape2D_if2po")
