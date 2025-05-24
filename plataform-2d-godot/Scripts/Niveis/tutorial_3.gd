@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if pode_interagir and Input.is_action_just_pressed("interagir"):
 		inverte_estado()
-		
+		$Botao/audio_interagir.play()
 
 func estado_inicial_plataformas()->void:
 	ativavel.disabled = true

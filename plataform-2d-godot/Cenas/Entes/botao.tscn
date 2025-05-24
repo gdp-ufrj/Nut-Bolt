@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqbxnpowjnvbq"]
+[gd_scene load_steps=13 format=3 uid="uid://bqbxnpowjnvbq"]
 
 [ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
 [ext_resource type="Texture2D" uid="uid://b831qoule1624" path="res://Sprites/Interagíveis/Botao1_desligar.png" id="2_1xa14"]
 [ext_resource type="Texture2D" uid="uid://bq8q58hhiathg" path="res://Sprites/Interagíveis/Botao1_ligar.png" id="3_fyg3g"]
+[ext_resource type="AudioStream" uid="uid://piq7i1ui6xty" path="res://Audio/Alavanca/Alavanca.ogg" id="4_fyg3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
 size = Vector2(28.0313, 27.375)
@@ -96,3 +97,6 @@ texture = ExtResource("1_d7y7n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nilum")
 animation = &"b_ligar"
+
+[node name="audio_interagir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fyg3g")

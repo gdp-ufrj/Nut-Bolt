@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ok4yjpq7c2ad"
+path="res://.godot/imported/Reestabelecer conexão.ogg-1f92342509bb0b687b9f2b9933903fb6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Conexao/Reestabelecer conexão.ogg"
+dest_files=["res://.godot/imported/Reestabelecer conexão.ogg-1f92342509bb0b687b9f2b9933903fb6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

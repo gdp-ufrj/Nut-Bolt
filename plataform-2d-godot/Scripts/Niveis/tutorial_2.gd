@@ -10,7 +10,7 @@ func _process(_delta: float) -> void:
 		$plataforma/AnimationPlayer.play("plataforma-tutorial2")
 		$Botao/Label.visible = false
 		botao_foi_ativado = true
- 
+		$Botao/audio_interagir.play()
 
 # SCRIPT PRO BOTAO E PLATAFORMA
 func _on_botao_body_entered(body: Node2D) -> void:

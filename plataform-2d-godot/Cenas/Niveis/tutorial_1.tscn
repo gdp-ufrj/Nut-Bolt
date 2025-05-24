@@ -82,7 +82,7 @@ position = Vector2(26, 196)
 
 [node name="Porta" parent="." instance=ExtResource("3_4dw7u")]
 z_index = -1
-position = Vector2(598, 205)
+position = Vector2(598, 215)
 
 [node name="Chão" type="Node2D" parent="."]
 

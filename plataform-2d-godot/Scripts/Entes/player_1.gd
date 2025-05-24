@@ -11,7 +11,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var esta_desativado = false
 var pode_pular = true
 var esta_pulando = false
-var proximo_som_salto = 1
+var proximo_som_salto = 1 # variavel para variar os sons de salto
+var som_desligar_ja_tocado = false
 
 #region Physics process
 func _physics_process(delta: float) -> void:
@@ -55,15 +56,19 @@ func _physics_process(delta: float) -> void:
 		esta_pulando = false
 		pode_pular = true
 		$audio_pouso.play()
+	
 #endregion
 
 #region Conexão
-func conectar()->void:
+func conectar(veio_de_desativado: bool = false)->void:
 	esta_desativado = false  #ESSENCIAL
 	SPEED = estado_original[0]
 	JUMP_VELOCITY = estado_original[1]
 	timer.stop()
 	$aviso_conexao.stop()
+	som_desligar_ja_tocado = false
+	if veio_de_desativado:
+		$reestabelece_conexao.play()
 
 func desconectar()-> void:
 	SPEED = 0
@@ -74,7 +79,9 @@ func _on_timer_conexao_timeout() -> void:
 	#animaçao de desativado
 	esta_desativado = true
 	animation.play("Desativado")
-	$audio_desligar.play()
+	if not som_desligar_ja_tocado:
+		$audio_desligar.play()
+		som_desligar_ja_tocado = true
 	desconectar()
 
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
@@ -87,7 +94,7 @@ func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
 			eh_conector = true
 		# Se o jogador estiver dentro de alguma zona_conexao, conecta
 		if (conectores[0] or conectores[1]) and eh_conector:
-			conectar()
+			conectar(esta_desativado)
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 	if area.name == "zona_conexao_2":
@@ -102,16 +109,11 @@ func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
-		
 
 func _on_game_controller_restart() -> void:
 	conectar() 
 	animation.play("Idle") 
-
-	
 #endregion
-
-
 
 #animação
 #flip

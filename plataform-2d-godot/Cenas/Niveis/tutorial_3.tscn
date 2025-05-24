@@ -88,6 +88,7 @@ script = ExtResource("1_21xvy")
 [node name="Chão" type="Node2D" parent="."]
 
 [node name="Fase3Mvp1Full" type="Sprite2D" parent="Chão"]
+z_index = -10
 position = Vector2(320, 180)
 texture = ExtResource("3_tu5f7")
 
@@ -274,6 +275,7 @@ grow_vertical = 2
 color = Color(0.886275, 0.0745098, 0.886275, 1)
 
 [node name="Porta" parent="." instance=ExtResource("3_h5va6")]
+z_index = -3
 position = Vector2(531, 245)
 
 [node name="Roteador1" parent="." instance=ExtResource("4_h5va6")]

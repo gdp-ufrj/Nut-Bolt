@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bih7god6r8j2v"]
+[gd_scene load_steps=19 format=3 uid="uid://bih7god6r8j2v"]
 
 [ext_resource type="Script" uid="uid://boio3y0ty6tnk" path="res://Scripts/Entes/porta.gd" id="1_fa3ny"]
 [ext_resource type="Texture2D" uid="uid://cjec535dffhw3" path="res://Sprites/Interagíveis/Porta1_fechada.png" id="2_fa3ny"]
 [ext_resource type="Texture2D" uid="uid://d0hnb74tl6an1" path="res://Sprites/Interagíveis/Porta1_anim.png" id="3_35smw"]
+[ext_resource type="AudioStream" uid="uid://b0rp6udo0r8nc" path="res://Audio/Porta/Porta abrindo.ogg" id="4_c7j4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3ny"]
 size = Vector2(40, 30)
@@ -115,12 +116,16 @@ shape = SubResource("RectangleShape2D_fa3ny")
 metadata/_edit_lock_ = true
 
 [node name="Abre e fecha" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-9.53674e-07, -1.43051e-06)
 scale = Vector2(0.8, 0.6)
 sprite_frames = SubResource("SpriteFrames_qedc4")
 animation = &"Abre e fecha"
 frame = 11
 frame_progress = 1.0
+
+[node name="audio_abrindo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c7j4k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

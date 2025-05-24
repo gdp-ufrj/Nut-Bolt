@@ -11,14 +11,14 @@ var pode_grudar = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var desacoplou = false
 var esta_desativado = false
-
+var som_desligar_ja_tocado = false
 
 #region physics process
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
 	
 	# SOM DE ANDAR
-	if (Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_up_WASD")) and is_on_floor() and not esta_desativado:
+	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_up_WASD") and is_on_floor() and not esta_desativado:
 		if not $audio_andar.is_playing():
 			$audio_andar.play()
 	else:
@@ -96,11 +96,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 #endregion
 
 #region conexao
-func conectar()->void:
+func conectar(veio_de_desativado: bool = false)->void:
 	esta_desativado = false  #ESSENCIAL
 	SPEED = estado_original
 	timer.stop()
 	$aviso_conexao.stop()
+	som_desligar_ja_tocado = false
+	if veio_de_desativado:
+		$reestabelece_conexao.play()
 
 func desconectar()-> void:
 	SPEED = 0
@@ -110,7 +113,9 @@ func _on_timer_conexao_timeout() -> void:
 	#animaçao de desativado
 	esta_desativado = true
 	animation.play("Desativado") #animação
-	$audio_desligar.play()
+	if not som_desligar_ja_tocado:
+		$audio_desligar.play()
+		som_desligar_ja_tocado = true
 	desconectar()
 
 func _on_zona_conexao_2_area_entered(area: Area2D) -> void:

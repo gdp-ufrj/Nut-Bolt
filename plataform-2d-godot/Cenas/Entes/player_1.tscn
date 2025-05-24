@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dutaywbb4vjh"]
+[gd_scene load_steps=49 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
 [ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/Players/RedondoFinal.png" id="2_q7f8p"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://1gwhbegv3346" path="res://Audio/Pula/sfx_salto_robo_2_var_2.mp3" id="11_25pul"]
 [ext_resource type="AudioStream" uid="uid://dg22jt5f8xxqr" path="res://Audio/Pula/sfx_pouso_robo_2.mp3" id="11_tii1a"]
 [ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_2xb4h"]
+[ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_pa6et"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
 size = Vector2(19, 25)
@@ -318,6 +319,9 @@ stream = ExtResource("11_tii1a")
 
 [node name="audio_desligar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_2xb4h")
+
+[node name="reestabelece_conexao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_pa6et")
 
 [connection signal="area_entered" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_exited"]
