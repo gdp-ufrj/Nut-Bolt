@@ -1,8 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=42 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Players/Quadradofinal.png" id="2_63q1r"]
-[ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_2trpg"]
+[ext_resource type="AudioStream" uid="uid://dwapro3yy5wfd" path="res://Audio/Conexao/Alarme de distância crítica.mp3" id="3_kdljy"]
 [ext_resource type="AudioStream" uid="uid://bynnu7cuqxlfx" path="res://Audio/Gruda/sfx_roda_robo_1_loop_demo.mp3" id="4_5iqsw"]
 [ext_resource type="AudioStream" uid="uid://bk00qda42equ0" path="res://Audio/Gruda/sfx_desacoplar_robo_1_demo.mp3" id="4_l2cw4"]
 [ext_resource type="AudioStream" uid="uid://bw610yrfev0tw" path="res://Audio/Gruda/sfx_pouso_robo_1_demo.mp3" id="5_80kl4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bi3isdh725uei" path="res://Sprites/Players/Quadrado/ParedeDes.png" id="10_2cdmh"]
 [ext_resource type="Texture2D" uid="uid://bikvh3j5hmu1x" path="res://Sprites/Players/Quadrado/ParedeSub.png" id="11_x5dgs"]
 [ext_resource type="Texture2D" uid="uid://cgas2jdou72dl" path="res://Sprites/Players/Quadrado/Virar.png" id="12_0yaun"]
+[ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_7trq8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2trpg"]
 radius = 12.0
@@ -263,8 +264,14 @@ one_shot = true
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
 
+[node name="Animação" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_duo7p")
+animation = &"Desativado"
+autoplay = "Idle"
+
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_2trpg")
+stream = ExtResource("3_kdljy")
+parameters/looping = true
 
 [node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_l2cw4")
@@ -277,10 +284,8 @@ stream = ExtResource("4_5iqsw")
 volume_db = -10.0
 parameters/looping = true
 
-[node name="Animação" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_duo7p")
-animation = &"Desativado"
-autoplay = "Idle"
+[node name="audio_desligar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_7trq8")
 
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]

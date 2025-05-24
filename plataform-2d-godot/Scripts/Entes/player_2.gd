@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
 	
 	# SOM DE ANDAR
-	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_up_WASD") and is_on_floor():
+	if (Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_up_WASD")) and is_on_floor() and not esta_desativado:
 		if not $audio_andar.is_playing():
 			$audio_andar.play()
 	else:
@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 			gravity = 980
 			velocity.y = -velocity.y
 	
+	# SOM DE POUSO
 	if colidiu_com_limites and is_on_floor():
 		pode_grudar = true
 		if desacoplou:
@@ -80,6 +81,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 	
 # FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
+# SOM DE DESACOPLAR
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('limites'):
 		colidiu_com_limites = false
@@ -108,6 +110,7 @@ func _on_timer_conexao_timeout() -> void:
 	#animaçao de desativado
 	esta_desativado = true
 	animation.play("Desativado") #animação
+	$audio_desligar.play()
 	desconectar()
 
 func _on_zona_conexao_2_area_entered(area: Area2D) -> void:

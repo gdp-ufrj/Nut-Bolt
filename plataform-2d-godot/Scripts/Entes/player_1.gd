@@ -33,18 +33,16 @@ func _physics_process(delta: float) -> void:
 	
 	# SONS DO PULA
 	# SOM DE CAMINHAR
-	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") and is_on_floor():
+	if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and is_on_floor() and not esta_desativado:
 		if not $audio_caminhar.is_playing():
 			$audio_caminhar.play()
 	else:
 		$audio_caminhar.stop()
 	
 	# SONS DE SALTO
-	if pode_pular and Input.is_action_just_pressed("ui_up"):
-		# Inicia o pulo (adicione sua lógica de pulo aqui, por exemplo, aplicar velocidade para cima)
-		print("PULOU!")
+	if pode_pular and Input.is_action_just_pressed("ui_up") and not esta_desativado:
 		esta_pulando = true
-		pode_pular = false # Não pode pular novamente até tocar o chão
+		pode_pular = false
 		if proximo_som_salto == 1:
 			$audio_salto1.play()
 			proximo_som_salto = 2
@@ -52,6 +50,7 @@ func _physics_process(delta: float) -> void:
 			$audio_salto2.play()
 			proximo_som_salto = 1
 	
+	# SOM DE POUSO
 	if esta_pulando and is_on_floor():
 		esta_pulando = false
 		pode_pular = true
@@ -75,6 +74,7 @@ func _on_timer_conexao_timeout() -> void:
 	#animaçao de desativado
 	esta_desativado = true
 	animation.play("Desativado")
+	$audio_desligar.play()
 	desconectar()
 
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:

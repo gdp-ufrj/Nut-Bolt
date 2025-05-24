@@ -1,8 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://dutaywbb4vjh"]
+[gd_scene load_steps=48 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
 [ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/Players/RedondoFinal.png" id="2_q7f8p"]
-[ext_resource type="AudioStream" uid="uid://bgfu62semaerl" path="res://Audio/placeholder/Low_Connection_Warning.mp3" id="3_lewqc"]
+[ext_resource type="AudioStream" uid="uid://dwapro3yy5wfd" path="res://Audio/Conexao/Alarme de distância crítica.mp3" id="3_25pul"]
 [ext_resource type="Texture2D" uid="uid://d1v8jopendus7" path="res://Sprites/Players/Redondo/Desativado.png" id="4_xdpj8"]
 [ext_resource type="Texture2D" uid="uid://c7fs1cgp5ryg7" path="res://Sprites/Players/Redondo/Idle.png" id="5_h0lym"]
 [ext_resource type="Texture2D" uid="uid://csoffxemvlgav" path="res://Sprites/Players/Redondo/Run.png" id="6_tu3ed"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c223s1sm7vede" path="res://Audio/Pula/sfx_salto_robo_2.mp3" id="10_tu3ed"]
 [ext_resource type="AudioStream" uid="uid://1gwhbegv3346" path="res://Audio/Pula/sfx_salto_robo_2_var_2.mp3" id="11_25pul"]
 [ext_resource type="AudioStream" uid="uid://dg22jt5f8xxqr" path="res://Audio/Pula/sfx_pouso_robo_2.mp3" id="11_tii1a"]
+[ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_2xb4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
 size = Vector2(19, 25)
@@ -289,7 +290,8 @@ shape = SubResource("CircleShape2D_q7f8p")
 debug_color = Color(0.995776, 0, 0.199186, 0.42)
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_lewqc")
+stream = ExtResource("3_25pul")
+parameters/looping = true
 
 [node name="Timer_conexao" type="Timer" parent="."]
 wait_time = 4.0
@@ -313,6 +315,9 @@ stream = ExtResource("11_25pul")
 
 [node name="audio_pouso" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_tii1a")
+
+[node name="audio_desligar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2xb4h")
 
 [connection signal="area_entered" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_exited"]

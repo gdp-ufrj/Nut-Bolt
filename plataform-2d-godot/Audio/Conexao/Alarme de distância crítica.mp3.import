@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwapro3yy5wfd"
+path="res://.godot/imported/Alarme de distância crítica.mp3-7e505f9de551d9e263f1ac2fe0663d73.mp3str"
+
+[deps]
+
+source_file="res://Audio/Conexao/Alarme de distância crítica.mp3"
+dest_files=["res://.godot/imported/Alarme de distância crítica.mp3-7e505f9de551d9e263f1ac2fe0663d73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

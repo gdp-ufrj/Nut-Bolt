@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=20 format=3 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_8ipts"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="5_8ipts"]
+[ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="5_c7i80"]
 [ext_resource type="Texture2D" uid="uid://u7jketmgjaqv" path="res://Sprites/Backgrounds/Fase 2 MVP1 full.png" id="5_v84dr"]
+[ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="6_kqia7"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ipts"]
@@ -92,6 +94,36 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(-19, 134), Vector2(-19, -88), Vector2(-19, 134)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("som_subir")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_c7i80")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("som_descer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_kqia7")
+}],
+"times": PackedFloat32Array(2.5)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46ph7"]
 _data = {
@@ -178,6 +210,10 @@ offset_left = 249.0
 offset_top = 179.0
 offset_right = 309.0
 offset_bottom = 190.0
+
+[node name="som_subir" type="AudioStreamPlayer" parent="plataforma"]
+
+[node name="som_descer" type="AudioStreamPlayer" parent="plataforma"]
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
