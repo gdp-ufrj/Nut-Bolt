@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=18 format=3 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
@@ -64,9 +64,6 @@ size = Vector2(40, 160)
 normal = Vector2(1, 0)
 distance = -8.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tsd38"]
-normal = Vector2(-1, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsd38"]
 size = Vector2(40, 10)
 
@@ -88,6 +85,7 @@ script = ExtResource("1_21xvy")
 [node name="Chão" type="Node2D" parent="."]
 
 [node name="Fase3Mvp1Full" type="Sprite2D" parent="Chão"]
+visible = false
 position = Vector2(320, 180)
 texture = ExtResource("3_tu5f7")
 
@@ -143,15 +141,6 @@ collision_mask = 3
 top_level = true
 position = Vector2(10, 270)
 shape = SubResource("WorldBoundaryShape2D_h5va6")
-
-[node name="Direito" type="StaticBody2D" parent="Limites"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="colisao" type="CollisionShape2D" parent="Limites/Direito"]
-top_level = true
-position = Vector2(582, 244)
-shape = SubResource("WorldBoundaryShape2D_tsd38")
 
 [node name="plataforma_ativavel" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -292,7 +281,4 @@ position = Vector2(562, 78)
 position = Vector2(40, 320)
 
 [node name="Botao" parent="." instance=ExtResource("5_tsd38")]
-position = Vector2(-1, 42)
-
-[connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
-[connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
+position = Vector2(444, 81)

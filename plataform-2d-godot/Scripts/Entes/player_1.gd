@@ -6,9 +6,15 @@ extends CharacterBody2D
 @onready var animation: AnimatedSprite2D = $"Animaçao"
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
-var conectores: Array = [false, false] #são eles o outro player e o roteador
+var _overlaping: Array = []
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var esta_desativado = false
+
+func _ready() -> void:
+	$zona_conexao_1.collision_layer = 3
+	$zona_conexao_1.collision_mask = 3
+	self.add_to_group("Players")
+	conectar()
 
 #region Physics process
 func _physics_process(delta: float) -> void:
@@ -51,37 +57,20 @@ func _on_timer_conexao_timeout() -> void:
 	desconectar()
 
 func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
-		var eh_conector: bool = false
-		if area.name == "zona_conexao_2":
-			conectores[0] = true
-			eh_conector = true
-		if area.name == "zona_conexao_rot":
-			conectores[1] = true
-			eh_conector = true
-		# Se o jogador estiver dentro de alguma zona_conexao, conecta
-		if (conectores[0] or conectores[1]) and eh_conector:
-			conectar()
+	if area.name == "zona_conexao_2" or area.name == "zona_conexao_rot":
+		_overlaping.append(area)
+		conectar()
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
-	if area.name == "zona_conexao_2":
-		conectores[0] = false
-	if area.name == "zona_conexao_rot":
-		conectores[1] = false
-		
-	# Se o jogador estiver fora de todas as zonas_conexao, começa o timer
-	if conectores[0] or conectores[1]:
-		pass
-	else:
+	_overlaping.erase(area)
+	if _overlaping.is_empty():
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
-		
 
 func _on_game_controller_restart() -> void:
 	conectar() 
-	animation.play("Idle") 
-
-	
+	animation.play("idle") 
 #endregion
 
 

@@ -293,9 +293,8 @@ ignore_time_scale = true
 
 [node name="Animaçao" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lnrxe")
-animation = &"Desativado"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.666862
 
 [connection signal="area_entered" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_exited"]
