@@ -60,7 +60,7 @@ size = Vector2(640, 46)
 size = Vector2(351, 222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v84dr"]
-size = Vector2(60, 9)
+size = Vector2(60, 8.5)
 
 [sub_resource type="Animation" id="Animation_3x3p0"]
 length = 0.001
@@ -193,7 +193,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
-position = Vector2(279, 183)
+position = Vector2(279, 183.25)
 shape = SubResource("RectangleShape2D_v84dr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="plataforma"]
@@ -203,7 +203,7 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="plataforma"]
 offset_left = 249.0
-offset_top = 178.0
+offset_top = 179.0
 offset_right = 309.0
 offset_bottom = 189.0
 
