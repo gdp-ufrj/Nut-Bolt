@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqbxnpowjnvbq"]
+[gd_scene load_steps=13 format=3 uid="uid://bqbxnpowjnvbq"]
 
 [ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
+[ext_resource type="Script" uid="uid://jlkyy5vnqlqo" path="res://Cenas/Entes/botao.gd" id="1_fyg3g"]
 [ext_resource type="Texture2D" uid="uid://b831qoule1624" path="res://Sprites/Interagíveis/Botao1_desligar.png" id="2_1xa14"]
 [ext_resource type="Texture2D" uid="uid://bq8q58hhiathg" path="res://Sprites/Interagíveis/Botao1_ligar.png" id="3_fyg3g"]
 
@@ -66,6 +67,7 @@ animations = [{
 z_index = -1
 collision_layer = 7
 collision_mask = 7
+script = ExtResource("1_fyg3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 3
