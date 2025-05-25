@@ -112,15 +112,16 @@ normal = Vector2(-1, 0)
 [node name="Tutorial 2" type="Node2D"]
 script = ExtResource("1_567s1")
 
-[node name="Chão" type="Node2D" parent="."]
-
-[node name="Fase2Mvp1Full" type="Sprite2D" parent="Chão"]
-visible = false
+[node name="Fase2Mvp1Full" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(320, 182)
 scale = Vector2(1, 1.00833)
 texture = ExtResource("5_v84dr")
 
+[node name="Chão" type="Node2D" parent="."]
+
 [node name="Chao" type="TileMapLayer" parent="Chão"]
+visible = false
 position = Vector2(0, 62)
 tile_set = SubResource("TileSet_567s1")
 

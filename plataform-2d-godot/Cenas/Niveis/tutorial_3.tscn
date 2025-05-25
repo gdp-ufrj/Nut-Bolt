@@ -82,12 +82,13 @@ size = Vector2(20, 10)
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
 
-[node name="Chão" type="Node2D" parent="."]
-
-[node name="Fase3Mvp1Full" type="Sprite2D" parent="Chão"]
-visible = false
+[node name="Fase3Mvp1Full" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(320, 180)
 texture = ExtResource("3_tu5f7")
+metadata/_edit_lock_ = true
+
+[node name="Chão" type="Node2D" parent="."]
 
 [node name="Chao" type="TileMapLayer" parent="Chão"]
 position = Vector2(0, 60)
@@ -269,16 +270,16 @@ position = Vector2(531, 245)
 position = Vector2(30, 270)
 
 [node name="Roteador2" parent="." instance=ExtResource("4_h5va6")]
-position = Vector2(370, 20)
+position = Vector2(368, 23)
 
 [node name="Roteador3" parent="." instance=ExtResource("4_h5va6")]
-position = Vector2(560, 40)
+position = Vector2(550, 41)
 
 [node name="player_2_spawn" type="Marker2D" parent="."]
 position = Vector2(562, 78)
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(40, 320)
+position = Vector2(37, 308)
 
 [node name="Botao" parent="." instance=ExtResource("5_tsd38")]
 position = Vector2(444, 81)
