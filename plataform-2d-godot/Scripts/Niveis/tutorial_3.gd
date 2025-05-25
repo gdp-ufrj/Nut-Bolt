@@ -13,9 +13,8 @@ func _ready() -> void:
 	estado_inicial_plataformas()
 	
 func _process(_delta: float) -> void:
-	if pode_interagir and Input.is_action_just_pressed("interagir"):
+	if $Botao.pode_ativar and Input.is_action_just_pressed("interagir"):
 		inverte_estado()
-		
 
 func estado_inicial_plataformas()->void:
 	ativavel.disabled = true
@@ -30,14 +29,3 @@ func inverte_estado()->void:
 	for e in plataformas_estaticas:
 		e.disabled = not e.disabled
 		e.visible = not e.visible
-
-
-func _on_botao_body_entered(body: Node2D) -> void:
-	if body.name == "player_2":
-		$Botao/Label.visible = true
-		pode_interagir = true
-
-func _on_botao_body_exited(body: Node2D) -> void:
-	if body.name == "player_2":
-		$Botao/Label.visible = false
-		pode_interagir = false

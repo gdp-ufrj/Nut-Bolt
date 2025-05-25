@@ -57,8 +57,8 @@ size = Vector2(640, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ipts"]
 size = Vector2(351, 222)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bc8i2"]
-size = Vector2(104, 19)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84dr"]
+size = Vector2(104.5, 20)
 
 [sub_resource type="Animation" id="Animation_3x3p0"]
 length = 0.001
@@ -115,6 +115,7 @@ script = ExtResource("1_567s1")
 [node name="Chão" type="Node2D" parent="."]
 
 [node name="Fase2Mvp1Full" type="Sprite2D" parent="Chão"]
+visible = false
 position = Vector2(320, 182)
 scale = Vector2(1, 1.00833)
 texture = ExtResource("5_v84dr")
@@ -156,19 +157,12 @@ position = Vector2(93, 236)
 position = Vector2(0, 90)
 collision_layer = 3
 collision_mask = 3
+metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
-position = Vector2(301, 180)
-shape = SubResource("RectangleShape2D_bc8i2")
-
-[node name="ColorRect" type="ColorRect" parent="plataforma"]
-offset_left = 249.0
-offset_top = 170.0
-offset_right = 353.0
-offset_bottom = 190.0
-color = Color(1, 0, 0.796078, 1)
-metadata/_edit_use_anchors_ = true
+position = Vector2(238.25, 211)
+shape = SubResource("RectangleShape2D_v84dr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="plataforma"]
 libraries = {
@@ -176,16 +170,30 @@ libraries = {
 }
 
 [node name="AREA PARA EVITAR BUG" type="Area2D" parent="plataforma"]
+position = Vector2(238, 209)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma/AREA PARA EVITAR BUG"]
-position = Vector2(301, 183)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_wk01p")
+
+[node name="ColorRect" type="ColorRect" parent="plataforma"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.0117647, 1, 1)
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
 
 [node name="Botao" parent="." instance=ExtResource("4_8ipts")]
-position = Vector2(0, 25)
+position = Vector2(472, 78)
 
 [node name="Limites laterais" type="Node2D" parent="."]
 
@@ -206,7 +214,6 @@ collision_mask = 3
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
 
+[connection signal="botao_ativado" from="." to="Botao" method="_on_tutorial_2_botao_ativado"]
 [connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_entered"]
 [connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_exited"]
-[connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
-[connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
