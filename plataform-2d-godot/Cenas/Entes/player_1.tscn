@@ -300,9 +300,8 @@ ignore_time_scale = true
 
 [node name="Animaçao" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lnrxe")
-animation = &"Desativado"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.666862
 
 [node name="audio_caminhar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h0lym")

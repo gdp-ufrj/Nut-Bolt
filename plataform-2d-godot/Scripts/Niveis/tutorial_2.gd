@@ -1,9 +1,8 @@
 extends Node2D
 
 # VARIAVEIS PARA FUNCIONAMENTO DO BOTAO E DA PLATAFORMA
-var pode_interagir: bool = false
-var jogador: Node2D = null
-var botao_foi_ativado = false
+@onready var botao = $Botao
+signal botao_ativado
 
 func _process(_delta: float) -> void:
 	if pode_interagir and Input.is_action_just_pressed("interagir"):

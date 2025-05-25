@@ -1,52 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=12 format=3 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
-[ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="3_pv42o"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72cdr"]
-texture = ExtResource("3_pv42o")
-texture_region_size = Vector2i(10, 10)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-3:0/0 = 0
-5:1/0 = 0
-5:2/0 = 0
-5:3/0 = 0
-5:4/0 = 0
-5:5/0 = 0
-4:5/0 = 0
-3:5/0 = 0
-2:5/0 = 0
-2:4/0 = 0
-2:3/0 = 0
-4:3/0 = 0
-3:3/0 = 0
-4:2/0 = 0
-3:4/0 = 0
-1:5/0 = 0
-0:5/0 = 0
-0:4/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-1:4/0 = 0
-4:4/0 = 0
-3:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_engj6"]
-tile_size = Vector2i(10, 10)
-sources/0 = SubResource("TileSetAtlasSource_72cdr")
+[ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/tileset.tscn" id="3_pv42o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
 
@@ -74,6 +30,12 @@ normal = Vector2(-0.99998, -0.0063693)
 
 [node name="tutorial_1" type="Node2D"]
 
+[node name="Fase1Mvp1Full" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(321, 180)
+texture = ExtResource("2_pv42o")
+
 [node name="player_1_spawn" type="Marker2D" parent="."]
 position = Vector2(72, 196)
 
@@ -82,18 +44,12 @@ position = Vector2(26, 196)
 
 [node name="Porta" parent="." instance=ExtResource("3_4dw7u")]
 z_index = -1
-position = Vector2(598, 215)
+position = Vector2(600, 216)
 
 [node name="Chão" type="Node2D" parent="."]
 
-[node name="Fase1Mvp1Full" type="Sprite2D" parent="Chão"]
-z_index = -10
-position = Vector2(321, 180)
-texture = ExtResource("2_pv42o")
-
-[node name="Chao" type="TileMapLayer" parent="Chão"]
-tile_map_data = PackedByteArray("AAAAACMAAAADAAEAAAABACMAAAADAAEAAAACACMAAAADAAEAAAADACMAAAADAAEAAAAEACMAAAADAAEAAAAFACMAAAADAAEAAAAGACMAAAADAAEAAAAHACMAAAADAAEAAAAIACMAAAADAAEAAAAJACMAAAADAAEAAAAKACMAAAADAAEAAAALACMAAAADAAEAAAAMACMAAAADAAEAAAANACMAAAADAAEAAAAOACMAAAADAAEAAAAPACMAAAADAAEAAAAQACMAAAADAAEAAAARACMAAAADAAEAAAASACMAAAADAAEAAAATACMAAAADAAEAAAAUACMAAAADAAEAAAAVACMAAAADAAEAAAAWACMAAAADAAEAAAAXACMAAAADAAEAAAAYACMAAAADAAEAAAAZACMAAAADAAEAAAAaACMAAAADAAEAAAAbACMAAAADAAEAAAAcACMAAAADAAEAAAAdACMAAAADAAEAAAAeACMAAAADAAEAAAAfACMAAAADAAEAAAAgACMAAAADAAEAAAAhACMAAAADAAEAAAAiACMAAAADAAEAAAAjACMAAAADAAEAAAAkACMAAAADAAEAAAAlACMAAAADAAEAAAAmACMAAAADAAEAAAAnACMAAAADAAEAAAAoACMAAAADAAEAAAApACMAAAADAAEAAAAqACMAAAADAAEAAAArACMAAAADAAEAAAAsACMAAAADAAEAAAAtACMAAAADAAEAAAAuACMAAAADAAEAAAAvACMAAAADAAEAAAAwACMAAAADAAEAAAAxACMAAAADAAEAAAAyACMAAAADAAEAAAAzACMAAAADAAEAAAA0ACMAAAADAAEAAAA1ACMAAAADAAEAAAA2ACMAAAADAAEAAAA3ACMAAAADAAEAAAA4ACMAAAADAAEAAAA5ACMAAAADAAEAAAA6ACMAAAADAAEAAAA7ACMAAAADAAEAAAA8ACMAAAADAAEAAAA9ACMAAAADAAEAAAA+ACMAAAADAAEAAAA/ACMAAAADAAEAAAA=")
-tile_set = SubResource("TileSet_engj6")
+[node name="Chao" parent="Chão" instance=ExtResource("3_pv42o")]
+position = Vector2(0, -1)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão"]
 collision_layer = 3
