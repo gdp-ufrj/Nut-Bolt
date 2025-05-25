@@ -60,7 +60,7 @@ size = Vector2(640, 46)
 size = Vector2(351, 222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v84dr"]
-size = Vector2(104.5, 20)
+size = Vector2(60, 9)
 
 [sub_resource type="Animation" id="Animation_3x3p0"]
 length = 0.001
@@ -132,7 +132,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wk01p"]
-size = Vector2(60, 7)
+size = Vector2(60, 9.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmevy"]
 normal = Vector2(0.0181503, -0.999835)
@@ -178,7 +178,7 @@ position = Vector2(31.5, 16)
 shape = SubResource("RectangleShape2D_8ipts")
 
 [node name="Porta" parent="." instance=ExtResource("2_c7i80")]
-z_index = -3
+z_index = -1
 position = Vector2(577, 77)
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
@@ -191,11 +191,9 @@ position = Vector2(93, 236)
 position = Vector2(-19, 134)
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
-position = Vector2(238.25, 211)
+position = Vector2(279, 183)
 shape = SubResource("RectangleShape2D_v84dr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="plataforma"]
@@ -203,25 +201,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_46ph7")
 }
 
+[node name="ColorRect" type="ColorRect" parent="plataforma"]
+offset_left = 249.0
+offset_top = 178.0
+offset_right = 309.0
+offset_bottom = 189.0
+
+[node name="som_subir" type="AudioStreamPlayer" parent="plataforma"]
+
+[node name="som_descer" type="AudioStreamPlayer" parent="plataforma"]
+
 [node name="AREA PARA EVITAR BUG" type="Area2D" parent="plataforma"]
-position = Vector2(238, 209)
+position = Vector2(302, 182)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma/AREA PARA EVITAR BUG"]
-position = Vector2(0, 2)
+position = Vector2(-23, 3.25)
 shape = SubResource("RectangleShape2D_wk01p")
-
-[node name="ColorRect" type="ColorRect" parent="plataforma"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_right = 10.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.0117647, 1, 1)
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
@@ -248,6 +244,7 @@ collision_mask = 3
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
 
-[connection signal="botao_ativado" from="." to="Botao" method="_on_tutorial_2_botao_ativado"]
 [connection signal="body_entered" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_entered"]
 [connection signal="body_exited" from="plataforma/AREA PARA EVITAR BUG" to="." method="_on_area_para_evitar_bug_body_exited"]
+[connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
+[connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]

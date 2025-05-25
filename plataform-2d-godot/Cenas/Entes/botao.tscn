@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqbxnpowjnvbq"]
+[gd_scene load_steps=15 format=3 uid="uid://bqbxnpowjnvbq"]
 
 [ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
 [ext_resource type="Script" uid="uid://jlkyy5vnqlqo" path="res://Scripts/Entes/botao.gd" id="1_fyg3g"]
 [ext_resource type="Texture2D" uid="uid://b831qoule1624" path="res://Sprites/Interagíveis/Botao1_desligar.png" id="2_1xa14"]
 [ext_resource type="Texture2D" uid="uid://bq8q58hhiathg" path="res://Sprites/Interagíveis/Botao1_ligar.png" id="3_fyg3g"]
-[ext_resource type="AudioStream" uid="uid://piq7i1ui6xty" path="res://Audio/Alavanca/Alavanca.ogg" id="4_fyg3g"]
+[ext_resource type="AudioStream" uid="uid://piq7i1ui6xty" path="res://Audio/Alavanca/Alavanca.ogg" id="5_m67r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxmij"]
 size = Vector2(26.0078, 21.8438)
@@ -64,6 +64,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyg3g"]
+size = Vector2(46, 42)
+
 [node name="Botao" type="Area2D"]
 z_index = -1
 collision_layer = 3
@@ -100,6 +103,14 @@ texture = ExtResource("1_d7y7n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nilum")
 animation = &"b_desligar"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_fyg3g")
+
+[node name="audio_interagir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_m67r4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
