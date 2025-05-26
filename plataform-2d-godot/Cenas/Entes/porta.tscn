@@ -129,3 +129,4 @@ stream = ExtResource("4_c7j4k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="animation_finished" from="Abre e fecha" to="." method="_on_abre_e_fecha_animation_finished"]
