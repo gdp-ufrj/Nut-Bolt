@@ -41,6 +41,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Continuar"
 
+[node name="Opções" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Opções"
+
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
@@ -48,4 +54,5 @@ theme_override_font_sizes/font_size = 20
 text = "Sair"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

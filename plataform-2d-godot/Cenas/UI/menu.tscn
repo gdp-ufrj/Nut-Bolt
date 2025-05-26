@@ -1,65 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=3 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
+[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Backgrounds/Menu Inicial.png" id="2_hveky"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_pveh2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.345
-anchor_top = 0.081
-anchor_right = 0.617
-anchor_bottom = 0.347
-offset_left = 0.199982
-offset_top = -0.16
-offset_right = 0.119965
-offset_bottom = 0.0800018
-theme_override_font_sizes/font_size = 70
-text = "Robô"
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(322, 181)
+texture = ExtResource("2_hveky")
 
-[node name="Start" type="Button" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.439
-anchor_top = 0.472
-anchor_right = 0.548
-anchor_bottom = 0.583
-offset_left = 0.039978
-offset_top = 0.0799866
-offset_right = 0.279968
-offset_bottom = 0.119995
+anchor_left = 0.139
+anchor_right = 0.842
+anchor_bottom = 1.003
+offset_left = 0.0399933
+offset_top = 1.0
+offset_right = 0.119934
+offset_bottom = -0.0800171
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Prismante"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Start"
 
-[node name="Quit" type="Button" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.447
-anchor_top = 0.661
-anchor_right = 0.556
-anchor_bottom = 0.761
-offset_left = -0.0800171
-offset_top = 0.0399933
-offset_right = 0.159973
-offset_bottom = 0.039978
+[node name="Opções" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Quit"
+text = "Opções"
 
-[node name="Creditos" type="Button" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.431
-anchor_top = 0.828
-anchor_right = 0.57
-anchor_bottom = 0.928
-offset_left = 0.159973
-offset_top = -0.0800171
-offset_right = 0.199951
-offset_bottom = -0.0800171
+[node name="Creditos" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Creditos
 "
 
-[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Creditos" to="." method="_on_creditos_pressed"]
+[node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -11,3 +11,7 @@ func _on_quit_pressed() -> void:
 #botao de creditos ainda nao completado
 func _on_creditos_pressed() -> void:
 	pass # Replace with function body.
+
+#botão de Opções ainda ainda não completado 
+func _on_opções_pressed() -> void:
+	pass # Replace with function body.
