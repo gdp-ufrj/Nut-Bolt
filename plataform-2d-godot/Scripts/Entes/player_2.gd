@@ -134,7 +134,7 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 
 func _on_game_controller_restart() -> void:
 	conectar()
-	animation.play("idle")
+	#animation.play("idle")
 	
 #endregion
 

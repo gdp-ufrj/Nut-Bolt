@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://l6kgxpim4q5f"]
+
+[ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="1_circq"]
+[ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="2_ru3if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84dr"]
+size = Vector2(60, 8.5)
+
+[sub_resource type="Animation" id="Animation_3x3p0"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, 134)]
+}
+
+[sub_resource type="Animation" id="Animation_v84dr"]
+resource_name = "plataforma-tutorial2"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-19, 134), Vector2(-19, -88), Vector2(-19, 134)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("som_subir")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_circq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("som_descer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_ru3if")
+}],
+"times": PackedFloat32Array(2.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46ph7"]
+_data = {
+&"RESET": SubResource("Animation_3x3p0"),
+&"plataforma-tutorial2": SubResource("Animation_v84dr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk01p"]
+size = Vector2(60, 9.5)
+
+[node name="plataforma" type="AnimatableBody2D"]
+position = Vector2(-19, 134)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(279, 183.25)
+shape = SubResource("RectangleShape2D_v84dr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_46ph7")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 249.0
+offset_top = 179.0
+offset_right = 309.0
+offset_bottom = 189.0
+
+[node name="som_subir" type="AudioStreamPlayer" parent="."]
+
+[node name="som_descer" type="AudioStreamPlayer" parent="."]
+
+[node name="AREA PARA EVITAR BUG" type="Area2D" parent="."]
+position = Vector2(302, 182)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AREA PARA EVITAR BUG"]
+position = Vector2(-23, 3.25)
+shape = SubResource("RectangleShape2D_wk01p")

@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=15 format=4 uid="uid://ctpv6e62840gl"]
 
+[ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/tileset.tscn" id="3_pv42o"]
+[ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_4dw7u"]
+[ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
+[ext_resource type="PackedScene" uid="uid://l6kgxpim4q5f" path="res://Cenas/Entes/plataforma_movel.tscn" id="6_kp6uw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
 
@@ -11,9 +15,6 @@ size = Vector2(299.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7d63f"]
 size = Vector2(151.25, 88)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ge26e"]
-size = Vector2(100.5, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv42o"]
 size = Vector2(91.5, 89.5)
@@ -29,6 +30,7 @@ distance = -53.0
 normal = Vector2(-0.99998, -0.0063693)
 
 [node name="tutorial_1" type="Node2D"]
+script = ExtResource("1_k87ql")
 
 [node name="Fase1Mvp1Full" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -50,6 +52,7 @@ position = Vector2(600, 216)
 
 [node name="Chao" parent="Chão" instance=ExtResource("3_pv42o")]
 position = Vector2(0, -1)
+tile_map_data = PackedByteArray("AAAoAB0AAAABAAIAAAApAB0AAAACAAIAAAAqAB0AAAACAAIAAAArAB0AAAACAAIAAAAsAB0AAAACAAIAAAAtAB0AAAACAAIAAAAuAB0AAAACAAIAAAAvAB0AAAACAAIAAAAwAB0AAAADAAIAAAA=")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão"]
 collision_layer = 3
@@ -67,14 +70,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D2"]
 position = Vector2(567, 274)
 shape = SubResource("RectangleShape2D_7d63f")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Chão"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D3"]
-position = Vector2(443, 300)
-shape = SubResource("RectangleShape2D_ge26e")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Chão"]
 collision_layer = 3
@@ -113,3 +108,12 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Direito"]
 position = Vector2(3.01557, -1.97644)
 shape = SubResource("WorldBoundaryShape2D_pv42o")
+
+[node name="Botao" parent="." instance=ExtResource("4_4dw7u")]
+position = Vector2(552, 218)
+
+[node name="Roteador" parent="." instance=ExtResource("5_k87ql")]
+position = Vector2(497, 160)
+
+[node name="plataforma" parent="." instance=ExtResource("6_kp6uw")]
+scale = Vector2(1.7, 1)
