@@ -144,8 +144,10 @@ position = Vector2(10, 270)
 shape = SubResource("WorldBoundaryShape2D_h5va6")
 
 [node name="plataforma_ativavel" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
 collision_layer = 3
 collision_mask = 3
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_ativavel"]
 light_mask = 3
@@ -168,11 +170,12 @@ grow_vertical = 2
 color = Color(1, 0.0196078, 1, 1)
 
 [node name="Plataformas Estaticas" type="Node2D" parent="."]
+position = Vector2(0, -8)
+metadata/_edit_group_ = true
 
 [node name="estatica_1" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_1"]
@@ -192,7 +195,6 @@ color = Color(1, 0, 1, 1)
 [node name="estatica_2" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_2"]
@@ -241,7 +243,6 @@ color = Color(1, 0.0941176, 1, 1)
 [node name="estatica_4" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_4"]
@@ -268,13 +269,13 @@ z_index = -1
 position = Vector2(531, 245)
 
 [node name="Roteador1" parent="." instance=ExtResource("4_h5va6")]
-position = Vector2(30, 270)
+position = Vector2(32, 264)
 
 [node name="Roteador2" parent="." instance=ExtResource("4_h5va6")]
-position = Vector2(368, 23)
+position = Vector2(368, 24)
 
 [node name="Roteador3" parent="." instance=ExtResource("4_h5va6")]
-position = Vector2(550, 41)
+position = Vector2(552, 32)
 
 [node name="player_2_spawn" type="Marker2D" parent="."]
 position = Vector2(562, 78)

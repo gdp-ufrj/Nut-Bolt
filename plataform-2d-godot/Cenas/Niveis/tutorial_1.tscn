@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=14 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/tileset.tscn" id="3_pv42o"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_4dw7u"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
-[ext_resource type="PackedScene" uid="uid://l6kgxpim4q5f" path="res://Cenas/Entes/plataforma_movel.tscn" id="6_kp6uw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
 
@@ -114,6 +113,3 @@ position = Vector2(552, 218)
 
 [node name="Roteador" parent="." instance=ExtResource("5_k87ql")]
 position = Vector2(497, 160)
-
-[node name="plataforma" parent="." instance=ExtResource("6_kp6uw")]
-scale = Vector2(1.7, 1)
