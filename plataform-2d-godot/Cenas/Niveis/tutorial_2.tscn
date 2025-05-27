@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=21 format=4 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_8ipts"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="5_8ipts"]
-[ext_resource type="PackedScene" uid="uid://l6kgxpim4q5f" path="res://Cenas/Entes/plataforma_movel.tscn" id="5_567s1"]
+[ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="5_c7i80"]
+[ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="5_kqia7"]
 [ext_resource type="Texture2D" uid="uid://u7jketmgjaqv" path="res://Sprites/Backgrounds/Fase 2 MVP1 full.png" id="5_v84dr"]
+[ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="6_kqia7"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ipts"]
@@ -58,6 +60,81 @@ size = Vector2(640, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ipts"]
 size = Vector2(351, 222)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84dr"]
+size = Vector2(60, 17)
+
+[sub_resource type="Animation" id="Animation_3x3p0"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, 134)]
+}
+
+[sub_resource type="Animation" id="Animation_v84dr"]
+resource_name = "plataforma-tutorial2"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-19, 134), Vector2(-19, -88), Vector2(-19, 134)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("som_subir")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_c7i80")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("som_descer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_kqia7")
+}],
+"times": PackedFloat32Array(2.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46ph7"]
+_data = {
+&"RESET": SubResource("Animation_3x3p0"),
+&"plataforma-tutorial2": SubResource("Animation_v84dr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk01p"]
+size = Vector2(60, 9.5)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmevy"]
 normal = Vector2(0.0181503, -0.999835)
 distance = 31.7018
@@ -75,6 +152,7 @@ scale = Vector2(1, 1.00833)
 texture = ExtResource("5_v84dr")
 
 [node name="Chão" type="Node2D" parent="."]
+visible = false
 
 [node name="Chao" type="TileMapLayer" parent="Chão"]
 visible = false
@@ -111,7 +189,35 @@ position = Vector2(40, 236)
 [node name="player_2_spawn" type="Marker2D" parent="."]
 position = Vector2(93, 236)
 
-[node name="plataforma" parent="." instance=ExtResource("5_567s1")]
+[node name="plataforma" type="AnimatableBody2D" parent="."]
+position = Vector2(-19, 134)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma"]
+position = Vector2(279, 190)
+shape = SubResource("RectangleShape2D_v84dr")
+
+[node name="TileMapLayer" parent="plataforma/CollisionShape2D" instance=ExtResource("5_kqia7")]
+tile_map_data = PackedByteArray("AAD9////BAADAAAAAAACAP//BAACAAAAAAD+////BAAEAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAABAP//BAAEAAAAAAD9/wAABAADAAEAAAACAAAABAACAAEAAAD+/wAABAAEAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAABAAAABAAEAAEAAAA=")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="plataforma"]
+libraries = {
+&"": SubResource("AnimationLibrary_46ph7")
+}
+
+[node name="som_subir" type="AudioStreamPlayer" parent="plataforma"]
+
+[node name="som_descer" type="AudioStreamPlayer" parent="plataforma"]
+
+[node name="AREA PARA EVITAR BUG" type="Area2D" parent="plataforma"]
+visible = false
+position = Vector2(302, 182)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma/AREA PARA EVITAR BUG"]
+position = Vector2(-23, 3.25)
+shape = SubResource("RectangleShape2D_wk01p")
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
@@ -138,6 +244,5 @@ collision_mask = 3
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
 
-[connection signal="botao_ativado" from="." to="Botao" method="_on_tutorial_2_botao_ativado"]
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]

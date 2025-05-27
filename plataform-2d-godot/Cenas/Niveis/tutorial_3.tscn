@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=19 format=4 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_h5va6"]
 [ext_resource type="Texture2D" uid="uid://baxcv1ccjnwra" path="res://Sprites/Backgrounds/Fase 3 MVP1 full.png" id="3_tu5f7"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="4_h5va6"]
+[ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="4_qhx57"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="5_tsd38"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsd38"]
@@ -64,20 +65,20 @@ size = Vector2(40, 160)
 normal = Vector2(1, 0)
 distance = -8.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsd38"]
-size = Vector2(40, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhi1b"]
+size = Vector2(40, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wfe"]
-size = Vector2(40, 10)
+size = Vector2(40, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drhsi"]
-size = Vector2(40, 10)
+size = Vector2(40, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnrhd"]
-size = Vector2(40, 10)
+size = Vector2(40, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8urag"]
-size = Vector2(20, 10)
+size = Vector2(16, 16.5)
 
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
@@ -152,26 +153,14 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_ativavel"]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(120, 325)
-shape = SubResource("RectangleShape2D_tsd38")
+position = Vector2(124, 319)
+shape = SubResource("RectangleShape2D_xhi1b")
 
-[node name="ColorRect" type="ColorRect" parent="plataforma_ativavel/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -5.0
-offset_right = 20.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.0196078, 1, 1)
+[node name="TileMapLayer" parent="plataforma_ativavel/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAABAP//BAACAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
 
 [node name="Plataformas Estaticas" type="Node2D" parent="."]
 position = Vector2(0, -8)
-metadata/_edit_group_ = true
 
 [node name="estatica_1" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
@@ -179,42 +168,26 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_1"]
-position = Vector2(90, 275)
+position = Vector2(90, 272)
 shape = SubResource("RectangleShape2D_v5wfe")
 debug_color = Color(0, 0.59255, 0.740987, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_1/CollisionShape2D"]
-custom_minimum_size = Vector2(40, 10)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 1, 1)
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_1/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD+////BAADAAAAAAD+/wAABAADAAEAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAABAP//BAACAAAAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAABAAAABAACAAEAAAA=")
 
 [node name="estatica_2" type="StaticBody2D" parent="Plataformas Estaticas"]
+position = Vector2(8, 0)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_2"]
-position = Vector2(250, 255)
+position = Vector2(250, 252)
 shape = SubResource("RectangleShape2D_drhsi")
 debug_color = Color(0.596751, 0.544938, 3.85046e-07, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_2/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -5.0
-offset_right = 20.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.0313726, 1, 1)
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_2/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAABAP//BAACAAAAAAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
 
 [node name="estatica_3" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
@@ -222,47 +195,24 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_3"]
-position = Vector2(360, 275)
+position = Vector2(360, 271)
 shape = SubResource("RectangleShape2D_tnrhd")
 debug_color = Color(0.67091, 0.508827, 0, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_3/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -5.0
-offset_right = 20.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.0941176, 1, 1)
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_3/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAABAP//BAACAAAAAAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
 
 [node name="estatica_4" type="StaticBody2D" parent="Plataformas Estaticas"]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_4"]
-position = Vector2(170, 255)
+position = Vector2(168, 248)
 shape = SubResource("RectangleShape2D_8urag")
 debug_color = Color(0.641954, 0.522554, 0.0962435, 0.42)
 
-[node name="ColorRect" type="ColorRect" parent="Plataformas Estaticas/estatica_4/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -5.0
-offset_right = 10.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.886275, 0.0745098, 0.886275, 1)
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_4/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD/////BAADAAAAAAAAAP//BAACAAAAAAD//wAABAADAAEAAAAAAAAABAACAAEAAAA=")
 
 [node name="Porta" parent="." instance=ExtResource("3_h5va6")]
 z_index = -1

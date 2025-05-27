@@ -112,5 +112,6 @@ shape = SubResource("RectangleShape2D_fyg3g")
 [node name="audio_interagir" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_m67r4")
 
+[connection signal="ativado" from="." to="." method="_on_ativado"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
