@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
-[ext_resource type="Texture2D" uid="uid://cp0esmucxtiu2" path="res://Sprites/Players/RedondoFinal.png" id="2_q7f8p"]
+[ext_resource type="Texture2D" uid="uid://bqmgydsv1obnx" path="res://Sprites/Players/Redondo/RedondoFinal.png" id="2_pa6et"]
 [ext_resource type="AudioStream" uid="uid://dwapro3yy5wfd" path="res://Audio/Conexao/Alarme de distância crítica.mp3" id="3_25pul"]
 [ext_resource type="Texture2D" uid="uid://d1v8jopendus7" path="res://Sprites/Players/Redondo/Desativado.png" id="4_xdpj8"]
 [ext_resource type="Texture2D" uid="uid://c7fs1cgp5ryg7" path="res://Sprites/Players/Redondo/Idle.png" id="5_h0lym"]
@@ -276,7 +276,7 @@ visible = false
 texture_filter = 1
 position = Vector2(0.500001, 0.499999)
 scale = Vector2(1.05556, 1.04167)
-texture = ExtResource("2_q7f8p")
+texture = ExtResource("2_pa6et")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)

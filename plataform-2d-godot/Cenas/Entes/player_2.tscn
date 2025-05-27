@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
-[ext_resource type="Texture2D" uid="uid://dfd8h7jlajwpf" path="res://Sprites/Players/Quadradofinal.png" id="2_63q1r"]
+[ext_resource type="Texture2D" uid="uid://ciasrbt3302oh" path="res://Sprites/Players/Quadrado/Quadradofinal.png" id="2_m2x1u"]
 [ext_resource type="AudioStream" uid="uid://dwapro3yy5wfd" path="res://Audio/Conexao/Alarme de distância crítica.mp3" id="3_kdljy"]
 [ext_resource type="AudioStream" uid="uid://bk00qda42equ0" path="res://Audio/Gruda/sfx_desacoplar_robo_1_demo.mp3" id="4_l2cw4"]
 [ext_resource type="AudioStream" uid="uid://bw610yrfev0tw" path="res://Audio/Gruda/sfx_pouso_robo_1_demo.mp3" id="5_80kl4"]
@@ -236,7 +236,7 @@ visible = false
 texture_filter = 1
 position = Vector2(4.47035e-07, 0)
 scale = Vector2(0.9, 0.958333)
-texture = ExtResource("2_63q1r")
+texture = ExtResource("2_m2x1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
