@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7kxq8ec6u2ui"]
+
+[ext_resource type="Script" uid="uid://d6offask5f8q" path="res://Scripts/Telas/opcoes_menu.gd" id="1_3g0ue"]
+[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Backgrounds/Menu Inicial.png" id="1_7g602"]
+[ext_resource type="PackedScene" uid="uid://cotx2jdn0voao" path="res://Cenas/UI/opcoes_opcoes_menu.tscn" id="3_w0cpp"]
+
+[node name="Opcoes_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3g0ue")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer"]
+z_index = -1
+position = Vector2(320, 182)
+texture = ExtResource("1_7g602")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opcoes_Opcoes_menu" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_w0cpp")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sair" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Sair"
