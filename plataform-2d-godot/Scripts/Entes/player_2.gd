@@ -30,12 +30,56 @@ func _physics_process(delta: float) -> void:
 	else:
 		$audio_andar.stop()
 	
+	# SOM DE POUSO
+	if colidiu_com_limites and is_on_floor():
+		pode_grudar = true
+		if desacoplou:
+			$audio_pouso.play()
+			desacoplou = false
+
+	grudar(delta,direction)
+	
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x,0,SPEED)
+		
+	setAnimation(direction)
+	move_and_slide()
+#endregion
+
+#region movimentação
+# FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group('limites'):
+		colidiu_com_limites = true
+
+# FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
+# SOM DE DESACOPLAR
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group('limites'):
+		colidiu_com_limites = false
+		pode_grudar = false
+		$audio_desacoplar.play()
+		desacoplou = true
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func grudar(delta, direction)->void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
+		
+	if is_on_ceiling():
+		animation.rotation = 0
+		animation.flip_v = true
+		
+	if is_on_floor():
+		animation.rotation = 0
+		animation.flip_v = false
+		
 	if is_on_wall() and Input.is_action_pressed("ui_right_WASD") and pode_grudar:
 		velocity.x = direction * SPEED
 		velocity.y = gravity * delta * 4
+		animation.rotation_degrees = -90
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
@@ -43,6 +87,8 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall() and Input.is_action_pressed("ui_left_WASD") and pode_grudar:
 		velocity.x = direction * SPEED
 		velocity.y = gravity * delta * 4
+		animation.rotation_degrees = 90
+		animation.flip_h = false
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
@@ -61,40 +107,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
 			gravity = 980
 			velocity.y = -velocity.y
-	
-	# SOM DE POUSO
-	if colidiu_com_limites and is_on_floor():
-		pode_grudar = true
-		if desacoplou:
-			$audio_pouso.play()
-			desacoplou = false
-	
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x,0,SPEED)
-		
-	setAnimation(direction)
-	
-	move_and_slide()
-#endregion
-
-#region movimentação
-# FUNCAO PARA IDENTIFICAR SE ENCOSTA EM ALGUMA BARREIRA (MOVIMENTACAO)
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group('limites'):
-		colidiu_com_limites = true
-
-	
-# FUNCAO PARA IDENTIFICAR SE DESENCOSTA DE ALGUMA BARREIRA (MOVIMENTACAO)
-# SOM DE DESACOPLAR
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group('limites'):
-		colidiu_com_limites = false
-		pode_grudar = false
-		$audio_desacoplar.play()
-		desacoplou = true
-		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #endregion
 
@@ -125,7 +137,8 @@ func _on_timer_conexao_timeout() -> void:
 func _on_zona_conexao_2_area_entered(area: Area2D) -> void:
 	if area.name == "zona_conexao_1" or area.name == "zona_conexao_rot":
 		_overlaping.append(area)
-		conectar()
+		conectar(esta_desativado)
+		
 
 func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 	_overlaping.erase(area)
@@ -137,8 +150,7 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 
 func _on_game_controller_restart() -> void:
 	conectar()
-	#animation.play("idle")
-	
+
 #endregion
 
 #Animação 
@@ -152,7 +164,7 @@ func setAnimation(direction):
 #flip do sprite
 	if direction > 0: animation.flip_h = false
 	elif direction < 0: animation.flip_h = true
-	
+
 #Parede subindo e descendo
 	if Input.is_action_pressed("ui_up_WASD"): animation.play("Parede Subindo")
 	elif  Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
