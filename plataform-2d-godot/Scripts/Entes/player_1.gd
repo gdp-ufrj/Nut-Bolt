@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: int = -320 # Pulo de 5 tiles (50px)
 @onready var timer = $Timer_conexao
 @onready var animation: AnimatedSprite2D = $"Animaçao"
+@onready var animador_conexao: AnimationPlayer = $zona_conexao_1/Sprite2D/AnimationPlayer
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var _overlaping: Array = []
@@ -94,6 +95,7 @@ func _on_zona_conexao_1_area_entered(area: Area2D) -> void:
 	if area.name == "zona_conexao_2" or area.name == "zona_conexao_rot":
 		_overlaping.append(area)
 		conectar(esta_desativado)
+		animador_conexao.play("Idle")
 
 func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 	_overlaping.erase(area)
@@ -101,10 +103,10 @@ func _on_zona_conexao_1_area_exited(area: Area2D) -> void:
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
+			animador_conexao.play("desconectando")
 
 func _on_game_controller_restart() -> void:
-	conectar() 
-	#animation.play("idle") 
+	conectar()  
 #endregion
 
 #animação

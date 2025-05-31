@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=48 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://ciasrbt3302oh" path="res://Sprites/Players/Quadrado/Quadradofinal.png" id="2_m2x1u"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://b66qqjqk7hlxp" path="res://Audio/Gruda/roda_cortada.mp3" id="12_m2x1u"]
 [ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_7trq8"]
 [ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_m2x1u"]
+[ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="15_2cdmh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2trpg"]
 radius = 12.0
@@ -23,6 +24,133 @@ size = Vector2(43, 38)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63q1r"]
 radius = 81.2158
+
+[sub_resource type="Animation" id="Animation_2cdmh"]
+resource_name = "desconectando"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.533333, 0.966667, 1.5, 2, 2.53333, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.294118, 1.0, 0.27451, 1.0, 0.313726, 1.0, 0.49, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.999503, 1.53333, 2.0005, 2.01751, 2.53727, 3, 3.51826, 4.01801),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.325, 0.346667), Vector2(0.29, 0.36), Vector2(0.325, 0.346667), Vector2(0.34, 0.332), Vector2(0.325, 0.346667), Vector2(0.325, 0.346667), Vector2(0.34, 0.332), Vector2(0.325, 0.346667), Vector2(0.29, 0.36), Vector2(0.325, 0.346667)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.566667, 0.999503, 1.53333, 2.0005, 2.01751, 2.53727, 3, 3.51826, 4.01801),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0139626, 0.0, 0.0471239, 0.0, 0.0, 0.0471239, 0.0, -0.0139626, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_x5dgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.325, 0.346667)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0yaun"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.999503, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.325, 0.346667), Vector2(0.29, 0.36), Vector2(0.325, 0.346667), Vector2(0.34, 0.332), Vector2(0.325, 0.346667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.999503, 1.53333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0139626, 0.0, 0.0471239, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yaun"]
+_data = {
+&"Idle": SubResource("Animation_0yaun"),
+&"RESET": SubResource("Animation_x5dgs"),
+&"desconectando": SubResource("Animation_2cdmh")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4a2d"]
 atlas = ExtResource("7_kdljy")
@@ -258,6 +386,17 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_2"]
 shape = SubResource("CircleShape2D_63q1r")
 debug_color = Color(0, 0.742064, 0.316269, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="zona_conexao_2"]
+modulate = Color(0.760784, 0.156863, 0.231373, 1)
+position = Vector2(0.500012, 0.999999)
+scale = Vector2(0.325, 0.346667)
+texture = ExtResource("15_2cdmh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zona_conexao_2/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_0yaun")
+}
 
 [node name="Timer_Grude" type="Timer" parent="."]
 one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dutaywbb4vjh"]
+[gd_scene load_steps=54 format=3 uid="uid://dutaywbb4vjh"]
 
 [ext_resource type="Script" uid="uid://b2h8qv0jwhaxu" path="res://Scripts/Entes/player_1.gd" id="1_66jdp"]
 [ext_resource type="Texture2D" uid="uid://bqmgydsv1obnx" path="res://Sprites/Players/Redondo/RedondoFinal.png" id="2_pa6et"]
@@ -14,12 +14,140 @@
 [ext_resource type="AudioStream" uid="uid://dg22jt5f8xxqr" path="res://Audio/Pula/sfx_pouso_robo_2.mp3" id="11_tii1a"]
 [ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_2xb4h"]
 [ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_pa6et"]
+[ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="15_meh3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
 size = Vector2(19, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7f8p"]
 radius = 76.7919
+
+[sub_resource type="Animation" id="Animation_meh3d"]
+resource_name = "desconectando"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 0.966667, 1.53333, 2, 2.5, 2.96667, 3.5, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.380392, 1.0, 0.301961, 1.0, 0.415686, 1.0, 0.396078, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.5, 1, 1.46667, 1.96667, 2.5, 3, 3.46667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.28, 0.319167), Vector2(0.3, 0.28), Vector2(0.28, 0.319167), Vector2(0.26, 0.31), Vector2(0.28, 0.319167), Vector2(0.3, 0.28), Vector2(0.28, 0.319167), Vector2(0.26, 0.31), Vector2(0.28, 0.319167)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1, 1.46667, 1.96667, 2, 2.46667, 3, 3.46667, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0401426, 0.0, 0.0401426, 0.0, 0.0, -0.0401426, 0.0, 0.0401426, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jabng"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.28, 0.319167)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0dsoe"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.5, 1, 1.46667, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.28, 0.319167), Vector2(0.3, 0.28), Vector2(0.28, 0.319167), Vector2(0.26, 0.31), Vector2(0.28, 0.319167)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1, 1.46667, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0401426, 0.0, 0.0401426, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dsoe"]
+_data = {
+&"Idle": SubResource("Animation_0dsoe"),
+&"RESET": SubResource("Animation_jabng"),
+&"desconectando": SubResource("Animation_meh3d")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xb4h"]
 atlas = ExtResource("4_xdpj8")
@@ -288,7 +416,19 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_1"]
 shape = SubResource("CircleShape2D_q7f8p")
-debug_color = Color(0.995776, 0, 0.199186, 0.42)
+debug_color = Color(0.996078, 0, 0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="zona_conexao_1"]
+modulate = Color(0.552941, 0.407843, 0.964706, 1)
+position = Vector2(1, 5.68434e-14)
+rotation = -0.389186
+scale = Vector2(0.28, 0.319167)
+texture = ExtResource("15_meh3d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="zona_conexao_1/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_0dsoe")
+}
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_25pul")
@@ -300,7 +440,7 @@ ignore_time_scale = true
 
 [node name="Animaçao" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lnrxe")
-animation = &"idle"
+animation = &"Desativado"
 autoplay = "idle"
 
 [node name="audio_caminhar" type="AudioStreamPlayer" parent="."]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED: int = 90
 @onready var timer = $Timer_conexao
 @onready var animation: AnimatedSprite2D = $"Animação"
+@onready var animador_conexao: AnimationPlayer = $zona_conexao_2/Sprite2D/AnimationPlayer
 
 var estado_original = SPEED
 var _overlaping: Array = []
@@ -103,6 +104,7 @@ func conectar(veio_de_desativado: bool = false)->void:
 	SPEED = estado_original
 	timer.stop()
 	$aviso_conexao.stop()
+	animador_conexao.play("Idle")
 	som_desligar_ja_tocado = false
 	if veio_de_desativado:
 		$reestabelece_conexao.play()
@@ -131,6 +133,7 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 		if timer.is_stopped(): 
 			timer.start()
 			$aviso_conexao.play()
+			animador_conexao.play("desconectando")
 
 func _on_game_controller_restart() -> void:
 	conectar()
