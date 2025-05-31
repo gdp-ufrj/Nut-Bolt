@@ -98,11 +98,14 @@ text = "PRESSIONE A TECLA E!"
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_d7y7n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nilum")
-animation = &"b_desligar"
+animation = &"b_ligar"
+frame = 2
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -112,6 +115,7 @@ shape = SubResource("RectangleShape2D_fyg3g")
 [node name="audio_interagir" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_m67r4")
 
-[connection signal="ativado" from="." to="." method="_on_ativado"]
+[connection signal="ativar" from="." to="." method="_on_ativar"]
+[connection signal="ativar_oneshot" from="." to="." method="_on_ativar_oneshot"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

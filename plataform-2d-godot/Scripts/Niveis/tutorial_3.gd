@@ -16,6 +16,7 @@ func _process(_delta: float) -> void:
 	if $Botao.pode_ativar and Input.is_action_just_pressed("interagir"):
 		inverte_estado()
 		$Botao/audio_interagir.play()
+		$Botao.emit_signal("ativar")
 
 func estado_inicial_plataformas()->void:
 	ativavel.disabled = true
