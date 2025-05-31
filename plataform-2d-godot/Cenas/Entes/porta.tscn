@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b0rp6udo0r8nc" path="res://Audio/Porta/Porta abrindo.ogg" id="4_c7j4k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3ny"]
-size = Vector2(40, 30)
+size = Vector2(50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwj36"]
 atlas = ExtResource("3_35smw")
@@ -106,19 +106,13 @@ collision_mask = 3
 script = ExtResource("1_fa3ny")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-9.53674e-07, -1.43051e-06)
-scale = Vector2(0.8, 0.6)
+scale = Vector2(1, 1)
 texture = ExtResource("2_fa3ny")
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fa3ny")
-metadata/_edit_lock_ = true
 
 [node name="Abre e fecha" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-9.53674e-07, -1.43051e-06)
-scale = Vector2(0.8, 0.6)
 sprite_frames = SubResource("SpriteFrames_qedc4")
 animation = &"Abre e fecha"
 frame = 11

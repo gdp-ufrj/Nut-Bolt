@@ -22,7 +22,6 @@ func _on_ativar() -> void:
 	else: $AnimatedSprite2D.play("b_ligar")
 	ligado = not ligado
 
-
 func _on_ativar_oneshot() -> void:
 	is_untouched = false
 	$audio_interagir.play()
