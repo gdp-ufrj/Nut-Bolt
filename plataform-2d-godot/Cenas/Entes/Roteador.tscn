@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg0iyugvxt7cr"]
+[gd_scene load_steps=8 format=3 uid="uid://cg0iyugvxt7cr"]
 
 [ext_resource type="Script" uid="uid://budjh6vr4uo6e" path="res://Scripts/Entes/roteador.gd" id="1_ttt0x"]
 [ext_resource type="Texture2D" uid="uid://csncrc55p6850" path="res://Sprites/Interagíveis/conexaoPrisma_teste.png" id="2_hf4jo"]
@@ -32,52 +32,28 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 0.020944, 0.0, -0.0314159, 0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate:a")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_ttt0x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate:a")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [Vector2(0.243125, 0.26)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath(".:skew")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.243125, 0.26)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -93,12 +69,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_if2po"]
 radius = 63.2851
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf4jo"]
-size = Vector2(19, 28)
-
-[node name="Roteador" type="Area2D"]
-collision_layer = 3
-collision_mask = 3
+[node name="Roteador" type="Node2D"]
 script = ExtResource("1_ttt0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -126,6 +97,5 @@ libraries = {
 shape = SubResource("CircleShape2D_if2po")
 debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_hf4jo")
+[connection signal="area_entered" from="zona_conexao_rot" to="." method="_on_zona_conexao_rot_area_entered"]
+[connection signal="area_exited" from="zona_conexao_rot" to="." method="_on_zona_conexao_rot_area_exited"]

@@ -88,7 +88,7 @@ func grudar(delta, direction)->void:
 		velocity.x = direction * SPEED
 		velocity.y = gravity * delta * 4
 		animation.rotation_degrees = 90
-		animation.flip_h = false
+		#animation.flip_h = false
 		if(Input.is_action_pressed("ui_up_WASD")):
 			velocity.x = direction * SPEED
 			velocity.y = -gravity * delta * 5
