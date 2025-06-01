@@ -181,7 +181,7 @@ shape = SubResource("RectangleShape2D_8ipts")
 
 [node name="Porta" parent="." instance=ExtResource("2_c7i80")]
 z_index = -1
-position = Vector2(577, 77)
+position = Vector2(577, 67)
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
 position = Vector2(40, 236)

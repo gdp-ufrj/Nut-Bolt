@@ -216,7 +216,7 @@ tile_map_data = PackedByteArray("AAD/////BAADAAAAAAAAAP//BAACAAAAAAD//wAABAADAAE
 
 [node name="Porta" parent="." instance=ExtResource("3_h5va6")]
 z_index = -1
-position = Vector2(531, 245)
+position = Vector2(532, 236)
 
 [node name="Roteador1" parent="." instance=ExtResource("4_h5va6")]
 position = Vector2(32, 264)
