@@ -9,6 +9,11 @@ func _ready():
 #botao de start carregando as cenas do game controller
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/game_controller.tscn")
+	
+	
+#botao de load game, nao implementado
+func _on_load_pressed() -> void:
+	pass # Replace with function body.
 
 #botao de quitar do jogo
 func _on_quit_pressed() -> void:

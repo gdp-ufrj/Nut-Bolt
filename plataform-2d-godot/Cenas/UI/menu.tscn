@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=11 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
 [ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Backgrounds/Menu Inicial.png" id="2_hveky"]
+[ext_resource type="Texture2D" uid="uid://dwyu1yt0nnobj" path="res://Sprites/Backgrounds/Botao_Novo_Jogo.png" id="3_dh8gg"]
+[ext_resource type="Texture2D" uid="uid://dgit6gksdo5k1" path="res://Sprites/Backgrounds/Menu Inicial_base2.png" id="3_isfkn"]
 [ext_resource type="PackedScene" uid="uid://b7kxq8ec6u2ui" path="res://Cenas/UI/opcoes_menu.tscn" id="3_ubvl0"]
+[ext_resource type="Texture2D" uid="uid://cmggty4xqaihv" path="res://Sprites/Backgrounds/Botões_selecionados_Novo_Jogo.png" id="5_3f8y4"]
+[ext_resource type="Texture2D" uid="uid://bddcssw2q3btd" path="res://Sprites/Backgrounds/Botao_Carregar_jogo.png" id="6_kc1t0"]
+[ext_resource type="Texture2D" uid="uid://i3g83ejswsa8" path="res://Sprites/Backgrounds/Botões_selecionados_Carregar_Jogo.png" id="7_3f8y4"]
+[ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Backgrounds/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
+[ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Backgrounds/Botao_Configuracoes.png" id="8_1b1oe"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -22,15 +29,21 @@ z_index = -1
 position = Vector2(322, 181)
 texture = ExtResource("2_hveky")
 
+[node name="MenuInicialBase2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(307.5, 174)
+scale = Vector2(0.68, 0.918182)
+texture = ExtResource("3_isfkn")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.139
+anchor_top = -0.272
 anchor_right = 0.842
-anchor_bottom = 1.003
-offset_left = 0.0399933
-offset_top = 1.0
+anchor_bottom = 0.931
+offset_left = 0.0400009
+offset_top = -0.0799942
 offset_right = 0.119934
-offset_bottom = -0.0800171
+offset_bottom = -0.160034
 size_flags_horizontal = 4
 alignment = 1
 
@@ -48,15 +61,20 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Start" type="TextureButton" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Start"
+texture_normal = ExtResource("3_dh8gg")
+texture_hover = ExtResource("5_3f8y4")
 
-[node name="Opções" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Load" type="TextureButton" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Opções"
+texture_normal = ExtResource("6_kc1t0")
+texture_hover = ExtResource("7_3f8y4")
+
+[node name="Opções" type="TextureButton" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_1b1oe")
+texture_hover = ExtResource("7_gu8pg")
 
 [node name="Creditos" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -71,12 +89,13 @@ text = "Quit"
 
 [node name="Opcoes_Menu" parent="." instance=ExtResource("3_ubvl0")]
 layout_mode = 1
-offset_left = 1.0
+offset_left = -9.0
 offset_top = -2.0
-offset_right = 1.0
+offset_right = -9.0
 offset_bottom = -2.0
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
