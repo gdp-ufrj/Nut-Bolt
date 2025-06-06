@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 @onready var animation: AnimatedSprite2D = $"Animaçao"
 @onready var animador_conexao: AnimationPlayer = $zona_conexao_1/Sprite2D/AnimationPlayer
+@onready var coyote_timer: Timer = $CoyoteTimer as Timer
+
 
 var estado_original: Array = [SPEED, JUMP_VELOCITY]
 var _overlaping: Array = []
@@ -26,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and (is_on_floor()  || !coyote_timer.is_stopped()):
 		velocity.y = JUMP_VELOCITY
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -37,7 +39,13 @@ func _physics_process(delta: float) -> void:
 		
 	setAnimation(direction)
 	
+	#coyote timer
+	var was_on_floor = is_on_floor()
+	
 	move_and_slide() 
+	
+	if was_on_floor && !is_on_floor():
+		coyote_timer.start()
 	
 	# SONS DO PULA
 	# SOM DE CAMINHAR
@@ -134,3 +142,7 @@ func setAnimation(direction):
 	else:
 		if animation.animation != "idle":
 			animation.play("idle")
+
+
+func _on_coyote_timer_timeout() -> void:
+	pass # Replace with function body.

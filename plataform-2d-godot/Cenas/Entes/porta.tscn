@@ -114,8 +114,6 @@ shape = SubResource("RectangleShape2D_fa3ny")
 [node name="Abre e fecha" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qedc4")
 animation = &"Abre e fecha"
-frame = 11
-frame_progress = 1.0
 
 [node name="audio_abrindo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c7j4k")

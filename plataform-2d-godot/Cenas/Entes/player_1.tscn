@@ -462,6 +462,11 @@ stream = ExtResource("13_2xb4h")
 [node name="reestabelece_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_pa6et")
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.33
+one_shot = true
+
 [connection signal="area_entered" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="." method="_on_zona_conexao_1_area_exited"]
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
