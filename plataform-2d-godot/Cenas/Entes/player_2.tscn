@@ -432,6 +432,24 @@ stream = ExtResource("13_7trq8")
 [node name="reestabelece_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_m2x1u")
 
+[node name="RayCast2D_Centro" type="RayCast2D" parent="."]
+target_position = Vector2(0, 15)
+collide_with_areas = true
+
+[node name="RayCast2D_direita" type="RayCast2D" parent="."]
+target_position = Vector2(15, 15)
+collide_with_areas = true
+
+[node name="RayCast2D_esquerda" type="RayCast2D" parent="."]
+target_position = Vector2(-15, 15)
+collide_with_areas = true
+
+[node name="RayCast2D_esquerda_meio" type="RayCast2D" parent="."]
+target_position = Vector2(-10, 20)
+
+[node name="RayCast2D_direita_meio" type="RayCast2D" parent="."]
+target_position = Vector2(10, 20)
+
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_entered"]
