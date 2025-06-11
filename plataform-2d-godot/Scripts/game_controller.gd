@@ -13,6 +13,7 @@ var current_index: int = -1     #Indice do nivel atual
 
 @onready var player_1: CharacterBody2D = $Players/player_1 
 @onready var player_2: CharacterBody2D = $Players/player_2 
+@onready var conexao_players: Node2D = $Players/conexao_players
 @onready var pause_menu = $Pause_menu
 
 #Funcao chamada quando a cena começa a ser processada
@@ -87,6 +88,7 @@ func _load_level(index: int):
 		print("Spawn player 2 em: ", spawn2.global_position)
 		player_1.global_position = spawn1.global_position
 		player_2.global_position = spawn2.global_position
+		conexao_players.global_position = spawn1.global_position
 	else:
 		#Caso nao encontre os pontos de spawn exibe um aviso
 		push_warning("Pontos de spawn não encontrados no nível: " + level_path)

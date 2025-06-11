@@ -1,0 +1,35 @@
+extends Line2D
+
+var p1 :Node2D
+var max_dist = 159
+var fade_start = max_dist * 0.7
+
+func _ready() -> void:
+	points = [ Vector2.ZERO,Vector2.ZERO ]
+
+func _process(_delta: float) -> void:
+	
+	if not p1:
+		var possible_path = "/root/Game Controller/Players/player_1"
+		if has_node(possible_path):
+			p1 = get_node(possible_path)
+		else:
+			return 
+	
+	if p1:
+		#Acha a distância até o player 1
+		var rot = global_position
+		var dist = rot.distance_to(p1.global_position)
+		
+		if dist <= max_dist:
+			#posiciona o outro ponto da linha no player 1
+			points[1] = to_local(p1.global_position)
+			
+			#muda a transparência e largura de acordo com a distância
+			var alfadist = remap(dist,fade_start,max_dist,1,0.5)
+			modulate = Color(1,1,1,alfadist)
+			width = remap(dist,40,max_dist,10,8)
+			
+		else:
+			#posiciona os dois pontos no 0,0 evitando que a linha renderize
+			points[1] = Vector2.ZERO

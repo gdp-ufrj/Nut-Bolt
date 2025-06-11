@@ -1,6 +1,8 @@
 extends Node2D
 @onready var animador = $zona_conexao_rot/sprite_conexao/AnimationPlayer
 @onready var sprite_conexao = $zona_conexao_rot/sprite_conexao
+@onready var linha1 = $linha_player1_rot
+@onready var linha2 = $linha_player2_rot
 var _overlaping: Array = []
 
 func _ready() -> void:

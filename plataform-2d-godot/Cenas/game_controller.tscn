@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbcfjbornagd1"]
+[gd_scene load_steps=7 format=3 uid="uid://cbcfjbornagd1"]
 
 [ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_b7awa"]
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="2_7gg3j"]
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="3_dg2gn"]
+[ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_dg2gn"]
 [ext_resource type="PackedScene" uid="uid://sf2d4svmqmvo" path="res://Cenas/UI/pause_menu.tscn" id="5_dg2gn"]
+[ext_resource type="Script" uid="uid://c5hky83cd8lir" path="res://Scripts/conexao_players.gd" id="6_dg2gn"]
 
 [node name="Game Controller" type="Node"]
 script = ExtResource("1_b7awa")
@@ -15,6 +17,15 @@ position = Vector2(0, -1)
 
 [node name="player_2" parent="Players" groups=["Players"] instance=ExtResource("3_dg2gn")]
 position = Vector2(-5, 1)
+
+[node name="conexao_players" type="Line2D" parent="Players"]
+z_index = -1
+texture_filter = 3
+position = Vector2(0, 1)
+points = PackedVector2Array(0, 0, 0, 0)
+texture = ExtResource("4_dg2gn")
+texture_mode = 2
+script = ExtResource("6_dg2gn")
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
