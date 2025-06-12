@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbcfjbornagd1"]
+[gd_scene load_steps=12 format=3 uid="uid://cbcfjbornagd1"]
 
 [ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_b7awa"]
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="2_7gg3j"]
@@ -6,6 +6,74 @@
 [ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_dg2gn"]
 [ext_resource type="PackedScene" uid="uid://sf2d4svmqmvo" path="res://Cenas/UI/pause_menu.tscn" id="5_dg2gn"]
 [ext_resource type="Script" uid="uid://c5hky83cd8lir" path="res://Scripts/conexao_players.gd" id="6_dg2gn"]
+
+[sub_resource type="Animation" id="Animation_i7hoh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade-in_Fade-out:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1ob22"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade-in_Fade-out:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dg2gn"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade-in_Fade-out:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xejwn"]
+resource_name = "trocar_fase"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade-in_Fade-out:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ob22"]
+_data = {
+&"RESET": SubResource("Animation_i7hoh"),
+&"fade_in": SubResource("Animation_dg2gn"),
+&"fade_out": SubResource("Animation_1ob22"),
+&"trocar_fase": SubResource("Animation_xejwn")
+}
 
 [node name="Game Controller" type="Node"]
 script = ExtResource("1_b7awa")
@@ -29,5 +97,17 @@ script = ExtResource("6_dg2gn")
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
+[node name="Fade-in_Fade-out" type="ColorRect" parent="."]
+z_index = 10
+offset_right = 643.0
+offset_bottom = 365.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1ob22")
+}
+
 [connection signal="restart" from="." to="Players/player_1" method="_on_game_controller_restart"]
 [connection signal="restart" from="." to="Players/player_2" method="_on_game_controller_restart"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

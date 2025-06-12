@@ -82,10 +82,10 @@ position = Vector2(321, 180)
 texture = ExtResource("2_pv42o")
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(72, 196)
+position = Vector2(72, 219)
 
 [node name="player_2_spawn" type="Marker2D" parent="."]
-position = Vector2(26, 196)
+position = Vector2(27, 219)
 
 [node name="Porta" parent="." instance=ExtResource("3_4dw7u")]
 z_index = -1

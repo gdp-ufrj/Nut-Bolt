@@ -29,10 +29,21 @@ func _unhandled_input(event):
 			$Pause_menu.hide_pause_menu()
 		else:
 			$Pause_menu.show_pause_menu()
-
 	elif Input.is_action_just_pressed("restart") and not get_tree().paused:
+		$AnimationPlayer.play("fade_in")
+
+# funcao chamada quando fade_in acaba e para animacao de troca de fase
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_in":
 		restart_level()
 		restart.emit()
+		$AnimationPlayer.play("fade_out")
+	if anim_name == "trocar_fase":
+		go_to_next_level()
+		$AnimationPlayer.play("fade_out")
+
+func animacao_transicao():
+	$AnimationPlayer.play("trocar_fase")
 
 #Funcao para avancar para o proximo nivel
 func go_to_next_level():

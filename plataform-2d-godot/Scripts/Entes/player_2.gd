@@ -140,7 +140,6 @@ func grudar(delta, direction)->void:
 		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
 			gravity = 980
 			velocity.y = -velocity.y
-
 #endregion
 
 #region conexao
@@ -183,10 +182,9 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 
 func _on_game_controller_restart() -> void:
 	conectar()
-
 #endregion
 
-#Animação 
+#region animacao
 func setAnimation(direction):
 #Anim desativado
 	if esta_desativado:
@@ -203,4 +201,4 @@ func setAnimation(direction):
 	elif  Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
 	elif  Input.is_action_pressed("ui_right_WASD"): animation.play("Corrida")
 	else: animation.play("Idle")
-	
+#endregion
