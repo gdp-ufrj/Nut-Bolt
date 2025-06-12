@@ -35,12 +35,12 @@ func processar_movimento():
 			corpo.get_node("audio_salto2").play()
 			proximo_som_salto = 1
 
+	corpo.move_and_slide()
+
 	if esta_pulando and corpo.is_on_floor():
 		esta_pulando = false
 		pode_pular = true
 		corpo.get_node("audio_pouso").play()
-
-	corpo.move_and_slide()
 
 	if estava_no_chao and not corpo.is_on_floor():
 		coyote_timer.start()

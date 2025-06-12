@@ -15,3 +15,4 @@ func _physics_process(delta):
 	movimento.atualizar_gravidade(delta)
 	movimento.processar_movimento()
 	animacao.atualizar_animacao(movimento.direcao, movimento.esta_pulando, is_on_floor(), conexao.esta_desativado)
+	
