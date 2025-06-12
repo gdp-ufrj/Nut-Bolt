@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgfue7jnl8wdu"
-path="res://.godot/imported/Botões_selecionados_Configuracoes.png-827b041475c3a24b2c5f23e85c7be920.ctex"
+uid="uid://bddcssw2q3btd"
+path="res://.godot/imported/Botao_Carregar_jogo.png-4c92d16bb893d908fe38057a05f28be3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/Botões_selecionados_Configuracoes.png"
-dest_files=["res://.godot/imported/Botões_selecionados_Configuracoes.png-827b041475c3a24b2c5f23e85c7be920.ctex"]
+source_file="res://Sprites/Elementos UI/Botao_Carregar_jogo.png"
+dest_files=["res://.godot/imported/Botao_Carregar_jogo.png-4c92d16bb893d908fe38057a05f28be3.ctex"]
 
 [params]
 
