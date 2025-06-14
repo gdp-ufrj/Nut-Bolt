@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmggty4xqaihv"
-path="res://.godot/imported/Botões_selecionados_Novo_Jogo.png-d9393c60814af6bcf336def7f61a3e56.ctex"
+uid="uid://b5bmv3ct5ei10"
+path="res://.godot/imported/feixeconexao.png-fcfafa7c61429a60af82fa7d17ca1b82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/Botões_selecionados_Novo_Jogo.png"
-dest_files=["res://.godot/imported/Botões_selecionados_Novo_Jogo.png-d9393c60814af6bcf336def7f61a3e56.ctex"]
+source_file="res://Sprites/Players/feixeconexao.png"
+dest_files=["res://.godot/imported/feixeconexao.png-fcfafa7c61429a60af82fa7d17ca1b82.ctex"]
 
 [params]
 

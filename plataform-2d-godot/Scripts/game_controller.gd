@@ -13,6 +13,7 @@ var current_index: int = -1     #Indice do nivel atual
 
 @onready var player_1: CharacterBody2D = $Players/player_1 
 @onready var player_2: CharacterBody2D = $Players/player_2 
+@onready var conexao_players: Node2D = $Players/conexao_players
 @onready var pause_menu = $Pause_menu
 
 #Funcao chamada quando a cena começa a ser processada
@@ -28,10 +29,21 @@ func _unhandled_input(event):
 			$Pause_menu.hide_pause_menu()
 		else:
 			$Pause_menu.show_pause_menu()
-
 	elif Input.is_action_just_pressed("restart") and not get_tree().paused:
+		$AnimationPlayer.play("fade_in")
+
+# funcao chamada quando fade_in acaba e para animacao de troca de fase
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "fade_in":
 		restart_level()
 		restart.emit()
+		$AnimationPlayer.play("fade_out")
+	if anim_name == "trocar_fase":
+		go_to_next_level()
+		$AnimationPlayer.play("fade_out")
+
+func animacao_transicao():
+	$AnimationPlayer.play("trocar_fase")
 
 #Funcao para avancar para o proximo nivel
 func go_to_next_level():
@@ -87,6 +99,7 @@ func _load_level(index: int):
 		print("Spawn player 2 em: ", spawn2.global_position)
 		player_1.global_position = spawn1.global_position
 		player_2.global_position = spawn2.global_position
+		conexao_players.global_position = spawn1.global_position
 	else:
 		#Caso nao encontre os pontos de spawn exibe um aviso
 		push_warning("Pontos de spawn não encontrados no nível: " + level_path)

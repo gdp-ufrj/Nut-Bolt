@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwyu1yt0nnobj"
-path="res://.godot/imported/Botao_Novo_Jogo.png-92c24e4cbc7063f04443b6958433ce83.ctex"
+uid="uid://dgit6gksdo5k1"
+path="res://.godot/imported/Menu Inicial_base2.png-876e890efa8aff3a2a28084eee72095e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Backgrounds/Botao_Novo_Jogo.png"
-dest_files=["res://.godot/imported/Botao_Novo_Jogo.png-92c24e4cbc7063f04443b6958433ce83.ctex"]
+source_file="res://Sprites/Elementos UI/Menu Inicial_base2.png"
+dest_files=["res://.godot/imported/Menu Inicial_base2.png-876e890efa8aff3a2a28084eee72095e.ctex"]
 
 [params]
 

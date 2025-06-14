@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7kxq8ec6u2ui"]
 
 [ext_resource type="Script" uid="uid://d6offask5f8q" path="res://Scripts/Telas/opcoes_menu.gd" id="1_3g0ue"]
-[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Backgrounds/Menu Inicial.png" id="1_7g602"]
+[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="1_7g602"]
 [ext_resource type="PackedScene" uid="uid://cotx2jdn0voao" path="res://Cenas/UI/opcoes_opcoes_menu.tscn" id="3_w0cpp"]
 
 [node name="Opcoes_Menu" type="Control"]

@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
-[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Backgrounds/Menu Inicial.png" id="2_hveky"]
-[ext_resource type="Texture2D" uid="uid://dwyu1yt0nnobj" path="res://Sprites/Backgrounds/Botao_Novo_Jogo.png" id="3_dh8gg"]
-[ext_resource type="Texture2D" uid="uid://dgit6gksdo5k1" path="res://Sprites/Backgrounds/Menu Inicial_base2.png" id="3_isfkn"]
+[ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="2_hveky"]
+[ext_resource type="Texture2D" uid="uid://dwyu1yt0nnobj" path="res://Sprites/Elementos UI/Botao_Novo_Jogo.png" id="3_dh8gg"]
+[ext_resource type="Texture2D" uid="uid://dgit6gksdo5k1" path="res://Sprites/Elementos UI/Menu Inicial_base2.png" id="3_isfkn"]
 [ext_resource type="PackedScene" uid="uid://b7kxq8ec6u2ui" path="res://Cenas/UI/opcoes_menu.tscn" id="3_ubvl0"]
-[ext_resource type="Texture2D" uid="uid://cmggty4xqaihv" path="res://Sprites/Backgrounds/Botões_selecionados_Novo_Jogo.png" id="5_3f8y4"]
-[ext_resource type="Texture2D" uid="uid://bddcssw2q3btd" path="res://Sprites/Backgrounds/Botao_Carregar_jogo.png" id="6_kc1t0"]
-[ext_resource type="Texture2D" uid="uid://i3g83ejswsa8" path="res://Sprites/Backgrounds/Botões_selecionados_Carregar_Jogo.png" id="7_3f8y4"]
-[ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Backgrounds/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
-[ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Backgrounds/Botao_Configuracoes.png" id="8_1b1oe"]
+[ext_resource type="Texture2D" uid="uid://cmggty4xqaihv" path="res://Sprites/Elementos UI/Botões_selecionados_Novo_Jogo.png" id="5_3f8y4"]
+[ext_resource type="Texture2D" uid="uid://bddcssw2q3btd" path="res://Sprites/Elementos UI/Botao_Carregar_jogo.png" id="6_kc1t0"]
+[ext_resource type="Texture2D" uid="uid://i3g83ejswsa8" path="res://Sprites/Elementos UI/Botões_selecionados_Carregar_Jogo.png" id="7_3f8y4"]
+[ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Elementos UI/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
+[ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Elementos UI/Botao_Configuracoes.png" id="8_1b1oe"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3

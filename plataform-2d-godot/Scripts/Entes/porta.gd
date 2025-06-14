@@ -5,11 +5,13 @@ extends Area2D
 var players_in_area: Array = []
 var ja_tocou = false
 var animacao_terminou = false
+var chamou_transicao = false
 
 func _process(delta: float) -> void:
-	if has_both_players() and animacao_terminou:
-		get_tree().get_root().get_node("Game Controller").go_to_next_level()
-		
+	if not chamou_transicao:
+		if has_both_players() and animacao_terminou:
+			get_tree().get_root().get_node("Game Controller").animacao_transicao()
+			chamou_transicao = true
 
 func _on_body_entered(body):
 	if body.name == "player_1" or body.name == "player_2":

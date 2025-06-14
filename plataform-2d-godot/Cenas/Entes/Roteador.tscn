@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg0iyugvxt7cr"]
+[gd_scene load_steps=11 format=3 uid="uid://cg0iyugvxt7cr"]
 
 [ext_resource type="Script" uid="uid://budjh6vr4uo6e" path="res://Scripts/Entes/roteador.gd" id="1_ttt0x"]
 [ext_resource type="Texture2D" uid="uid://csncrc55p6850" path="res://Sprites/Interagíveis/conexaoPrisma_teste.png" id="2_hf4jo"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="2_ttt0x"]
+[ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_aq0v7"]
+[ext_resource type="Script" uid="uid://b5f4x35dpl4c3" path="res://Scripts/linha_player1_rot.gd" id="4_iljlo"]
+[ext_resource type="Script" uid="uid://c05t7usdgp4gl" path="res://Scripts/linha_player2_rot.gd" id="6_fildu"]
 
 [sub_resource type="Animation" id="Animation_hf4jo"]
 resource_name = "Idle"
@@ -83,6 +86,7 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="sprite_conexao" type="Sprite2D" parent="zona_conexao_rot"]
+visible = false
 modulate = Color(0.662745, 1, 0.517647, 1)
 position = Vector2(0, 1.0252e-05)
 scale = Vector2(0.243125, 0.26)
@@ -96,6 +100,20 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_rot"]
 shape = SubResource("CircleShape2D_if2po")
 debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
+
+[node name="linha_player1_rot" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, 0)
+texture = ExtResource("4_aq0v7")
+texture_mode = 2
+script = ExtResource("4_iljlo")
+
+[node name="linha_player2_rot" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, 0)
+texture = ExtResource("4_aq0v7")
+texture_mode = 2
+script = ExtResource("6_fildu")
 
 [connection signal="area_entered" from="zona_conexao_rot" to="." method="_on_zona_conexao_rot_area_entered"]
 [connection signal="area_exited" from="zona_conexao_rot" to="." method="_on_zona_conexao_rot_area_exited"]

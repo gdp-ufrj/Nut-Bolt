@@ -4,6 +4,11 @@ extends CharacterBody2D
 @onready var timer = $Timer_conexao
 @onready var animation: AnimatedSprite2D = $"Animação"
 @onready var animador_conexao: AnimationPlayer = $zona_conexao_2/Sprite2D/AnimationPlayer
+@onready var raycast_chao = $RayCast2D_Centro
+@onready var raycast_direita = $RayCast2D_direita
+@onready var raycast_esquerda = $RayCast2D_esquerda 
+@onready var raycast_esquerda_meio = $RayCast2D_esquerda_meio
+@onready var raycast_direita_meio = $RayCast2D_direita_meio
 
 var estado_original = SPEED
 var _overlaping: Array = []
@@ -13,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var desacoplou = false
 var esta_desativado = false
 var som_desligar_ja_tocado = false
+var grudando: bool = false
 
 func _ready() -> void:
 	$zona_conexao_2.collision_layer = 3
@@ -22,6 +28,18 @@ func _ready() -> void:
 #region physics process
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
+	
+	#Grudar ativar e desativar
+	if Input.is_action_just_pressed("toggle_grudar"):
+		grudando = not grudando
+		if grudando:
+			print ("Modo GRUDAR Ativado")
+		else:
+			print ("Modo GRUDAR Desativado")
+			# Restaurar gravidade e rotação quando desgrudar
+			gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+			animation.rotation = 0
+			animation.flip_v = false
 	
 	# SOM DE ANDAR
 	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_up_WASD") and is_on_floor() and not esta_desativado:
@@ -68,6 +86,21 @@ func grudar(delta, direction)->void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
+	if not grudando:
+		return
+	#VERIFICA APOIO REAL MUdanca
+	var em_chao = raycast_chao.is_colliding()
+	var em_direita = raycast_direita.is_colliding()
+	var em_esquerda = raycast_esquerda.is_colliding()
+	var em_esquerda_meio = raycast_esquerda_meio.is_colliding()
+	var em_direita_meio = raycast_direita_meio.is_colliding()
+
+	#CONDICAO PARA DESLIGAR O MODO GRUDAR AUTOMATICAMENTE, NAO CONSEGUI FAZER
+	#if not em_chao and not em_direita and not em_esquerda and not em_esquerda_meio and not em_direita_meio:
+		#grudando = false
+		#print("Desgrudado automaticamente por falta de apoio")
+		#return
+		
 	if is_on_ceiling():
 		animation.rotation = 0
 		animation.flip_v = true
@@ -107,7 +140,6 @@ func grudar(delta, direction)->void:
 		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
 			gravity = 980
 			velocity.y = -velocity.y
-
 #endregion
 
 #region conexao
@@ -150,10 +182,9 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 
 func _on_game_controller_restart() -> void:
 	conectar()
-
 #endregion
 
-#Animação 
+#region animacao
 func setAnimation(direction):
 #Anim desativado
 	if esta_desativado:
@@ -170,4 +201,4 @@ func setAnimation(direction):
 	elif  Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
 	elif  Input.is_action_pressed("ui_right_WASD"): animation.play("Corrida")
 	else: animation.play("Idle")
-	
+#endregion

@@ -184,10 +184,10 @@ z_index = -1
 position = Vector2(577, 67)
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(40, 236)
+position = Vector2(40, 301)
 
 [node name="player_2_spawn" type="Marker2D" parent="."]
-position = Vector2(93, 236)
+position = Vector2(93, 301)
 
 [node name="plataforma" type="AnimatableBody2D" parent="."]
 position = Vector2(-19, 134)
