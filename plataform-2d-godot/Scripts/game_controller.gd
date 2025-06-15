@@ -67,6 +67,7 @@ func restart_level():
 		call_deferred("_remove_current_level")
 		#Chama a funcao de carregamento apos um breve atraso para garantir que a remocao tenha ocorrido
 		call_deferred("_load_level", current_index)
+		
 
 #Funcao para remover o nivel atual da cena de maneira segura
 func _remove_current_level():

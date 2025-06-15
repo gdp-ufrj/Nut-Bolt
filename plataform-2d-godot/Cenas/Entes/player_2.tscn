@@ -450,9 +450,13 @@ target_position = Vector2(-10, 20)
 [node name="RayCast2D_direita_meio" type="RayCast2D" parent="."]
 target_position = Vector2(10, 20)
 
+[node name="process_timer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_entered"]
 [connection signal="area_exited" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_exited"]
 [connection signal="timeout" from="Timer_Grude" to="." method="_on_timer_grude_timeout"]
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
+[connection signal="timeout" from="process_timer" to="." method="_on_process_timer_timeout"]

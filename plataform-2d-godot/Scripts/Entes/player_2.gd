@@ -181,7 +181,10 @@ func _on_zona_conexao_2_area_exited(area: Area2D) -> void:
 			animador_conexao.play("desconectando")
 
 func _on_game_controller_restart() -> void:
-	conectar()
+	self.remove_from_group("Players")
+
+func _on_process_timer_timeout() -> void:
+	self.add_to_group("Players")
 #endregion
 
 #region animacao

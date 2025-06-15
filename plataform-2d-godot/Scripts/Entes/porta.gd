@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 			chamou_transicao = true
 
 func _on_body_entered(body):
-	if body.name == "player_1" or body.name == "player_2":
+	if body.is_in_group("Players"):
 		#animação
 		if not ja_tocou:
 			$"Abre e fecha".visible = true

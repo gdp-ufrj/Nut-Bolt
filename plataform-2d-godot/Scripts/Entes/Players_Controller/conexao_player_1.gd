@@ -46,6 +46,3 @@ func _on_zona_conexao_1_area_exited(area):
 			timer.start()
 			aviso_conexao.play()
 			animador.play("desconectando")
-
-func _on_game_controller_restart():
-	conectar()

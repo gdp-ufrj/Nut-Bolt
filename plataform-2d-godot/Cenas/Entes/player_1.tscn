@@ -478,7 +478,11 @@ script = ExtResource("17_6dej7")
 [node name="Animacao_player_1" type="Node2D" parent="."]
 script = ExtResource("18_ei2yv")
 
+[node name="process_timer" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="area_entered" from="zona_conexao_1" to="Conexao_player_1" method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="Conexao_player_1" method="_on_zona_conexao_1_area_exited"]
 [connection signal="timeout" from="Timer_conexao" to="Conexao_player_1" method="_on_timer_conexao_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="process_timer" to="." method="_on_process_timer_timeout"]
