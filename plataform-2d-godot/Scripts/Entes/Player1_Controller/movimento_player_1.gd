@@ -3,6 +3,7 @@ extends Node2D
 @export var SPEED: int = 130
 @export var JUMP_VELOCITY: int = -320
 
+
 @onready var corpo: CharacterBody2D = get_parent()
 @onready var coyote_timer: Timer = corpo.get_node("CoyoteTimer")
 
@@ -28,16 +29,17 @@ func processar_movimento():
 		corpo.velocity.y = JUMP_VELOCITY
 		esta_pulando = true
 		pode_pular = false
-		if proximo_som_salto == 1:
+		if proximo_som_salto == 1 and not corpo.get_node("Conexao_player_1").esta_desativado:
 			corpo.get_node("audio_salto1").play()
 			proximo_som_salto = 2
 		else:
-			corpo.get_node("audio_salto2").play()
-			proximo_som_salto = 1
+			if not corpo.get_node("Conexao_player_1").esta_desativado:
+				corpo.get_node("audio_salto2").play()
+				proximo_som_salto = 1
 
 	corpo.move_and_slide()
 
-	if esta_pulando and corpo.is_on_floor():
+	if esta_pulando and corpo.is_on_floor() and not corpo.get_node("Conexao_player_1").esta_desativado:
 		esta_pulando = false
 		pode_pular = true
 		corpo.get_node("audio_pouso").play()

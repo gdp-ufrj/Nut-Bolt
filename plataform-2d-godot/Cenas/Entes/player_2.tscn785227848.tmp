@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=49 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://ciasrbt3302oh" path="res://Sprites/Players/Quadrado/Quadradofinal.png" id="2_m2x1u"]
@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_m2x1u"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="15_2cdmh"]
 [ext_resource type="Script" uid="uid://b2yfow3fdi5th" path="res://Scripts/Entes/Player2_Controller/animacao_player_2.gd" id="16_x5dgs"]
-[ext_resource type="Script" uid="uid://d06c178qhq8w8" path="res://Scripts/Entes/Player2_Controller/conexao_player_2.gd" id="17_0yaun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2trpg"]
 radius = 12.0
@@ -412,7 +411,6 @@ wait_time = 4.0
 sprite_frames = SubResource("SpriteFrames_duo7p")
 animation = &"Desativado"
 autoplay = "Idle"
-frame_progress = 0.443609
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")
@@ -459,17 +457,10 @@ wait_time = 0.1
 [node name="Animacao_player_2" type="Node2D" parent="."]
 script = ExtResource("16_x5dgs")
 
-[node name="Conexao_player_2" type="Node2D" parent="."]
-script = ExtResource("17_0yaun")
-
 [connection signal="body_entered" from="AREA PARA MOVE" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AREA PARA MOVE" to="." method="_on_area_2d_body_exited"]
 [connection signal="area_entered" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_entered"]
-[connection signal="area_entered" from="zona_conexao_2" to="Conexao_player_2" method="_on_zona_conexao_2_area_entered"]
 [connection signal="area_exited" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_exited"]
-[connection signal="area_exited" from="zona_conexao_2" to="Conexao_player_2" method="_on_zona_conexao_2_area_exited"]
 [connection signal="timeout" from="Timer_Grude" to="." method="_on_timer_grude_timeout"]
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
-[connection signal="timeout" from="Timer_conexao" to="Conexao_player_2" method="_on_timer_conexao_timeout"]
 [connection signal="timeout" from="process_timer" to="." method="_on_process_timer_timeout"]
-[connection signal="timeout" from="process_timer" to="Conexao_player_2" method="_on_process_timer_timeout"]

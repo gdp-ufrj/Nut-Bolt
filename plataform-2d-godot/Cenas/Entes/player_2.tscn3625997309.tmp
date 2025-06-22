@@ -412,7 +412,6 @@ wait_time = 4.0
 sprite_frames = SubResource("SpriteFrames_duo7p")
 animation = &"Desativado"
 autoplay = "Idle"
-frame_progress = 0.443609
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")

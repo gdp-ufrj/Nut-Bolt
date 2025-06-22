@@ -15,9 +15,9 @@
 [ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_2xb4h"]
 [ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_pa6et"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="15_meh3d"]
-[ext_resource type="Script" uid="uid://cnrytwluo71dj" path="res://Scripts/Entes/Players_Controller/movimento_player_1.gd" id="16_hp8oq"]
-[ext_resource type="Script" uid="uid://cr0a627a1keyy" path="res://Scripts/Entes/Players_Controller/conexao_player_1.gd" id="17_6dej7"]
-[ext_resource type="Script" uid="uid://gc21i31b82aa" path="res://Scripts/Entes/Players_Controller/animacao_player_1.gd" id="18_ei2yv"]
+[ext_resource type="Script" uid="uid://cnrytwluo71dj" path="res://Scripts/Entes/Player1_Controller/movimento_player_1.gd" id="16_hp8oq"]
+[ext_resource type="Script" uid="uid://cr0a627a1keyy" path="res://Scripts/Entes/Player1_Controller/conexao_player_1.gd" id="17_6dej7"]
+[ext_resource type="Script" uid="uid://gc21i31b82aa" path="res://Scripts/Entes/Player1_Controller/animacao_player_1.gd" id="18_ei2yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
 size = Vector2(19, 25)
