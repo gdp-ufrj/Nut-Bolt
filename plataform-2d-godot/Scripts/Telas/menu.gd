@@ -1,10 +1,14 @@
 extends Control
 
-@onready var options_menu = $Opcoes_Menu as OptionsMenu
-@onready var canvaslayer = $CanvasLayer as CanvasLayer
+#@onready var options_menu = $Opcoes_Menu as OptionsMenu
+#@onready var canvaslayer = $CanvasLayer as CanvasLayer
+@onready var main_menu = $CanvasLayer/VBoxContainer
+@onready var configuracoes: Panel = $CanvasLayer/Configuracoes
 
 func _ready():
-	handle_connecting_signals()
+	main_menu.visible = true
+	configuracoes.visible = false
+	#handle_connecting_signals()
 
 #botao de start carregando as cenas do game controller
 func _on_start_pressed() -> void:
@@ -25,14 +29,18 @@ func _on_creditos_pressed() -> void:
 
 #botão de Opções ainda ainda não completado 
 func _on_opções_pressed() -> void:
-	canvaslayer.visible = false
-	options_menu.set_process(true)
-	options_menu.visible = true
+	main_menu.visible = false
+	configuracoes.visible = true
+	#options_menu.visible = true
 	
-func _on_exit_options_menu() -> void:
-	canvaslayer.visible = true
-	options_menu.visible = false
+#func _on_exit_options_menu() -> void:
+	#canvaslayer.visible = true
+	#options_menu.visible = false
 
-func handle_connecting_signals() -> void:
-	options_menu.exit_options_menu.connect(_on_exit_options_menu)
+#func handle_connecting_signals() -> void:
+	#options_menu.exit_options_menu.connect(_on_exit_options_menu)
 	
+
+#Botao de sair das configuracoes
+func _on_voltar_configuracoes_pressed() -> void:
+	_ready()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=20 format=4 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="4_h5va6"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="4_qhx57"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="5_tsd38"]
+[ext_resource type="AudioStream" uid="uid://dfynr71mohxq0" path="res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg" id="8_1tugt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsd38"]
 texture = ExtResource("2_xx88x")
@@ -235,3 +236,9 @@ position = Vector2(37, 308)
 
 [node name="Botao" parent="." instance=ExtResource("5_tsd38")]
 position = Vector2(444, 81)
+
+[node name="SoundTrack_laboratorio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1tugt")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
