@@ -1,40 +1,45 @@
 extends Line2D
 
-@onready var path_p1 = "/root/Game Controller/Players/player_1"
-@onready var path_p2 = "/root/Game Controller/Players/player_2"
-
-var p1 :Node2D
-var p2 :Node2D
-var max_dist = 159
+var p1 : Node2D
+var p2 : Node2D
+var max_dist = 170
 var fade_start = max_dist * 0.7
 
 func _ready() -> void:
-	points = [ Vector2.ZERO, Vector2.ZERO ]
+	points = [Vector2.ZERO, Vector2.ZERO]
 
-func _process(delta: float) -> void:
-	
-	#Espera os players carregarem na cena
-	if not p1 or p2:
-		if has_node(path_p1) and has_node(path_p2):
-			p1 = get_node(path_p1)
-			p2 = get_node(path_p2)
+func _process(_delta: float) -> void:
+	# Garante que os jogadores existam
+	if not p1 or not p2:
+		#print("Tentando localizar jogadores...")
+		var p1_path = "/root/Game Controller/Players/player_1"
+		var p2_path = "/root/Game Controller/Players/player_2"
+		
+		if has_node(p1_path) and has_node(p2_path):
+			#print("Encontrado:", p1_path)
+			#print("Encontrado:", p2_path)
+			p1 = get_node(p1_path)
+			p2 = get_node(p2_path)
 		else:
-			return 
-	
-	if p1 and p2 :
-		#Acha a distância entre os robôs
-		var dist = p1.global_position.distance_to(p2.global_position)
+			return
+
+	# Se ambos existem, continua
+	if p1 and p2:
+		var pos1 = p1.global_position
+		var pos2 = p2.global_position
+		var dist = pos1.distance_to(pos2)
 		
 		if dist <= max_dist:
-			#posiciona um ponto em cada player
-			points[0] = to_local(p1.global_position)
-			points[1] = to_local(p2.global_position)
-			
-			#muda a transparência e largura de acordo com a distância
-			var alfadist = remap(dist,fade_start,max_dist,1,0.5)
-			modulate = Color(1,1,1,alfadist)
-			width = remap(dist,40,max_dist,10,8)
-			
+			# Converte as posições para o espaço local da Line2D
+			global_position = (pos1 + pos2) * 0.5  # Centraliza a linha entre os dois jogadores
+			points[0] = to_local(pos1)
+			points[1] = to_local(pos2)
+
+			# Efeitos visuais
+			var alfadist = remap(dist, fade_start, max_dist, 1.0, 0.4)
+			modulate = Color(1, 1, 1, clamp(alfadist, 0.0, 1.0))
+			width = remap(dist, 40, max_dist, 12, 6)
 		else:
-			#posiciona os dois pontos no 0,0 evitando que a linha renderize
-			points = [ Vector2.ZERO, Vector2.ZERO ]
+			# Oculta a linha
+			points = [Vector2.ZERO, Vector2.ZERO]
+			modulate.a = 0.0

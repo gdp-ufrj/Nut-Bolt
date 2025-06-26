@@ -81,19 +81,12 @@ script = ExtResource("1_b7awa")
 [node name="Players" type="Node2D" parent="."]
 
 [node name="player_1" parent="Players" groups=["Players"] instance=ExtResource("2_7gg3j")]
+z_index = 1
 position = Vector2(0, -1)
 
 [node name="player_2" parent="Players" groups=["Players"] instance=ExtResource("3_dg2gn")]
+z_index = 1
 position = Vector2(-5, 1)
-
-[node name="conexao_players" type="Line2D" parent="Players"]
-z_index = -1
-texture_filter = 3
-position = Vector2(0, 1)
-points = PackedVector2Array(0, 0, 0, 0)
-texture = ExtResource("4_dg2gn")
-texture_mode = 2
-script = ExtResource("6_dg2gn")
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
@@ -107,6 +100,12 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_1ob22")
 }
+
+[node name="conexao_players" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+texture = ExtResource("4_dg2gn")
+texture_mode = 2
+script = ExtResource("6_dg2gn")
 
 [connection signal="restart" from="." to="Players/player_1" method="_on_game_controller_restart"]
 [connection signal="restart" from="." to="Players/player_2" method="_on_game_controller_restart"]

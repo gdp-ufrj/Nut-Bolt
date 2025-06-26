@@ -19,7 +19,7 @@ func atualizar_gravidade(delta: float):
 func processar_movimento():
 	var estava_no_chao = corpo.is_on_floor()
 	direcao = Input.get_axis("ui_left", "ui_right")
-	
+
 	if direcao:
 		corpo.velocity.x = direcao * SPEED
 	else:
@@ -28,7 +28,8 @@ func processar_movimento():
 	var no_chao = corpo.is_on_floor()
 	var pode_usar_coyote = not coyote_timer.is_stopped()
 
-	if (no_chao and Input.is_action_pressed("ui_up")) or (not no_chao and pode_usar_coyote and Input.is_action_just_pressed("ui_up")):
+	# CORRIGIDO: pulo só acontece se estiver no chão ou com coyote time
+	if (no_chao or pode_usar_coyote) and Input.is_action_just_pressed("ui_up"):
 		corpo.velocity.y = JUMP_VELOCITY
 		esta_pulando = true
 		pode_pular = false

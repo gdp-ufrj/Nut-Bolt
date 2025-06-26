@@ -13,7 +13,7 @@ var current_index: int = -1     #Indice do nivel atual
 
 @onready var player_1: CharacterBody2D = $Players/player_1 
 @onready var player_2: CharacterBody2D = $Players/player_2 
-@onready var conexao_players: Node2D = $Players/conexao_players
+@onready var conexao_players: Line2D = $conexao_players
 @onready var pause_menu = $Pause_menu
 
 #Funcao chamada quando a cena começa a ser processada
