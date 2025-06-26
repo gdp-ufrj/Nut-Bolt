@@ -15,15 +15,16 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	if body.is_in_group("Players"):
-		#animação
-		if not ja_tocou:
+		if not players_in_area.has(body):
+			players_in_area.append(body)
+
+		#Só toca a animação quando AMBOS estiverem presentes e ainda não tocou
+		if has_both_players() and not ja_tocou:
 			$"Abre e fecha".visible = true
 			animation.play("Abre e fecha")
 			$audio_abrindo.play()
-		if not players_in_area.has(body):
-			players_in_area.append(body)
-		ja_tocou = true
-
+			ja_tocou = true
+			
 func _on_body_exited(body):
 	if players_in_area.has(body):
 		players_in_area.erase(body)

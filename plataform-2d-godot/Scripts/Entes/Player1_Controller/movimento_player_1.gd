@@ -25,10 +25,14 @@ func processar_movimento():
 	else:
 		corpo.velocity.x = move_toward(corpo.velocity.x, 0, SPEED)
 
-	if Input.is_action_just_pressed("ui_up") and (corpo.is_on_floor() or not coyote_timer.is_stopped()):
+	var no_chao = corpo.is_on_floor()
+	var pode_usar_coyote = not coyote_timer.is_stopped()
+
+	if (no_chao and Input.is_action_pressed("ui_up")) or (not no_chao and pode_usar_coyote and Input.is_action_just_pressed("ui_up")):
 		corpo.velocity.y = JUMP_VELOCITY
 		esta_pulando = true
 		pode_pular = false
+
 		if proximo_som_salto == 1 and not corpo.get_node("Conexao_player_1").esta_desativado:
 			corpo.get_node("audio_salto1").play()
 			proximo_som_salto = 2

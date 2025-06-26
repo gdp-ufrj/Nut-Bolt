@@ -466,7 +466,7 @@ stream = ExtResource("13_2xb4h")
 stream = ExtResource("14_pa6et")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.33
+wait_time = 0.1
 one_shot = true
 
 [node name="Movimento_player_1" type="Node2D" parent="."]
