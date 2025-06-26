@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=25 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -72,6 +72,13 @@ _data = {
 &"RESET": SubResource("Animation_kp6uw"),
 &"Subir": SubResource("Animation_k87ql")
 }
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_shsao"]
+a = Vector2(-87, 0)
+b = Vector2(100, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0df2m"]
+size = Vector2(187, 5.5)
 
 [node name="tutorial_1" type="Node2D"]
 script = ExtResource("1_k87ql")
@@ -193,3 +200,18 @@ stream = ExtResource("11_shsao")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Void" type="Area2D" parent="."]
+position = Vector2(435, 415)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+shape = SubResource("SegmentShape2D_shsao")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Void"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/StaticBody2D"]
+position = Vector2(6.5, 4.25)
+shape = SubResource("RectangleShape2D_0df2m")
+
+[connection signal="body_entered" from="Void" to="." method="_on_area_2d_body_entered"]

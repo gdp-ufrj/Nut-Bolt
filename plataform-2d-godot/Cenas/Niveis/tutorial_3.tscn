@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=22 format=4 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
@@ -80,6 +80,13 @@ size = Vector2(40, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8urag"]
 size = Vector2(16, 16.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1tugt"]
+a = Vector2(-243, 0)
+b = Vector2(465, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jae2x"]
+size = Vector2(707, 3.5)
 
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
@@ -242,3 +249,18 @@ stream = ExtResource("8_1tugt")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="Void" type="Area2D" parent="."]
+position = Vector2(242, 361)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+shape = SubResource("SegmentShape2D_1tugt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Void"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/StaticBody2D"]
+position = Vector2(111.5, 3.25)
+shape = SubResource("RectangleShape2D_jae2x")
+
+[connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
