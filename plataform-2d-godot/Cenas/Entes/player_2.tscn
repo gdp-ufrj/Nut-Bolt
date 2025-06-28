@@ -273,7 +273,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Corrida",
-"speed": 8.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -302,7 +302,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Desativado",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -325,7 +325,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -410,12 +410,14 @@ wait_time = 4.0
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_duo7p")
-animation = &"Desativado"
+animation = &"Virar"
 autoplay = "Idle"
-frame_progress = 0.443609
+frame = 1
+frame_progress = 1.0
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")
+volume_db = -9.247
 parameters/looping = true
 
 [node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]
@@ -453,9 +455,6 @@ target_position = Vector2(-10, 20)
 [node name="RayCast2D_direita_meio" type="RayCast2D" parent="."]
 target_position = Vector2(10, 20)
 
-[node name="process_timer" type="Timer" parent="."]
-wait_time = 0.1
-
 [node name="Animacao_player_2" type="Node2D" parent="."]
 script = ExtResource("16_x5dgs")
 
@@ -471,5 +470,3 @@ script = ExtResource("17_0yaun")
 [connection signal="timeout" from="Timer_Grude" to="." method="_on_timer_grude_timeout"]
 [connection signal="timeout" from="Timer_conexao" to="." method="_on_timer_conexao_timeout"]
 [connection signal="timeout" from="Timer_conexao" to="Conexao_player_2" method="_on_timer_conexao_timeout"]
-[connection signal="timeout" from="process_timer" to="." method="_on_process_timer_timeout"]
-[connection signal="timeout" from="process_timer" to="Conexao_player_2" method="_on_process_timer_timeout"]

@@ -1,11 +1,12 @@
 extends Node2D
 
-@export var SPEED: int = 130
+@export var SPEED: int = 95
 @export var JUMP_VELOCITY: int = -320
 
 
 @onready var corpo: CharacterBody2D = get_parent()
 @onready var coyote_timer: Timer = corpo.get_node("CoyoteTimer")
+@onready var timer_flutua: Timer = corpo.get_node("Timer_flutua")
 
 var direcao := 0.0
 var esta_pulando := false
@@ -16,7 +17,7 @@ func atualizar_gravidade(delta: float):
 	if not corpo.is_on_floor():
 		corpo.velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
 
-func processar_movimento():
+func processar_movimento(delta):
 	var estava_no_chao = corpo.is_on_floor()
 	direcao = Input.get_axis("ui_left", "ui_right")
 
@@ -31,6 +32,11 @@ func processar_movimento():
 	# CORRIGIDO: pulo só acontece se estiver no chão ou com coyote time
 	if (no_chao or pode_usar_coyote) and Input.is_action_just_pressed("ui_up"):
 		corpo.velocity.y = JUMP_VELOCITY
+		#corpo.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+		#timer_flutua.start()
+		#if timer_flutua.is_stopped(): 
+			#corpo.motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+
 		esta_pulando = true
 		pode_pular = false
 

@@ -145,10 +145,3 @@ func grudar(delta, direction)->void:
 			gravity = 980
 			velocity.y = -velocity.y
 #endregion
-
-func _on_game_controller_restart() -> void:
-	self.remove_from_group("Players")
-	$process_timer.start()
-
-func _on_process_timer_timeout() -> void:
-	self.add_to_group("Players")

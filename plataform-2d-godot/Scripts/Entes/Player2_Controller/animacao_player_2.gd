@@ -16,6 +16,6 @@ func setAnimation(direction, esta_desativado):
 
 #Parede subindo e descendo
 	if Input.is_action_pressed("ui_up_WASD"): animation.play("Parede Subindo")
-	elif  Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
-	elif  Input.is_action_pressed("ui_right_WASD"): animation.play("Corrida")
+	elif Input.is_action_pressed("ui_down_WASD"): animation.play("Parede Descendo")
+	elif Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_left_WASD"): animation.play("Corrida")
 	else: animation.play("Idle")
