@@ -29,7 +29,7 @@ func _unhandled_input(event):
 			$Pause_menu.hide_pause_menu()
 		else:
 			$Pause_menu.show_pause_menu()
-	elif Input.is_action_just_pressed("restart") and not get_tree().paused:
+	elif Input.is_action_just_pressed("restart") and not get_tree().paused and not $AnimationPlayer.is_playing():
 		$AnimationPlayer.play("fade_in")
 
 # funcao chamada quando fade_in acaba e para animacao de troca de fase
