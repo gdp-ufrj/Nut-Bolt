@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var animacao_plataforma = $"Plataforma movel/CollisionShape2D/AnimationPlayer"
+@onready var fadein = get_parent().get_node("AnimationPlayer")
 
 func  _process(delta: float) -> void:
 	if $Botao.pode_ativar and Input.is_action_just_pressed("interagir"):
@@ -13,5 +14,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("Entrou:", body.name)
 	if body.is_in_group("Players"):
 		print(body.name, "está no grupo Players")
-		get_tree().reload_current_scene()
-	
+		if not fadein.is_playing():
+			fadein.play("fade_in")
