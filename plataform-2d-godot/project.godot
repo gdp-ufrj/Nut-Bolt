@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Plataform 2D Godot"
+config/name="Prismante"
 run/main_scene="uid://co6ao4k02l5al"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
