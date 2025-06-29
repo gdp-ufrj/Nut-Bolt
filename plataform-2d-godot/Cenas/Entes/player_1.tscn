@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://gc21i31b82aa" path="res://Scripts/Entes/Player1_Controller/animacao_player_1.gd" id="18_ei2yv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7f8p"]
-size = Vector2(19, 25)
+size = Vector2(20, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7f8p"]
 radius = 76.7919
@@ -397,7 +397,7 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="player_1" type="CharacterBody2D"]
+[node name="player_1" type="CharacterBody2D" groups=["Players"]]
 top_level = true
 script = ExtResource("1_66jdp")
 metadata/_edit_lock_ = true
@@ -410,7 +410,6 @@ scale = Vector2(1.05556, 1.04167)
 texture = ExtResource("2_pa6et")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_q7f8p")
 
 [node name="zona_conexao_1" type="Area2D" parent="."]
@@ -474,7 +473,7 @@ stream = ExtResource("13_2xb4h")
 stream = ExtResource("14_pa6et")
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.25
 one_shot = true
 
 [node name="Movimento_player_1" type="Node2D" parent="."]

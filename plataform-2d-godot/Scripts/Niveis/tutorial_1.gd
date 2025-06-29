@@ -10,6 +10,8 @@ func  _process(delta: float) -> void:
 
 #reinicio de fase ao cair (void)
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("Entrou:", body.name)
 	if body.is_in_group("Players"):
+		print(body.name, "está no grupo Players")
 		get_tree().reload_current_scene()
-	pass # Replace with function body.
+	

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="3_pv42o"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_4dw7u"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
-[ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
+[ext_resource type="Script" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="8_0a68a"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="9_shsao"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="10_0a68a"]
@@ -202,7 +202,8 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="Void" type="Area2D" parent="."]
-position = Vector2(435, 415)
+position = Vector2(436, 415)
+collision_layer = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
