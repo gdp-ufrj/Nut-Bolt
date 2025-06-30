@@ -1,42 +1,39 @@
 extends Node2D
 
-@export var SPEED: int = 95
-@export var JUMP_VELOCITY: int = -320
-
-
 @onready var corpo: CharacterBody2D = get_parent()
+@onready var jump_velocity: float = ((2.0 * corpo.jump_height) / corpo.jump_time_peak)* -1
+@onready var jump_gravity: float = ((-2.0 * corpo.jump_height) / (corpo.jump_time_peak**2))* -1
+@onready var fall_gravity: float = ((-2.0 * corpo.jump_height) / (corpo.jump_time_descent**2)) * -1
 @onready var coyote_timer: Timer = corpo.get_node("CoyoteTimer")
-@onready var timer_flutua: Timer = corpo.get_node("Timer_flutua")
 
 var direcao := 0.0
 var esta_pulando := false
 var pode_pular := true
 var proximo_som_salto := 1
 
+
 func atualizar_gravidade(delta: float):
 	if not corpo.is_on_floor():
-		corpo.velocity.y += ProjectSettings.get_setting("physics/2d/default_gravity") * delta
+		corpo.velocity.y += get_gravity() * delta
 
+func get_gravity():
+	return jump_gravity if corpo.velocity.y < 0.0 else fall_gravity
+	
 func processar_movimento(delta):
 	var estava_no_chao = corpo.is_on_floor()
 	direcao = Input.get_axis("ui_left", "ui_right")
 
 	if direcao:
-		corpo.velocity.x = direcao * SPEED
+		corpo.velocity.x = direcao * corpo.SPEED
 	else:
-		corpo.velocity.x = move_toward(corpo.velocity.x, 0, SPEED)
+		corpo.velocity.x = move_toward(corpo.velocity.x, 0, corpo.SPEED)
 
 	var no_chao = corpo.is_on_floor()
 	var pode_usar_coyote = not coyote_timer.is_stopped()
 
 	# CORRIGIDO: pulo só acontece se estiver no chão ou com coyote time
 	if (no_chao or pode_usar_coyote) and Input.is_action_just_pressed("ui_up"):
-		corpo.velocity.y = JUMP_VELOCITY
-		#corpo.motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
-		#timer_flutua.start()
-		#if timer_flutua.is_stopped(): 
-			#corpo.motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
-
+		corpo.velocity.y = jump_velocity
 		esta_pulando = true
 		pode_pular = false
 

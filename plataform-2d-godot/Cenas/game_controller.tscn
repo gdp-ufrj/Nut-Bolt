@@ -80,11 +80,11 @@ script = ExtResource("1_b7awa")
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="player_1" parent="Players" groups=["Players"] instance=ExtResource("2_7gg3j")]
+[node name="player_1" parent="Players" instance=ExtResource("2_7gg3j")]
 z_index = 1
 position = Vector2(0, -1)
 
-[node name="player_2" parent="Players" groups=["Players"] instance=ExtResource("3_dg2gn")]
+[node name="player_2" parent="Players" instance=ExtResource("3_dg2gn")]
 z_index = 1
 position = Vector2(-5, 1)
 

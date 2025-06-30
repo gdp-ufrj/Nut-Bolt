@@ -4,16 +4,17 @@ extends Node2D
 @onready var timer = corpo.get_node("Timer_conexao")
 @onready var animador = corpo.get_node("zona_conexao_1/Sprite2D/AnimationPlayer")
 @onready var aviso_conexao = corpo.get_node("aviso_conexao")
+@onready var movimento = corpo.get_node("Movimento_player_1")
+@onready var estado_original := [corpo.SPEED, movimento.jump_velocity]
 
-var estado_original := [130, -320]
 var esta_desativado := false
 var som_desligar_ja_tocado := false
 var _overlaping := []
 
 func conectar(veio_de_desativado := false):
 	esta_desativado = false
-	corpo.get_node("Movimento_player_1").SPEED = estado_original[0]
-	corpo.get_node("Movimento_player_1").JUMP_VELOCITY = estado_original[1]
+	corpo.SPEED = estado_original[0]
+	movimento.jump_velocity = estado_original[1]
 	timer.stop()
 	aviso_conexao.stop()
 	som_desligar_ja_tocado = false
@@ -21,8 +22,8 @@ func conectar(veio_de_desativado := false):
 		corpo.get_node("reestabelece_conexao").play()
 
 func desconectar():
-	corpo.get_node("Movimento_player_1").SPEED = 0
-	corpo.get_node("Movimento_player_1").JUMP_VELOCITY = 0
+	corpo.SPEED = 0
+	movimento.jump_velocity = 0
 	aviso_conexao.stop()
 
 func _on_timer_conexao_timeout():

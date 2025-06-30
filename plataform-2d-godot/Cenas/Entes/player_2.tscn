@@ -417,7 +417,7 @@ frame_progress = 1.0
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")
-volume_db = -9.247
+volume_db = -3.189
 parameters/looping = true
 
 [node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]

@@ -1,5 +1,10 @@
 extends CharacterBody2D
 
+@export var SPEED: int = 95
+@export var jump_height: float 
+@export var jump_time_peak: float
+@export var jump_time_descent: float
+
 @onready var movimento = $Movimento_player_1
 @onready var conexao = $Conexao_player_1
 @onready var animacao = $Animacao_player_1

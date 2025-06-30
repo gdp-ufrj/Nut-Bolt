@@ -399,7 +399,11 @@ animations = [{
 
 [node name="player_1" type="CharacterBody2D" groups=["Players"]]
 top_level = true
+platform_on_leave = 2
 script = ExtResource("1_66jdp")
+jump_height = 60.0
+jump_time_peak = 0.5
+jump_time_descent = 0.38
 metadata/_edit_lock_ = true
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -434,7 +438,8 @@ libraries = {
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_25pul")
-volume_db = -17.165
+volume_db = -3.029
+bus = &"SFX"
 parameters/looping = true
 
 [node name="Timer_conexao" type="Timer" parent="."]
@@ -462,18 +467,22 @@ bus = &"SFX"
 [node name="audio_salto2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_25pul")
 volume_db = -7.068
+bus = &"SFX"
 
 [node name="audio_pouso" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_tii1a")
+bus = &"SFX"
 
 [node name="audio_desligar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_2xb4h")
+bus = &"SFX"
 
 [node name="reestabelece_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_pa6et")
+bus = &"SFX"
 
 [node name="CoyoteTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.1
 one_shot = true
 
 [node name="Movimento_player_1" type="Node2D" parent="."]
@@ -484,9 +493,6 @@ script = ExtResource("17_6dej7")
 
 [node name="Animacao_player_1" type="Node2D" parent="."]
 script = ExtResource("18_ei2yv")
-
-[node name="Timer_flutua" type="Timer" parent="."]
-wait_time = 0.3
 
 [connection signal="area_entered" from="zona_conexao_1" to="Conexao_player_1" method="_on_zona_conexao_1_area_entered"]
 [connection signal="area_exited" from="zona_conexao_1" to="Conexao_player_1" method="_on_zona_conexao_1_area_exited"]
