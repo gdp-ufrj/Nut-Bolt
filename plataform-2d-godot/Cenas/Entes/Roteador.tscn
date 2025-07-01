@@ -77,7 +77,7 @@ script = ExtResource("1_ttt0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2.38419e-07)
-scale = Vector2(1.4, 1.45)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_hf4jo")
 
 [node name="zona_conexao_rot" type="Area2D" parent="."]
