@@ -39,3 +39,12 @@ func _on_void_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+
+
+#VOID 
+#reinicio de fase ao cair (void)
+#func _on_body_entered(body: Node2D) -> void:
+#	if body.is_in_group("Players"):
+#		game_controller.restart_level()
+	

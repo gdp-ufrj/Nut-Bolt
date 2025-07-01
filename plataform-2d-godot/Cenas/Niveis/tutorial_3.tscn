@@ -90,7 +90,7 @@ b = Vector2(465, 1)
 size = Vector2(646, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrpa"]
-size = Vector2(320, 17)
+size = Vector2(320, 26)
 
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
@@ -281,7 +281,7 @@ tile_map_data = PackedByteArray("AAAHACMAAAADAAEAAAAIACMAAAADAAEAAAAJACMAAAADAAE
 position = Vector2(213, 356)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chao/StaticBody2D"]
-position = Vector2(17, 1.5)
+position = Vector2(17, -3)
 shape = SubResource("RectangleShape2D_xrrpa")
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
