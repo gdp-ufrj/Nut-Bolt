@@ -448,10 +448,9 @@ ignore_time_scale = true
 
 [node name="Animaçao" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lnrxe")
-animation = &"virar"
+animation = &"run"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.624788
+frame_progress = 0.618969
 
 [node name="audio_caminhar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_h0lym")

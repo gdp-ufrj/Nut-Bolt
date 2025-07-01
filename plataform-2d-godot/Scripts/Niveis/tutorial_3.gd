@@ -36,6 +36,6 @@ func inverte_estado()->void:
 #reinicio de fase ao cair (void)
 #!!ERRO!! voltando pra fase 1
 func _on_void_body_entered(body: Node2D) -> void:
-#	if body.is_in_group("Players"):
-#		get_tree().reload_current_scene()
+	if body.is_in_group("Players"):
+		get_tree().reload_current_scene()
 	pass # Replace with function body.
