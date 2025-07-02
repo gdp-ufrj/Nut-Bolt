@@ -5,7 +5,7 @@ signal restart
 var level_paths = [
 	"res://Cenas/Niveis/tutorial_1.tscn",
 	"res://Cenas/Niveis/tutorial_2.tscn",
-	"res://Cenas/Niveis/tutorial_3.tscn"   
+	"res://Cenas/Niveis/tutorial_3.tscn"  
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
@@ -15,11 +15,15 @@ var current_index: int = -1     #Indice do nivel atual
 @onready var player_2: CharacterBody2D = $Players/player_2 
 @onready var conexao_players: Line2D = $conexao_players
 @onready var pause_menu = $Pause_menu
+@onready var music_player: AudioStreamPlayer2D = $SoundTrack_laboratorio
+
+const music_tutorial = preload("res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg")
+#const music_fases = preload() #Falta a musica
 
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
-	current_index = 2
+	current_index = 0
 	_load_level(current_index)
 
 #Funcao chamada sempre que uma acao de input não tratada acontece (como pressionar teclas)
@@ -104,9 +108,24 @@ func _load_level(index: int):
 	else:
 		#Caso nao encontre os pontos de spawn exibe um aviso
 		push_warning("Pontos de spawn não encontrados no nível: " + level_path)
+		
+	#Controle da musica
+	_update_music(index)
 
 #Funcao para adicionar o nivel a cena, que sera chamada com call_deferred
 func _add_level_to_scene(level_instance: Node):
 	#Adiciona o nivel a arvore de nos
 	add_child(level_instance)
+	
+func _update_music(index: int) -> void:
+	if index <= 2:
+		#Tutorial (fases 0,1,2) nao reinicia se ja estiver tocando
+		if music_player.stream != music_tutorial:
+			music_player.stream = music_tutorial
+			music_player.play()
+		#elif index >= 3:
+			#Trocar musica depois do laboratorio (falta a musica)
+			#if music_player,stream != music_fases:
+				#music_player.stream = music_fases
+				#music_player.play()
 	

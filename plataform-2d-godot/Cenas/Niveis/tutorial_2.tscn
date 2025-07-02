@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=21 format=4 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://u7jketmgjaqv" path="res://Sprites/Backgrounds/Fase 2 MVP1 full.png" id="5_v84dr"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="6_kqia7"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
-[ext_resource type="AudioStream" uid="uid://dfynr71mohxq0" path="res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg" id="10_yddrn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ipts"]
 texture = ExtResource("5_8ipts")
@@ -244,12 +243,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/direito"]
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
-
-[node name="SoundTrack_laboratorio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_yddrn")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
