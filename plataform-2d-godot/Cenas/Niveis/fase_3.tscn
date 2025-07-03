@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://ddydm52a1l8kw"]
+[gd_scene load_steps=7 format=4 uid="uid://ddydm52a1l8kw"]
 
 [ext_resource type="Texture2D" uid="uid://bkqttv4ud6u1q" path="res://Sprites/Tilesets/Tileset_caverna01.png" id="1_f02yl"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="2_f02yl"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_apqy4"]
+[ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="4_apqy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apqy4"]
 texture = ExtResource("1_f02yl")
@@ -104,3 +105,18 @@ position = Vector2(39, 72)
 
 [node name="Porta" parent="." instance=ExtResource("3_apqy4")]
 position = Vector2(594, 174)
+
+[node name="Espinho" parent="." instance=ExtResource("4_apqy4")]
+position = Vector2(0, 270)
+
+[node name="Espinho2" parent="." instance=ExtResource("4_apqy4")]
+position = Vector2(40, 284)
+
+[node name="Espinho3" parent="." instance=ExtResource("4_apqy4")]
+position = Vector2(80, 291)
+
+[node name="Espinho4" parent="." instance=ExtResource("4_apqy4")]
+position = Vector2(120, 298)
+
+[node name="Espinho5" parent="." instance=ExtResource("4_apqy4")]
+position = Vector2(159, 310)

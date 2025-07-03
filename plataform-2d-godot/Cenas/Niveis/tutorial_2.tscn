@@ -156,7 +156,6 @@ visible = false
 
 [node name="Chao" type="TileMapLayer" parent="Chão"]
 visible = false
-position = Vector2(0, 62)
 tile_set = SubResource("TileSet_567s1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Chão"]

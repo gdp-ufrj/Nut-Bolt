@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=25 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="8_0a68a"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="9_shsao"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="10_0a68a"]
+[ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="11_shsao"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
 
@@ -208,5 +209,8 @@ shape = SubResource("SegmentShape2D_shsao")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Void/StaticBody2D"]
 position = Vector2(6.5, 4.25)
 shape = SubResource("RectangleShape2D_0df2m")
+
+[node name="Espinho" parent="." instance=ExtResource("11_shsao")]
+position = Vector2(312, 192)
 
 [connection signal="body_entered" from="Void" to="." method="_on_area_2d_body_entered"]
