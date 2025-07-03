@@ -418,24 +418,30 @@ frame_progress = 1.0
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")
 volume_db = -3.189
+bus = &"SFX"
 parameters/looping = true
 
 [node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_l2cw4")
+bus = &"SFX"
 
 [node name="audio_pouso" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_80kl4")
+bus = &"SFX"
 
 [node name="audio_andar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_m2x1u")
 volume_db = -10.0
+bus = &"SFX"
 parameters/looping = true
 
 [node name="audio_desligar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_7trq8")
+bus = &"SFX"
 
 [node name="reestabelece_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_m2x1u")
+bus = &"SFX"
 
 [node name="RayCast2D_Centro" type="RayCast2D" parent="."]
 target_position = Vector2(0, 15)
