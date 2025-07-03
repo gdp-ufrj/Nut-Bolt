@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://sf2d4svmqmvo"]
+[gd_scene load_steps=12 format=3 uid="uid://sf2d4svmqmvo"]
+
+[ext_resource type="Texture2D" uid="uid://b766thwvtofac" path="res://Sprites/Elementos UI/UI_Pausa/1Menu Pausa.png" id="1_6xjmg"]
+[ext_resource type="Texture2D" uid="uid://co5hu07jwdo82" path="res://Sprites/Elementos UI/UI_Pausa/Continuar_selecionado.png" id="2_8hyj1"]
+[ext_resource type="Texture2D" uid="uid://csw6i2hiyu1hc" path="res://Sprites/Elementos UI/UI_Pausa/Continuar_não_selecionado.png" id="2_42t06"]
+[ext_resource type="Texture2D" uid="uid://b2c3msp1ot1bd" path="res://Sprites/Elementos UI/UI_Pausa/Configurações_selecionado.png" id="3_8hyj1"]
+[ext_resource type="Texture2D" uid="uid://v4hwkuicthi2" path="res://Sprites/Elementos UI/UI_Pausa/Configurações_não_selecionado.png" id="4_5ruop"]
+[ext_resource type="Texture2D" uid="uid://x3gt1kw8a64t" path="res://Sprites/Elementos UI/UI_Pausa/Recomeçar_não_selecionado.png" id="6_k35np"]
+[ext_resource type="Texture2D" uid="uid://clci7p14vqqr0" path="res://Sprites/Elementos UI/UI_Pausa/Recomeçar_selecionado.png" id="7_ye0i6"]
+[ext_resource type="Texture2D" uid="uid://g1evywl01jkv" path="res://Sprites/Elementos UI/UI_Pausa/Sair_não_selecionado.png" id="8_k2qk6"]
+[ext_resource type="Texture2D" uid="uid://p3vyeul7l1kq" path="res://Sprites/Elementos UI/UI_Pausa/Sair_selecionado.png" id="9_vml6q"]
+[ext_resource type="AudioStream" uid="uid://cgvr1iwd3rm41" path="res://Audio/Pausar jogo/Som pausar jogo (2).mp3" id="10_k35np"]
 
 [sub_resource type="GDScript" id="GDScript_w1fl2"]
 script/source = "extends CanvasLayer
 
 #Referencia ao painel que contem o menu de pausa
 @onready var panel = $Panel
+@onready var sound = $Abrir_Pause_menu
 
 #Funcao chamada quando o menu de pausa e ativado
 func _ready():
@@ -15,6 +27,9 @@ func _ready():
 func show_pause_menu():
 	panel.visible = true  #Torna o painel visivel, mostrando o menu de pausa
 	get_tree().paused = true #Pausa o jogo, bloqueando a execucao dos processos e fisica
+	
+	if panel.visible == true:
+		sound.play()
 
 #Funcao para esconder o menu de pausa
 func hide_pause_menu():
@@ -27,15 +42,21 @@ func hide_pause_menu():
 func _on_continuar_pressed() -> void:
 	hide_pause_menu() #Chama a funcao para esconder o menu de pausa
 
+#botão de Opções ainda ainda não completado
+func _on_configuracoes_pressed() -> void:
+	pass # Replace with function body.
+
+
+#botao recomecar
+func _on_recomecar_pressed() -> void:
+	pass # Replace with function body.
+
+
 #Funcao chamada quando o botao \"Sair\" é pressionado
-func _on_quit_pressed() -> void:
+func _on_sair_pressed() -> void:
 	get_tree().paused = false # Despausa o jogo
 	#Muda para a cena principal (menu), carregando a cena de menu
 	get_tree().change_scene_to_file(\"res://Cenas/UI/menu.tscn\")
-
-#botão de Opções ainda ainda não completado
-func _on_opções_pressed() -> void:
-	pass # Replace with function body.
 "
 
 [node name="Pause_menu" type="CanvasLayer"]
@@ -43,52 +64,70 @@ process_mode = 1
 script = SubResource("GDScript_w1fl2")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = -1
-anchor_left = 0.317
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(319, 179)
+texture = ExtResource("1_6xjmg")
+
+[node name="Continuar" type="TextureButton" parent="Panel"]
+process_mode = 2
+layout_mode = 2
+anchor_left = 0.033
 anchor_top = 0.067
-anchor_right = 0.692
-anchor_bottom = 0.844
-offset_left = 0.119995
+anchor_right = 0.378
+anchor_bottom = 0.472
+offset_left = -0.119999
 offset_top = -0.120001
-offset_right = 0.119995
-offset_bottom = 0.159973
+offset_right = 0.0799866
+offset_bottom = 0.0799866
+texture_normal = ExtResource("2_42t06")
+texture_pressed = ExtResource("2_8hyj1")
+texture_hover = ExtResource("2_8hyj1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.133
-anchor_top = 0.121
-anchor_right = 0.887
-anchor_bottom = 0.754
-offset_left = 4.08
-offset_top = 0.119999
-offset_right = 0.119995
-offset_bottom = -0.119995
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "    Jogo Pausado
-"
-
-[node name="Continuar" type="Button" parent="Panel/VBoxContainer"]
+[node name="Configuracoes" type="TextureButton" parent="Panel"]
 process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Continuar"
+offset_left = 395.0
+offset_top = 25.0
+offset_right = 616.0
+offset_bottom = 171.0
+texture_normal = ExtResource("4_5ruop")
+texture_pressed = ExtResource("3_8hyj1")
+texture_hover = ExtResource("3_8hyj1")
 
-[node name="Opções" type="Button" parent="Panel/VBoxContainer"]
+[node name="Recomecar" type="TextureButton" parent="Panel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 20.0
+offset_top = 177.0
+offset_right = 241.0
+offset_bottom = 323.0
+texture_normal = ExtResource("6_k35np")
+texture_pressed = ExtResource("7_ye0i6")
+texture_hover = ExtResource("7_ye0i6")
+
+[node name="Sair" type="TextureButton" parent="Panel"]
 process_mode = 2
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Opções"
+offset_left = 394.0
+offset_top = 173.0
+offset_right = 615.0
+offset_bottom = 319.0
+texture_normal = ExtResource("8_k2qk6")
+texture_pressed = ExtResource("9_vml6q")
+texture_hover = ExtResource("9_vml6q")
 
-[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+[node name="Abrir_Pause_menu" type="AudioStreamPlayer2D" parent="."]
 process_mode = 2
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Sair"
+stream = ExtResource("10_k35np")
+bus = &"SFX"
 
-[connection signal="pressed" from="Panel/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Panel/Configuracoes" to="." method="_on_configuracoes_pressed"]
+[connection signal="pressed" from="Panel/Recomecar" to="." method="_on_recomecar_pressed"]
+[connection signal="pressed" from="Panel/Sair" to="." method="_on_sair_pressed"]
