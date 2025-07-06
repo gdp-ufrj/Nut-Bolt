@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=20 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
 [ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="2_hveky"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Elementos UI/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
 [ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Elementos UI/Botao_Configuracoes.png" id="8_1b1oe"]
 [ext_resource type="AudioStream" uid="uid://d3hjs35f7lvj" path="res://Audio/Menu/Música Menu 2 (2).ogg" id="10_3f8y4"]
+[ext_resource type="Script" uid="uid://bnubrkegu8u2r" path="res://Scripts/Telas/opcoes_menu.gd" id="10_4ny4x"]
 [ext_resource type="Script" uid="uid://dyykl3rb76gha" path="res://Scripts/Telas/audio_controller.gd" id="10_kc1t0"]
 [ext_resource type="Script" uid="uid://4oalte541pyc" path="res://Scripts/Telas/check_button.gd" id="11_gu8pg"]
 [ext_resource type="Script" uid="uid://b3g0p3661k1kj" path="res://Scripts/Telas/sfx.gd" id="12_1b1oe"]
@@ -49,7 +50,8 @@ script = ExtResource("1_pveh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1
-position = Vector2(322, 181)
+position = Vector2(317, 178)
+scale = Vector2(1.01563, 1.01667)
 texture = ExtResource("2_hveky")
 
 [node name="MenuInicialBase2" type="Sprite2D" parent="CanvasLayer"]
@@ -116,6 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("10_4ny4x")
 
 [node name="Titulo" type="Label" parent="CanvasLayer/Configuracoes"]
 layout_mode = 1
@@ -189,6 +192,21 @@ offset_top = 119.0
 offset_right = 179.0
 offset_bottom = 142.0
 text = "SFX"
+
+[node name="Resolution" type="OptionButton" parent="CanvasLayer/Configuracoes"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 195.0
+offset_right = 436.0
+offset_bottom = 215.0
+
+[node name="Label3" type="Label" parent="CanvasLayer/Configuracoes"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 194.0
+offset_right = 213.0
+offset_bottom = 217.0
+text = "Resolution"
 
 [node name="Music_menu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_3f8y4")

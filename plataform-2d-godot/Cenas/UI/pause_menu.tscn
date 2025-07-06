@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://sf2d4svmqmvo"]
 
-[ext_resource type="Texture2D" uid="uid://b766thwvtofac" path="res://Sprites/Elementos UI/UI_Pausa/1Menu Pausa.png" id="1_6xjmg"]
+[ext_resource type="Texture2D" uid="uid://y7p2d7dyamvw" path="res://Sprites/Elementos UI/UI_Pausa/CONTROLES CERTOS_menu pausa.png" id="1_k35np"]
 [ext_resource type="Texture2D" uid="uid://co5hu07jwdo82" path="res://Sprites/Elementos UI/UI_Pausa/Continuar_selecionado.png" id="2_8hyj1"]
 [ext_resource type="Texture2D" uid="uid://csw6i2hiyu1hc" path="res://Sprites/Elementos UI/UI_Pausa/Continuar_não_selecionado.png" id="2_42t06"]
 [ext_resource type="Texture2D" uid="uid://b2c3msp1ot1bd" path="res://Sprites/Elementos UI/UI_Pausa/Configurações_selecionado.png" id="3_8hyj1"]
@@ -72,19 +72,15 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Panel"]
 position = Vector2(319, 179)
-texture = ExtResource("1_6xjmg")
+texture = ExtResource("1_k35np")
 
 [node name="Continuar" type="TextureButton" parent="Panel"]
 process_mode = 2
 layout_mode = 2
-anchor_left = 0.033
-anchor_top = 0.067
-anchor_right = 0.378
-anchor_bottom = 0.472
-offset_left = -0.119999
-offset_top = -0.120001
-offset_right = 0.0799866
-offset_bottom = 0.0799866
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 241.0
+offset_bottom = 170.0
 texture_normal = ExtResource("2_42t06")
 texture_pressed = ExtResource("2_8hyj1")
 texture_hover = ExtResource("2_8hyj1")

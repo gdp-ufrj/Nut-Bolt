@@ -8,6 +8,7 @@ extends Control
 func _ready():
 	main_menu.visible = true
 	configuracoes.visible = false
+	load_display_settings()
 	#handle_connecting_signals()
 
 #botao de start carregando as cenas do game controller
@@ -31,16 +32,28 @@ func _on_creditos_pressed() -> void:
 func _on_opções_pressed() -> void:
 	main_menu.visible = false
 	configuracoes.visible = true
-	#options_menu.visible = true
-	
-#func _on_exit_options_menu() -> void:
-	#canvaslayer.visible = true
-	#options_menu.visible = false
-
-#func handle_connecting_signals() -> void:
-	#options_menu.exit_options_menu.connect(_on_exit_options_menu)
 	
 
 #Botao de sair das configuracoes
 func _on_voltar_configuracoes_pressed() -> void:
+	configuracoes.call("_on_salvar_pressed")
 	_ready()
+	
+#Aperte ESC para sair das configuracoes
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and configuracoes.visible:
+		_on_voltar_configuracoes_pressed()
+		
+func load_display_settings():
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") != OK:
+		return
+	
+	var res = config.get_value("video", "resolution", Vector2i(1280, 720))
+	var fullscreen = config.get_value("video", "fullscreen", false)
+	
+	DisplayServer.window_set_size(res)
+	DisplayServer.window_set_mode(
+		DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen
+		else DisplayServer.WINDOW_MODE_WINDOWED
+	)
