@@ -1,14 +1,23 @@
-[gd_scene load_steps=21 format=4 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=26 format=4 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
+[ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_6r0a3"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_8ipts"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Cenas/Niveis/BG_scroll.gdshader" id="4_sque7"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="5_8ipts"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="5_c7i80"]
+[ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_gfb4h"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="5_kqia7"]
 [ext_resource type="Texture2D" uid="uid://u7jketmgjaqv" path="res://Sprites/Backgrounds/Fase 2 MVP1 full.png" id="5_v84dr"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="6_kqia7"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
+[ext_resource type="Texture2D" uid="uid://d3dwlfsq1y3mw" path="res://Sprites/Backgrounds/Plataforma1_Cristal.png" id="8_yddrn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nayi6"]
+shader = ExtResource("4_sque7")
+shader_parameter/speed = 0.0005
+shader_parameter/step_interval = 0.2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ipts"]
 texture = ExtResource("5_8ipts")
@@ -151,6 +160,21 @@ position = Vector2(320, 182)
 scale = Vector2(1, 1.00833)
 texture = ExtResource("5_v84dr")
 
+[node name="MvpSky" type="Sprite2D" parent="Fase2Mvp1Full"]
+z_index = -2
+position = Vector2(0, -129.918)
+scale = Vector2(1, 0.991739)
+texture = ExtResource("3_6r0a3")
+
+[node name="MvpClouds" type="Sprite2D" parent="Fase2Mvp1Full"]
+z_index = -1
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nayi6")
+position = Vector2(0, -129.918)
+scale = Vector2(1, 0.991739)
+texture = ExtResource("5_gfb4h")
+
 [node name="Chão" type="Node2D" parent="."]
 visible = false
 
@@ -217,6 +241,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma/AREA PARA EVITAR BUG"]
 position = Vector2(-23, 3.25)
 shape = SubResource("RectangleShape2D_wk01p")
+
+[node name="Sprite2D" type="Sprite2D" parent="plataforma"]
+position = Vector2(279, 190)
+texture = ExtResource("8_yddrn")
 
 [node name="Roteador" parent="." instance=ExtResource("7_6r0a3")]
 position = Vector2(357, 21)
