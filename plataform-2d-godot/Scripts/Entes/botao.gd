@@ -4,7 +4,10 @@ var pode_ativar: bool = false
 var ligado = false
 signal ativar
 signal ativar_oneshot
-	
+
+func _ready():
+	$AnimatedSprite2D.play("b_inicial")
+
 func _on_body_entered(body: Node2D) -> void:
 	if is_untouched and body.is_in_group("Players"):
 		$Label.show()
@@ -26,4 +29,4 @@ func _on_ativar_oneshot() -> void:
 	is_untouched = false
 	$audio_interagir.play()
 	$Label.hide()
-	$AnimatedSprite2D.play("b_desligar")
+	$AnimatedSprite2D.play("b_ligar")

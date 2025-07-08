@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqbxnpowjnvbq"]
+[gd_scene load_steps=17 format=3 uid="uid://bqbxnpowjnvbq"]
 
 [ext_resource type="Texture2D" uid="uid://qwd3xqmdv0hu" path="res://Sprites/Interagíveis/Botao1_off.png" id="1_d7y7n"]
 [ext_resource type="Script" uid="uid://jlkyy5vnqlqo" path="res://Scripts/Entes/botao.gd" id="1_fyg3g"]
@@ -22,16 +22,24 @@ atlas = ExtResource("2_1xa14")
 region = Rect2(40, 0, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7thn"]
-atlas = ExtResource("3_fyg3g")
-region = Rect2(0, 0, 20, 20)
+atlas = ExtResource("2_1xa14")
+region = Rect2(60, 0, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5tqxx"]
 atlas = ExtResource("3_fyg3g")
-region = Rect2(20, 0, 20, 20)
+region = Rect2(0, 0, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_coort"]
 atlas = ExtResource("3_fyg3g")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nilum"]
+atlas = ExtResource("3_fyg3g")
 region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fh0t"]
+atlas = ExtResource("3_fyg3g")
+region = Rect2(60, 0, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nilum"]
 animations = [{
@@ -44,24 +52,38 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3te34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7thn")
 }],
 "loop": false,
 "name": &"b_desligar",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y7thn")
+"texture": ExtResource("1_d7y7n")
+}],
+"loop": true,
+"name": &"b_inicial",
+"speed": 1.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5tqxx")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_coort")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nilum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fh0t")
 }],
 "loop": false,
 "name": &"b_ligar",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fyg3g"]
@@ -103,9 +125,7 @@ texture = ExtResource("1_d7y7n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nilum")
-animation = &"b_ligar"
-frame = 2
-frame_progress = 1.0
+animation = &"b_desligar"
 
 [node name="Area2D" type="Area2D" parent="."]
 

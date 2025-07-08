@@ -1,11 +1,49 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg0iyugvxt7cr"]
+[gd_scene load_steps=14 format=3 uid="uid://cg0iyugvxt7cr"]
 
 [ext_resource type="Script" uid="uid://budjh6vr4uo6e" path="res://Scripts/Entes/roteador.gd" id="1_ttt0x"]
-[ext_resource type="Texture2D" uid="uid://csncrc55p6850" path="res://Sprites/Interagíveis/conexaoPrisma_teste.png" id="2_hf4jo"]
+[ext_resource type="Texture2D" uid="uid://bfqv4eiy5cwis" path="res://Sprites/Interagíveis/Roteador01_anim.png" id="2_fildu"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="2_ttt0x"]
 [ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_aq0v7"]
 [ext_resource type="Script" uid="uid://b5f4x35dpl4c3" path="res://Scripts/linha_player1_rot.gd" id="4_iljlo"]
 [ext_resource type="Script" uid="uid://c05t7usdgp4gl" path="res://Scripts/linha_player2_rot.gd" id="6_fildu"]
+
+[sub_resource type="Animation" id="Animation_fildu"]
+resource_name = "Active"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_up4re"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yshw5"]
+_data = {
+&"Active": SubResource("Animation_fildu"),
+&"RESET": SubResource("Animation_up4re")
+}
 
 [sub_resource type="Animation" id="Animation_hf4jo"]
 resource_name = "Idle"
@@ -77,8 +115,14 @@ script = ExtResource("1_ttt0x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2.38419e-07)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_hf4jo")
+texture = ExtResource("2_fildu")
+hframes = 8
+frame = 4
+
+[node name="anim_sprite" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_yshw5")
+}
 
 [node name="zona_conexao_rot" type="Area2D" parent="."]
 collision_layer = 3
@@ -86,13 +130,12 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="sprite_conexao" type="Sprite2D" parent="zona_conexao_rot"]
-visible = false
 modulate = Color(0.662745, 1, 0.517647, 1)
 position = Vector2(0, 1.0252e-05)
 scale = Vector2(0.243125, 0.26)
 texture = ExtResource("2_ttt0x")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="zona_conexao_rot/sprite_conexao"]
+[node name="anim_conexao" type="AnimationPlayer" parent="zona_conexao_rot/sprite_conexao"]
 libraries = {
 &"": SubResource("AnimationLibrary_iljlo")
 }
