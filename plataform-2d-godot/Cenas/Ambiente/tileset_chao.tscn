@@ -1,6 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ddsb5jtse0f"]
+[gd_scene load_steps=16 format=3 uid="uid://0ddsb5jtse0f"]
 
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="1_s58mn"]
+[ext_resource type="Texture2D" uid="uid://bkqttv4ud6u1q" path="res://Sprites/Tilesets/Tileset_caverna01.png" id="2_s7fpa"]
+[ext_resource type="Texture2D" uid="uid://3l8meaaxo6qs" path="res://Sprites/Tilesets/Tileset_floresta01.png" id="3_y00ps"]
+[ext_resource type="Texture2D" uid="uid://dt1goaew2hn3r" path="res://Sprites/Tilesets/Tileset_floresta02.png" id="4_twuki"]
+[ext_resource type="Texture2D" uid="uid://bbx4gx741jo8s" path="res://Sprites/Tilesets/Tileset_fundo_caverna.png" id="5_uskyo"]
+[ext_resource type="Texture2D" uid="uid://cdtj8rdd7pwpw" path="res://Sprites/Tilesets/Tileset_fundo_floresta.png" id="6_7ere3"]
+[ext_resource type="Texture2D" uid="uid://b0m3lisd362p2" path="res://Sprites/Tilesets/Tileset_generico.png" id="7_0ykf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72cdr"]
 texture = ExtResource("1_s58mn")
@@ -42,9 +48,171 @@ texture_region_size = Vector2i(10, 10)
 4:4/0 = 0
 3:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i24s2"]
+texture = ExtResource("2_s7fpa")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4npo3"]
+texture = ExtResource("3_y00ps")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2x7l"]
+texture = ExtResource("4_twuki")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fg62c"]
+texture = ExtResource("5_uskyo")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ujnx"]
+texture = ExtResource("6_7ere3")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkfib"]
+texture = ExtResource("7_0ykf1")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_engj6"]
 tile_size = Vector2i(10, 10)
 sources/0 = SubResource("TileSetAtlasSource_72cdr")
+sources/1 = SubResource("TileSetAtlasSource_i24s2")
+sources/2 = SubResource("TileSetAtlasSource_4npo3")
+sources/3 = SubResource("TileSetAtlasSource_e2x7l")
+sources/4 = SubResource("TileSetAtlasSource_fg62c")
+sources/5 = SubResource("TileSetAtlasSource_4ujnx")
+sources/6 = SubResource("TileSetAtlasSource_lkfib")
 
 [node name="Chao" type="TileMapLayer"]
 tile_set = SubResource("TileSet_engj6")
