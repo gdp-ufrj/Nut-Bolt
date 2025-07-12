@@ -15,12 +15,12 @@ var prev_state = null
 var state_timeout = false
 
 enum States {
-	CHAO,
-	PAREDE_ESQUERDA,
-	PAREDE_DIREITA,
-	TETO,
-	CAINDO,
-	DESACOPLOU
+	CHAO, # 0
+	PAREDE_ESQUERDA, # 1
+	PAREDE_DIREITA, # 2
+	TETO, # 3
+	CAINDO, # 4
+	DESACOPLOU # 5
 }
 
 func _ready() -> void:
@@ -75,6 +75,13 @@ func process_input():
 		else:
 			enter_state(States.CAINDO)
 	
+	if state == States.TETO:
+		velocity.y = 0
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity.x += SPEED
+		if Input.is_action_pressed("ui_right_WASD"):
+			velocity.x -= SPEED
+	
 	if state == States.PAREDE_ESQUERDA:
 		velocity.y = 0
 		if Input.is_action_pressed("ui_right_WASD"):
@@ -107,7 +114,7 @@ func process_input():
 				enter_state(States.CAINDO)
 	
 	# Leitura de desacoplamento -> TECLA 'S'
-	if state != States.DESACOPLOU:
+	if state != States.DESACOPLOU and not esta_desativado:
 		if Input.is_action_pressed("ui_down_WASD"):
 			enter_state(States.DESACOPLOU)
 	
@@ -134,6 +141,14 @@ func process_input():
 			velocity.y -= 0.5
 			if is_on_wall():
 				enter_state(States.PAREDE_DIREITA)
+	
+	if !ray_right() and state == States.CAINDO and ray_dd():
+		print("ENTROU")
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity.y = SPEED / 4
+			velocity.x += SPEED / 4
+			if is_on_ceiling():
+				enter_state(States.TETO)
 
 func process_gravity():
 	if state == States.PAREDE_DIREITA:
@@ -186,3 +201,11 @@ func ray_right():
 
 func ray_left():
 	return $Raycasts/RayLeft.is_colliding()
+
+# Diagonal direita -> dd
+func ray_dd():
+	return $Raycasts/RayDiagonalDireita.is_colliding()
+
+# Diagonal esquerda -> de
+func ray_de():
+	return $Raycasts/RayDiagonalEsquerda.is_colliding()

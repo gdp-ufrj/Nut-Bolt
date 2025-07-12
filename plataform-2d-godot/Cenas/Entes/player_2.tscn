@@ -455,6 +455,16 @@ scale = Vector2(2, 2)
 target_position = Vector2(0, 12)
 collision_mask = 2
 
+[node name="RayDiagonalDireita" type="RayCast2D" parent="Raycasts"]
+scale = Vector2(2, 2)
+target_position = Vector2(9, -9)
+collision_mask = 2
+
+[node name="RayDiagonalEsquerda" type="RayCast2D" parent="Raycasts"]
+scale = Vector2(2, 2)
+target_position = Vector2(-9, -9)
+collision_mask = 2
+
 [node name="StateChangeTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
