@@ -129,6 +129,11 @@ func process_input():
 			velocity.y -= 0.5
 			if is_on_wall():
 				enter_state(States.PAREDE_ESQUERDA)
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity.x = 0
+			velocity.y -= 0.5
+			if is_on_wall():
+				enter_state(States.PAREDE_DIREITA)
 
 func process_gravity():
 	if state == States.PAREDE_DIREITA:
