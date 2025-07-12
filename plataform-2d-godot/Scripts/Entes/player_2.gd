@@ -6,10 +6,10 @@ extends CharacterBody2D
 @export var SPEED: int = 90
 @export var gravity_speed = 400
 
-var unit_direction: Vector2
 var gravity = Vector2.ZERO
 var esta_desativado = false
 
+var direction
 var state = States.CAINDO
 var prev_state = null
 var state_timeout = false
@@ -18,13 +18,14 @@ enum States {
 	CHAO, # 0
 	PAREDE_ESQUERDA, # 1
 	PAREDE_DIREITA, # 2
-	TETO, # 3
-	CAINDO, # 4
-	DESACOPLOU # 5
+	TETO, #3
+	TETO_PERSPECTIVA_ESQUERDA, #4
+	TETO_PERSPECTIVA_DIREITA, #5
+	CAINDO, # 6
+	DESACOPLOU # 7
 }
 
 func _ready() -> void:
-	#velocity = Vector2.ZERO
 	$zona_conexao_2.collision_layer = 3
 	$zona_conexao_2.collision_mask = 3
 	self.add_to_group("Players")
@@ -32,14 +33,14 @@ func _ready() -> void:
 
 #region physics process
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
+	direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
 	process_input()
 	process_gravity()
 	velocity += gravity * delta
 	move_and_slide()
 	update_state()
-	print(state)
 	voltou_ao_chao()
+	printar_state()
 	# SOM DE ANDAR
 	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") and is_on_floor() and not esta_desativado:
 		if not $audio_andar.is_playing():
@@ -55,25 +56,37 @@ func _physics_process(delta: float) -> void:
 
 func process_input():
 	if state == States.CHAO or state == States.TETO or state == States.CAINDO:
+		# Nao permite que ele fique deslizando que nem maluco
 		if state != States.CAINDO:
 			velocity.x = 0
 	if Input.is_action_pressed("ui_right_WASD") and state == States.CHAO:
+		# Andar pra direita, se encontrar uma parede, sobe nela e entra em
+		# State de PAREDE_DIREITA
 		velocity.x += SPEED
 		if ray_right():
 			velocity.y += SPEED
 			enter_state(States.PAREDE_DIREITA)
 	if Input.is_action_pressed("ui_left_WASD") and state == States.CHAO:
+		# Andar pra esquerda, se encontrar uma parede, sobe nela e entra em
+		# State de PAREDE_ESQUERDA
 		velocity.x -= SPEED
 		if ray_left():
 			velocity.y += SPEED
 			enter_state(States.PAREDE_ESQUERDA)
-	if Input.is_action_pressed("ui_down_WASD") and state == States.TETO:
-		if ray_right():
-			enter_state(States.PAREDE_DIREITA)
-		elif ray_left():
-			enter_state(States.PAREDE_ESQUERDA)
-		else:
-			enter_state(States.CAINDO)
+	# SE ESTIVER NO TETO
+	if state == States.TETO:
+		# E O PLAYER ESTIVER INDO PRA ESQUERDA
+		if Input.is_action_pressed("ui_left_WASD"):
+			# E TIVER UMA PAREDE NA ESQUERDA
+			if ray_left():
+				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
+				enter_state(States.PAREDE_ESQUERDA)
+		# E O PLAYER ESTIVER INDO PRA DIREITA
+		if Input.is_action_pressed("ui_right_WASD"):
+			# E TIVER UMA PAREDE NA DIREITA
+			if ray_right():
+				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
+				enter_state(States.PAREDE_DIREITA)
 	
 	if state == States.TETO:
 		velocity.y = 0
@@ -82,6 +95,7 @@ func process_input():
 		if Input.is_action_pressed("ui_right_WASD"):
 			velocity.x -= SPEED
 	
+	# Inputs para subir em parede que esta na esquerda
 	if state == States.PAREDE_ESQUERDA:
 		velocity.y = 0
 		if Input.is_action_pressed("ui_right_WASD"):
@@ -89,6 +103,7 @@ func process_input():
 		if Input.is_action_pressed("ui_left_WASD"):
 			velocity.y -= SPEED
 	
+	# Inputs para subir em parede que esta na direita
 	if state == States.PAREDE_DIREITA:
 		velocity.y = 0
 		if Input.is_action_pressed("ui_left_WASD"):
@@ -114,7 +129,7 @@ func process_input():
 				enter_state(States.CAINDO)
 	
 	# Leitura de desacoplamento -> TECLA 'S'
-	if state != States.DESACOPLOU and not esta_desativado:
+	if state != States.DESACOPLOU and state != States.CHAO and not esta_desativado:
 		if Input.is_action_pressed("ui_down_WASD"):
 			enter_state(States.DESACOPLOU)
 	
@@ -142,11 +157,18 @@ func process_input():
 			if is_on_wall():
 				enter_state(States.PAREDE_DIREITA)
 	
+	# TENTATIVA DE LEITURA DE CORNER
 	if !ray_right() and state == States.CAINDO and ray_dd():
-		print("ENTROU")
 		if Input.is_action_pressed("ui_left_WASD"):
 			velocity.y = SPEED / 4
 			velocity.x += SPEED / 4
+			if is_on_ceiling():
+				enter_state(States.TETO)
+	
+	if !ray_left() and state == States.CAINDO and ray_de():
+		if Input.is_action_pressed("ui_right"):
+			velocity.y = SPEED / 4
+			velocity.x -= SPEED / 4
 			if is_on_ceiling():
 				enter_state(States.TETO)
 
@@ -156,6 +178,10 @@ func process_gravity():
 	elif state == States.PAREDE_ESQUERDA:
 		gravity = Vector2(-gravity_speed, 0)
 	elif state == States.TETO:
+		gravity = Vector2(0, -gravity_speed)
+	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
+		gravity = Vector2(0, -gravity_speed)
+	elif state == States.TETO_PERSPECTIVA_DIREITA:
 		gravity = Vector2(0, -gravity_speed)
 	else:
 		gravity = Vector2(0, gravity_speed)
@@ -209,3 +235,21 @@ func ray_dd():
 # Diagonal esquerda -> de
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
+
+func printar_state():
+	if state == States.CHAO:
+		print("CHAO")
+	elif state == States.PAREDE_ESQUERDA:
+		print("PAREDE ESQUERDA")
+	elif state == States.PAREDE_DIREITA:
+		print("PAREDE DIREITA")
+	elif state == States.TETO:
+		print("TETO")
+	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
+		print("TETO_PERSPECTIVA_ESQUERDA")
+	elif state == States.TETO_PERSPECTIVA_DIREITA:
+		print("TETO_PERSPECTIVA_DIREITA")
+	elif state == States.CAINDO:
+		print("CAINDO")
+	elif state == States.CHAO:
+		print("DESACOPLOU")
