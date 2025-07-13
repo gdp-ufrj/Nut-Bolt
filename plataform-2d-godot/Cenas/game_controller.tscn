@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="3_dg2gn"]
 [ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_dg2gn"]
 [ext_resource type="PackedScene" uid="uid://sf2d4svmqmvo" path="res://Cenas/UI/pause_menu.tscn" id="5_dg2gn"]
-[ext_resource type="Script" uid="uid://c5hky83cd8lir" path="res://Scripts/conexao_players.gd" id="6_dg2gn"]
+[ext_resource type="Script" uid="uid://c5hky83cd8lir" path="res://Scripts/Entes/conexao_players.gd" id="6_dg2gn"]
 [ext_resource type="AudioStream" uid="uid://dfynr71mohxq0" path="res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg" id="7_i7hoh"]
 
 [sub_resource type="Animation" id="Animation_i7hoh"]

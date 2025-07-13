@@ -23,7 +23,6 @@ func _ready() -> void:
 	$zona_conexao_2.collision_mask = 3
 	self.add_to_group("Players")
 	conexao.conectar()
-	
 
 #region physics process
 func _physics_process(delta: float) -> void:

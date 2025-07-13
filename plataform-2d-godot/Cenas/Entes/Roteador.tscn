@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bfqv4eiy5cwis" path="res://Sprites/Interagíveis/Roteador01_anim.png" id="2_fildu"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="2_ttt0x"]
 [ext_resource type="Texture2D" uid="uid://b5bmv3ct5ei10" path="res://Sprites/Players/feixeconexao.png" id="4_aq0v7"]
-[ext_resource type="Script" uid="uid://b5f4x35dpl4c3" path="res://Scripts/linha_player1_rot.gd" id="4_iljlo"]
-[ext_resource type="Script" uid="uid://c05t7usdgp4gl" path="res://Scripts/linha_player2_rot.gd" id="6_fildu"]
+[ext_resource type="Script" uid="uid://b5f4x35dpl4c3" path="res://Scripts/Entes/linha_player1_rot.gd" id="4_iljlo"]
+[ext_resource type="Script" uid="uid://c05t7usdgp4gl" path="res://Scripts/Entes/linha_player2_rot.gd" id="6_fildu"]
 
 [sub_resource type="Animation" id="Animation_fildu"]
 resource_name = "Active"
@@ -44,6 +44,9 @@ _data = {
 &"Active": SubResource("Animation_fildu"),
 &"RESET": SubResource("Animation_up4re")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_if2po"]
+radius = 60.0
 
 [sub_resource type="Animation" id="Animation_hf4jo"]
 resource_name = "Idle"
@@ -107,9 +110,6 @@ _data = {
 &"RESET": SubResource("Animation_ttt0x")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_if2po"]
-radius = 63.2851
-
 [node name="Roteador" type="Node2D"]
 script = ExtResource("1_ttt0x")
 
@@ -127,9 +127,13 @@ libraries = {
 [node name="zona_conexao_rot" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_rot"]
+shape = SubResource("CircleShape2D_if2po")
+debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
 
 [node name="sprite_conexao" type="Sprite2D" parent="zona_conexao_rot"]
+visible = false
 modulate = Color(0.662745, 1, 0.517647, 1)
 position = Vector2(0, 1.0252e-05)
 scale = Vector2(0.243125, 0.26)
@@ -139,10 +143,6 @@ texture = ExtResource("2_ttt0x")
 libraries = {
 &"": SubResource("AnimationLibrary_iljlo")
 }
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_rot"]
-shape = SubResource("CircleShape2D_if2po")
-debug_color = Color(0.695251, 0.495034, 3.85046e-07, 0.42)
 
 [node name="linha_player1_rot" type="Line2D" parent="."]
 z_index = -1
