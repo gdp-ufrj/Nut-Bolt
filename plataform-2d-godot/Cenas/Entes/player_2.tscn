@@ -437,22 +437,22 @@ script = ExtResource("17_0yaun")
 
 [node name="RayRight" type="RayCast2D" parent="Raycasts"]
 scale = Vector2(2, 2)
-target_position = Vector2(9.5, 0)
+target_position = Vector2(7, 0)
 collision_mask = 2
 
 [node name="RayUp" type="RayCast2D" parent="Raycasts"]
 scale = Vector2(2, 2)
-target_position = Vector2(0, -12)
+target_position = Vector2(0, -7)
 collision_mask = 2
 
 [node name="RayLeft" type="RayCast2D" parent="Raycasts"]
 scale = Vector2(2, 2)
-target_position = Vector2(-9.5, 0)
+target_position = Vector2(-7, 0)
 collision_mask = 2
 
 [node name="RayDown" type="RayCast2D" parent="Raycasts"]
 scale = Vector2(2, 2)
-target_position = Vector2(0, 12)
+target_position = Vector2(0, 7)
 collision_mask = 2
 
 [node name="RayDiagonalDireita" type="RayCast2D" parent="Raycasts"]
