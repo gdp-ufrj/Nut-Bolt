@@ -207,6 +207,11 @@ func update_state():
 			enter_state(States.PAREDE_ESQUERDA)
 		if ray_right():
 			enter_state(States.PAREDE_DIREITA)
+	
+	if state == States.PAREDE_ESQUERDA or state == States.PAREDE_DIREITA or state == States.TETO_PERSPECTIVA_ESQUERDA or state == States.TETO_PERSPECTIVA_DIREITA:
+		if !ray_left() and !ray_right() and !ray_dd() and !ray_de():
+			enter_state(States.DESACOPLOU)
+
 
 func enter_state(new_state):
 	if new_state != prev_state or !state_timeout:
