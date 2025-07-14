@@ -9,7 +9,7 @@ extends CharacterBody2D
 var gravity = Vector2.ZERO
 var esta_desativado = false
 
-var state = States.CAINDO
+var state
 var prev_state = null
 var state_timeout = false
 
@@ -17,11 +17,10 @@ enum States {
 	CHAO, # 0
 	PAREDE_ESQUERDA, # 1
 	PAREDE_DIREITA, # 2
-	TETO, #3
-	TETO_PERSPECTIVA_ESQUERDA, #4
-	TETO_PERSPECTIVA_DIREITA, #5
-	CAINDO, # 6
-	DESACOPLOU # 7
+	TETO_PERSPECTIVA_ESQUERDA, #3
+	TETO_PERSPECTIVA_DIREITA, #4
+	CAINDO, # 5
+	DESACOPLOU # 6
 }
 
 func _ready() -> void:
@@ -29,6 +28,7 @@ func _ready() -> void:
 	$zona_conexao_2.collision_mask = 3
 	self.add_to_group("Players")
 	conexao.conectar()
+	state = States.CAINDO
 
 #region physics process
 func _physics_process(delta: float) -> void:
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 #endregion
 
 func process_input():
-	if state == States.CHAO or state == States.TETO or state == States.CAINDO or States.TETO_PERSPECTIVA_ESQUERDA or States.TETO_PERSPECTIVA_DIREITA:
+	if state == States.CHAO or state == States.CAINDO or States.TETO_PERSPECTIVA_ESQUERDA or States.TETO_PERSPECTIVA_DIREITA:
 		# Nao permite que ele fique deslizando que nem maluco
 		if state != States.CAINDO:
 			velocity.x = 0
@@ -73,28 +73,13 @@ func process_input():
 		if ray_left():
 			enter_state(States.PAREDE_ESQUERDA)
 	
-	# SE ESTIVER NO TETO
-	if state == States.TETO:
-		# E O PLAYER ESTIVER INDO PRA ESQUERDA
-		if Input.is_action_pressed("ui_left_WASD"):
-			# E TIVER UMA PAREDE NA ESQUERDA
-			if ray_left():
-				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
-				enter_state(States.PAREDE_ESQUERDA)
-		# E O PLAYER ESTIVER INDO PRA DIREITA
-		if Input.is_action_pressed("ui_right_WASD"):
-			# E TIVER UMA PAREDE NA DIREITA
-			if ray_right():
-				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
-				enter_state(States.PAREDE_DIREITA)
-	
 	if state == States.TETO_PERSPECTIVA_ESQUERDA:
 				# E O PLAYER ESTIVER INDO PRA ESQUERDA
 		if Input.is_action_pressed("ui_right_WASD"):
 			# E TIVER UMA PAREDE NA ESQUERDA
 			if ray_left():
 				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
-				#velocity.x -= SPEED / 2
+				velocity.x -= SPEED / 2
 				enter_state(States.PAREDE_ESQUERDA)
 	if state == States.TETO_PERSPECTIVA_DIREITA:
 				# E O PLAYER ESTIVER INDO PRA ESQUERDA
@@ -102,14 +87,15 @@ func process_input():
 			# E TIVER UMA PAREDE NA ESQUERDA
 			if ray_right():
 				# ENTRA EM ESTADO DE PAREDE_ESQUERDA
-				#velocity.x += SPEED / 2
+				velocity.x += SPEED / 2
 				enter_state(States.PAREDE_DIREITA)
 	
-	if prev_state == States.TETO_PERSPECTIVA_ESQUERDA and ray_dd() and !ray_up():
-		velocity.y = 0
-		position.y -= 5
-		position.x -= 5
-		enter_state(States.PAREDE_DIREITA)
+	#if prev_state == States.TETO_PERSPECTIVA_ESQUERDA and ray_dd() and !ray_up():
+		#velocity.y = 0
+		#position.y -= 5
+		#position.x -= 5
+		#print("entrou aqui")
+		#enter_state(States.PAREDE_DIREITA)
 	
 	# CONTROLE DE TETO -> PERSPECTIVA A PARTIR DA PAREDE ESQUERDA APENAS
 	if state == States.TETO_PERSPECTIVA_ESQUERDA:
@@ -139,6 +125,7 @@ func process_input():
 		if Input.is_action_pressed("ui_right_WASD"):
 			velocity.y -= SPEED
 	
+	# Logica para subir no teto ou descer pro chao a partir de uma parede
 	if state == States.PAREDE_ESQUERDA or state == States.PAREDE_DIREITA:
 		if ray_down():
 			if Input.is_action_pressed("ui_right_WASD") and !ray_right():
@@ -171,13 +158,12 @@ func process_input():
 	
 	# CAIR DE PRECIPICIO E CONTINUAR GRUDADO
 	if state == States.CAINDO and prev_state == States.CHAO and !is_on_floor():
+		velocity.x = 0
 		if Input.is_action_pressed("ui_right_WASD"):
-			velocity.x = 0
 			velocity.y -= 0.5
 			if is_on_wall():
 				enter_state(States.PAREDE_ESQUERDA)
 		if Input.is_action_pressed("ui_left_WASD"):
-			velocity.x = 0
 			velocity.y -= 0.5
 			if is_on_wall():
 				enter_state(States.PAREDE_DIREITA)
@@ -203,8 +189,6 @@ func process_gravity():
 		gravity = Vector2(gravity_speed, 0)
 	elif state == States.PAREDE_ESQUERDA:
 		gravity = Vector2(-gravity_speed, 0)
-	elif state == States.TETO:
-		gravity = Vector2(0, -gravity_speed)
 	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
 		gravity = Vector2(0, -gravity_speed)
 	elif state == States.TETO_PERSPECTIVA_DIREITA:
@@ -213,14 +197,12 @@ func process_gravity():
 		gravity = Vector2(0, gravity_speed)
 
 func update_state():
-	if !ray_left() and !ray_right() and !ray_down() and !ray_up() and !(state == States.CAINDO):
+	if !ray_left() and !ray_right() and !ray_down() and !ray_up() and !ray_dd() and !ray_de() and !(state == States.CAINDO):
 		enter_state(States.CAINDO)
 	
 	if state == States.CAINDO:
 		if ray_down():
 			enter_state(States.CHAO)
-		if ray_up():
-			enter_state(States.TETO)
 		if ray_left():
 			enter_state(States.PAREDE_ESQUERDA)
 		if ray_right():
@@ -269,8 +251,6 @@ func printar_state():
 		print("PAREDE ESQUERDA")
 	elif state == States.PAREDE_DIREITA:
 		print("PAREDE DIREITA")
-	elif state == States.TETO:
-		print("TETO")
 	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
 		print("TETO_PERSPECTIVA_ESQUERDA")
 	elif state == States.TETO_PERSPECTIVA_DIREITA:
