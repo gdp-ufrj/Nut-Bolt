@@ -2,7 +2,7 @@ extends Line2D
 
 @onready var p2 : CharacterBody2D = get_node("/root/Game Controller/Players/player_2")
 @onready var roteador : Node2D = self.get_parent()
-@onready var max_dist = p2.get_child(3).get_child(0).shape.radius + roteador.get_child(1).get_child(0).shape.radius 
+@onready var max_dist = p2.get_child(2).get_child(0).shape.radius + roteador.get_child(1).get_child(0).shape.radius 
 @onready var fade_start = max_dist * 0.7
 
 func _ready() -> void:

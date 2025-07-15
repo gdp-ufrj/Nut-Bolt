@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_state()
 	voltou_ao_chao()
-	debugar_state()
+	#debugar_state()
 	# SOM DE ANDAR
 	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") and is_on_floor() and not esta_desativado:
 		if not $audio_andar.is_playing():
