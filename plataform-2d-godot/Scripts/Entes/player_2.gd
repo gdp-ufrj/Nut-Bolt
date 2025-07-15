@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_state()
 	voltou_ao_chao()
-	printar_state()
+	debugar_state()
 	# SOM DE ANDAR
 	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") and is_on_floor() and not esta_desativado:
 		if not $audio_andar.is_playing():
@@ -149,13 +149,6 @@ func process_input():
 				velocity.x += SPEED / 2
 				enter_state(States.PAREDE_DIREITA)
 	
-	#if prev_state == States.TETO_PERSPECTIVA_ESQUERDA and ray_dd() and !ray_up():
-		#velocity.y = 0
-		#position.y -= 5
-		#position.x -= 5
-		#print("entrou aqui")
-		#enter_state(States.PAREDE_DIREITA)
-	
 	# CONTROLE DE TETO -> PERSPECTIVA A PARTIR DA PAREDE ESQUERDA APENAS
 	if state == States.TETO_PERSPECTIVA_ESQUERDA:
 		velocity.y = 0
@@ -180,13 +173,16 @@ func process_input():
 			enter_state(States.DESACOPLOU)
 	
 	# TENTATIVA DE LEITURA DE CANTO
-	if !ray_right() and state == States.CAINDO and ray_dd():
+	if !ray_right() and prev_state == States.PAREDE_DIREITA and state == States.CAINDO:
 		if Input.is_action_pressed("ui_left_WASD"):
+			velocity.x = 0
 			velocity.y = 0
-			velocity.y += 15
+			velocity.y -= SPEED
 			velocity.x += 15
-			if ray_up():
+			position.y -= 2.5
+			if ray_dd():
 				enter_state(States.TETO_PERSPECTIVA_ESQUERDA)
+	# TO-DO: ATUALIZAR ESSE OUTRO LADO DEPOIS
 	if !ray_left() and state == States.CAINDO and ray_de():
 		if Input.is_action_pressed("ui_right_WASD"):
 			velocity.y = 0
@@ -194,6 +190,14 @@ func process_input():
 			velocity.x += 15
 			if ray_up():
 				enter_state(States.TETO_PERSPECTIVA_DIREITA)
+	
+	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_ESQUERDA:
+		if Input.is_action_pressed("ui_right_WASD"):
+			position.x = position.x
+			velocity.y = -SPEED
+			position.x += 2
+			if ray_right():
+				enter_state(States.PAREDE_DIREITA)
 
 func process_gravity():
 	if state == States.PAREDE_DIREITA:
@@ -262,7 +266,7 @@ func ray_dd():
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
 
-func printar_state():
+func debugar_state():
 	if state == States.CHAO:
 		print("CHAO")
 	elif state == States.PAREDE_ESQUERDA:
@@ -275,5 +279,5 @@ func printar_state():
 		print("TETO_PERSPECTIVA_DIREITA")
 	elif state == States.CAINDO:
 		print("CAINDO")
-	elif state == States.CHAO:
+	elif state == States.DESACOPLOU:
 		print("DESACOPLOU")

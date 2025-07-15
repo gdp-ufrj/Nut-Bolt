@@ -467,7 +467,6 @@ collision_mask = 2
 
 [node name="StateChangeTimer" type="Timer" parent="."]
 wait_time = 0.05
-one_shot = true
 
 [connection signal="area_entered" from="zona_conexao_2" to="." method="_on_zona_conexao_2_area_entered"]
 [connection signal="area_entered" from="zona_conexao_2" to="Conexao_player_2" method="_on_zona_conexao_2_area_entered"]
