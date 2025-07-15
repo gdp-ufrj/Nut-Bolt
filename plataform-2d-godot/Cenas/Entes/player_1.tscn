@@ -23,7 +23,7 @@
 size = Vector2(20, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q7f8p"]
-radius = 76.7919
+radius = 75.0
 
 [sub_resource type="Animation" id="Animation_0dsoe"]
 resource_name = "Idle"
@@ -425,6 +425,7 @@ shape = SubResource("CircleShape2D_q7f8p")
 debug_color = Color(0.996078, 0, 0.2, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="zona_conexao_1"]
+visible = false
 modulate = Color(0.552941, 0.407843, 0.964706, 1)
 position = Vector2(1, 5.68434e-14)
 rotation = -0.389186

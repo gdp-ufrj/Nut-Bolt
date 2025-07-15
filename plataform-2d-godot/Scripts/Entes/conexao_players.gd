@@ -1,27 +1,27 @@
 extends Line2D
 
-var p1 : Node2D
-var p2 : Node2D
-var max_dist = 170
-var fade_start = max_dist * 0.7
+@onready var p1 : CharacterBody2D = get_node("/root/Game Controller/Players/player_1")
+@onready var p2 : CharacterBody2D = get_node("/root/Game Controller/Players/player_2")
+@onready var max_dist = p1.get_child(2).get_child(0).shape.radius + p2.get_child(3).get_child(0).shape.radius
+@onready var fade_start = max_dist * 0.7
 
 func _ready() -> void:
 	points = [Vector2.ZERO, Vector2.ZERO]
 
 func _process(_delta: float) -> void:
-	# Garante que os jogadores existam
-	if not p1 or not p2:
-		#print("Tentando localizar jogadores...")
-		var p1_path = "/root/Game Controller/Players/player_1"
-		var p2_path = "/root/Game Controller/Players/player_2"
-		
-		if has_node(p1_path) and has_node(p2_path):
-			#print("Encontrado:", p1_path)
-			#print("Encontrado:", p2_path)
-			p1 = get_node(p1_path)
-			p2 = get_node(p2_path)
-		else:
-			return
+	## Garante que os jogadores existam
+	#if not p1 or not p2:
+		##print("Tentando localizar jogadores...")
+		#var p1_path = "/root/Game Controller/Players/player_1"
+		#var p2_path = "/root/Game Controller/Players/player_2"
+		#
+		#if has_node(p1_path) and has_node(p2_path):
+			##print("Encontrado:", p1_path)
+			##print("Encontrado:", p2_path)
+			#p1 = get_node(p1_path)
+			#p2 = get_node(p2_path)
+		#else:
+			#return
 
 	# Se ambos existem, continua
 	if p1 and p2:

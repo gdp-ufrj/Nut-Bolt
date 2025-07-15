@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://k7aifkjm4ojf"]
+
+[ext_resource type="Texture2D" uid="uid://cdtj8rdd7pwpw" path="res://Sprites/Tilesets/Tileset_fundo_floresta.png" id="1_tye3o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8lfcs"]
+texture = ExtResource("1_tye3o")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_engj6"]
+tile_size = Vector2i(10, 10)
+sources/1 = SubResource("TileSetAtlasSource_8lfcs")
+
+[node name="Fundo" type="TileMapLayer"]
+z_index = -1
+tile_set = SubResource("TileSet_engj6")

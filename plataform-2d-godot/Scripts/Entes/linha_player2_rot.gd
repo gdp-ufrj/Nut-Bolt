@@ -1,20 +1,21 @@
 extends Line2D
 
-var p2 :Node2D
-var max_dist = 144
-var fade_start = max_dist * 0.7
+@onready var p2 : CharacterBody2D = get_node("/root/Game Controller/Players/player_2")
+@onready var roteador : Node2D = self.get_parent()
+@onready var max_dist = p2.get_child(3).get_child(0).shape.radius + roteador.get_child(1).get_child(0).shape.radius 
+@onready var fade_start = max_dist * 0.7
 
 func _ready() -> void:
 	points = [ Vector2.ZERO,Vector2.ZERO ]
 
 func _process(_delta: float) -> void:
 	
-	if not p2:
-		var possible_path = "/root/Game Controller/Players/player_2"
-		if has_node(possible_path):
-			p2 = get_node(possible_path)
-		else:
-			return 
+	#if not p2:
+		#var possible_path = "/root/Game Controller/Players/player_2"
+		#if has_node(possible_path):
+			#p2 = get_node(possible_path)
+		#else:
+			#return 
 	
 	if p2:
 		#Acha a distância até o player 2
