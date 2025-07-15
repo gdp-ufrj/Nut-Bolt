@@ -155,6 +155,8 @@ func process_input():
 		velocity.y -= SPEED / 2
 		if Input.is_action_pressed("ui_left_WASD"):
 			velocity.x += SPEED
+			if ray_right():
+				enter_state(States.PAREDE_DIREITA)
 		if Input.is_action_pressed("ui_right_WASD"):
 			velocity.x -= SPEED
 		if Input.is_action_pressed("ui_down_WASD"):
@@ -163,11 +165,11 @@ func process_input():
 	# CONTROLE DE TETO -> PERSPECTIVA A PARTIR DA PAREDE DIREITA APENAS
 	if state == States.TETO_PERSPECTIVA_DIREITA:
 		velocity.y = 0
-		velocity.y += SPEED / 2
+		velocity.y -= SPEED / 2
 		if Input.is_action_pressed("ui_right_WASD"):
-			velocity.x += SPEED
-		if Input.is_action_pressed("ui_left_WASD"):
 			velocity.x -= SPEED
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity.x += SPEED
 		if Input.is_action_pressed("ui_down_WASD"):
 			velocity.x = 0
 			enter_state(States.DESACOPLOU)
@@ -198,6 +200,13 @@ func process_input():
 			position.x += 2
 			if ray_right():
 				enter_state(States.PAREDE_DIREITA)
+	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_DIREITA:
+		if Input.is_action_pressed("ui_left_WASD"):
+			position.x = position.x
+			velocity.y = -SPEED
+			position.x -= 2
+			if ray_right():
+				enter_state(States.PAREDE_ESQUERDA)
 
 func process_gravity():
 	if state == States.PAREDE_DIREITA:
