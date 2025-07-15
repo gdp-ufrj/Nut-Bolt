@@ -201,12 +201,12 @@ func process_input():
 			if ray_right():
 				enter_state(States.PAREDE_DIREITA)
 	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_DIREITA:
-		if Input.is_action_pressed("ui_left_WASD"):
+		if Input.is_action_pressed("ui_right_WASD"):
 			position.x = position.x
 			velocity.y = -SPEED
-			position.x -= 2
+			position.x += 2
 			if ray_right():
-				enter_state(States.PAREDE_ESQUERDA)
+				enter_state(States.PAREDE_DIREITA)
 
 func process_gravity():
 	if state == States.PAREDE_DIREITA:
