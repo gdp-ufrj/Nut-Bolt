@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8dh2ffn0pd4l"]
 
-[ext_resource type="Script" uid="uid://c4w0gug7rkhyx" path="res://Scripts/Entes/espinho.gd" id="1_8btu4"]
+[ext_resource type="Script" path="res://Scripts/Entes/espinho.gd" id="1_8btu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbild"]
 size = Vector2(40, 40)
