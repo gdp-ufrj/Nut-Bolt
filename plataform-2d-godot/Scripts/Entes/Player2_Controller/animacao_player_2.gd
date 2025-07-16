@@ -3,7 +3,7 @@ extends Node2D
 @onready var corpo = get_parent()
 @onready var animation: AnimatedSprite2D = $"../Animação"
 
-func setAnimation(direction, turn_direction, esta_desativado, state):
+func setAnimation(direction, turn_direction, esta_desativado, prev_state, state):
 	# Animação de desativado
 	if esta_desativado:
 		if animation.animation != "Desativado":
@@ -33,9 +33,18 @@ func setAnimation(direction, turn_direction, esta_desativado, state):
 	
 	# Leitura de input para ver quando esta em idle e quando esta andando
 	if turn_direction != 0:
-		print("entrou")
 		animation.play("Virar")
 	elif Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_left_WASD"): 
 		animation.play("Corrida")
 	else: 
 		animation.play("Idle")
+	
+	if state == Vermelho.States.CAINDO and prev_state == Vermelho.States.CHAO:
+		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
+			animation.play("Parede Descendo")
+	if state == Vermelho.States.CAINDO and prev_state == Vermelho.States.PAREDE_DIREITA:
+		if Input.is_action_pressed("ui_right_WASD"):
+			animation.play("Parede Subindo")
+	if state == Vermelho.States.CAINDO and prev_state == Vermelho.States.PAREDE_ESQUERDA:
+		if Input.is_action_pressed("ui_left_WASD"):
+			animation.play("Parede Subindo")
