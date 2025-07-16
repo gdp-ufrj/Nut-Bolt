@@ -51,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if esta_desativado:
 		$audio_andar.stop()
 	
-	animation.setAnimation(direction, esta_desativado, state, is_on_floor())
+	animation.setAnimation(direction, esta_desativado, state)
 #endregion
 
 func process_input():
