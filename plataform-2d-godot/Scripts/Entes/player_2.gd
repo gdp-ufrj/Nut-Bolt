@@ -14,6 +14,8 @@ var state
 var prev_state = null
 var state_timeout = false
 
+var last_direction: int = 1
+
 enum States {
 	CHAO, # 0
 	PAREDE_ESQUERDA, # 1
@@ -34,6 +36,16 @@ func _ready() -> void:
 #region physics process
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left_WASD", "ui_right_WASD")
+	
+	# Detecta a troca de direção para tocar a animação "Virar"
+	var turn_direction = 0
+	if direction != 0 and last_direction != 0 and sign(direction) != last_direction:
+		turn_direction = sign(direction) # Armazena a nova direção do "Virar"
+	
+	# Atualiza a última direção apenas se houver movimento
+	if direction != 0:
+		last_direction = sign(direction)
+	
 	process_input()
 	process_gravity()
 	velocity += gravity * delta
@@ -50,8 +62,7 @@ func _physics_process(delta: float) -> void:
 	
 	if esta_desativado:
 		$audio_andar.stop()
-	
-	animation.setAnimation(direction, esta_desativado, state)
+	animation.setAnimation(direction, turn_direction, esta_desativado, state)
 #endregion
 
 func process_input():

@@ -238,13 +238,13 @@ region = Rect2(0, 0, 20, 24)
 atlas = ExtResource("11_x5dgs")
 region = Rect2(0, 0, 20, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpqxx"]
-atlas = ExtResource("12_0yaun")
-region = Rect2(0, 0, 20, 24)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x7pf"]
 atlas = ExtResource("12_0yaun")
 region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpqxx"]
+atlas = ExtResource("12_0yaun")
+region = Rect2(0, 0, 20, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_duo7p"]
 animations = [{
@@ -341,14 +341,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qpqxx")
+"texture": SubResource("AtlasTexture_7x7pf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7x7pf")
+"texture": SubResource("AtlasTexture_qpqxx")
 }],
 "loop": false,
 "name": &"Virar",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="player_2" type="CharacterBody2D" groups=["Players"]]
@@ -395,9 +395,8 @@ wait_time = 4.0
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_duo7p")
-animation = &"Idle"
+animation = &"Parede Descendo"
 autoplay = "Idle"
-frame_progress = 0.723657
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kdljy")

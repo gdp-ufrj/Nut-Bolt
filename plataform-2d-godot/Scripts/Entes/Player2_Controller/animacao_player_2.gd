@@ -3,12 +3,16 @@ extends Node2D
 @onready var corpo = get_parent()
 @onready var animation: AnimatedSprite2D = $"../Animação"
 
-func setAnimation(direction, esta_desativado, state):
+func setAnimation(direction, turn_direction, esta_desativado, state):
 	# Animação de desativado
 	if esta_desativado:
 		if animation.animation != "Desativado":
 			animation.play("Desativado")
 		return  # Não continua se estiver desativado
+	
+	# IMPORTANTE: Se a animação "virar" estiver tocando, deixe-a terminar!
+	if animation.get_animation() == "Virar" and animation.is_playing():
+		return
 	
 	# Rotaciona em x graus dependendo do state
 	match state:
@@ -28,7 +32,10 @@ func setAnimation(direction, esta_desativado, state):
 		animation.flip_h = true  # Vira para a esquerda
 	
 	# Leitura de input para ver quando esta em idle e quando esta andando
-	if Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_left_WASD"): 
+	if turn_direction != 0:
+		print("entrou")
+		animation.play("Virar")
+	elif Input.is_action_pressed("ui_right_WASD") or Input.is_action_pressed("ui_left_WASD"): 
 		animation.play("Corrida")
 	else: 
 		animation.play("Idle")
