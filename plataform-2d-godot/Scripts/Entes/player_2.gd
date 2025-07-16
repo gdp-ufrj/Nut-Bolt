@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @onready var animation = $Animacao_player_2
 @onready var conexao = $Conexao_player_2
+@onready var som = $Gerenciador_de_som
 
 @export var SPEED: int = 90
 @export var gravity_speed = 400
@@ -53,15 +54,7 @@ func _physics_process(delta: float) -> void:
 	update_state()
 	voltou_ao_chao()
 	debugar_state()
-	# SOM DE ANDAR
-	if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD") and is_on_floor() and not esta_desativado:
-		if not $audio_andar.is_playing():
-			$audio_andar.play()
-	else:
-		$audio_andar.stop()
-	
-	if esta_desativado:
-		$audio_andar.stop()
+	som.processar_som()
 	animation.setAnimation(direction, turn_direction, esta_desativado, prev_state, state)
 #endregion
 

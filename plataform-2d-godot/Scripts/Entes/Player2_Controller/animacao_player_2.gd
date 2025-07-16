@@ -10,7 +10,7 @@ func setAnimation(direction, turn_direction, esta_desativado, prev_state, state)
 			animation.play("Desativado")
 		return  # Não continua se estiver desativado
 	
-	# IMPORTANTE: Se a animação "virar" estiver tocando, deixe-a terminar!
+	# Nao interromper se a animacao de virar ja estiver tocando
 	if animation.get_animation() == "Virar" and animation.is_playing():
 		return
 	
@@ -39,6 +39,7 @@ func setAnimation(direction, turn_direction, esta_desativado, prev_state, state)
 	else: 
 		animation.play("Idle")
 	
+	# Animacao de subir e descer paredes
 	if state == Vermelho.States.CAINDO and prev_state == Vermelho.States.CHAO:
 		if Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD"):
 			animation.play("Parede Descendo")

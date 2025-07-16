@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cj3qbb7deufpm"]
+[gd_scene load_steps=50 format=3 uid="uid://cj3qbb7deufpm"]
 
 [ext_resource type="Script" uid="uid://dlj1o3gjokaje" path="res://Scripts/Entes/player_2.gd" id="1_45ong"]
 [ext_resource type="Texture2D" uid="uid://ciasrbt3302oh" path="res://Sprites/Players/Quadrado/Quadradofinal.png" id="2_m2x1u"]
@@ -11,12 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://bi3isdh725uei" path="res://Sprites/Players/Quadrado/ParedeDes.png" id="10_2cdmh"]
 [ext_resource type="Texture2D" uid="uid://bikvh3j5hmu1x" path="res://Sprites/Players/Quadrado/ParedeSub.png" id="11_x5dgs"]
 [ext_resource type="Texture2D" uid="uid://cgas2jdou72dl" path="res://Sprites/Players/Quadrado/Virar.png" id="12_0yaun"]
-[ext_resource type="AudioStream" uid="uid://b66qqjqk7hlxp" path="res://Audio/Gruda/roda_cortada.mp3" id="12_m2x1u"]
 [ext_resource type="AudioStream" uid="uid://bgn10ibhaym58" path="res://Audio/Conexao/Desligar e perda de conexão- opção 2.ogg" id="13_7trq8"]
 [ext_resource type="AudioStream" uid="uid://ok4yjpq7c2ad" path="res://Audio/Conexao/Reestabelecer conexão.ogg" id="14_m2x1u"]
 [ext_resource type="Texture2D" uid="uid://ccp3t5ik1rpax" path="res://Sprites/Placeholders/placeholder-campo.png" id="15_2cdmh"]
+[ext_resource type="AudioStream" uid="uid://cxl57ee47knla" path="res://Audio/Gruda/sfx_roda_robo_1_loop.ogg" id="16_e4a2d"]
 [ext_resource type="Script" uid="uid://b2yfow3fdi5th" path="res://Scripts/Entes/Player2_Controller/animacao_player_2.gd" id="16_x5dgs"]
 [ext_resource type="Script" uid="uid://d06c178qhq8w8" path="res://Scripts/Entes/Player2_Controller/conexao_player_2.gd" id="17_0yaun"]
+[ext_resource type="Script" uid="uid://dgysphy3432iw" path="res://Scripts/Entes/Player2_Controller/som_player_2.gd" id="18_e4a2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yaun"]
 
@@ -404,20 +405,6 @@ volume_db = -3.189
 bus = &"SFX"
 parameters/looping = true
 
-[node name="audio_desacoplar" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_l2cw4")
-bus = &"SFX"
-
-[node name="audio_pouso" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_80kl4")
-bus = &"SFX"
-
-[node name="audio_andar" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_m2x1u")
-volume_db = -10.0
-bus = &"SFX"
-parameters/looping = true
-
 [node name="audio_desligar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_7trq8")
 bus = &"SFX"
@@ -431,6 +418,22 @@ script = ExtResource("16_x5dgs")
 
 [node name="Conexao_player_2" type="Node2D" parent="."]
 script = ExtResource("17_0yaun")
+
+[node name="Gerenciador_de_som" type="Node2D" parent="."]
+script = ExtResource("18_e4a2d")
+
+[node name="audio_andar" type="AudioStreamPlayer" parent="Gerenciador_de_som"]
+stream = ExtResource("16_e4a2d")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="audio_pouso" type="AudioStreamPlayer" parent="Gerenciador_de_som"]
+stream = ExtResource("5_80kl4")
+bus = &"SFX"
+
+[node name="audio_desacoplar" type="AudioStreamPlayer" parent="Gerenciador_de_som"]
+stream = ExtResource("4_l2cw4")
+bus = &"SFX"
 
 [node name="Raycasts" type="Node2D" parent="."]
 
