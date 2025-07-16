@@ -7,12 +7,16 @@ extends Node2D
 @onready var som_desacoplar = $audio_desacoplar
 
 func processar_som():
-	processar_som_passos()
+	var state = jogador.state
+	var prev_state = jogador.prev_state
+	
+	processar_som_passos(state)
+	processar_som_pouso(state, prev_state)
+	#processar_som_desacoplar(state, prev_state)
 
-func processar_som_passos():
+func processar_som_passos(state):
 	var esta_andando = Input.is_action_pressed("ui_left_WASD") or Input.is_action_pressed("ui_right_WASD")
 	var esta_desativado = jogador.esta_desativado
-	var state = jogador.state
 	
 	if state != Vermelho.States.CAINDO and state != Vermelho.States.DESACOPLOU:
 		if esta_andando and not esta_desativado:
@@ -20,3 +24,12 @@ func processar_som_passos():
 				som_andar.play()
 		else:
 			som_andar.stop()
+
+func processar_som_pouso(state, prev_state):
+	if state == Vermelho.States.DESACOPLOU and prev_state != Vermelho.States.CAINDO:
+		if jogador.is_on_floor():
+			som_pouso.play()
+
+#func processar_som_desacoplar(state, prev_state):
+	#if jogador.is_on_floor() and prev_state != Vermelho.States.DESACOPLOU:
+		#som_desacoplar.play()

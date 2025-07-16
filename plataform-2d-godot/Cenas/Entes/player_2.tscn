@@ -396,7 +396,7 @@ wait_time = 4.0
 
 [node name="Animação" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_duo7p")
-animation = &"Parede Descendo"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="aviso_conexao" type="AudioStreamPlayer" parent="."]

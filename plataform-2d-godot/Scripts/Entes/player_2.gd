@@ -52,9 +52,9 @@ func _physics_process(delta: float) -> void:
 	velocity += gravity * delta
 	move_and_slide()
 	update_state()
+	som.processar_som()
 	voltou_ao_chao()
 	debugar_state()
-	som.processar_som()
 	animation.setAnimation(direction, turn_direction, esta_desativado, prev_state, state)
 #endregion
 
@@ -226,7 +226,7 @@ func process_gravity():
 		gravity = Vector2(0, gravity_speed)
 
 func update_state():
-	if !ray_left() and !ray_right() and !ray_down() and !ray_up() and !ray_dd() and !ray_de() and !(state == States.CAINDO):
+	if !ray_left() and !ray_right() and !ray_down() and !ray_up() and !ray_dd() and !ray_de() and !(state == States.CAINDO) and !(state == States.DESACOPLOU):
 		enter_state(States.CAINDO)
 	
 	if state == States.CAINDO:
