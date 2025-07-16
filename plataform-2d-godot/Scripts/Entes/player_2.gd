@@ -1,3 +1,4 @@
+class_name Vermelho
 extends CharacterBody2D
 
 @onready var animation = $Animacao_player_2
@@ -50,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	if esta_desativado:
 		$audio_andar.stop()
 	
-	animation.setAnimation(direction, esta_desativado)
+	animation.setAnimation(direction, esta_desativado, state, is_on_floor())
 #endregion
 
 func process_input():
