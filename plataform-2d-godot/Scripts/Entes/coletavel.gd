@@ -1,6 +1,5 @@
 extends Area2D
 
-#nao funcional, ainda tem que descobrir o erro.
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))

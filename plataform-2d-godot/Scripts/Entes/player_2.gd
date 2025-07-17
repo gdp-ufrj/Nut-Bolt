@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	update_state()
 	som.processar_som()
 	voltou_ao_chao()
-	debugar_state()
+	#debugar_state()
 	animation.setAnimation(direction, turn_direction, esta_desativado, prev_state, state)
 #endregion
 
@@ -280,18 +280,18 @@ func ray_dd():
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
 
-func debugar_state():
-	if state == States.CHAO:
-		print("CHAO")
-	elif state == States.PAREDE_ESQUERDA:
-		print("PAREDE ESQUERDA")
-	elif state == States.PAREDE_DIREITA:
-		print("PAREDE DIREITA")
-	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
-		print("TETO_PERSPECTIVA_ESQUERDA")
-	elif state == States.TETO_PERSPECTIVA_DIREITA:
-		print("TETO_PERSPECTIVA_DIREITA")
-	elif state == States.CAINDO:
-		print("CAINDO")
-	elif state == States.DESACOPLOU:
-		print("DESACOPLOU")
+#func debugar_state():
+	#if state == States.CHAO:
+		#print("CHAO")
+	#elif state == States.PAREDE_ESQUERDA:
+		#print("PAREDE ESQUERDA")
+	#elif state == States.PAREDE_DIREITA:
+		#print("PAREDE DIREITA")
+	#elif state == States.TETO_PERSPECTIVA_ESQUERDA:
+		#print("TETO_PERSPECTIVA_ESQUERDA")
+	#elif state == States.TETO_PERSPECTIVA_DIREITA:
+		#print("TETO_PERSPECTIVA_DIREITA")
+	#elif state == States.CAINDO:
+		#print("CAINDO")
+	#elif state == States.DESACOPLOU:
+		#print("DESACOPLOU")

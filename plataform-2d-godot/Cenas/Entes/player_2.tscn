@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cxl57ee47knla" path="res://Audio/Gruda/sfx_roda_robo_1_loop.ogg" id="16_e4a2d"]
 [ext_resource type="Script" uid="uid://b2yfow3fdi5th" path="res://Scripts/Entes/Player2_Controller/animacao_player_2.gd" id="16_x5dgs"]
 [ext_resource type="Script" uid="uid://d06c178qhq8w8" path="res://Scripts/Entes/Player2_Controller/conexao_player_2.gd" id="17_0yaun"]
-[ext_resource type="Script" uid="uid://dgysphy3432iw" path="res://Scripts/Entes/Player2_Controller/som_player_2.gd" id="18_e4a2d"]
+[ext_resource type="Script" path="res://Scripts/Entes/Player2_Controller/som_player_2.gd" id="18_e4a2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yaun"]
 

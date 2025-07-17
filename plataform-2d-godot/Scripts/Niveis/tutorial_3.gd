@@ -7,7 +7,7 @@ var pode_interagir: bool = false
 @onready var estatica_3 = $"Plataformas Estaticas/estatica_3/CollisionShape2D"
 @onready var estatica_4 = $"Plataformas Estaticas/estatica_4/CollisionShape2D"
 @onready var plataformas_estaticas: Array = [self.estatica_1,self.estatica_2, self.estatica_3, self.estatica_4]
- 
+@onready var fadein = get_parent().get_node("AnimationPlayer")
 
 func _ready() -> void:
 	estado_inicial_plataformas()
@@ -34,17 +34,12 @@ func inverte_estado()->void:
 
 
 #reinicio de fase ao cair (void)
-#!!ERRO!! voltando pra fase 1
+#Consertado, volta ao nivel certo
 func _on_void_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
-		get_tree().reload_current_scene()
-	pass # Replace with function body.
+		if not fadein.is_playing():
+			fadein.play("fade_in")
+			await fadein.animation_finished
+			get_tree().get_root().get_node("Game Controller").restart_level()
 
-
-
-#VOID 
-#reinicio de fase ao cair (void)
-#func _on_body_entered(body: Node2D) -> void:
-#	if body.is_in_group("Players"):
-#		game_controller.restart_level()
-	
+		

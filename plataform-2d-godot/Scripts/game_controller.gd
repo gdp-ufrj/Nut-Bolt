@@ -5,7 +5,9 @@ signal restart
 var level_paths = [
 	"res://Cenas/Niveis/tutorial_1.tscn",
 	"res://Cenas/Niveis/tutorial_2.tscn",
-	"res://Cenas/Niveis/tutorial_3.tscn"  
+	"res://Cenas/Niveis/tutorial_3.tscn",
+	"res://Cenas/Niveis/fase_1.tscn",
+	"res://Cenas/Niveis/fase_3.tscn"
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
@@ -128,4 +130,12 @@ func _update_music(index: int) -> void:
 			#if music_player,stream != music_fases:
 				#music_player.stream = music_fases
 				#music_player.play()
+				
+
+#funcao de update da animacao da porta
+func get_fase_tipo() -> String:
+	if current_index <= 2:
+		return "tutorial"
+	else:
+		return "floresta"
 	

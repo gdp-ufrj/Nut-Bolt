@@ -7,6 +7,16 @@ var ja_tocou = false
 var animacao_terminou = false
 var chamou_transicao = false
 
+
+func _ready():
+	var tipo_fase = get_tree().get_root().get_node("Game Controller").get_fase_tipo()
+	
+	match tipo_fase:
+		"tutorial":
+			animation.animation = "Abre e fecha"
+		"floresta":
+			animation.animation = "Abre e fecha floresta"
+
 func _process(delta: float) -> void:
 	if not chamou_transicao:
 		if has_both_players() and animacao_terminou:

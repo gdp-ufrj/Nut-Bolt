@@ -44,12 +44,13 @@ func _on_continuar_pressed() -> void:
 
 #botão de Opções ainda ainda não completado
 func _on_configuracoes_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 
 #botao recomecar
 func _on_recomecar_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().get_root().get_node(\"Game Controller\").restart_level()
+	hide_pause_menu()
 
 
 #Funcao chamada quando o botao \"Sair\" é pressionado
