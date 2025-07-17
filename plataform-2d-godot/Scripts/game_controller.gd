@@ -134,7 +134,7 @@ func _update_music(index: int) -> void:
 
 #funcao de update da animacao da porta
 func get_fase_tipo() -> String:
-	if current_index <= 0:
+	if current_index <= 2:
 		return "tutorial"
 	else:
 		return "floresta"
