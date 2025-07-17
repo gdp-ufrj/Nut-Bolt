@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bih7god6r8j2v"]
+[gd_scene load_steps=32 format=3 uid="uid://bih7god6r8j2v"]
 
 [ext_resource type="Script" uid="uid://boio3y0ty6tnk" path="res://Scripts/Entes/porta.gd" id="1_fa3ny"]
 [ext_resource type="Texture2D" uid="uid://cjec535dffhw3" path="res://Sprites/Interagíveis/Porta1_fechada.png" id="2_fa3ny"]
 [ext_resource type="Texture2D" uid="uid://d0hnb74tl6an1" path="res://Sprites/Interagíveis/Porta1_anim.png" id="3_35smw"]
 [ext_resource type="AudioStream" uid="uid://b0rp6udo0r8nc" path="res://Audio/Porta/Porta abrindo.ogg" id="4_c7j4k"]
-[ext_resource type="Texture2D" uid="uid://hnb27m6dpn6h" path="res://icon.svg" id="4_ocrap"]
+[ext_resource type="Texture2D" uid="uid://dsd65yvvwacjr" path="res://Sprites/Interagíveis/Floresta/PortaFloresta_anim.png" id="4_ocrap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fa3ny"]
 size = Vector2(50, 50)
@@ -57,6 +57,54 @@ region = Rect2(500, 0, 50, 50)
 atlas = ExtResource("3_35smw")
 region = Rect2(550, 0, 50, 50)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qedc4"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x82yv"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4wp4"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3tji"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdbad"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfuwj"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtmm2"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufnv4"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijhc4"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(400, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ahi"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(450, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtaf7"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(500, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kl7o"]
+atlas = ExtResource("4_ocrap")
+region = Rect2(550, 0, 50, 50)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qedc4"]
 animations = [{
 "frames": [{
@@ -102,14 +150,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ocrap")
+"texture": SubResource("AtlasTexture_qedc4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ocrap")
+"texture": SubResource("AtlasTexture_x82yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4wp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3tji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdbad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfuwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtmm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufnv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijhc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ahi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtaf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kl7o")
 }],
-"loop": true,
+"loop": false,
 "name": &"Abre e fecha floresta",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Porta" type="Area2D"]
@@ -125,7 +203,7 @@ shape = SubResource("RectangleShape2D_fa3ny")
 
 [node name="Abre e fecha" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qedc4")
-animation = &"Abre e fecha floresta"
+animation = &"Abre e fecha"
 
 [node name="audio_abrindo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c7j4k")

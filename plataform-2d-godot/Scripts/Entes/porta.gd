@@ -31,7 +31,7 @@ func _on_body_entered(body):
 		#Só toca a animação quando AMBOS estiverem presentes e ainda não tocou
 		if has_both_players() and not ja_tocou:
 			$"Abre e fecha".visible = true
-			animation.play("Abre e fecha")
+			animation.play()
 			$audio_abrindo.play()
 			ja_tocou = true
 			
