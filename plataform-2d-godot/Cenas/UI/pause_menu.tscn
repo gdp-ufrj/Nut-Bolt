@@ -20,6 +20,7 @@ script/source = "extends CanvasLayer
 
 #Funcao chamada quando o menu de pausa e ativado
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.visible = false #Inicialmente, o menu de pausa esta invisivel
 
 
@@ -36,7 +37,7 @@ func hide_pause_menu():
 	#Torna o painel invisivel, escondendo o menu de pausa
 	panel.visible = false
 	#Despausa o jogo, permitindo que a execucao e a fisica continuem normalmente
-	get_tree().paused = false 
+	get_tree().paused = false
 
 #Função chamada quando o botao \"Continuar\" e pressionado
 func _on_continuar_pressed() -> void:
@@ -44,8 +45,27 @@ func _on_continuar_pressed() -> void:
 
 #botão de Opções ainda ainda não completado
 func _on_configuracoes_pressed() -> void:
-	pass
+	panel.visible = false  #Esconde o menu de pausa temporariamente
 
+	var settings_scene = load(\"res://Cenas/UI/configuracoes.tscn\")
+	var instance = settings_scene.instantiate()
+
+	instance.origem = \"pause\"  #Indica que veio do menu de pausa
+
+	add_child(instance)
+	instance.connect(\"fechar_configuracoes\", Callable(self, \"_on_fechar_configuracoes\"))
+
+func _on_fechar_configuracoes(origem: String):
+	if origem == \"pause\":
+		panel.visible = true  #Reexibe o menu de pausa
+	
+#NAO ESTA FUNCIONANDO
+#Sair pelo ESC
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_cancel\"):
+		var config_screen = get_node_or_null(\"configuracoes\")
+		if config_screen and config_screen.has_method(\"fechar\"):
+			config_screen.fechar()
 
 #botao recomecar
 func _on_recomecar_pressed() -> void:
@@ -55,7 +75,7 @@ func _on_recomecar_pressed() -> void:
 
 #Funcao chamada quando o botao \"Sair\" é pressionado
 func _on_sair_pressed() -> void:
-	get_tree().paused = false # Despausa o jogo
+	get_tree().paused = false #Despausa o jogo
 	#Muda para a cena principal (menu), carregando a cena de menu
 	get_tree().change_scene_to_file(\"res://Cenas/UI/menu.tscn\")
 "

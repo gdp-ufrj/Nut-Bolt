@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=11 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
 [ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="2_hveky"]
@@ -10,30 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Elementos UI/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
 [ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Elementos UI/Botao_Configuracoes.png" id="8_1b1oe"]
 [ext_resource type="AudioStream" uid="uid://d3hjs35f7lvj" path="res://Audio/Menu/Música Menu 2 (2).ogg" id="10_3f8y4"]
-[ext_resource type="Script" uid="uid://bnubrkegu8u2r" path="res://Scripts/Telas/opcoes_menu.gd" id="10_4ny4x"]
-[ext_resource type="Script" uid="uid://dyykl3rb76gha" path="res://Scripts/Telas/audio_controller.gd" id="10_kc1t0"]
-[ext_resource type="Script" uid="uid://4oalte541pyc" path="res://Scripts/Telas/check_button.gd" id="11_gu8pg"]
-[ext_resource type="Script" uid="uid://b3g0p3661k1kj" path="res://Scripts/Telas/sfx.gd" id="12_1b1oe"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_3f8y4"]
-color = Color(0.973535, 0.973535, 0.973535, 1)
-thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_kc1t0"]
-color = Color(0, 0.576129, 0.0888484, 1)
-thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_gu8pg"]
-color = Color(0, 0.576129, 0.0888484, 1)
-thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_1b1oe"]
-color = Color(1, 1, 1, 1)
-thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_4ny4x"]
-color = Color(0, 0.576471, 0.0901961, 1)
-thickness = 6
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -112,101 +88,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Quit"
 
-[node name="Configuracoes" type="Panel" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_4ny4x")
-
-[node name="Titulo" type="Label" parent="CanvasLayer/Configuracoes"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 57.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-text = "Configurações"
-horizontal_alignment = 1
-
-[node name="Voltar" type="Button" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 321.0
-offset_right = 343.0
-offset_bottom = 352.0
-text = "Voltar"
-
-[node name="Audio_Controller" type="HSlider" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 91.0
-offset_right = 428.0
-offset_bottom = 113.0
-theme_override_styles/slider = SubResource("StyleBoxLine_3f8y4")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_kc1t0")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_gu8pg")
-max_value = 1.0
-step = 0.05
-value = 1.0
-script = ExtResource("10_kc1t0")
-audio_bus_name = "Music"
-
-[node name="Fullscreen" type="CheckButton" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 124.0
-offset_top = 155.0
-offset_right = 333.0
-offset_bottom = 186.0
-text = "Fullscreen"
-script = ExtResource("11_gu8pg")
-
-[node name="Label" type="Label" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 125.0
-offset_top = 89.0
-offset_right = 171.0
-offset_bottom = 115.0
-text = "Music"
-
-[node name="SFX" type="HSlider" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 193.0
-offset_top = 122.0
-offset_right = 428.0
-offset_bottom = 138.0
-theme_override_styles/slider = SubResource("StyleBoxLine_1b1oe")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_4ny4x")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_4ny4x")
-max_value = 1.0
-step = 0.05
-value = 1.0
-script = ExtResource("12_1b1oe")
-audio_bus_name = "SFX"
-
-[node name="Label2" type="Label" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 139.0
-offset_top = 119.0
-offset_right = 179.0
-offset_bottom = 142.0
-text = "SFX"
-
-[node name="Resolution" type="OptionButton" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 225.0
-offset_top = 195.0
-offset_right = 436.0
-offset_bottom = 215.0
-
-[node name="Label3" type="Label" parent="CanvasLayer/Configuracoes"]
-layout_mode = 0
-offset_left = 130.0
-offset_top = 194.0
-offset_right = 213.0
-offset_bottom = 217.0
-text = "Resolution"
+[node name="SettingsSpawner" type="Node" parent="CanvasLayer"]
 
 [node name="Music_menu" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_3f8y4")
@@ -219,7 +101,3 @@ parameters/looping = true
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Configuracoes/Voltar" to="." method="_on_voltar_configuracoes_pressed"]
-[connection signal="value_changed" from="CanvasLayer/Configuracoes/Audio_Controller" to="CanvasLayer/Configuracoes/Audio_Controller" method="_on_value_changed"]
-[connection signal="toggled" from="CanvasLayer/Configuracoes/Fullscreen" to="CanvasLayer/Configuracoes/Fullscreen" method="_on_toggled"]
-[connection signal="value_changed" from="CanvasLayer/Configuracoes/SFX" to="CanvasLayer/Configuracoes/SFX" method="_on_value_changed"]
