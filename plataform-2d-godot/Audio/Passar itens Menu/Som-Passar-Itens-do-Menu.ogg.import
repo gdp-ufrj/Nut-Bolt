@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b75xrem3m7ngq"
+path="res://.godot/imported/Som-Passar-Itens-do-Menu.ogg-76069d9e39236dcf6e41e09b787f1e64.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Passar itens Menu/Som-Passar-Itens-do-Menu.ogg"
+dest_files=["res://.godot/imported/Som-Passar-Itens-do-Menu.ogg-76069d9e39236dcf6e41e09b787f1e64.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

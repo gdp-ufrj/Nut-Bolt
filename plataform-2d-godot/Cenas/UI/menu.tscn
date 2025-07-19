@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=13 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
 [ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="2_hveky"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Elementos UI/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
 [ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Elementos UI/Botao_Configuracoes.png" id="8_1b1oe"]
 [ext_resource type="AudioStream" uid="uid://d3hjs35f7lvj" path="res://Audio/Menu/Música Menu 2 (2).ogg" id="10_3f8y4"]
+[ext_resource type="AudioStream" uid="uid://j8i14t3t7j58" path="res://Audio/Selecionar opção/Som-Selecionar-Opção-_Menu.ogg" id="11_kc1t0"]
+[ext_resource type="AudioStream" uid="uid://b75xrem3m7ngq" path="res://Audio/Passar itens Menu/Som-Passar-Itens-do-Menu.ogg" id="12_gu8pg"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -96,8 +98,21 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
+[node name="Som_Selecao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_kc1t0")
+
+[node name="Som_Navegacao" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("12_gu8pg")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Load" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Opções" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Opções" to="." method="_on_opções_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Creditos" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

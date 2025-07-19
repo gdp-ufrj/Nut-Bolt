@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sf2d4svmqmvo"]
+[gd_scene load_steps=14 format=3 uid="uid://sf2d4svmqmvo"]
 
 [ext_resource type="Texture2D" uid="uid://y7p2d7dyamvw" path="res://Sprites/Elementos UI/UI_Pausa/CONTROLES CERTOS_menu pausa.png" id="1_k35np"]
 [ext_resource type="Texture2D" uid="uid://co5hu07jwdo82" path="res://Sprites/Elementos UI/UI_Pausa/Continuar_selecionado.png" id="2_8hyj1"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://g1evywl01jkv" path="res://Sprites/Elementos UI/UI_Pausa/Sair_não_selecionado.png" id="8_k2qk6"]
 [ext_resource type="Texture2D" uid="uid://p3vyeul7l1kq" path="res://Sprites/Elementos UI/UI_Pausa/Sair_selecionado.png" id="9_vml6q"]
 [ext_resource type="AudioStream" uid="uid://cgvr1iwd3rm41" path="res://Audio/Pausar jogo/Som pausar jogo (2).mp3" id="10_k35np"]
+[ext_resource type="AudioStream" uid="uid://j8i14t3t7j58" path="res://Audio/Selecionar opção/Som-Selecionar-Opção-_Menu.ogg" id="11_ye0i6"]
+[ext_resource type="AudioStream" uid="uid://b75xrem3m7ngq" path="res://Audio/Passar itens Menu/Som-Passar-Itens-do-Menu.ogg" id="12_k2qk6"]
 
 [sub_resource type="GDScript" id="GDScript_w1fl2"]
 script/source = "extends CanvasLayer
@@ -17,6 +19,10 @@ script/source = "extends CanvasLayer
 #Referencia ao painel que contem o menu de pausa
 @onready var panel = $Panel
 @onready var sound = $Abrir_Pause_menu
+@onready var som_selecao = $Som_Selecao
+@onready var som_navegacao = $Som_Navegacao
+
+var pode_tocar_hover = true
 
 #Funcao chamada quando o menu de pausa e ativado
 func _ready():
@@ -41,10 +47,12 @@ func hide_pause_menu():
 
 #Função chamada quando o botao \"Continuar\" e pressionado
 func _on_continuar_pressed() -> void:
+	som_selecao.play()
 	hide_pause_menu() #Chama a funcao para esconder o menu de pausa
 
 #botão de Opções ainda ainda não completado
 func _on_configuracoes_pressed() -> void:
+	som_selecao.play()
 	panel.visible = false  #Esconde o menu de pausa temporariamente
 
 	var settings_scene = load(\"res://Cenas/UI/configuracoes.tscn\")
@@ -69,6 +77,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #botao recomecar
 func _on_recomecar_pressed() -> void:
+	som_selecao.play()
 	get_tree().get_root().get_node(\"Game Controller\").restart_level()
 	hide_pause_menu()
 
@@ -78,6 +87,15 @@ func _on_sair_pressed() -> void:
 	get_tree().paused = false #Despausa o jogo
 	#Muda para a cena principal (menu), carregando a cena de menu
 	get_tree().change_scene_to_file(\"res://Cenas/UI/menu.tscn\")
+	
+
+#Som quando estiver com o cursor em cima dele
+func _on_botao_hover():
+	if pode_tocar_hover:
+		som_navegacao.play()
+		pode_tocar_hover = false
+		await get_tree().create_timer(0.1).timeout
+		pode_tocar_hover = true
 "
 
 [node name="Pause_menu" type="CanvasLayer"]
@@ -144,7 +162,20 @@ process_mode = 2
 stream = ExtResource("10_k35np")
 bus = &"SFX"
 
+[node name="Som_Selecao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ye0i6")
+bus = &"SFX"
+
+[node name="Som_Navegacao" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("12_k2qk6")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Panel/Continuar" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="Panel/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="mouse_entered" from="Panel/Configuracoes" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="Panel/Configuracoes" to="." method="_on_configuracoes_pressed"]
+[connection signal="mouse_entered" from="Panel/Recomecar" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="Panel/Recomecar" to="." method="_on_recomecar_pressed"]
+[connection signal="mouse_entered" from="Panel/Sair" to="." method="_on_botao_hover"]
 [connection signal="pressed" from="Panel/Sair" to="." method="_on_sair_pressed"]

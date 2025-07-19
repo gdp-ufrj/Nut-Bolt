@@ -2,6 +2,10 @@ extends Control
 
 @onready var main_menu = $CanvasLayer/VBoxContainer
 @onready var settings_spawner = $CanvasLayer/SettingsSpawner
+@onready var som_selecionar = $Som_Selecao
+@onready var som_navegacao = $Som_Navegacao
+
+var pode_tocar_hover = true
 
 func _ready():
 	call_deferred("_apply_saved_settings")
@@ -9,14 +13,18 @@ func _ready():
 
 # Botão de Start: inicia o jogo
 func _on_start_pressed() -> void:
+	som_selecionar.play()
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Cenas/game_controller.tscn")
 
 # Botão de Load Game (ainda não implementado)
 func _on_load_pressed() -> void:
+	som_selecionar.play()
 	pass
 
 # Botão de Créditos (ainda não implementado)
 func _on_creditos_pressed() -> void:
+	som_selecionar.play()
 	pass
 
 # Botão de Quit: fecha o jogo
@@ -25,6 +33,7 @@ func _on_quit_pressed() -> void:
 
 # Botão de Opções: instancia a nova cena de configurações
 func _on_opções_pressed() -> void:
+	som_selecionar.play()
 	main_menu.visible = false
 	
 	var settings_scene = load("res://Cenas/UI/configuracoes.tscn")  #Caminho da nova cena
@@ -84,3 +93,11 @@ func _apply_saved_settings():
 	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(volume_sfx))
 
 	print("✅ Configurações aplicadas. Resolução:", res, "Fullscreen:", fullscreen)
+	
+#Som quando o cursor estiver em cima dele
+func _on_botao_hover():
+	if pode_tocar_hover:
+		som_navegacao.play()
+		pode_tocar_hover = false
+		await get_tree().create_timer(0.1).timeout
+		pode_tocar_hover = true
