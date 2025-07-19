@@ -20,7 +20,7 @@ var current_index: int = -1     #Indice do nivel atual
 @onready var music_player: AudioStreamPlayer2D = $SoundTrack_laboratorio
 
 const music_tutorial = preload("res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg")
-#const music_fases = preload() #Falta a musica
+const music_fases = preload("res://Audio/Floresta_soundtrack/mus_solarpunk_loop.ogg")
 
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
@@ -121,15 +121,17 @@ func _add_level_to_scene(level_instance: Node):
 	
 func _update_music(index: int) -> void:
 	if index <= 2:
-		#Tutorial (fases 0,1,2) nao reinicia se ja estiver tocando
+		#Tutorial (fases 0,1,2)
 		if music_player.stream != music_tutorial:
+			music_player.stop()  # <- PARA a música atual
 			music_player.stream = music_tutorial
 			music_player.play()
-		#elif index >= 3:
-			#Trocar musica depois do laboratorio (falta a musica)
-			#if music_player,stream != music_fases:
-				#music_player.stream = music_fases
-				#music_player.play()
+	elif index >= 3:
+		#Floresta (fases 3 em diante)
+		if music_player.stream != music_fases:
+			music_player.stop()  # <- PARA a música atual
+			music_player.stream = music_fases
+			music_player.play()
 				
 
 #funcao de update da animacao da porta

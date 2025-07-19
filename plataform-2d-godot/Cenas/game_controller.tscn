@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbcfjbornagd1"]
+[gd_scene load_steps=14 format=3 uid="uid://cbcfjbornagd1"]
 
 [ext_resource type="Script" uid="uid://b0xobmaoxeadc" path="res://Scripts/game_controller.gd" id="1_b7awa"]
 [ext_resource type="PackedScene" uid="uid://dutaywbb4vjh" path="res://Cenas/Entes/player_1.tscn" id="2_7gg3j"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://sf2d4svmqmvo" path="res://Cenas/UI/pause_menu.tscn" id="5_dg2gn"]
 [ext_resource type="Script" uid="uid://c5hky83cd8lir" path="res://Scripts/Entes/conexao_players.gd" id="6_dg2gn"]
 [ext_resource type="AudioStream" uid="uid://dfynr71mohxq0" path="res://Audio/Laboratorio_soundtrack/mus_laboratorio_loop.ogg" id="7_i7hoh"]
+[ext_resource type="AudioStream" uid="uid://b7ljni56g5r3w" path="res://Audio/Floresta_soundtrack/mus_solarpunk_loop.ogg" id="8_1ob22"]
 
 [sub_resource type="Animation" id="Animation_i7hoh"]
 length = 0.001
@@ -113,6 +114,10 @@ stream = ExtResource("7_i7hoh")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
+
+[node name="SoundTrack_floresta" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_1ob22")
+bus = &"Music"
 
 [connection signal="restart" from="." to="Players/player_1" method="_on_game_controller_restart"]
 [connection signal="restart" from="." to="Players/player_2" method="_on_game_controller_restart"]
