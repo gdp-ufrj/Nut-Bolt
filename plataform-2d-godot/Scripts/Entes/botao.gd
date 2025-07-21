@@ -48,4 +48,5 @@ func _on_ativar_oneshot() -> void:
 	is_untouched = false
 	$audio_interagir.play()
 	$Label.hide()
+	pode_ativar = false
 	animation.play(prefixo_anim + "_ligar")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://denase3qiamo0"]
 
-[ext_resource type="Script" uid="uid://m7oxg78vu4h8" path="res://Scripts/Niveis/tutorial_1.gd" id="1_dx2wo"]
+[ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_dx2wo"]
 [ext_resource type="Texture2D" uid="uid://cf8104fl6hons" path="res://Sprites/Placeholders/plat.png" id="3_y1ous"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="4_sdgiu"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_y1ous"]
