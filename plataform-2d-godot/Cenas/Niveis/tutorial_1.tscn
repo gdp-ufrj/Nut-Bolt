@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=29 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -14,7 +14,6 @@
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="9_shsao"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="10_0a68a"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_bq7u2"]
-[ext_resource type="PackedScene" uid="uid://b4sjo4sp0nysp" path="res://Cenas/Entes/bola_espinho.tscn" id="15_hvu8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
 shader = ExtResource("4_hvu8q")
@@ -246,8 +245,5 @@ shape = SubResource("RectangleShape2D_0df2m")
 [node name="Coletavel" parent="." instance=ExtResource("14_bq7u2")]
 visibility_layer = 1
 position = Vector2(192, 216)
-
-[node name="Node2D" parent="." instance=ExtResource("15_hvu8q")]
-position = Vector2(107, 209)
 
 [connection signal="body_entered" from="Void" to="." method="_on_area_2d_body_entered"]
