@@ -25,3 +25,4 @@ offset_bottom = 40.0
 color = Color(0.415686, 0, 1, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
