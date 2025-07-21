@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cw1m5yl4qgd3a"]
+[gd_scene load_steps=13 format=4 uid="uid://cw1m5yl4qgd3a"]
 
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="1_ot50e"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_l14c6"]
 [ext_resource type="PackedScene" uid="uid://k7aifkjm4ojf" path="res://Cenas/Ambiente/tileset_background.tscn" id="2_qljet"]
 [ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="3_l14c6"]
+[ext_resource type="PackedScene" uid="uid://b4sjo4sp0nysp" path="res://Cenas/Entes/bola_espinho.tscn" id="5_o1cjd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ot50e"]
 normal = Vector2(0.024642, -0.999696)
@@ -16,6 +17,44 @@ normal = Vector2(-0.99998, -0.0063693)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1cjd"]
 distance = -182.0
+
+[sub_resource type="Animation" id="Animation_1wskk"]
+resource_name = "bola_espinho"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(475, 266), Vector2(475, 20), Vector2(475, 266)]
+}
+
+[sub_resource type="Animation" id="Animation_u3qop"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(475, 266)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wjm6d"]
+_data = {
+&"RESET": SubResource("Animation_u3qop"),
+&"bola_espinho": SubResource("Animation_1wskk")
+}
 
 [node name="Fase_2" type="Node2D"]
 
@@ -94,3 +133,12 @@ shape = SubResource("WorldBoundaryShape2D_o1cjd")
 [node name="Espinho" parent="." instance=ExtResource("3_l14c6")]
 visible = false
 position = Vector2(539, 290)
+
+[node name="bola_espinho" parent="." instance=ExtResource("5_o1cjd")]
+position = Vector2(475, 266)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho"]
+libraries = {
+&"": SubResource("AnimationLibrary_wjm6d")
+}
+autoplay = "bola_espinho"
