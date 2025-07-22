@@ -50,6 +50,21 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orrl7"]
 size = Vector2(50, 10)
 
+[sub_resource type="Animation" id="Animation_orrl7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_o8ei5"]
 resource_name = "Retrair"
 length = 1.5
@@ -66,7 +81,16 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(50, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_orrl7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jedf1"]
+_data = {
+&"RESET": SubResource("Animation_orrl7"),
+&"Retrair": SubResource("Animation_o8ei5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jedf1"]
+size = Vector2(10, 50)
+
+[sub_resource type="Animation" id="Animation_5c7np"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,15 +104,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jedf1"]
-_data = {
-&"RESET": SubResource("Animation_orrl7"),
-&"Retrair": SubResource("Animation_o8ei5")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jedf1"]
-size = Vector2(10, 50)
 
 [sub_resource type="Animation" id="Animation_jedf1"]
 resource_name = "Retrair"
@@ -106,7 +121,16 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 50)]
 }
 
-[sub_resource type="Animation" id="Animation_5c7np"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm0w7"]
+_data = {
+&"RESET": SubResource("Animation_5c7np"),
+&"Retrair": SubResource("Animation_jedf1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7np"]
+size = Vector2(10, 50)
+
+[sub_resource type="Animation" id="Animation_kdbq7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -120,15 +144,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm0w7"]
-_data = {
-&"RESET": SubResource("Animation_5c7np"),
-&"Retrair": SubResource("Animation_jedf1")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7np"]
-size = Vector2(10, 50)
 
 [sub_resource type="Animation" id="Animation_pm0w7"]
 resource_name = "Retrair"
@@ -146,7 +161,16 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 49)]
 }
 
-[sub_resource type="Animation" id="Animation_kdbq7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iof7b"]
+_data = {
+&"RESET": SubResource("Animation_kdbq7"),
+&"Retrair": SubResource("Animation_pm0w7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ei5"]
+size = Vector2(60, 10)
+
+[sub_resource type="Animation" id="Animation_r5t60"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -160,15 +184,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iof7b"]
-_data = {
-&"RESET": SubResource("Animation_kdbq7"),
-&"Retrair": SubResource("Animation_pm0w7")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ei5"]
-size = Vector2(60, 10)
 
 [sub_resource type="Animation" id="Animation_rvjm7"]
 resource_name = "Retrair"
@@ -184,21 +199,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-62, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_r5t60"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dij"]
@@ -277,7 +277,7 @@ metadata/_edit_lock_ = true
 
 [node name="Paredes_Retrateis" type="Node2D" parent="."]
 
-[node name="PR1" type="StaticBody2D" parent="Paredes_Retrateis"]
+[node name="PR1" type="StaticBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 position = Vector2(575, 90)
 collision_layer = 3
 collision_mask = 3
@@ -297,7 +297,7 @@ position = Vector2(-575, -90)
 tile_map_data = PackedByteArray("AAA5AAEAAwADAAEAAAA5ABAAAwADAAMAAAA5AA8AAwADAAIAAAA5AA4AAwADAAIAAAA5AA0AAwADAAIAAAA5AAwAAwADAAIAAAA5AAsAAwADAAIAAAA5AAoAAwADAAIAAAA5AAkAAwADAAIAAAA5AAgAAwACAAIAAAA5AAcAAwADAAIAAAA5AAYAAwADAAIAAAA5AAUAAwADAAIAAAA5AAQAAwADAAIAAAA5AAMAAwADAAIAAAA5AAIAAwADAAIAAAA=")
 metadata/_edit_lock_ = true
 
-[node name="PR2" type="StaticBody2D" parent="Paredes_Retrateis"]
+[node name="PR2" type="StaticBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
@@ -316,7 +316,7 @@ libraries = {
 position = Vector2(-50, 0)
 tile_map_data = PackedByteArray("AABAAB0AAwAAAAAAAABEAB0AAwACAAAAAABBAB0AAwABAAAAAABCAB0AAwABAAAAAABDAB0AAwABAAAAAAA=")
 
-[node name="PR3" type="StaticBody2D" parent="Paredes_Retrateis"]
+[node name="PR3" type="StaticBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
@@ -335,7 +335,7 @@ libraries = {
 visibility_layer = 2
 tile_map_data = PackedByteArray("AAAkAAEAAwADAAEAAAAkAAUAAwADAAMAAAAkAAQAAwADAAIAAAAkAAMAAwADAAIAAAAkAAIAAwADAAIAAAA=")
 
-[node name="PR4" type="StaticBody2D" parent="Paredes_Retrateis"]
+[node name="PR4" type="StaticBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
@@ -353,7 +353,7 @@ libraries = {
 [node name="Chao" parent="Paredes_Retrateis/PR4" instance=ExtResource("1_y306x")]
 tile_map_data = PackedByteArray("AAAcAAEAAwADAAEAAAAcAAUAAwADAAMAAAAcAAQAAwADAAIAAAAcAAMAAwADAAIAAAAcAAIAAwADAAIAAAA=")
 
-[node name="PR5" type="StaticBody2D" parent="Paredes_Retrateis"]
+[node name="PR5" type="StaticBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 collision_layer = 3
 collision_mask = 3
 

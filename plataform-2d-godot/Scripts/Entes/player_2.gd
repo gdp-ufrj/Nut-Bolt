@@ -242,6 +242,12 @@ func update_state():
 	if state == States.PAREDE_ESQUERDA or state == States.PAREDE_DIREITA or state == States.TETO_PERSPECTIVA_ESQUERDA or state == States.TETO_PERSPECTIVA_DIREITA:
 		if !ray_left() and !ray_right() and !ray_dd() and !ray_de():
 			enter_state(States.DESACOPLOU)
+	
+	if state == States.TETO_PERSPECTIVA_DIREITA or state == States.TETO_PERSPECTIVA_ESQUERDA:
+		var collider = $Raycasts/RayUp.get_collider()
+		if collider:
+			if collider.is_in_group("paredes_retrateis"):
+				enter_state(States.DESACOPLOU)
 
 
 func enter_state(new_state):
@@ -280,18 +286,18 @@ func ray_dd():
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
 
-#func debugar_state():
-	#if state == States.CHAO:
-		#print("CHAO")
-	#elif state == States.PAREDE_ESQUERDA:
-		#print("PAREDE ESQUERDA")
-	#elif state == States.PAREDE_DIREITA:
-		#print("PAREDE DIREITA")
-	#elif state == States.TETO_PERSPECTIVA_ESQUERDA:
-		#print("TETO_PERSPECTIVA_ESQUERDA")
-	#elif state == States.TETO_PERSPECTIVA_DIREITA:
-		#print("TETO_PERSPECTIVA_DIREITA")
-	#elif state == States.CAINDO:
-		#print("CAINDO")
-	#elif state == States.DESACOPLOU:
-		#print("DESACOPLOU")
+func debugar_state():
+	if state == States.CHAO:
+		print("CHAO")
+	elif state == States.PAREDE_ESQUERDA:
+		print("PAREDE ESQUERDA")
+	elif state == States.PAREDE_DIREITA:
+		print("PAREDE DIREITA")
+	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
+		print("TETO_PERSPECTIVA_ESQUERDA")
+	elif state == States.TETO_PERSPECTIVA_DIREITA:
+		print("TETO_PERSPECTIVA_DIREITA")
+	elif state == States.CAINDO:
+		print("CAINDO")
+	elif state == States.DESACOPLOU:
+		print("DESACOPLOU")
