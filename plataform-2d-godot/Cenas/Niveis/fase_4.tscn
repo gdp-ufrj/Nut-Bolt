@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://db3gdx3n0lhxo"]
+[gd_scene load_steps=14 format=4 uid="uid://db3gdx3n0lhxo"]
 
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="1_vmp0o"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_mmx11"]
@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dc4rnrgkdaex7" path="res://Sprites/Backgrounds/Floresta/mato vermelho.png" id="6_uq0pl"]
 [ext_resource type="Texture2D" uid="uid://c6n8irs40ppjx" path="res://Sprites/Backgrounds/Floresta/montanha frente.png" id="7_4mq4g"]
 [ext_resource type="Texture2D" uid="uid://cj1dt7ux4quk6" path="res://Sprites/Backgrounds/Floresta/montanha fundo.png" id="8_6n8f5"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="9_u6jye"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="9_u6jye"]
 [ext_resource type="Texture2D" uid="uid://dmxptxtbeol7x" path="res://Sprites/Backgrounds/Floresta/clouds.png" id="10_6vmjj"]
+[ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="12_ami7l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v23kq"]
 shader = ExtResource("9_u6jye")
@@ -135,3 +136,222 @@ position = Vector2(77, 294)
 
 [node name="Roteador3" parent="." instance=ExtResource("3_tgcj7")]
 position = Vector2(585, 315)
+
+[node name="Espinhos" type="Node2D" parent="."]
+position = Vector2(320, 190)
+
+[node name="Espinho" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-160, 141)
+
+[node name="Espinho2" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-150, 141)
+
+[node name="Espinho3" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-140, 141)
+
+[node name="Espinho4" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-160, 21)
+
+[node name="Espinho5" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-150, 21)
+
+[node name="Espinho6" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-140, 21)
+
+[node name="Espinho7" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-30, -9)
+
+[node name="Espinho8" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-20, -9)
+
+[node name="Espinho9" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-10, -9)
+
+[node name="Espinho10" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-30, -41)
+
+[node name="Espinho11" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-20, -41)
+
+[node name="Espinho12" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-10, -41)
+
+[node name="Espinho13" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-40, -50)
+
+[node name="Espinho14" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-40, -60)
+
+[node name="Espinho15" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-110, 49)
+
+[node name="Espinho16" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-100, 49)
+
+[node name="Espinho17" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-90, 49)
+
+[node name="Espinho18" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-80, 49)
+
+[node name="Espinho19" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-160, -31)
+
+[node name="Espinho20" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-150, -31)
+
+[node name="Espinho21" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-140, -31)
+
+[node name="Espinho22" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-290, -101)
+
+[node name="Espinho23" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-280, -101)
+
+[node name="Espinho24" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-270, -101)
+
+[node name="Espinho25" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-260, -101)
+
+[node name="Espinho26" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-250, -101)
+
+[node name="Espinho27" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-241, -110)
+
+[node name="Espinho28" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-241, -120)
+
+[node name="Espinho29" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-150, -181)
+
+[node name="Espinho30" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-140, -181)
+
+[node name="Espinho31" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-130, -181)
+
+[node name="Espinho32" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-120, -181)
+
+[node name="Espinho33" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-110, -181)
+
+[node name="Espinho34" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-100, -181)
+
+[node name="Espinho35" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-90, -181)
+
+[node name="Espinho36" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-80, -181)
+
+[node name="Espinho37" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-70, -181)
+
+[node name="Espinho38" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-60, -181)
+
+[node name="Espinho39" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-50, -181)
+
+[node name="Espinho40" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-40, -181)
+
+[node name="Espinho41" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-30, -181)
+
+[node name="Espinho42" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-20, -181)
+
+[node name="Espinho43" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(-10, -181)
+
+[node name="Espinho44" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(0, -181)
+
+[node name="Espinho45" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(10, -181)
+
+[node name="Espinho46" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(20, -181)
+
+[node name="Espinho47" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(30, -181)
+
+[node name="Espinho48" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(40, -181)
+
+[node name="Espinho49" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(50, -181)
+
+[node name="Espinho50" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(60, -181)
+
+[node name="Espinho51" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(70, -181)
+
+[node name="Espinho52" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(80, -181)
+
+[node name="Espinho53" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(90, -181)
+
+[node name="Espinho54" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(100, -181)
+
+[node name="Espinho55" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(110, -181)
+
+[node name="Espinho56" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(120, -181)
+
+[node name="Espinho57" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(130, -181)
+
+[node name="Espinho58" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(140, -181)
+
+[node name="Espinho59" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(150, -181)
+
+[node name="Espinho60" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(160, -181)
+
+[node name="Espinho61" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(170, -181)
+
+[node name="Espinho62" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(180, -181)
+
+[node name="Espinho63" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(190, -181)
+
+[node name="Espinho64" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(200, -181)
+
+[node name="Espinho65" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(210, -181)
+
+[node name="Espinho66" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(220, -181)
+
+[node name="Espinho67" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(230, -181)
+
+[node name="Espinho68" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(240, -181)
+
+[node name="Espinho69" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(250, -181)
+
+[node name="Espinho70" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(260, -181)
+
+[node name="Espinho71" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(270, -181)
+
+[node name="Espinho72" parent="Espinhos" instance=ExtResource("12_ami7l")]
+position = Vector2(280, -181)

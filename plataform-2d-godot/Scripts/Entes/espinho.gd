@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var fadein = get_parent().get_parent().get_node("AnimationPlayer")
-@onready var esta_desativado_player_1 = get_parent().get_parent().get_node("Players").get_node("player_1").get_node("Conexao_player_1")
+@onready var fadein = get_parent().get_parent().get_parent().get_node("AnimationPlayer")
+@onready var esta_desativado_player_1 = get_parent().get_parent().get_parent().get_node("Players").get_node("player_1").get_node("Conexao_player_1")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4w0gug7rkhyx" path="res://Scripts/Entes/espinho.gd" id="1_8btu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8btu4"]
-size = Vector2(40, 40)
+size = Vector2(10, 10)
 
 [node name="Espinho" type="Area2D"]
 light_mask = 3
@@ -13,11 +13,12 @@ collision_mask = 3
 script = ExtResource("1_8btu4")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(20, 20)
+position = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_8btu4")
 debug_color = Color(0.678136, 0.425634, 0.712095, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 light_mask = 3
 visibility_layer = 3
 offset_right = 40.0
