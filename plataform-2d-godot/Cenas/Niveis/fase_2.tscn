@@ -168,10 +168,6 @@ physics_material_override = SubResource("PhysicsMaterial_qljet")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_o1cjd")
 
-[node name="Espinho" parent="." instance=ExtResource("3_l14c6")]
-visible = false
-position = Vector2(539, 290)
-
 [node name="bola_espinho" parent="." instance=ExtResource("5_o1cjd")]
 position = Vector2(475, 266)
 
@@ -189,3 +185,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_227fk")
 }
 autoplay = "bola_cima"
+
+[node name="Espinhos" type="Node2D" parent="."]
+
+[node name="Espinho" parent="Espinhos" instance=ExtResource("3_l14c6")]
+visible = false
+position = Vector2(539, 290)

@@ -79,17 +79,19 @@ position = Vector2(39, 72)
 [node name="Porta" parent="." instance=ExtResource("3_apqy4")]
 position = Vector2(594, 174)
 
-[node name="Espinho" parent="." instance=ExtResource("4_apqy4")]
-position = Vector2(0, 270)
+[node name="Espinhos" type="Node2D" parent="."]
 
-[node name="Espinho2" parent="." instance=ExtResource("4_apqy4")]
-position = Vector2(40, 284)
+[node name="Espinho" parent="Espinhos" instance=ExtResource("4_apqy4")]
+position = Vector2(0, 269)
 
-[node name="Espinho3" parent="." instance=ExtResource("4_apqy4")]
-position = Vector2(80, 291)
+[node name="Espinho2" parent="Espinhos" instance=ExtResource("4_apqy4")]
+position = Vector2(40, 279)
 
-[node name="Espinho4" parent="." instance=ExtResource("4_apqy4")]
-position = Vector2(120, 298)
+[node name="Espinho3" parent="Espinhos" instance=ExtResource("4_apqy4")]
+position = Vector2(80, 289)
 
-[node name="Espinho5" parent="." instance=ExtResource("4_apqy4")]
-position = Vector2(159, 310)
+[node name="Espinho4" parent="Espinhos" instance=ExtResource("4_apqy4")]
+position = Vector2(120, 300)
+
+[node name="Espinho5" parent="Espinhos" instance=ExtResource("4_apqy4")]
+position = Vector2(160, 309)
