@@ -144,6 +144,7 @@ size = Vector2(60, 10)
 
 [sub_resource type="Animation" id="Animation_s2wno"]
 resource_name = "Ativar"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -151,10 +152,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(2, 0.5),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(360, 16), Vector2(360, 376)]
 }
 
 [sub_resource type="Animation" id="Animation_m5vqm"]
@@ -278,7 +279,7 @@ position = Vector2(539, 290)
 
 [node name="Paredes_retrateis" type="Node2D" parent="."]
 
-[node name="PR1" type="StaticBody2D" parent="Paredes_retrateis" groups=["paredes_retrateis"]]
+[node name="PR1" type="AnimatableBody2D" parent="Paredes_retrateis" groups=["paredes_retrateis"]]
 position = Vector2(575, 195)
 collision_layer = 3
 collision_mask = 3
@@ -299,25 +300,13 @@ libraries = {
 position = Vector2(95, -575)
 tile_map_data = PackedByteArray("AADy/zkAAwAAAAAAAAD6/zkAAwACAAAAAADz/zkAAwABAAAAAAD0/zkAAwABAAAAAAD1/zkAAwABAAAAAAD2/zkAAwABAAAAAAD3/zkAAwABAAAAAAD4/zkAAwABAAAAAAD5/zkAAwABAAAAAAA=")
 
-[node name="PR2" type="StaticBody2D" parent="Paredes_retrateis" groups=["paredes_retrateis"]]
-position = Vector2(575, 195)
-collision_layer = 3
-collision_mask = 3
-metadata/_edit_group_ = true
+[node name="PR2" type="AnimatableBody2D" parent="Paredes_retrateis"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes_retrateis/PR2"]
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_52l3n")
-debug_color = Color(0.97729, 0, 0.405269, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_retrateis/PR2"]
-libraries = {
-&"": SubResource("AnimationLibrary_rvjm7")
-}
 
 [node name="Chao" parent="Paredes_retrateis/PR2" instance=ExtResource("1_ot50e")]
-position = Vector2(95, -575)
-tile_map_data = PackedByteArray("AADy/zkAAwAAAAAAAAD6/zkAAwACAAAAAADz/zkAAwABAAAAAAD0/zkAAwABAAAAAAD1/zkAAwABAAAAAAD2/zkAAwABAAAAAAD3/zkAAwABAAAAAAD4/zkAAwABAAAAAAD5/zkAAwABAAAAAAA=")
 
 [node name="Botoes" type="Node2D" parent="."]
 
@@ -329,71 +318,44 @@ position = Vector2(454, 149)
 
 [node name="Plataformas_espirra" type="Node2D" parent="."]
 
-[node name="PlataformaEspirra" type="AnimatableBody2D" parent="Plataformas_espirra"]
+[node name="PE1" type="AnimatableBody2D" parent="Plataformas_espirra"]
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE1"]
 shape = SubResource("RectangleShape2D_s2wno")
 debug_color = Color(0.906968, 0.30203, 0, 0.42)
 
-[node name="trigger" type="Area2D" parent="Plataformas_espirra/PlataformaEspirra"]
+[node name="trigger" type="Area2D" parent="Plataformas_espirra/PE1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra/trigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE1/trigger"]
 shape = SubResource("RectangleShape2D_m5vqm")
 debug_color = Color(0.905882, 0.0745098, 0, 0.0980392)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PlataformaEspirra"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE1"]
 libraries = {
 &"": SubResource("AnimationLibrary_d68ii")
 }
 
-[node name="TileMapLayer" parent="Plataformas_espirra/PlataformaEspirra" instance=ExtResource("7_u3qop")]
+[node name="TileMapLayer" parent="Plataformas_espirra/PE1" instance=ExtResource("7_u3qop")]
 position = Vector2(0, -5)
 tile_map_data = PackedByteArray("AAD+/wAABAACAAAAADD//wAABAAEAAAAADAAAAAABAAEAAAAADABAAAABAADAAAAADA=")
 
-[node name="PlataformaEspirra2" type="AnimatableBody2D" parent="Plataformas_espirra"]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+[node name="PE2" type="AnimatableBody2D" parent="Plataformas_espirra"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra2"]
-shape = SubResource("RectangleShape2D_s2wno")
-debug_color = Color(0.906968, 0.30203, 0, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE2"]
 
-[node name="trigger" type="Area2D" parent="Plataformas_espirra/PlataformaEspirra2"]
+[node name="trigger" type="Area2D" parent="Plataformas_espirra/PE2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra2/trigger"]
-shape = SubResource("RectangleShape2D_m5vqm")
-debug_color = Color(0.905882, 0.0745098, 0, 0.0980392)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE2/trigger"]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PlataformaEspirra2"]
-libraries = {
-&"": SubResource("AnimationLibrary_d68ii")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE2"]
 
-[node name="TileMapLayer" parent="Plataformas_espirra/PlataformaEspirra2" instance=ExtResource("7_u3qop")]
-position = Vector2(0, -5)
-tile_map_data = PackedByteArray("AAD+/wAABAACAAAAADD//wAABAAEAAAAADAAAAAABAAEAAAAADABAAAABAADAAAAADA=")
+[node name="PE3" type="AnimatableBody2D" parent="Plataformas_espirra"]
 
-[node name="PlataformaEspirra3" type="AnimatableBody2D" parent="Plataformas_espirra"]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra3"]
-shape = SubResource("RectangleShape2D_s2wno")
-debug_color = Color(0.906968, 0.30203, 0, 0.42)
+[node name="Area2D" type="Area2D" parent="Plataformas_espirra/PE3"]
 
-[node name="trigger" type="Area2D" parent="Plataformas_espirra/PlataformaEspirra3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE3/Area2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PlataformaEspirra3/trigger"]
-shape = SubResource("RectangleShape2D_m5vqm")
-debug_color = Color(0.905882, 0.0745098, 0, 0.0980392)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PlataformaEspirra3"]
-libraries = {
-&"": SubResource("AnimationLibrary_d68ii")
-}
-
-[node name="TileMapLayer" parent="Plataformas_espirra/PlataformaEspirra3" instance=ExtResource("7_u3qop")]
-position = Vector2(0, -5)
-tile_map_data = PackedByteArray("AAD+/wAABAACAAAAADD//wAABAAEAAAAADAAAAAABAAEAAAAADABAAAABAADAAAAADA=")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE3"]
