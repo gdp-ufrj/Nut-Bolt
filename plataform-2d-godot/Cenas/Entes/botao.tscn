@@ -188,6 +188,7 @@ color = Color(1, 0, 0.796078, 1)
 
 [node name="Label" type="Label" parent="."]
 visible = false
+z_index = 2
 offset_left = -80.0
 offset_top = -34.0
 offset_right = 90.0
