@@ -1,0 +1,28 @@
+[background arg="res://Sprites/Elementos UI/Menu Inicial.png" fade="0.0"]
+join Auri right [animation="Fade In Up"]
+Auri: E então, vocês entenderam o que precisam fazer?
+Nut: Positivo!
+join Nut left [animation="Fade In Up"]
+Nut: Ahem… Numa galáxia muito distante, existe um elemento ultra mega incrível e mágico que consegue armazenar quantidades infinitas de energia. Super legal, né?
+Nut: Mas… BOOM! De repente, ele se desestabiliza e apaga!!
+Nut: “Ahhhh…. Só uma cientista muito inteligente seria capaz de resolver esse problemão. Que pena que não temos uma dessas por aqui.”
+Nut: Pera aí… Temos sim! Minhas fontes secretas acabam de confirmar que a salvação está bem aqui na nossa frente!!! Ela só precisa de mais amostras pra estudar e tcharã!! Energia eterna!!!!
+Nut: Por sorte, sua ajudante super legal “Nut” está aqui para desvendar os mistérios desse planeta novo e trazer mais do Apre… Aper…
+Auri: Apeiron. O elemento primordial da realidade infinita.
+Nut: …’Apreion!’ O elemento primordial da realidade infinita!
+Nut: …E aí é só salvar o mundo!
+join Bolt center [animation="Fade In Up"]
+Bolt: Eu já suspeitava que seu disco estava arranhado, agora tenho absoluta certeza. Pretende repetir mais alguma coisa que ela falou ou podemos ir para o treinamento?
+Bolt: Embora eu não veja motivos para um robô habilidoso como eu precisar me preparar para brincar de caça às pedrinhas…
+Auri: Bolt… Eu falei que a natureza deste planeta é um tanto peculiar, não vai ser uma tarefa tão fácil. É bem estranho, como se tudo estivesse conectado…
+Auri: Os obstáculos pelos quais vocês passarem aqui no laboratório são uma simulação do que vão encontrar lá fora.
+Nut: Não se preocupe, Auri, ficaremos mais que prontos para a missão! Mas… Precisamos mesmo ir juntos?
+Auri: Na verdade, tem uma coisinha que eu ainda não mencionei… Essa é a segunda vez que ligo vocês.
+Auri: Da primeira vocês se desentenderam, afastaram-se demais e acabaram perdendo a energia…
+Auri: Não me olhem assim… Fiz um aprimoramento com um dispositivo que avisa quando a distância entre vocês está perto do limite. Então fiquem atentos ao sinal! Os dois só terão 4 segundos para se aproximarem novamente.
+Bolt: Ah, perfeito! Era só o que me faltava...
+Bolt: Tem mais alguma “coisinha” que você esqueceu de mencionar? Ou chega de boas notícias por hoje? Uma bomba vai explodir o laboratório em algumas horinhas talvez?
+Nut: Continue perdendo nosso tempo e reclamando… Você não entendeu que se ela não resolver o problema do prisma, nossa energia acaba também?? Quero ver resmungar quando estiver desligado!
+Bolt: O apagamento eterno não parece um fim tão ruim quanto ficar preso a uma criatura inconveniente como você.
+Auri: É muito bom ver a sintonia entre vocês, mas estamos ficando sem tempo… Podemos começar?
+[end_timeline]

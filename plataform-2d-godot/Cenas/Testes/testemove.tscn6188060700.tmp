@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxvqefs2fikb8"]
+
+[ext_resource type="PackedScene" uid="uid://cj3qbb7deufpm" path="res://Cenas/Entes/player_2.tscn" id="1_p65qh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ylti"]
+size = Vector2(309, 261)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-148, -79)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(491, 264)
+shape = SubResource("RectangleShape2D_6ylti")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 337.0
+offset_top = 134.0
+offset_right = 645.0
+offset_bottom = 393.0
+color = Color(0, 0, 0, 1)
+
+[node name="player_2" parent="." instance=ExtResource("1_p65qh")]
+position = Vector2(341, 26)

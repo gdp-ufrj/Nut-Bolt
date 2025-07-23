@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 	# Atualiza a última direção apenas se houver movimento
 	if direction != 0:
 		last_direction = sign(direction)
-	
 	process_input()
 	process_gravity()
 	velocity += gravity * delta
@@ -135,6 +134,7 @@ func process_input():
 	# Leitura de desacoplamento -> TECLA 'S'
 	if state != States.DESACOPLOU and state != States.CHAO and not esta_desativado:
 		if Input.is_action_pressed("ui_down_WASD"):
+			$Gerenciador_de_som/audio_desacoplar.play()
 			enter_state(States.DESACOPLOU)
 	
 	if state == States.TETO_PERSPECTIVA_ESQUERDA:
@@ -179,38 +179,48 @@ func process_input():
 			velocity.x = 0
 			enter_state(States.DESACOPLOU)
 	
-	# TENTATIVA DE LEITURA DE CANTO
-	if !ray_right() and prev_state == States.PAREDE_DIREITA and state == States.CAINDO:
+	# LEITURA DE CANTO
+	if !double_ray_right() and prev_state == States.PAREDE_DIREITA and state == States.CAINDO:
 		if Input.is_action_pressed("ui_left_WASD"):
-			velocity.x = 0
-			velocity.y = 0
+			velocity = Vector2.ZERO 
 			velocity.y -= SPEED
-			velocity.x += 15
-			position.y -= 2.5
+			velocity.x += SPEED
 			if ray_dd():
 				enter_state(States.TETO_PERSPECTIVA_ESQUERDA)
 	# TO-DO: ATUALIZAR ESSE OUTRO LADO DEPOIS
-	if !ray_left() and state == States.CAINDO and ray_de():
+	if !double_ray_left() and prev_state == States.PAREDE_ESQUERDA and state == States.CAINDO:
 		if Input.is_action_pressed("ui_right_WASD"):
-			velocity.y = 0
-			velocity.y += 15
-			velocity.x += 15
-			if ray_up():
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_de():
 				enter_state(States.TETO_PERSPECTIVA_DIREITA)
 	
 	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_ESQUERDA:
 		if Input.is_action_pressed("ui_right_WASD"):
-			position.x = position.x
-			velocity.y = -SPEED
-			position.x += 2
-			if ray_right():
-				enter_state(States.PAREDE_DIREITA)
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x += SPEED
+			if ray_de():
+				enter_state(States.PAREDE_ESQUERDA)
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_de():
+				enter_state(States.PAREDE_ESQUERDA)
 	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_DIREITA:
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_dd():
+				enter_state(States.PAREDE_DIREITA)
 		if Input.is_action_pressed("ui_right_WASD"):
-			position.x = position.x
-			velocity.y = -SPEED
-			position.x += 2
-			if ray_right():
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x += SPEED
+			if ray_dd():
 				enter_state(States.PAREDE_DIREITA)
 
 func process_gravity():
@@ -242,6 +252,12 @@ func update_state():
 	if state == States.PAREDE_ESQUERDA or state == States.PAREDE_DIREITA or state == States.TETO_PERSPECTIVA_ESQUERDA or state == States.TETO_PERSPECTIVA_DIREITA:
 		if !ray_left() and !ray_right() and !ray_dd() and !ray_de():
 			enter_state(States.DESACOPLOU)
+	
+	if state == States.TETO_PERSPECTIVA_DIREITA or state == States.TETO_PERSPECTIVA_ESQUERDA:
+		var collider = $Raycasts/RayUp.get_collider()
+		if collider:
+			if collider.is_in_group("paredes_retrateis"):
+				enter_state(States.DESACOPLOU)
 
 
 func enter_state(new_state):
@@ -280,18 +296,24 @@ func ray_dd():
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
 
-#func debugar_state():
-	#if state == States.CHAO:
-		#print("CHAO")
-	#elif state == States.PAREDE_ESQUERDA:
-		#print("PAREDE ESQUERDA")
-	#elif state == States.PAREDE_DIREITA:
-		#print("PAREDE DIREITA")
-	#elif state == States.TETO_PERSPECTIVA_ESQUERDA:
-		#print("TETO_PERSPECTIVA_ESQUERDA")
-	#elif state == States.TETO_PERSPECTIVA_DIREITA:
-		#print("TETO_PERSPECTIVA_DIREITA")
-	#elif state == States.CAINDO:
-		#print("CAINDO")
-	#elif state == States.DESACOPLOU:
-		#print("DESACOPLOU")
+func double_ray_right():
+	return $Raycasts/RayRight.is_colliding() and $Raycasts/RayRight2.is_colliding()
+
+func double_ray_left():
+	return $Raycasts/RayLeft.is_colliding() and $Raycasts/RayLeft2.is_colliding()
+
+func debugar_state():
+	if state == States.CHAO:
+		print("CHAO")
+	elif state == States.PAREDE_ESQUERDA:
+		print("PAREDE ESQUERDA")
+	elif state == States.PAREDE_DIREITA:
+		print("PAREDE DIREITA")
+	elif state == States.TETO_PERSPECTIVA_ESQUERDA:
+		print("TETO_PERSPECTIVA_ESQUERDA")
+	elif state == States.TETO_PERSPECTIVA_DIREITA:
+		print("TETO_PERSPECTIVA_DIREITA")
+	elif state == States.CAINDO:
+		print("CAINDO")
+	elif state == States.DESACOPLOU:
+		print("DESACOPLOU")
