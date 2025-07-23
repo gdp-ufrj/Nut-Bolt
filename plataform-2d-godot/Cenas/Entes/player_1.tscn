@@ -402,7 +402,7 @@ top_level = true
 platform_on_leave = 2
 script = ExtResource("1_66jdp")
 jump_height = 60.0
-jump_time_peak = 0.6
+jump_time_peak = 0.5
 jump_time_descent = 0.38
 metadata/_edit_lock_ = true
 
@@ -412,16 +412,13 @@ texture_filter = 1
 position = Vector2(0.500001, 0.499999)
 scale = Vector2(1.05556, 1.04167)
 texture = ExtResource("2_pa6et")
-metadata/_edit_lock_ = true
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q7f8p")
-metadata/_edit_lock_ = true
 
 [node name="zona_conexao_1" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_1"]
 shape = SubResource("CircleShape2D_q7f8p")
