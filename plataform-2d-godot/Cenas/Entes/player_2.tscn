@@ -358,6 +358,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_45ong")
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false
@@ -365,15 +366,18 @@ texture_filter = 1
 position = Vector2(4.47035e-07, 0)
 scale = Vector2(0.9, 0.958333)
 texture = ExtResource("2_m2x1u")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
 shape = SubResource("RectangleShape2D_0yaun")
+metadata/_edit_lock_ = true
 
 [node name="zona_conexao_2" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="zona_conexao_2"]
 shape = SubResource("CircleShape2D_63q1r")

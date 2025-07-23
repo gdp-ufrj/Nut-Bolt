@@ -7,7 +7,7 @@ var level_paths = [
 	"res://Cenas/Niveis/tutorial_2.tscn",
 	"res://Cenas/Niveis/tutorial_3.tscn",
 	"res://Cenas/Niveis/fase_1.tscn",
-	"res://Cenas/Niveis/fase_3.tscn"
+	"res://Cenas/Niveis/fase_2.tscn"
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
@@ -25,7 +25,7 @@ const music_fases = preload("res://Audio/Floresta_soundtrack/mus_solarpunk_loop.
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
-	current_index = 0
+	current_index = 4
 	_load_level(current_index)
 
 #Funcao chamada sempre que uma acao de input não tratada acontece (como pressionar teclas)

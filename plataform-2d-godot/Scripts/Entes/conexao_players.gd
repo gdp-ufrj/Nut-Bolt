@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 		#if has_node(p1_path) and has_node(p2_path):
 			##print("Encontrado:", p1_path)
 			##print("Encontrado:", p2_path)
-			#p1 = get_node(p1_path)
+			#p1 = get_dnode(p1_path)
 			#p2 = get_node(p2_path)
 		#else:
 			#return

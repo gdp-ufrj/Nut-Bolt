@@ -10,21 +10,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
 size = Vector2(10, 160)
 
-[sub_resource type="Animation" id="Animation_s3qno"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(575, 90)]
-}
-
 [sub_resource type="Animation" id="Animation_iof7b"]
 resource_name = "Retrair"
 length = 2.0
@@ -41,10 +26,25 @@ tracks/0/keys = {
 "values": [Vector2(575, 90), Vector2(575, -80)]
 }
 
+[sub_resource type="Animation" id="Animation_s3qno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(575, 90)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rvjm7"]
 _data = {
-&"RESET": SubResource("Animation_s3qno"),
-&"Retrair": SubResource("Animation_iof7b")
+&"Abrir": SubResource("Animation_iof7b"),
+&"RESET": SubResource("Animation_s3qno")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orrl7"]
@@ -83,8 +83,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jedf1"]
 _data = {
-&"RESET": SubResource("Animation_orrl7"),
-&"Retrair": SubResource("Animation_o8ei5")
+&"Abrir": SubResource("Animation_o8ei5"),
+&"RESET": SubResource("Animation_orrl7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jedf1"]
@@ -123,8 +123,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pm0w7"]
 _data = {
-&"RESET": SubResource("Animation_5c7np"),
-&"Retrair": SubResource("Animation_jedf1")
+&"Abrir": SubResource("Animation_jedf1"),
+&"RESET": SubResource("Animation_5c7np")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7np"]
@@ -163,8 +163,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iof7b"]
 _data = {
-&"RESET": SubResource("Animation_kdbq7"),
-&"Retrair": SubResource("Animation_pm0w7")
+&"Abrir": SubResource("Animation_pm0w7"),
+&"RESET": SubResource("Animation_kdbq7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ei5"]
@@ -203,8 +203,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dij"]
 _data = {
-&"RESET": SubResource("Animation_r5t60"),
-&"Retrair": SubResource("Animation_rvjm7")
+&"Abrir": SubResource("Animation_rvjm7"),
+&"RESET": SubResource("Animation_r5t60")
 }
 
 [node name="Fase_1" type="Node2D"]
