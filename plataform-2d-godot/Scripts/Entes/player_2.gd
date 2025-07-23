@@ -135,6 +135,7 @@ func process_input():
 	# Leitura de desacoplamento -> TECLA 'S'
 	if state != States.DESACOPLOU and state != States.CHAO and not esta_desativado:
 		if Input.is_action_pressed("ui_down_WASD"):
+			$Gerenciador_de_som/audio_desacoplar.play()
 			enter_state(States.DESACOPLOU)
 	
 	if state == States.TETO_PERSPECTIVA_ESQUERDA:
