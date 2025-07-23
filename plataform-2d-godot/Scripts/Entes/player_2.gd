@@ -46,7 +46,6 @@ func _physics_process(delta: float) -> void:
 	# Atualiza a última direção apenas se houver movimento
 	if direction != 0:
 		last_direction = sign(direction)
-	
 	process_input()
 	process_gravity()
 	velocity += gravity * delta
@@ -180,38 +179,48 @@ func process_input():
 			velocity.x = 0
 			enter_state(States.DESACOPLOU)
 	
-	# TENTATIVA DE LEITURA DE CANTO
-	if !ray_right() and prev_state == States.PAREDE_DIREITA and state == States.CAINDO:
+	# LEITURA DE CANTO
+	if !double_ray_right() and prev_state == States.PAREDE_DIREITA and state == States.CAINDO:
 		if Input.is_action_pressed("ui_left_WASD"):
-			velocity.x = 0
-			velocity.y = 0
+			velocity = Vector2.ZERO 
 			velocity.y -= SPEED
-			velocity.x += 15
-			position.y -= 2.5
+			velocity.x += SPEED
 			if ray_dd():
 				enter_state(States.TETO_PERSPECTIVA_ESQUERDA)
 	# TO-DO: ATUALIZAR ESSE OUTRO LADO DEPOIS
-	if !ray_left() and state == States.CAINDO and ray_de():
+	if !double_ray_left() and prev_state == States.PAREDE_ESQUERDA and state == States.CAINDO:
 		if Input.is_action_pressed("ui_right_WASD"):
-			velocity.y = 0
-			velocity.y += 15
-			velocity.x += 15
-			if ray_up():
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_de():
 				enter_state(States.TETO_PERSPECTIVA_DIREITA)
 	
 	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_ESQUERDA:
 		if Input.is_action_pressed("ui_right_WASD"):
-			position.x = position.x
-			velocity.y = -SPEED
-			position.x += 2
-			if ray_right():
-				enter_state(States.PAREDE_DIREITA)
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x += SPEED
+			if ray_de():
+				enter_state(States.PAREDE_ESQUERDA)
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_de():
+				enter_state(States.PAREDE_ESQUERDA)
 	if state == States.CAINDO and prev_state == States.TETO_PERSPECTIVA_DIREITA:
+		if Input.is_action_pressed("ui_left_WASD"):
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x -= SPEED
+			if ray_dd():
+				enter_state(States.PAREDE_DIREITA)
 		if Input.is_action_pressed("ui_right_WASD"):
-			position.x = position.x
-			velocity.y = -SPEED
-			position.x += 2
-			if ray_right():
+			velocity = Vector2.ZERO 
+			velocity.y -= SPEED
+			velocity.x += SPEED
+			if ray_dd():
 				enter_state(States.PAREDE_DIREITA)
 
 func process_gravity():
@@ -286,6 +295,12 @@ func ray_dd():
 # Diagonal esquerda -> de
 func ray_de():
 	return $Raycasts/RayDiagonalEsquerda.is_colliding()
+
+func double_ray_right():
+	return $Raycasts/RayRight.is_colliding() and $Raycasts/RayRight2.is_colliding()
+
+func double_ray_left():
+	return $Raycasts/RayLeft.is_colliding() and $Raycasts/RayLeft2.is_colliding()
 
 func debugar_state():
 	if state == States.CHAO:

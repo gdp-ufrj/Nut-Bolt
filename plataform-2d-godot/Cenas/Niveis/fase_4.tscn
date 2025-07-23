@@ -219,10 +219,10 @@ position = Vector2(-260, -101)
 position = Vector2(-250, -101)
 
 [node name="Espinho27" parent="Espinhos" instance=ExtResource("12_ami7l")]
-position = Vector2(-241, -110)
+position = Vector2(-245, -110)
 
 [node name="Espinho28" parent="Espinhos" instance=ExtResource("12_ami7l")]
-position = Vector2(-241, -120)
+position = Vector2(-245, -120)
 
 [node name="Espinho29" parent="Espinhos" instance=ExtResource("12_ami7l")]
 position = Vector2(-150, -181)
