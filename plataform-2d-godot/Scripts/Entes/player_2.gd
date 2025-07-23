@@ -257,6 +257,7 @@ func update_state():
 		var collider = $Raycasts/RayUp.get_collider()
 		if collider:
 			if collider.is_in_group("paredes_retrateis"):
+				$Gerenciador_de_som/audio_desacoplar.play()
 				enter_state(States.DESACOPLOU)
 
 

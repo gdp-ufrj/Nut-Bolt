@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=30 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_bq7u2"]
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="3_pv42o"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_4dw7u"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_hvu8q"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_hvu8q"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_7gyev"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
 [ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
@@ -40,6 +40,10 @@ distance = -53.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pv42o"]
 normal = Vector2(-0.99998, -0.0063693)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bq7u2"]
+normal = Vector2(0, 1)
+distance = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shsao"]
 size = Vector2(13, 89.75)
@@ -160,15 +164,6 @@ collision_mask = 3
 position = Vector2(286, 214.75)
 shape = SubResource("RectangleShape2D_eqry3")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Chão"]
-collision_layer = 3
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_mmet4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D3"]
-position = Vector2(151, -5)
-shape = SubResource("RectangleShape2D_57qif")
-
 [node name="Limites laterais" type="Node2D" parent="."]
 
 [node name="Esquerdo" type="StaticBody2D" parent="Limites laterais"]
@@ -190,6 +185,14 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Direito"]
 position = Vector2(3.01557, -1.97644)
 shape = SubResource("WorldBoundaryShape2D_pv42o")
+
+[node name="Cima" type="StaticBody2D" parent="Limites laterais" groups=["paredes_retrateis"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Cima"]
+position = Vector2(296, -1)
+shape = SubResource("WorldBoundaryShape2D_bq7u2")
 
 [node name="Botao" parent="." instance=ExtResource("4_4dw7u")]
 position = Vector2(552, 218)

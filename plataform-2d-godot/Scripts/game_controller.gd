@@ -3,11 +3,12 @@ signal restart
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
-	"res://Cenas/Niveis/tutorial_1.tscn",
+	"res://Cenas/Niveis/fase_4.tscn",
 	"res://Cenas/Niveis/tutorial_2.tscn",
 	"res://Cenas/Niveis/tutorial_3.tscn",
 	"res://Cenas/Niveis/fase_1.tscn",
-	"res://Cenas/Niveis/fase_3.tscn"
+	"res://Cenas/Niveis/fase_3.tscn",
+	"res://Cenas/Niveis/fase_4.tscn"
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
