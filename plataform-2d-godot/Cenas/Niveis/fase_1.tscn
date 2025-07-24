@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4rnrgkdaex7" path="res://Sprites/Backgrounds/Floresta/mato vermelho.png" id="8_s3qno"]
 [ext_resource type="Texture2D" uid="uid://c6n8irs40ppjx" path="res://Sprites/Backgrounds/Floresta/montanha frente.png" id="9_rvjm7"]
 [ext_resource type="Texture2D" uid="uid://cj1dt7ux4quk6" path="res://Sprites/Backgrounds/Floresta/montanha fundo.png" id="10_r5t60"]
-[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
 [ext_resource type="Texture2D" uid="uid://dmxptxtbeol7x" path="res://Sprites/Backgrounds/Floresta/clouds.png" id="12_q8cga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
