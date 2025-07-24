@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ctpv6e62840gl"]
+[gd_scene load_steps=31 format=4 uid="uid://ctpv6e62840gl"]
 
 [ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
 [ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
@@ -9,11 +9,12 @@
 [ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_hvu8q"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_7gyev"]
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
-[ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
+[ext_resource type="Script" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="8_0a68a"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="9_shsao"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="10_0a68a"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_bq7u2"]
+[ext_resource type="Script" uid="uid://pwq1peoudb6g" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_hvu8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
 shader = ExtResource("4_hvu8q")
@@ -87,6 +88,8 @@ b = Vector2(100, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0df2m"]
 size = Vector2(187, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gyev"]
 
 [node name="tutorial_1" type="Node2D"]
 script = ExtResource("1_k87ql")
@@ -253,4 +256,13 @@ Acho que estamos mais perto do que nunca de descobrir a verdade.
 Com carinho,
 EGGMAN"
 
+[node name="DialogicTrigger" type="Area2D" parent="."]
+position = Vector2(602, 217)
+script = ExtResource("15_hvu8q")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicTrigger"]
+shape = SubResource("RectangleShape2D_7gyev")
+
 [connection signal="body_entered" from="Void" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DialogicTrigger" to="DialogicTrigger" method="_on_body_entered"]

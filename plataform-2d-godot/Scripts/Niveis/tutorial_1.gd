@@ -3,6 +3,7 @@ extends Node2D
 @onready var animacao_plataforma = $"Plataforma movel/CollisionShape2D/AnimationPlayer"
 @onready var fadein = get_parent().get_node("AnimationPlayer")
 
+
 func  _process(delta: float) -> void:
 	if $Botao.pode_ativar and Input.is_action_just_pressed("interagir"):
 		animacao_plataforma.play("Subir")
@@ -16,3 +17,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print(body.name, "está no grupo Players")
 		if not fadein.is_playing():
 			fadein.play("fade_in")
+
+
+#Dialogic
+
+func _ready():
+	# Espera o Dialogic estar pronto
+	await get_tree().process_frame
+
+	if Dialogic.current_timeline == null:
+		Dialogic.start("Antes de começar a fase 1")
+
+func _input(event: InputEvent):
+# check if a dialog is already running
+	if Dialogic.current_timeline != null:
+		return

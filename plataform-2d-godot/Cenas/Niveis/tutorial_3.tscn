@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dv05nstyolt5u"]
+[gd_scene load_steps=29 format=4 uid="uid://dv05nstyolt5u"]
 
 [ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="5_tsd38"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_xhi1b"]
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="9_v5wfe"]
+[ext_resource type="Script" uid="uid://b1xto4ybhk1ja" path="res://Scripts/Entes/dialogic_trigger_3.gd" id="12_tnrhd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jae2x"]
 shader = ExtResource("4_tnrhd")
@@ -98,6 +99,8 @@ size = Vector2(646, 4.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrpa"]
 size = Vector2(320, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbc"]
 
 [node name="Tutorial 3" type="Node2D"]
 script = ExtResource("1_21xvy")
@@ -298,4 +301,13 @@ collision_mask = 3
 position = Vector2(17, -3)
 shape = SubResource("RectangleShape2D_xrrpa")
 
+[node name="DialogicTrigger3" type="Area2D" parent="."]
+position = Vector2(532, 248)
+script = ExtResource("12_tnrhd")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicTrigger3"]
+shape = SubResource("RectangleShape2D_lavbc")
+
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
+[connection signal="body_entered" from="DialogicTrigger3" to="DialogicTrigger3" method="_on_body_entered"]

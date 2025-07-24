@@ -14,3 +14,17 @@ func _on_area_para_evitar_bug_body_entered(body: Node2D) -> void:
 func _on_area_para_evitar_bug_body_exited(body: Node2D) -> void:
 	if body.name == "player_2" or body.name == "player_1":
 		$plataforma/AnimationPlayer.play("plataforma-tutorial2")
+
+#Dialogic
+
+func _ready():
+	#Espera o Dialogic estar pronto
+	await get_tree().process_frame
+
+	if Dialogic.current_timeline == null:
+		Dialogic.start("Na que aparece o repetidor")
+
+func _input(event: InputEvent):
+#ve se o dialogic esta rodando
+	if Dialogic.current_timeline != null:
+		return

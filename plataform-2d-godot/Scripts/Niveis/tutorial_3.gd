@@ -11,6 +11,19 @@ var pode_interagir: bool = false
 
 func _ready() -> void:
 	estado_inicial_plataformas()
+	#Dialogic
+	#Espera o Dialogic estar pronto
+	await get_tree().process_frame
+
+	if Dialogic.current_timeline == null:
+		Dialogic.start("Antes da ultima fase do tutorial")
+
+func _input(event: InputEvent):
+#ve se o dialogic esta rodando
+	if Dialogic.current_timeline != null:
+		return
+	
+	
 	
 func _process(_delta: float) -> void:
 	if $Botao.pode_ativar and Input.is_action_just_pressed("interagir"):
