@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://cw1m5yl4qgd3a"]
+[gd_scene load_steps=42 format=4 uid="uid://cw1m5yl4qgd3a"]
 
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="1_ot50e"]
+[ext_resource type="Script" uid="uid://ky5d6ad32i30" path="res://Scripts/Niveis/fase_2.gd" id="1_wjm6d"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_l14c6"]
 [ext_resource type="PackedScene" uid="uid://k7aifkjm4ojf" path="res://Cenas/Ambiente/tileset_background.tscn" id="2_qljet"]
 [ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="3_l14c6"]
@@ -96,10 +97,26 @@ _data = {
 &"bola_cima": SubResource("Animation_o1cjd")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
-size = Vector2(10, 90)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3qop"]
+size = Vector2(90, 10)
 
-[sub_resource type="Animation" id="Animation_s3qno"]
+[sub_resource type="Animation" id="Animation_227fk"]
+resource_name = "Abrir"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(91, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jucmp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -111,8 +128,17 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(575, 195)]
+"values": [Vector2(0, 0)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fru02"]
+_data = {
+&"Abrir": SubResource("Animation_227fk"),
+&"RESET": SubResource("Animation_jucmp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
+size = Vector2(10, 90)
 
 [sub_resource type="Animation" id="Animation_iof7b"]
 resource_name = "Retrair"
@@ -130,19 +156,34 @@ tracks/0/keys = {
 "values": [Vector2(575, 195), Vector2(665, 195)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvjm7"]
-_data = {
-&"RESET": SubResource("Animation_s3qno"),
-&"Retrair": SubResource("Animation_iof7b")
+[sub_resource type="Animation" id="Animation_s3qno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(575, 195)]
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2wno"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvjm7"]
+_data = {
+&"Abrir": SubResource("Animation_iof7b"),
+&"RESET": SubResource("Animation_s3qno")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkqxd"]
 size = Vector2(40, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5vqm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv8xm"]
 size = Vector2(60, 10)
 
-[sub_resource type="Animation" id="Animation_s2wno"]
+[sub_resource type="Animation" id="Animation_lwefe"]
 resource_name = "Ativar"
 length = 5.0
 tracks/0/type = "value"
@@ -155,10 +196,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 5),
 "transitions": PackedFloat32Array(2, 0.5),
 "update": 0,
-"values": [Vector2(360, 16), Vector2(360, 376)]
+"values": [Vector2(0, 0), Vector2(0, 350)]
 }
 
-[sub_resource type="Animation" id="Animation_m5vqm"]
+[sub_resource type="Animation" id="Animation_fdn0s"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -173,13 +214,100 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d68ii"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly32r"]
 _data = {
-&"Ativar": SubResource("Animation_s2wno"),
-&"RESET": SubResource("Animation_m5vqm")
+&"Ativar": SubResource("Animation_lwefe"),
+&"RESET": SubResource("Animation_fdn0s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_227fk"]
+size = Vector2(60, 10)
+
+[sub_resource type="Animation" id="Animation_fru02"]
+resource_name = "Ativar"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_pkqxd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yv8xm"]
+_data = {
+&"Ativar": SubResource("Animation_fru02"),
+&"RESET": SubResource("Animation_pkqxd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjm6d"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jucmp"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fru02"]
+size = Vector2(60, 10)
+
+[sub_resource type="Animation" id="Animation_yv8xm"]
+resource_name = "Ativar"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 350)]
+}
+
+[sub_resource type="Animation" id="Animation_vfpi1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lwefe"]
+_data = {
+&"Ativar": SubResource("Animation_yv8xm"),
+&"RESET": SubResource("Animation_vfpi1")
 }
 
 [node name="Fase_2" type="Node2D"]
+script = ExtResource("1_wjm6d")
 
 [node name="Chão" type="Node2D" parent="."]
 
@@ -277,85 +405,139 @@ autoplay = "bola_cima"
 visible = false
 position = Vector2(539, 290)
 
-[node name="Paredes_retrateis" type="Node2D" parent="."]
+[node name="Botoes" type="Node2D" parent="."]
 
-[node name="PR1" type="AnimatableBody2D" parent="Paredes_retrateis" groups=["paredes_retrateis"]]
+[node name="Botao1" parent="Botoes" instance=ExtResource("6_1wskk")]
+position = Vector2(496, 211)
+
+[node name="Botao2" parent="Botoes" instance=ExtResource("6_1wskk")]
+position = Vector2(454, 149)
+
+[node name="Paredes_Retrateis" type="Node2D" parent="."]
+
+[node name="PR1" type="AnimatableBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes_Retrateis/PR1"]
+position = Vector2(575, 295)
+shape = SubResource("RectangleShape2D_u3qop")
+debug_color = Color(0.986454, 0, 0.323432, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_Retrateis/PR1"]
+libraries = {
+&"": SubResource("AnimationLibrary_fru02")
+}
+
+[node name="Chao" parent="Paredes_Retrateis/PR1" instance=ExtResource("1_ot50e")]
+tile_map_data = PackedByteArray("AAA2AB0AAwABAAAAAAA3AB0AAwABAAAAAAA4AB0AAwABAAAAAAA5AB0AAwABAAAAAAA6AB0AAwABAAAAAAA7AB0AAwABAAAAAAA8AB0AAwABAAAAAAA9AB0AAwACAAAAAAA1AB0AAwAAAAAAAAA=")
+
+[node name="PR2" type="AnimatableBody2D" parent="Paredes_Retrateis" groups=["paredes_retrateis"]]
 position = Vector2(575, 195)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes_retrateis/PR1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes_Retrateis/PR2"]
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_52l3n")
 debug_color = Color(0.97729, 0, 0.405269, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_retrateis/PR1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_Retrateis/PR2"]
 libraries = {
 &"": SubResource("AnimationLibrary_rvjm7")
 }
 
-[node name="Chao" parent="Paredes_retrateis/PR1" instance=ExtResource("1_ot50e")]
+[node name="Chao" parent="Paredes_Retrateis/PR2" instance=ExtResource("1_ot50e")]
 position = Vector2(95, -575)
 tile_map_data = PackedByteArray("AADy/zkAAwAAAAAAAAD6/zkAAwACAAAAAADz/zkAAwABAAAAAAD0/zkAAwABAAAAAAD1/zkAAwABAAAAAAD2/zkAAwABAAAAAAD3/zkAAwABAAAAAAD4/zkAAwABAAAAAAD5/zkAAwABAAAAAAA=")
 
-[node name="PR2" type="AnimatableBody2D" parent="Paredes_retrateis"]
+[node name="Plataformas_Espirro" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes_retrateis/PR2"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_retrateis/PR2"]
-
-[node name="Chao" parent="Paredes_retrateis/PR2" instance=ExtResource("1_ot50e")]
-
-[node name="Botoes" type="Node2D" parent="."]
-
-[node name="Botao" parent="Botoes" instance=ExtResource("6_1wskk")]
-position = Vector2(496, 211)
-
-[node name="Botao2" parent="Botoes" instance=ExtResource("6_1wskk")]
-position = Vector2(454, 149)
-
-[node name="Plataformas_espirra" type="Node2D" parent="."]
-
-[node name="PE1" type="AnimatableBody2D" parent="Plataformas_espirra"]
+[node name="PE1" type="AnimatableBody2D" parent="Plataformas_Espirro"]
+collision_layer = 3
+collision_mask = 3
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE1"]
-shape = SubResource("RectangleShape2D_s2wno")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE1"]
+position = Vector2(370, 15)
+shape = SubResource("RectangleShape2D_pkqxd")
 debug_color = Color(0.906968, 0.30203, 0, 0.42)
 
-[node name="trigger" type="Area2D" parent="Plataformas_espirra/PE1"]
+[node name="trigger1" type="Area2D" parent="Plataformas_Espirro/PE1"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE1/trigger"]
-shape = SubResource("RectangleShape2D_m5vqm")
-debug_color = Color(0.905882, 0.0745098, 0, 0.0980392)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE1/trigger1"]
+position = Vector2(370, 15)
+shape = SubResource("RectangleShape2D_yv8xm")
+debug_color = Color(0.995698, 0, 0.200612, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE1"]
 libraries = {
-&"": SubResource("AnimationLibrary_d68ii")
+&"": SubResource("AnimationLibrary_ly32r")
 }
 
-[node name="TileMapLayer" parent="Plataformas_espirra/PE1" instance=ExtResource("7_u3qop")]
-position = Vector2(0, -5)
-tile_map_data = PackedByteArray("AAD+/wAABAACAAAAADD//wAABAAEAAAAADAAAAAABAAEAAAAADABAAAABAADAAAAADA=")
+[node name="TileMapLayer" parent="Plataformas_Espirro/PE1" instance=ExtResource("7_u3qop")]
+tile_map_data = PackedByteArray("AAAjAAEABAADAAAAAAAkAAEABAAEAAAAAAAlAAEABAAEAAAAAAAmAAEABAACAAAAAAA=")
 
-[node name="PE2" type="AnimatableBody2D" parent="Plataformas_espirra"]
+[node name="PE2" type="AnimatableBody2D" parent="Plataformas_Espirro"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE2"]
+[node name="trigger2" type="Area2D" parent="Plataformas_Espirro/PE2"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="trigger" type="Area2D" parent="Plataformas_espirra/PE2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE2/trigger2"]
+position = Vector2(250, 15)
+shape = SubResource("RectangleShape2D_227fk")
+debug_color = Color(0.868834, 0.132363, 2.88785e-07, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE2/trigger"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE2"]
+libraries = {
+&"": SubResource("AnimationLibrary_yv8xm")
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE2"]
+position = Vector2(250, 15)
+shape = SubResource("RectangleShape2D_wjm6d")
+debug_color = Color(0.906968, 0.30203, 0, 0.42)
 
-[node name="PE3" type="AnimatableBody2D" parent="Plataformas_espirra"]
+[node name="TileMapLayer" parent="Plataformas_Espirro/PE2/CollisionShape2D" instance=ExtResource("7_u3qop")]
+position = Vector2(-270, -15)
+tile_map_data = PackedByteArray("AAAZAAEABAADAAAAAAAcAAEABAACAAAAAAAaAAEABAAEAAAAAAAbAAEABAAEAAAAAAA=")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE3"]
+[node name="PE3" type="AnimatableBody2D" parent="Plataformas_Espirro"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="Plataformas_espirra/PE3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE3"]
+position = Vector2(140, 15)
+shape = SubResource("RectangleShape2D_jucmp")
+debug_color = Color(0.915594, 0.288819, 0, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_espirra/PE3/Area2D"]
+[node name="trigger3" type="Area2D" parent="Plataformas_Espirro/PE3"]
+collision_layer = 3
+collision_mask = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_espirra/PE3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE3/trigger3"]
+position = Vector2(140, 15)
+shape = SubResource("RectangleShape2D_fru02")
+debug_color = Color(0.996078, 0.137255, 0.2, 0.419608)
+
+[node name="TileMapLayer" parent="Plataformas_Espirro/PE3" instance=ExtResource("7_u3qop")]
+tile_map_data = PackedByteArray("AAAMAAEABAADAAAAAAAPAAEABAACAAAAAAANAAEABAAEAAAAAAAOAAEABAAEAAAAAAA=")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE3"]
+libraries = {
+&"": SubResource("AnimationLibrary_lwefe")
+}
+
+[connection signal="body_entered" from="Plataformas_Espirro/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
+[connection signal="body_entered" from="Plataformas_Espirro/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]
+[connection signal="body_entered" from="Plataformas_Espirro/PE3/trigger3" to="." method="_on_trigger_3_body_entered"]
