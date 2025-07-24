@@ -318,3 +318,11 @@ func debugar_state():
 		print("CAINDO")
 	elif state == States.DESACOPLOU:
 		print("DESACOPLOU")
+
+
+func _on_game_controller_restart() -> void:
+	self.set_process_mode(Node.PROCESS_MODE_DISABLED)
+
+
+func _on_game_controller_fase_carregada() -> void:
+	self.set_process_mode(self.PROCESS_MODE_ALWAYS)

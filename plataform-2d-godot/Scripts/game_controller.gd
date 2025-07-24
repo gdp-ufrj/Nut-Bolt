@@ -1,5 +1,6 @@
 extends Node
 signal restart
+signal fase_carregada
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
@@ -38,13 +39,13 @@ func _unhandled_input(event):
 		else:
 			$Pause_menu.show_pause_menu()
 	elif Input.is_action_just_pressed("restart") and not get_tree().paused and not $AnimationPlayer.is_playing():
+		restart.emit()
 		$AnimationPlayer.play("fade_in")
 
 # funcao chamada quando fade_in acaba e para animacao de troca de fase
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_in":
 		restart_level()
-		restart.emit()
 		$AnimationPlayer.play("fade_out")
 	if anim_name == "trocar_fase":
 		go_to_next_level()
@@ -108,6 +109,7 @@ func _load_level(index: int):
 		player_1.global_position = spawn1.global_position
 		player_2.global_position = spawn2.global_position
 		conexao_players.global_position = spawn1.global_position
+		fase_carregada.emit()
 	else:
 		#Caso nao encontre os pontos de spawn exibe um aviso
 		push_warning("Pontos de spawn não encontrados no nível: " + level_path)
