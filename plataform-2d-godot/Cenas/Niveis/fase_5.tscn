@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://boxragynxs4ok"]
+
+[ext_resource type="Texture2D" uid="uid://c5yiqlbdawh54" path="res://Sprites/Backgrounds/Floresta/céu.png" id="1_1ku4q"]
+
+[node name="Fase_5" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="ceu" type="Sprite2D" parent="background"]
+position = Vector2(320, 181)
+texture = ExtResource("1_1ku4q")
