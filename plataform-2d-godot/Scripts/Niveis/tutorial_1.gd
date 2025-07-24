@@ -20,7 +20,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 #Dialogic
-
 func _ready():
 	# Espera o Dialogic estar pronto
 	await get_tree().process_frame
@@ -29,6 +28,6 @@ func _ready():
 		Dialogic.start("Antes de começar a fase 1")
 
 func _input(event: InputEvent):
-# check if a dialog is already running
+#ve se o dialogic esta rodando
 	if Dialogic.current_timeline != null:
 		return
