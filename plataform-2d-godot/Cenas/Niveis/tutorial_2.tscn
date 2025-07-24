@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=4 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=28 format=4 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
 [ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_6r0a3"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_8ipts"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_sque7"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_sque7"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="5_8ipts"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="5_c7i80"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_gfb4h"]
@@ -152,6 +152,10 @@ distance = 31.7018
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8ipts"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sque7"]
+normal = Vector2(0, 1)
+distance = 3.0
+
 [node name="Tutorial 2" type="Node2D"]
 script = ExtResource("1_567s1")
 
@@ -271,6 +275,14 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/direito"]
 position = Vector2(640, 24)
 shape = SubResource("WorldBoundaryShape2D_8ipts")
+
+[node name="Cima" type="StaticBody2D" parent="Limites laterais" groups=["paredes_retrateis"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Cima"]
+position = Vector2(296, -1)
+shape = SubResource("WorldBoundaryShape2D_sque7")
 
 [node name="Coletavel" parent="." instance=ExtResource("14_sque7")]
 position = Vector2(157, 300)
