@@ -399,6 +399,7 @@ animations = [{
 
 [node name="player_1" type="CharacterBody2D" groups=["Players"]]
 top_level = true
+disable_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_66jdp")
 jump_height = 60.0

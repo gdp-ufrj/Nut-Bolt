@@ -20,3 +20,11 @@ func _physics_process(delta):
 	movimento.processar_movimento(delta)
 	animacao.atualizar_animacao(movimento.direcao, movimento.esta_pulando, is_on_floor(), conexao.esta_desativado)
 	
+
+
+func _on_game_controller_restart() -> void:
+	self.set_process_mode(self.PROCESS_MODE_DISABLED)
+
+
+func _on_game_controller_fase_carregada() -> void:
+	self.set_process_mode(self.PROCESS_MODE_ALWAYS)

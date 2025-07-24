@@ -89,6 +89,7 @@ position = Vector2(0, -1)
 [node name="player_2" parent="Players" instance=ExtResource("3_dg2gn")]
 z_index = 1
 position = Vector2(-5, 1)
+disable_mode = 1
 
 [node name="Pause_menu" parent="." instance=ExtResource("5_dg2gn")]
 
@@ -119,6 +120,8 @@ parameters/looping = true
 stream = ExtResource("8_1ob22")
 bus = &"Music"
 
+[connection signal="fase_carregada" from="." to="Players/player_1" method="_on_game_controller_fase_carregada"]
+[connection signal="fase_carregada" from="." to="Players/player_2" method="_on_game_controller_fase_carregada"]
 [connection signal="restart" from="." to="Players/player_1" method="_on_game_controller_restart"]
 [connection signal="restart" from="." to="Players/player_2" method="_on_game_controller_restart"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

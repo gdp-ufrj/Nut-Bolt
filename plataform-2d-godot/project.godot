@@ -28,11 +28,11 @@ directories/dch_directory={
 "Nut": "res://Dialogic/Personagens/Nut.dch"
 }
 directories/dtl_directory={
+"Antes da ultima fase do tutorial": "res://Dialogic/Timeline/Antes da ultima fase do tutorial.dtl",
 "Antes de começar a fase 1": "res://Dialogic/Timeline/Antes de começar a fase 1.dtl",
 "Apos a primeira fase": "res://Dialogic/Timeline/Apos a primeira fase.dtl",
 "Fim do MVP": "res://Dialogic/Timeline/Fim do MVP.dtl",
 "Na que aparece o repetidor": "res://Dialogic/Timeline/Na que aparece o repetidor.dtl",
-"Ultima fase do tutorial": "res://Dialogic/Timeline/Antes da ultima fase do tutorial.dtl",
 "timeline": "res://Dialogic/Timeline/timeline.dtl"
 }
 glossary/default_case_sensitive=true

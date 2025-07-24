@@ -12,19 +12,19 @@ var fechada2: bool = true
 var estados: Array = [fechada1,fechada2]
 
 @onready var PE1: AnimationPlayer = $Plataformas_Espirro/PE1/AnimationPlayer
-@onready var PE1_area: Area2D = $Plataformas_Espirro/PE1/trigger1
+#@onready var PE1_area: Area2D = $Plataformas_Espirro/PE1/trigger1
 @onready var PE2: AnimationPlayer = $Plataformas_Espirro/PE2/AnimationPlayer
 @onready var PE3: AnimationPlayer = $Plataformas_Espirro/PE3/AnimationPlayer
 @onready var plataformas: Array = [PE1,PE2,PE3]
-var restart: bool = false
+#var restart: bool = false
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
 	paredes_retrateis()
-	if Input.is_action_just_pressed("restart"):
-		restart = true
+	#if Input.is_action_just_pressed("restart"):
+		#restart = true
 		#PE1.stop()
 
 func paredes_retrateis()->void:
@@ -46,14 +46,20 @@ func paredes_retrateis()->void:
 
 func _on_trigger_1_body_entered(body: Node2D) -> void:
 	if body.name == "player_2":
-		await get_tree().create_timer(1.0,false).timeout
+		await get_tree().create_timer(0.3,false).timeout
 		if not PE1.is_playing():
-			PE1.call_deferred("play","Ativar")
+			PE1.play("Ativar")
 
 
 func _on_trigger_2_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "player_2":
+		await get_tree().create_timer(0.3,false).timeout
+		if not PE2.is_playing():
+			PE2.play("Ativar")
 
 
 func _on_trigger_3_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "player_2":
+		await get_tree().create_timer(0.3,false).timeout
+		if not PE3.is_playing():
+			PE3.play("Ativar")
