@@ -4,10 +4,10 @@ signal fase_carregada
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
-	"res://Cenas/Niveis/fase_2.tscn",
-	"res://Cenas/Niveis/fase_4.tscn",
+	"res://Cenas/Niveis/tutorial_1.tscn",
 	"res://Cenas/Niveis/tutorial_2.tscn",
 	"res://Cenas/Niveis/tutorial_3.tscn",
+	"res://Cenas/Niveis/fase_5.tscn",
 	"res://Cenas/Niveis/fase_1.tscn",
 	"res://Cenas/Niveis/fase_3.tscn",
 	"res://Cenas/Niveis/fase_4.tscn"

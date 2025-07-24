@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4rnrgkdaex7" path="res://Sprites/Backgrounds/Floresta/mato vermelho.png" id="6_uq0pl"]
 [ext_resource type="Texture2D" uid="uid://c6n8irs40ppjx" path="res://Sprites/Backgrounds/Floresta/montanha frente.png" id="7_4mq4g"]
 [ext_resource type="Texture2D" uid="uid://cj1dt7ux4quk6" path="res://Sprites/Backgrounds/Floresta/montanha fundo.png" id="8_6n8f5"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="9_u6jye"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="9_u6jye"]
 [ext_resource type="Texture2D" uid="uid://dmxptxtbeol7x" path="res://Sprites/Backgrounds/Floresta/clouds.png" id="10_6vmjj"]
 [ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="12_ami7l"]
 
