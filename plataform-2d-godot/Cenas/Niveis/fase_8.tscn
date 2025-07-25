@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dk16frwexahlm"]
+[gd_scene load_steps=29 format=4 uid="uid://dk16frwexahlm"]
 
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="1_1in5l"]
 [ext_resource type="PackedScene" uid="uid://b4sjo4sp0nysp" path="res://Cenas/Entes/bola_espinho.tscn" id="2_2mws8"]
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(385, 350), Vector2(385, 100), Vector2(385, 350)]
+"values": [Vector2(385, 160), Vector2(385, 350), Vector2(385, 160)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c2a62"]
@@ -84,30 +84,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(325, 350), Vector2(325, 100), Vector2(325, 350)]
+"values": [Vector2(325, 100), Vector2(325, 350), Vector2(325, 100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_itm4y"]
 _data = {
 &"RESET": SubResource("Animation_w5tv2"),
 &"bola_vertical_esquerda": SubResource("Animation_c2a62")
-}
-
-[sub_resource type="Animation" id="Animation_itm4y"]
-resource_name = "bola_horizontal"
-length = 8.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4, 8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(490, 105), Vector2(80, 105), Vector2(490, 105)]
 }
 
 [sub_resource type="Animation" id="Animation_u8trt"]
@@ -125,15 +108,9 @@ tracks/0/keys = {
 "values": [Vector2(490, 105)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8trt"]
-_data = {
-&"RESET": SubResource("Animation_u8trt"),
-&"bola_horizontal": SubResource("Animation_itm4y")
-}
-
-[sub_resource type="Animation" id="Animation_1jqln"]
-resource_name = "bola_caminho_quadrado"
-length = 8.0
+[sub_resource type="Animation" id="Animation_itm4y"]
+resource_name = "bola_horizontal"
+length = 10.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -142,10 +119,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(275, 135), Vector2(135, 135), Vector2(135, 245), Vector2(275, 245), Vector2(275, 135)]
+"values": [Vector2(80, 105), Vector2(490, 105), Vector2(80, 105)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8trt"]
+_data = {
+&"RESET": SubResource("Animation_u8trt"),
+&"bola_horizontal": SubResource("Animation_itm4y")
 }
 
 [sub_resource type="Animation" id="Animation_652w5"]
@@ -163,10 +146,141 @@ tracks/0/keys = {
 "values": [Vector2(265, 135)]
 }
 
+[sub_resource type="Animation" id="Animation_1jqln"]
+resource_name = "bola_caminho_quadrado"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(275, 245), Vector2(275, 135), Vector2(275, 245)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jmhkt"]
 _data = {
 &"RESET": SubResource("Animation_652w5"),
 &"bola_caminho_quadrado": SubResource("Animation_1jqln")
+}
+
+[sub_resource type="Animation" id="Animation_jmhkt"]
+resource_name = "animacao_bola_elevacao_esquerda"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(135, 135), Vector2(135, 245), Vector2(135, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_gf1l0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(135, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gf1l0"]
+_data = {
+&"RESET": SubResource("Animation_gf1l0"),
+&"animacao_bola_elevacao_esquerda": SubResource("Animation_jmhkt")
+}
+
+[sub_resource type="Animation" id="Animation_a6tf8"]
+resource_name = "animacao_bola_cima"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(255, 135), Vector2(155, 135), Vector2(255, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_5gamx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(255, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgn1m"]
+_data = {
+&"RESET": SubResource("Animation_5gamx"),
+&"animacao_bola_cima": SubResource("Animation_a6tf8")
+}
+
+[sub_resource type="Animation" id="Animation_cgn1m"]
+resource_name = "bola_elevacao_baixo"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(155, 245), Vector2(255, 245), Vector2(155, 245)]
+}
+
+[sub_resource type="Animation" id="Animation_01mji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(155, 245)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d31s"]
+_data = {
+&"RESET": SubResource("Animation_01mji"),
+&"bola_elevacao_baixo": SubResource("Animation_cgn1m")
 }
 
 [node name="fase_8" type="Node2D"]
@@ -305,3 +419,30 @@ libraries = {
 &"": SubResource("AnimationLibrary_jmhkt")
 }
 autoplay = "bola_caminho_quadrado"
+
+[node name="bola_espinho5" parent="." instance=ExtResource("2_2mws8")]
+position = Vector2(135, 135)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho5"]
+libraries = {
+&"": SubResource("AnimationLibrary_gf1l0")
+}
+autoplay = "animacao_bola_elevacao_esquerda"
+
+[node name="bola_espinho6" parent="." instance=ExtResource("2_2mws8")]
+position = Vector2(255, 135)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho6"]
+libraries = {
+&"": SubResource("AnimationLibrary_cgn1m")
+}
+autoplay = "animacao_bola_cima"
+
+[node name="bola_espinho7" parent="." instance=ExtResource("2_2mws8")]
+position = Vector2(155, 245)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho7"]
+libraries = {
+&"": SubResource("AnimationLibrary_3d31s")
+}
+autoplay = "bola_elevacao_baixo"
