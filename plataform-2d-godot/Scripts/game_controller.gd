@@ -11,6 +11,7 @@ var level_paths = [
 	"res://Cenas/Niveis/fase_5.tscn",
 	"res://Cenas/Niveis/fase_6.tscn",
 	"res://Cenas/Niveis/fase_7.tscn",
+	"res://Cenas/Niveis/fase_8.tscn",
 	"res://Cenas/Niveis/fase_9.tscn"
 ]
 
