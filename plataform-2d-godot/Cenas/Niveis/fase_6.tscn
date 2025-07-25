@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4rnrgkdaex7" path="res://Sprites/Backgrounds/Floresta/mato vermelho.png" id="8_8x3p4"]
 [ext_resource type="Texture2D" uid="uid://c6n8irs40ppjx" path="res://Sprites/Backgrounds/Floresta/montanha frente.png" id="9_54d0y"]
 [ext_resource type="Texture2D" uid="uid://cj1dt7ux4quk6" path="res://Sprites/Backgrounds/Floresta/montanha fundo.png" id="10_i2sp1"]
-[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_klxm7"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_klxm7"]
 [ext_resource type="Texture2D" uid="uid://dmxptxtbeol7x" path="res://Sprites/Backgrounds/Floresta/clouds.png" id="12_8vflw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
@@ -42,7 +42,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(575, 90), Vector2(575, -80)]
 }
@@ -73,7 +73,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_o8ei5"]
 resource_name = "Retrair"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -81,8 +81,8 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.47),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(50, 0)]
 }
@@ -113,7 +113,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jedf1"]
 resource_name = "Retrair"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,8 +121,8 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 50)]
 }
@@ -153,7 +153,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_pm0w7"]
 resource_name = "Retrair"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -161,8 +161,8 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 49)]
 }
@@ -193,7 +193,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rvjm7"]
 resource_name = "Retrair"
-length = 1.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -201,8 +201,8 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0666667, 2),
+"transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-62, 0)]
 }
@@ -225,7 +225,7 @@ shader = ExtResource("11_klxm7")
 shader_parameter/speed = 0.0005
 shader_parameter/step_interval = 0.2
 
-[node name="Fase_1" type="Node2D"]
+[node name="Fase_6" type="Node2D"]
 script = ExtResource("1_tscu5")
 
 [node name="Chão" type="Node2D" parent="."]

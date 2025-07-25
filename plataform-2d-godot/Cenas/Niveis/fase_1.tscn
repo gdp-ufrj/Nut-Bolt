@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="6_orrl7"]
 [ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="11_7jq2t"]
-[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="12_gas2a"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="13_te4x7"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_unywo"]
-[ext_resource type="Script" uid="uid://pwq1peoudb6g" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
+[ext_resource type="Script" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
 shader = ExtResource("11_i2dij")
@@ -91,7 +91,7 @@ size = Vector2(187, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gyev"]
 
-[node name="tutorial_1" type="Node2D"]
+[node name="fase_1" type="Node2D"]
 script = ExtResource("1_r5t60")
 
 [node name="Fase1Mvp1Full" type="Sprite2D" parent="."]

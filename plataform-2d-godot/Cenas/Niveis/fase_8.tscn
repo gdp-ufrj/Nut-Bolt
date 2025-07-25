@@ -169,6 +169,21 @@ _data = {
 &"bola_caminho_quadrado": SubResource("Animation_1jqln")
 }
 
+[sub_resource type="Animation" id="Animation_gf1l0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(135, 135)]
+}
+
 [sub_resource type="Animation" id="Animation_jmhkt"]
 resource_name = "animacao_bola_elevacao_esquerda"
 length = 4.0
@@ -186,7 +201,13 @@ tracks/0/keys = {
 "values": [Vector2(135, 135), Vector2(135, 245), Vector2(135, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_gf1l0"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gf1l0"]
+_data = {
+&"RESET": SubResource("Animation_gf1l0"),
+&"animacao_bola_elevacao_esquerda": SubResource("Animation_jmhkt")
+}
+
+[sub_resource type="Animation" id="Animation_5gamx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -198,13 +219,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(135, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gf1l0"]
-_data = {
-&"RESET": SubResource("Animation_gf1l0"),
-&"animacao_bola_elevacao_esquerda": SubResource("Animation_jmhkt")
+"values": [Vector2(255, 135)]
 }
 
 [sub_resource type="Animation" id="Animation_a6tf8"]
@@ -224,7 +239,13 @@ tracks/0/keys = {
 "values": [Vector2(255, 135), Vector2(155, 135), Vector2(255, 135)]
 }
 
-[sub_resource type="Animation" id="Animation_5gamx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgn1m"]
+_data = {
+&"RESET": SubResource("Animation_5gamx"),
+&"animacao_bola_cima": SubResource("Animation_a6tf8")
+}
+
+[sub_resource type="Animation" id="Animation_01mji"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -236,13 +257,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(255, 135)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cgn1m"]
-_data = {
-&"RESET": SubResource("Animation_5gamx"),
-&"animacao_bola_cima": SubResource("Animation_a6tf8")
+"values": [Vector2(155, 245)]
 }
 
 [sub_resource type="Animation" id="Animation_cgn1m"]
@@ -260,21 +275,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(155, 245), Vector2(255, 245), Vector2(155, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_01mji"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(155, 245)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3d31s"]
@@ -368,7 +368,6 @@ position = Vector2(3.01557, -1.97644)
 shape = SubResource("WorldBoundaryShape2D_2mws8")
 
 [node name="Espinhos" type="Node2D" parent="."]
-visible = false
 
 [node name="Espinho" parent="Espinhos" instance=ExtResource("3_0flw8")]
 position = Vector2(69, 240)
