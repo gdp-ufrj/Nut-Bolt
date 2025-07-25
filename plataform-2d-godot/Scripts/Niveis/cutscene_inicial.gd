@@ -6,16 +6,24 @@ extends Node2D
 
 #Lista de imagens da cutscene
 var imagens = [
-	preload("res://Sprites/Placeholders/robot-preview.png"),
-	preload("res://Sprites/Placeholders/Robo2-ph.png"),
-	preload("res://Sprites/Placeholders/conexaoPrisma_teste.png")
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene1.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene2.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene3.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene4.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene5.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene6.png"),
+	preload("res://Sprites/Cutscene/TemplateNovoCutscene7.png")
 ]
 
 #Lista de falas
 var falas = [
-	"Querido aventureiro,\nHoje começa a sua jornada...",
-	"Você deve encontrar o templo perdido...",
-	"Boa sorte!"
+	"Querido aventureiro,\nHoje começa a sua jornada...", # cutscene1
+	"Você deve encontrar o templo perdido...", #cutscene2
+	"Boa sorte!", #cutscene3
+	"Boa sorte!", #cutscene4
+	"Boa sorte!", #cutscene5
+	"Boa sorte!", #cutscene6
+	"Boa sorte!" #cutscene7
 ]
 
 var fala_atual: int = 0
