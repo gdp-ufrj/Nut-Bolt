@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cedvhv4mqhbjr"]
 
 [ext_resource type="Script" uid="uid://daaynr4hgw2of" path="res://Scripts/Niveis/cutscene_inicial.gd" id="1_8mf8u"]
-[ext_resource type="Texture2D" uid="uid://blo18fe42uahn" path="res://Sprites/Placeholders/robot-preview.png" id="2_1fr0s"]
+[ext_resource type="Texture2D" uid="uid://bypigew1mab44" path="res://Sprites/Cutscene/TemplateNovoCutscene1.png" id="2_un08y"]
 
 [node name="Cutscene_inicial" type="Node2D"]
 script = ExtResource("1_8mf8u")
@@ -9,8 +9,8 @@ script = ExtResource("1_8mf8u")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(276, 175)
-texture = ExtResource("2_1fr0s")
+position = Vector2(326, 187)
+texture = ExtResource("2_un08y")
 
 [node name="Legenda" type="Label" parent="CanvasLayer"]
 anchors_preset = 12

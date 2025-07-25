@@ -15,7 +15,7 @@ func _ready():
 func _on_start_pressed() -> void:
 	som_selecionar.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Cenas/game_controller.tscn")
+	get_tree().change_scene_to_file("res://Cenas/Niveis/cutscene.tscn")
 
 # Botão de Load Game (ainda não implementado)
 func _on_load_pressed() -> void:
