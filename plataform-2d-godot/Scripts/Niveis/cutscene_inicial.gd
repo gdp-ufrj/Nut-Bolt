@@ -29,7 +29,7 @@ var falas = [
 var fala_atual: int = 0
 var texto_completo: String = ""
 var indice_letra: int = 0
-var velocidade: float = 0.03  #tempo entre letras
+var velocidade: float = 0.09  #tempo entre letras
 
 func _ready():
 	typing_timer.timeout.connect(_on_typing_timer_timeout)
