@@ -1,0 +1,337 @@
+[gd_scene load_steps=31 format=4 uid="uid://dv05nstyolt5u"]
+
+[ext_resource type="Script" uid="uid://rlx4gc87lxlt" path="res://Scripts/Niveis/tutorial_3.gd" id="1_21xvy"]
+[ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_xx88x"]
+[ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_drhsi"]
+[ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_h5va6"]
+[ext_resource type="Texture2D" uid="uid://baxcv1ccjnwra" path="res://Sprites/Backgrounds/Fase 3 MVP1 full.png" id="3_tu5f7"]
+[ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="4_h5va6"]
+[ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="4_qhx57"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_tnrhd"]
+[ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="5_tsd38"]
+[ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_xhi1b"]
+[ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="9_v5wfe"]
+[ext_resource type="Script" uid="uid://b1xto4ybhk1ja" path="res://Scripts/Entes/dialogic_trigger_3.gd" id="12_tnrhd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jae2x"]
+shader = ExtResource("4_tnrhd")
+shader_parameter/speed = 0.0005
+shader_parameter/step_interval = 0.2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tsd38"]
+texture = ExtResource("2_xx88x")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+3:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+4:5/0 = 0
+3:5/0 = 0
+2:5/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+4:2/0 = 0
+3:4/0 = 0
+1:5/0 = 0
+0:5/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:4/0 = 0
+4:4/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tu5f7"]
+tile_size = Vector2i(10, 10)
+sources/0 = SubResource("TileSetAtlasSource_tsd38")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhx57"]
+size = Vector2(100, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5va6"]
+size = Vector2(70, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tugt"]
+size = Vector2(40, 160)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h5va6"]
+normal = Vector2(1, 0)
+distance = -8.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_drhsi"]
+normal = Vector2(0, 1)
+distance = 3.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tnrhd"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhi1b"]
+size = Vector2(40, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5wfe"]
+size = Vector2(40, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drhsi"]
+size = Vector2(40, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnrhd"]
+size = Vector2(40, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8urag"]
+size = Vector2(16, 16.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1tugt"]
+a = Vector2(-240, 1)
+b = Vector2(465, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jae2x"]
+size = Vector2(646, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrpa"]
+size = Vector2(320, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lavbc"]
+
+[node name="Tutorial 3" type="Node2D"]
+script = ExtResource("1_21xvy")
+
+[node name="Fase3Mvp1Full" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(320, 180)
+texture = ExtResource("3_tu5f7")
+metadata/_edit_lock_ = true
+
+[node name="MvpSky" type="Sprite2D" parent="Fase3Mvp1Full"]
+z_index = -2
+position = Vector2(0, -130)
+texture = ExtResource("3_drhsi")
+
+[node name="MvpClouds" type="Sprite2D" parent="Fase3Mvp1Full"]
+z_index = -1
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jae2x")
+position = Vector2(0, -130)
+texture = ExtResource("5_xhi1b")
+
+[node name="Chão" type="Node2D" parent="."]
+
+[node name="Chao" type="TileMapLayer" parent="Chão"]
+position = Vector2(0, 60)
+tile_set = SubResource("TileSet_tu5f7")
+
+[node name="Chão direita" type="StaticBody2D" parent="Chão/Chao" groups=["limites"]]
+position = Vector2(530, 260)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/Chao/Chão direita"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_qhx57")
+
+[node name="Chão esquerda" type="StaticBody2D" parent="Chão/Chao"]
+position = Vector2(10, 300)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/Chao/Chão esquerda"]
+position = Vector2(25, -20)
+shape = SubResource("RectangleShape2D_h5va6")
+
+[node name="Parte de cima morrinho" type="StaticBody2D" parent="Chão/Chao" groups=["limites"]]
+position = Vector2(354, 43)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Chão/Chao/Parte de cima morrinho" groups=["limites"]]
+polygon = PackedVector2Array(-54, -53, 56, -53, 57, -13, 246, -13, 246, 57, -54, 57)
+
+[node name="Parede de cima" type="StaticBody2D" parent="Chão/Chao"]
+position = Vector2(625, 4)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/Chao/Parede de cima"]
+position = Vector2(-5, 16)
+shape = SubResource("RectangleShape2D_1tugt")
+
+[node name="Limites" type="Node2D" parent="."]
+
+[node name="Esquerdo" type="StaticBody2D" parent="Limites"]
+position = Vector2(-1, 150)
+collision_layer = 3
+collision_mask = 3
+
+[node name="colisao" type="CollisionShape2D" parent="Limites/Esquerdo"]
+top_level = true
+position = Vector2(10, 270)
+shape = SubResource("WorldBoundaryShape2D_h5va6")
+
+[node name="Cima" type="StaticBody2D" parent="Limites" groups=["paredes_retrateis"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/Cima"]
+position = Vector2(296, -1)
+shape = SubResource("WorldBoundaryShape2D_drhsi")
+
+[node name="direito" type="StaticBody2D" parent="Limites"]
+position = Vector2(0, 200)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites/direito"]
+position = Vector2(640, 24)
+shape = SubResource("WorldBoundaryShape2D_tnrhd")
+
+[node name="plataforma_ativavel" type="StaticBody2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataforma_ativavel"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(124, 319)
+shape = SubResource("RectangleShape2D_xhi1b")
+
+[node name="TileMapLayer" parent="plataforma_ativavel/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAABAP//BAACAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
+
+[node name="Plataformas Estaticas" type="Node2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="estatica_1" type="StaticBody2D" parent="Plataformas Estaticas"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_1"]
+position = Vector2(90, 272)
+shape = SubResource("RectangleShape2D_v5wfe")
+debug_color = Color(0, 0.59255, 0.740987, 0.42)
+
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_1/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD+////BAADAAAAAAD+/wAABAADAAEAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAABAP//BAACAAAAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAABAAAABAACAAEAAAA=")
+
+[node name="estatica_2" type="StaticBody2D" parent="Plataformas Estaticas"]
+position = Vector2(8, 0)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_2"]
+position = Vector2(250, 252)
+shape = SubResource("RectangleShape2D_drhsi")
+debug_color = Color(0.596751, 0.544938, 3.85046e-07, 0.42)
+
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_2/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAABAP//BAACAAAAAAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
+
+[node name="estatica_3" type="StaticBody2D" parent="Plataformas Estaticas"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_3"]
+position = Vector2(360, 271)
+shape = SubResource("RectangleShape2D_tnrhd")
+debug_color = Color(0.67091, 0.508827, 0, 0.42)
+
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_3/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAABAP//BAACAAAAAAD+////BAADAAAAAAD/////BAAEAAAAAAAAAP//BAAEAAAAAAD+/wAABAADAAEAAAABAAAABAACAAEAAAD//wAABAAEAAEAAAAAAAAABAAEAAEAAAA=")
+
+[node name="estatica_4" type="StaticBody2D" parent="Plataformas Estaticas"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas Estaticas/estatica_4"]
+position = Vector2(168, 248)
+shape = SubResource("RectangleShape2D_8urag")
+debug_color = Color(0.641954, 0.522554, 0.0962435, 0.42)
+
+[node name="TileMapLayer" parent="Plataformas Estaticas/estatica_4/CollisionShape2D" instance=ExtResource("4_qhx57")]
+tile_map_data = PackedByteArray("AAD/////BAADAAAAAAAAAP//BAACAAAAAAD//wAABAADAAEAAAAAAAAABAACAAEAAAA=")
+
+[node name="Porta" parent="." instance=ExtResource("3_h5va6")]
+z_index = -1
+position = Vector2(532, 236)
+
+[node name="Roteador1" parent="." instance=ExtResource("4_h5va6")]
+position = Vector2(32, 264)
+
+[node name="Roteador2" parent="." instance=ExtResource("4_h5va6")]
+position = Vector2(368, 24)
+
+[node name="Roteador3" parent="." instance=ExtResource("4_h5va6")]
+position = Vector2(552, 32)
+
+[node name="player_2_spawn" type="Marker2D" parent="."]
+position = Vector2(562, 78)
+
+[node name="player_1_spawn" type="Marker2D" parent="."]
+position = Vector2(37, 308)
+
+[node name="Botao" parent="." instance=ExtResource("5_tsd38")]
+position = Vector2(444, 81)
+
+[node name="Void" type="Area2D" parent="."]
+position = Vector2(245, 387)
+collision_layer = 7
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+shape = SubResource("SegmentShape2D_1tugt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Void"]
+position = Vector2(213, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/StaticBody2D"]
+position = Vector2(-136, 3.75)
+shape = SubResource("RectangleShape2D_jae2x")
+
+[node name="Chao" type="Node2D" parent="."]
+
+[node name="Chao" parent="Chao" instance=ExtResource("9_v5wfe")]
+z_index = -1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chao"]
+position = Vector2(213, 356)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao/StaticBody2D"]
+position = Vector2(17, -3)
+shape = SubResource("RectangleShape2D_xrrpa")
+
+[node name="DialogicTrigger3" type="Area2D" parent="."]
+position = Vector2(532, 248)
+script = ExtResource("12_tnrhd")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicTrigger3"]
+shape = SubResource("RectangleShape2D_lavbc")
+
+[connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
+[connection signal="body_entered" from="DialogicTrigger3" to="DialogicTrigger3" method="_on_body_entered"]

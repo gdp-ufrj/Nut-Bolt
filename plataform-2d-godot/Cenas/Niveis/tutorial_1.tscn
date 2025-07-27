@@ -1,0 +1,268 @@
+[gd_scene load_steps=31 format=4 uid="uid://ctpv6e62840gl"]
+
+[ext_resource type="Script" uid="uid://rox4tqvdlaqf" path="res://Scripts/Niveis/tutorial_1.gd" id="1_k87ql"]
+[ext_resource type="Texture2D" uid="uid://bksstj43k2cn7" path="res://Sprites/Backgrounds/Fase 1 MVP1 full.png" id="2_pv42o"]
+[ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="3_4dw7u"]
+[ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_bq7u2"]
+[ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="3_pv42o"]
+[ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_4dw7u"]
+[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_hvu8q"]
+[ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_7gyev"]
+[ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="5_k87ql"]
+[ext_resource type="Script" path="res://Scripts/Entes/plataforma_movel.gd" id="7_41odh"]
+[ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="8_0a68a"]
+[ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="9_shsao"]
+[ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="10_0a68a"]
+[ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_bq7u2"]
+[ext_resource type="Script" uid="uid://pwq1peoudb6g" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_hvu8q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
+shader = ExtResource("4_hvu8q")
+shader_parameter/speed = 0.0005
+shader_parameter/step_interval = 0.2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmet4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57qif"]
+size = Vector2(299.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d63f"]
+size = Vector2(151.25, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pv42o"]
+size = Vector2(91.5, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqry3"]
+size = Vector2(50, 49.5)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_72cdr"]
+normal = Vector2(0.024642, -0.999696)
+distance = -53.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pv42o"]
+normal = Vector2(-0.99998, -0.0063693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shsao"]
+size = Vector2(13, 89.75)
+
+[sub_resource type="Animation" id="Animation_kp6uw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [433.0]
+}
+
+[sub_resource type="Animation" id="Animation_k87ql"]
+resource_name = "Subir"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [440.0, 236.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41odh"]
+_data = {
+&"RESET": SubResource("Animation_kp6uw"),
+&"Subir": SubResource("Animation_k87ql")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_shsao"]
+a = Vector2(-87, 0)
+b = Vector2(100, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0df2m"]
+size = Vector2(187, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gyev"]
+
+[node name="tutorial_1" type="Node2D"]
+script = ExtResource("1_k87ql")
+
+[node name="Fase1Mvp1Full" type="Sprite2D" parent="."]
+show_behind_parent = true
+z_index = -1
+position = Vector2(321, 180)
+texture = ExtResource("2_pv42o")
+
+[node name="MvpSky" type="Sprite2D" parent="Fase1Mvp1Full"]
+z_index = -2
+position = Vector2(0, -130)
+texture = ExtResource("3_bq7u2")
+
+[node name="MvpClouds" type="Sprite2D" parent="Fase1Mvp1Full"]
+z_index = -1
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6qdqy")
+position = Vector2(0, -130)
+texture = ExtResource("5_7gyev")
+
+[node name="player_1_spawn" type="Marker2D" parent="."]
+position = Vector2(72, 219)
+
+[node name="player_2_spawn" type="Marker2D" parent="."]
+position = Vector2(27, 219)
+
+[node name="Porta" parent="." instance=ExtResource("3_4dw7u")]
+z_index = -1
+position = Vector2(602, 206)
+
+[node name="Chão" type="Node2D" parent="."]
+
+[node name="Chao" parent="Chão" instance=ExtResource("3_pv42o")]
+z_index = -1
+position = Vector2(0, -1)
+tile_map_data = PackedByteArray("AAAoAB0AAAABAAIAAAApAB0AAAACAAIAAAAqAB0AAAACAAIAAAArAB0AAAACAAIAAAAsAB0AAAACAAIAAAAtAB0AAAACAAIAAAAuAB0AAAACAAIAAAAvAB0AAAACAAIAAAAwAB0AAAADAAIAAAA=")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Chão"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_mmet4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D"]
+position = Vector2(150, 235)
+shape = SubResource("RectangleShape2D_57qif")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Chão"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D2"]
+position = Vector2(567, 295)
+shape = SubResource("RectangleShape2D_7d63f")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Chão"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D4"]
+position = Vector2(355.25, 295)
+shape = SubResource("RectangleShape2D_pv42o")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Chão"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D5"]
+position = Vector2(286, 214.75)
+shape = SubResource("RectangleShape2D_eqry3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Chão"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_mmet4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão/StaticBody2D3"]
+position = Vector2(151, -5)
+shape = SubResource("RectangleShape2D_57qif")
+
+[node name="Limites laterais" type="Node2D" parent="."]
+
+[node name="Esquerdo" type="StaticBody2D" parent="Limites laterais"]
+position = Vector2(72, 41)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Esquerdo"]
+position = Vector2(-19, 106)
+rotation = 1.54994
+shape = SubResource("WorldBoundaryShape2D_72cdr")
+
+[node name="Direito" type="StaticBody2D" parent="Limites laterais"]
+position = Vector2(637, 141)
+rotation = -0.00783172
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limites laterais/Direito"]
+position = Vector2(3.01557, -1.97644)
+shape = SubResource("WorldBoundaryShape2D_pv42o")
+
+[node name="Botao" parent="." instance=ExtResource("4_4dw7u")]
+position = Vector2(552, 218)
+
+[node name="Roteador" parent="." instance=ExtResource("5_k87ql")]
+position = Vector2(497, 160)
+
+[node name="Plataforma movel" type="AnimatableBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("7_41odh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plataforma movel"]
+top_level = true
+position = Vector2(446, 433)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_shsao")
+metadata/_edit_group_ = true
+
+[node name="TilesetPlataforma" parent="Plataforma movel/CollisionShape2D" instance=ExtResource("10_0a68a")]
+position = Vector2(-426.5, 445)
+rotation = -1.5708
+tile_map_data = PackedByteArray("AAAwACoABAACAAAAAAAoACoABAADAAAAAAApACoABAAEAAAAAAAqACoABAAEAAAAAAArACoABAAEAAAAAAAsACoABAAEAAAAAAAtACoABAAEAAAAAAAuACoABAAEAAAAAAAvACoABAAEAAAAAAAoACsABAADAAEAAAApACsABAAEAAEAAAAqACsABAAEAAEAAAArACsABAAEAAEAAAAsACsABAAEAAEAAAAtACsABAAEAAEAAAAuACsABAAEAAEAAAAvACsABAAEAAEAAAAwACsABAACAAEAAAA=")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma movel/CollisionShape2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_41odh")
+}
+
+[node name="DescerPlataforma-Ideia1" type="AudioStreamPlayer" parent="Plataforma movel"]
+stream = ExtResource("9_shsao")
+bus = &"SFX"
+
+[node name="SubirPlataforma-Ideia1" type="AudioStreamPlayer" parent="Plataforma movel"]
+stream = ExtResource("8_0a68a")
+bus = &"SFX"
+
+[node name="Void" type="Area2D" parent="."]
+position = Vector2(436, 415)
+collision_layer = 7
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void"]
+shape = SubResource("SegmentShape2D_shsao")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Void"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void/StaticBody2D"]
+position = Vector2(6.5, 4.25)
+shape = SubResource("RectangleShape2D_0df2m")
+
+[node name="Coletavel" parent="." instance=ExtResource("14_bq7u2")]
+visibility_layer = 1
+position = Vector2(192, 216)
+diary_text = "Querido Shrek,
+
+Hoje encontrei uma trilha escondida atrás do velho laboratório.
+Acho que estamos mais perto do que nunca de descobrir a verdade.
+
+Com carinho,
+EGGMAN"
+
+[node name="DialogicTrigger" type="Area2D" parent="."]
+position = Vector2(602, 217)
+script = ExtResource("15_hvu8q")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogicTrigger"]
+shape = SubResource("RectangleShape2D_7gyev")
+
+[connection signal="body_entered" from="Void" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="DialogicTrigger" to="DialogicTrigger" method="_on_body_entered"]
