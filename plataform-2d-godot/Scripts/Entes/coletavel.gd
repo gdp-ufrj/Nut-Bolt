@@ -5,7 +5,7 @@ extends Area2D
 var can_collect := false
 
 func _ready():
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	#connect("body_entered", Callable(self, "_on_body_entered")) tava dando erro
 	await get_tree().create_timer(0.1).timeout
 	can_collect = true  #Só permite coleta após 0.1s
 

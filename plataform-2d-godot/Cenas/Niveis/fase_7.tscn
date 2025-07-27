@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cw1m5yl4qgd3a"]
+[gd_scene load_steps=53 format=4 uid="uid://cw1m5yl4qgd3a"]
 
 [ext_resource type="Script" uid="uid://ky5d6ad32i30" path="res://Scripts/Niveis/fase_2.gd" id="1_jrvat"]
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="2_6p3pj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dmxptxtbeol7x" path="res://Sprites/Backgrounds/Floresta/clouds.png" id="10_xmsc7"]
 [ext_resource type="Texture2D" uid="uid://c6n8irs40ppjx" path="res://Sprites/Backgrounds/Floresta/montanha frente.png" id="11_l1gy8"]
 [ext_resource type="Texture2D" uid="uid://ywhax8p8qmb4" path="res://Sprites/Backgrounds/Floresta/mato escuro.png" id="12_j1b06"]
+[ext_resource type="Texture2D" uid="uid://bnry4gy1bo1x4" path="res://Sprites/Interagíveis/Floresta/Cuspidora.png" id="13_6p3pj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ot50e"]
 normal = Vector2(0.024642, -0.999696)
@@ -104,6 +105,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3qop"]
 size = Vector2(90, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
+size = Vector2(10, 90)
+
 [sub_resource type="Animation" id="Animation_227fk"]
 resource_name = "Abrir"
 length = 2.0
@@ -140,9 +144,6 @@ _data = {
 &"Abrir": SubResource("Animation_227fk"),
 &"RESET": SubResource("Animation_jucmp")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
-size = Vector2(10, 90)
 
 [sub_resource type="Animation" id="Animation_iof7b"]
 resource_name = "Retrair"
@@ -187,6 +188,18 @@ size = Vector2(40, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yv8xm"]
 size = Vector2(60, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_227fk"]
+size = Vector2(60, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjm6d"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jucmp"]
+size = Vector2(40, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fru02"]
+size = Vector2(60, 10)
+
 [sub_resource type="Animation" id="Animation_lwefe"]
 resource_name = "Ativar"
 length = 5.0
@@ -223,9 +236,6 @@ _data = {
 &"Ativar": SubResource("Animation_lwefe"),
 &"RESET": SubResource("Animation_fdn0s")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_227fk"]
-size = Vector2(60, 10)
 
 [sub_resource type="Animation" id="Animation_fru02"]
 resource_name = "Ativar"
@@ -264,15 +274,6 @@ _data = {
 &"RESET": SubResource("Animation_pkqxd")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjm6d"]
-size = Vector2(40, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jucmp"]
-size = Vector2(40, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fru02"]
-size = Vector2(60, 10)
-
 [sub_resource type="Animation" id="Animation_yv8xm"]
 resource_name = "Ativar"
 length = 5.0
@@ -310,8 +311,107 @@ _data = {
 &"RESET": SubResource("Animation_vfpi1")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8stj"]
+atlas = ExtResource("13_6p3pj")
+region = Rect2(60, 0, 40, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5l3q"]
+atlas = ExtResource("13_6p3pj")
+region = Rect2(0, 0, 40, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co8tc"]
+atlas = ExtResource("13_6p3pj")
+region = Rect2(40, 0, 19, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fy3yp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8stj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}],
+"loop": false,
+"name": &"Ativar",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s22t8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8stj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}],
+"loop": true,
+"name": &"Ativar",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7y84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8stj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_co8tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5l3q")
+}],
+"loop": true,
+"name": &"Ativar",
+"speed": 5.0
+}]
+
 [node name="Fase_7" type="Node2D"]
 script = ExtResource("1_jrvat")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -3
+position = Vector2(320, 180)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+texture = ExtResource("9_bjt3q")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background"]
+texture = ExtResource("10_xmsc7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background"]
+texture = ExtResource("11_l1gy8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+texture = ExtResource("12_j1b06")
 
 [node name="Chão" type="Node2D" parent="."]
 
@@ -469,11 +569,6 @@ position = Vector2(575, 295)
 shape = SubResource("RectangleShape2D_u3qop")
 debug_color = Color(0.986454, 0, 0.323432, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_Retrateis/PR1"]
-libraries = {
-&"": SubResource("AnimationLibrary_fru02")
-}
-
 [node name="Chao" parent="Paredes_Retrateis/PR1" instance=ExtResource("2_6p3pj")]
 tile_map_data = PackedByteArray("AAA2AB0AAwABAAAAAAA3AB0AAwABAAAAAAA4AB0AAwABAAAAAAA5AB0AAwABAAAAAAA6AB0AAwABAAAAAAA7AB0AAwABAAAAAAA8AB0AAwABAAAAAAA9AB0AAwACAAAAAAA1AB0AAwAAAAAAAAA=")
 
@@ -489,14 +584,23 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_52l3n")
 debug_color = Color(0.97729, 0, 0.405269, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Paredes_Retrateis/PR2"]
-libraries = {
-&"": SubResource("AnimationLibrary_rvjm7")
-}
-
 [node name="Chao" parent="Paredes_Retrateis/PR2" instance=ExtResource("2_6p3pj")]
 position = Vector2(95, -575)
 tile_map_data = PackedByteArray("AADy/zkAAwAAAAAAAAD6/zkAAwACAAAAAADz/zkAAwABAAAAAAD0/zkAAwABAAAAAAD1/zkAAwABAAAAAAD2/zkAAwABAAAAAAD3/zkAAwABAAAAAAD4/zkAAwABAAAAAAD5/zkAAwABAAAAAAA=")
+
+[node name="Animacoes" type="Node2D" parent="Paredes_Retrateis"]
+
+[node name="Animation1" type="AnimationPlayer" parent="Paredes_Retrateis/Animacoes"]
+root_node = NodePath("../../PR1")
+libraries = {
+&"": SubResource("AnimationLibrary_fru02")
+}
+
+[node name="Animation2" type="AnimationPlayer" parent="Paredes_Retrateis/Animacoes"]
+root_node = NodePath("../../PR2")
+libraries = {
+&"": SubResource("AnimationLibrary_rvjm7")
+}
 
 [node name="Plataformas_Espirro" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -521,14 +625,8 @@ position = Vector2(370, 15)
 shape = SubResource("RectangleShape2D_yv8xm")
 debug_color = Color(0.995698, 0, 0.200612, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE1"]
-libraries = {
-&"": SubResource("AnimationLibrary_ly32r")
-}
-speed_scale = 0.5
-
 [node name="TileMapLayer" parent="Plataformas_Espirro/PE1" instance=ExtResource("8_lwpr5")]
-tile_map_data = PackedByteArray("AAAjAAEABAADAAAAAAAkAAEABAAEAAAAAAAlAAEABAAEAAAAAAAmAAEABAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAjAAEAAQADAAAAADAkAAEAAQACAAAAADAlAAEAAQABAAAAADAmAAEAAQAAAAAAADA=")
 
 [node name="PE2" type="AnimatableBody2D" parent="Plataformas_Espirro"]
 position = Vector2(20, 0)
@@ -546,12 +644,6 @@ position = Vector2(250, 15)
 shape = SubResource("RectangleShape2D_227fk")
 debug_color = Color(0.868834, 0.132363, 2.88785e-07, 0.42)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE2"]
-libraries = {
-&"": SubResource("AnimationLibrary_yv8xm")
-}
-speed_scale = 0.5
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas_Espirro/PE2"]
 position = Vector2(250, 15)
 shape = SubResource("RectangleShape2D_wjm6d")
@@ -559,7 +651,7 @@ debug_color = Color(0.906968, 0.30203, 0, 0.42)
 
 [node name="TileMapLayer" parent="Plataformas_Espirro/PE2/CollisionShape2D" instance=ExtResource("8_lwpr5")]
 position = Vector2(-270, -15)
-tile_map_data = PackedByteArray("AAAZAAEABAADAAAAAAAcAAEABAACAAAAAAAaAAEABAAEAAAAAAAbAAEABAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAZAAEAAQADAAAAADAcAAEAAQAAAAAAADAaAAEAAQACAAAAADAbAAEAAQABAAAAADA=")
 
 [node name="PE3" type="AnimatableBody2D" parent="Plataformas_Espirro"]
 position = Vector2(30, 0)
@@ -583,33 +675,60 @@ shape = SubResource("RectangleShape2D_fru02")
 debug_color = Color(0.996078, 0.137255, 0.2, 0.419608)
 
 [node name="TileMapLayer" parent="Plataformas_Espirro/PE3" instance=ExtResource("8_lwpr5")]
-tile_map_data = PackedByteArray("AAAMAAEABAADAAAAAAAPAAEABAACAAAAAAANAAEABAAEAAAAAAAOAAEABAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMAAEAAQADAAAAADAPAAEAAQAAAAAAADANAAEAAQACAAAAADAOAAEAAQABAAAAADA=")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas_Espirro/PE3"]
+[node name="Animacoes" type="Node2D" parent="Plataformas_Espirro"]
+
+[node name="plataformas" type="Node2D" parent="Plataformas_Espirro/Animacoes"]
+
+[node name="Animation1" type="AnimationPlayer" parent="Plataformas_Espirro/Animacoes/plataformas"]
+root_node = NodePath("../../../PE1")
+libraries = {
+&"": SubResource("AnimationLibrary_ly32r")
+}
+speed_scale = 0.5
+
+[node name="Animation2" type="AnimationPlayer" parent="Plataformas_Espirro/Animacoes/plataformas"]
+root_node = NodePath("../../../PE2")
+libraries = {
+&"": SubResource("AnimationLibrary_yv8xm")
+}
+speed_scale = 0.5
+
+[node name="Animation3" type="AnimationPlayer" parent="Plataformas_Espirro/Animacoes/plataformas"]
+root_node = NodePath("../../../PE3")
 libraries = {
 &"": SubResource("AnimationLibrary_lwefe")
 }
 speed_scale = 0.5
 
-[node name="Background" type="Node2D" parent="."]
-z_index = -3
-position = Vector2(320, 180)
-metadata/_edit_group_ = true
+[node name="plantas" type="Node2D" parent="Plataformas_Espirro/Animacoes"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Background"]
-texture = ExtResource("9_bjt3q")
+[node name="Animation_plant1" type="AnimatedSprite2D" parent="Plataformas_Espirro/Animacoes/plantas"]
+z_index = 1
+position = Vector2(370, 31)
+rotation = 1573.94
+sprite_frames = SubResource("SpriteFrames_fy3yp")
+animation = &"Ativar"
+frame = 4
+frame_progress = 1.0
 
-[node name="Sprite2D4" type="Sprite2D" parent="Background"]
-texture = ExtResource("10_xmsc7")
+[node name="Animation_plant2" type="AnimatedSprite2D" parent="Plataformas_Espirro/Animacoes/plantas"]
+z_index = 1
+position = Vector2(170, 31)
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_s22t8")
+animation = &"Ativar"
 
-[node name="Sprite2D3" type="Sprite2D" parent="Background"]
-texture = ExtResource("11_l1gy8")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Background"]
-texture = ExtResource("12_j1b06")
+[node name="Animation_plant3" type="AnimatedSprite2D" parent="Plataformas_Espirro/Animacoes/plantas"]
+z_index = 1
+position = Vector2(270, 31)
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_q7y84")
+animation = &"Ativar"
 
 [connection signal="body_entered" from="Plataformas_Espirro/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
-[connection signal="animation_started" from="Plataformas_Espirro/PE1/AnimationPlayer" to="." method="_on_animation_1_animation_started"]
 [connection signal="body_entered" from="Plataformas_Espirro/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]
 [connection signal="body_entered" from="Plataformas_Espirro/PE3/trigger3" to="." method="_on_trigger_3_body_entered"]
