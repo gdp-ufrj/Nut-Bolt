@@ -24,13 +24,25 @@ DiaryUI="*res://Cenas/UI/diary_popup.tscn"
 
 directories/dch_directory={
 "Auri": "res://Dialogic/Personagens/Auri.dch",
-"Bolt": "res://Bolt.dch",
+"Bolt": "res://Dialogic/Personagens/Bolt.dch",
 "Nut": "res://Dialogic/Personagens/Nut.dch"
 }
 directories/dtl_directory={
 "Antes da ultima fase do tutorial": "res://Dialogic/Timeline/Antes da ultima fase do tutorial.dtl",
 "Antes de começar a fase 1": "res://Dialogic/Timeline/Antes de começar a fase 1.dtl",
 "Apos a primeira fase": "res://Dialogic/Timeline/Apos a primeira fase.dtl",
+"DColetavel1": "res://Dialogic/Timeline/DColetavel1.dtl",
+"DColetavel10": "res://Dialogic/Timeline/DColetavel10.dtl",
+"DColetavel11": "res://Dialogic/Timeline/DColetavel11.dtl",
+"DColetavel2": "res://Dialogic/Timeline/DColetavel2.dtl",
+"DColetavel3": "res://Dialogic/Timeline/DColetavel3.dtl",
+"DColetavel4": "res://Dialogic/Timeline/DColetavel4.dtl",
+"DColetavel5": "res://Dialogic/Timeline/DColetavel5.dtl",
+"DColetavel6": "res://Dialogic/Timeline/DColetavel6.dtl",
+"DColetavel7": "res://Dialogic/Timeline/DColetavel7.dtl",
+"DColetavel8": "res://Dialogic/Timeline/DColetavel8.dtl",
+"DColetavel9": "res://Dialogic/Timeline/DColetavel9.dtl",
+"DialogoFinal": "res://Dialogic/Timeline/DialogoFinal.dtl",
 "Fim do MVP": "res://Dialogic/Timeline/Fim do MVP.dtl",
 "Na que aparece o repetidor": "res://Dialogic/Timeline/Na que aparece o repetidor.dtl",
 "timeline": "res://Dialogic/Timeline/timeline.dtl"
@@ -59,6 +71,12 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+translation/enabled=false
+translation/original_locale="pt_BR"
+translation/file_mode=1
+translation/translation_folder=""
+translation/save_mode=0
+translation/add_separator=false
 
 [display]
 
