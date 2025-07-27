@@ -1,6 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpqe8ehe4j6el"]
+[gd_scene load_steps=6 format=3 uid="uid://dpqe8ehe4j6el"]
 
 [ext_resource type="Texture2D" uid="uid://cs57pqmbketa8" path="res://Sprites/Interagíveis/atlas_plataforma.png" id="1_xhowc"]
+[ext_resource type="Texture2D" uid="uid://jku8k725qbu4" path="res://Sprites/Interagíveis/Floresta/PlataformaCusp.png" id="2_uorsp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mk180"]
+texture = ExtResource("2_uorsp")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8x8u"]
 texture = ExtResource("1_xhowc")
@@ -19,6 +28,7 @@ texture_region_size = Vector2i(10, 10)
 [sub_resource type="TileSet" id="TileSet_yclkd"]
 tile_size = Vector2i(10, 10)
 sources/4 = SubResource("TileSetAtlasSource_g8x8u")
+sources/1 = SubResource("TileSetAtlasSource_mk180")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [4, Vector2i(0, 0)], [0, Vector2i(0, 1)], [4, Vector2i(0, 1)], [0, Vector2i(1, 0)], [4, Vector2i(1, 0)], [0, Vector2i(1, 1)], [4, Vector2i(1, 1)], [1, Vector2i(0, 0)], [4, Vector2i(2, 0)], [1, Vector2i(0, 1)], [4, Vector2i(2, 1)], [2, Vector2i(0, 0)], [4, Vector2i(3, 0)], [2, Vector2i(0, 1)], [4, Vector2i(3, 1)], [3, Vector2i(0, 0)], [4, Vector2i(4, 0)], [3, Vector2i(0, 1)], [4, Vector2i(4, 1)]]
 
 [node name="TileMapLayer" type="TileMapLayer"]
