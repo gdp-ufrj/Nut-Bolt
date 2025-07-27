@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ib1vw877v0g7"]
 
 [ext_resource type="Script" uid="uid://dfe1ut0p2dk5e" path="res://Scripts/Entes/coletavel.gd" id="1_y8nh7"]
-[ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="2_ac1te"]
+[ext_resource type="Texture2D" uid="uid://ccx0puj1axu37" path="res://Sprites/Interagíveis/Floresta/Coletavel.png" id="2_capoi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ac1te"]
 
@@ -16,9 +16,9 @@ script = ExtResource("1_y8nh7")
 shape = SubResource("CircleShape2D_ac1te")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 3.8147e-07)
-scale = Vector2(0.233333, 0.2)
-texture = ExtResource("2_ac1te")
+position = Vector2(5.96046e-08, 4.96703e-09)
+scale = Vector2(1.16667, 1.16667)
+texture = ExtResource("2_capoi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

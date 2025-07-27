@@ -4,13 +4,15 @@ signal fase_carregada
 
 #Lista com os caminhos para os arquivos de cena dos niveis
 var level_paths = [
-	"res://Cenas/Niveis/fase_2.tscn",
-	"res://Cenas/Niveis/fase_4.tscn",
-	"res://Cenas/Niveis/tutorial_2.tscn",
-	"res://Cenas/Niveis/tutorial_3.tscn",
 	"res://Cenas/Niveis/fase_1.tscn",
+	"res://Cenas/Niveis/fase_2.tscn",
 	"res://Cenas/Niveis/fase_3.tscn",
-	"res://Cenas/Niveis/fase_4.tscn"
+	"res://Cenas/Niveis/fase_4.tscn",
+	"res://Cenas/Niveis/fase_5.tscn",
+	"res://Cenas/Niveis/fase_6.tscn",
+	"res://Cenas/Niveis/fase_7.tscn",
+	"res://Cenas/Niveis/fase_8.tscn",
+	"res://Cenas/Niveis/fase_9.tscn"
 ]
 
 var current_level: Node = null  #Referencia para o nivel atual
@@ -27,6 +29,7 @@ const music_fases = preload("res://Audio/Floresta_soundtrack/mus_solarpunk_loop.
 
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
+	print("GameController iniciado")
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
 	current_index = 0
 	_load_level(current_index)
@@ -84,6 +87,7 @@ func _remove_current_level():
 
 #Funcao para carregar um nivel baseado no indice
 func _load_level(index: int):
+	print("Carregando nível:", index)
 	#Obtem o caminho da cena do nivel baseado no indice
 	var level_path = level_paths[index]
 	#Carrega a cena do nivel (arquivo .tscn)
