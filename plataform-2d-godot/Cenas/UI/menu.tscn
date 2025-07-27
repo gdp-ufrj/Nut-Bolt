@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://i3g83ejswsa8" path="res://Sprites/Elementos UI/Botões_selecionados_Carregar_Jogo.png" id="7_3f8y4"]
 [ext_resource type="Texture2D" uid="uid://cgfue7jnl8wdu" path="res://Sprites/Elementos UI/Botões_selecionados_Configuracoes.png" id="7_gu8pg"]
 [ext_resource type="Texture2D" uid="uid://bahaampjyabgp" path="res://Sprites/Elementos UI/Botao_Configuracoes.png" id="8_1b1oe"]
-[ext_resource type="AudioStream" uid="uid://d3hjs35f7lvj" path="res://Audio/Menu/Música Menu 2 (2).ogg" id="10_3f8y4"]
+[ext_resource type="AudioStream" uid="uid://c5xpcgblwtq4s" path="res://Audio/Menu/Música Menu.ogg" id="10_gu8pg"]
 [ext_resource type="AudioStream" uid="uid://j8i14t3t7j58" path="res://Audio/Selecionar opção/Som-Selecionar-Opção-_Menu.ogg" id="11_kc1t0"]
 [ext_resource type="AudioStream" uid="uid://b75xrem3m7ngq" path="res://Audio/Passar itens Menu/Som-Passar-Itens-do-Menu.ogg" id="12_gu8pg"]
 
@@ -93,7 +93,7 @@ text = "Quit"
 [node name="SettingsSpawner" type="Node" parent="CanvasLayer"]
 
 [node name="Music_menu" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_3f8y4")
+stream = ExtResource("10_gu8pg")
 autoplay = true
 bus = &"Music"
 parameters/looping = true

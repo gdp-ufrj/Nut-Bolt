@@ -14,6 +14,7 @@ func _ready():
 	$zona_conexao_1.collision_mask = 3
 	conexao.conectar()
 	
+	
 
 func _physics_process(delta):
 	movimento.atualizar_gravidade(delta)
@@ -27,4 +28,4 @@ func _on_game_controller_restart() -> void:
 
 
 func _on_game_controller_fase_carregada() -> void:
-	self.set_process_mode(self.PROCESS_MODE_ALWAYS)
+	self.set_process_mode(self.PROCESS_MODE_INHERIT)
