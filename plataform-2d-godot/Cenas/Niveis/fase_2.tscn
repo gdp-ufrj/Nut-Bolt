@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
 [ext_resource type="Texture2D" uid="uid://w76vy1do6b2b" path="res://Sprites/Backgrounds/MVP_sky.png" id="3_6r0a3"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="4_8ipts"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_sque7"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="4_sque7"]
 [ext_resource type="Texture2D" uid="uid://bxcchyqyx552y" path="res://Sprites/Placeholders/Tileset Chão 1.png" id="5_8ipts"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="5_c7i80"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_gfb4h"]
@@ -286,12 +286,12 @@ shape = SubResource("WorldBoundaryShape2D_sque7")
 
 [node name="Coletavel" parent="." instance=ExtResource("14_sque7")]
 position = Vector2(157, 300)
-diary_text = "Ben 10 salve-se
+diary_text = "Não tem como começar a falar sobre mim em um diário sem falar da Layla. Nossa amizade começou há quase 5 anos, quando estávamos na faculdade. Desde então, é como se eu de repente tivesse uma irmã.
 
-A base está desabando. Dr. Eggman nos enganou.
+Dizem que a maçã não cai longe da árvore e isso deve explicar eu ter herdado o amor do meu pai pela ciência. Se não foi isso, com certeza foi o fato de ter virado parte de mim, quando ele adaptou meu corpo com peças robóticas para eu sobreviver quando era um bebê. É claro que havia um porém. Meu pai foi um pesquisador da exploração espacial, o maior da atualidade. Só que eu nunca havia me interessado muito pela cosmologia, o que pra ele era uma grande frustração no meio de todo o orgulho que sentia por mim. Não tinha me interessado até conhecer a Layla.
 
-Estamos tentando escapar pelo túnel 4.
-- GODZILLA"
+Ela sempre soube que queria trabalhar com isso e tinha o fascínio pelo universo que meu pai sempre sonhou que eu tivesse. Eu, por outro lado, sabia que estudar a geração de energia elétrica era o que realmente fazia brilhar meus olhos. Com o desenvolvimento tecnológico irrefreável, essa se tornou uma das questões mais urgentes da humanidade. Na última década, especialmente, depois que foi criado o Protocolo Mundial da Água, as normas para uso dos recursos hídricos se tornaram bastante rígidas, o que impactou drasticamente as matrizes energéticas mais importantes. Foi quando uma colega - que confesso nem ir muito com a cara na época - da minha turma me apresentou o projeto dela. No meio dos seus estudos sobre o portais, ela captou grandes quantidades de energia vindas do único que é acessível, descoberto por meu pai. Desde então, eu e ela fazemos nossa pesquisa com os equipamentos de última geração do laboratório que pertencia a ele.
+"
 
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]

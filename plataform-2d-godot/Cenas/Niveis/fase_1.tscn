@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="6_orrl7"]
 [ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="11_7jq2t"]
-[ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
+[ext_resource type="Shader" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="12_gas2a"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="13_te4x7"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_unywo"]
-[ext_resource type="Script" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
+[ext_resource type="Script" uid="uid://pwq1peoudb6g" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
 shader = ExtResource("11_i2dij")
@@ -248,13 +248,15 @@ shape = SubResource("RectangleShape2D_0df2m")
 [node name="Coletavel" parent="." instance=ExtResource("14_unywo")]
 visibility_layer = 1
 position = Vector2(192, 216)
-diary_text = "Querido Shrek,
-
-Hoje encontrei uma trilha escondida atrás do velho laboratório.
-Acho que estamos mais perto do que nunca de descobrir a verdade.
-
-Com carinho,
-EGGMAN"
+diary_text = "Este diário pertence à Aurora, mas literalmente (quase) ninguém me chama assim, então pode ser só Auri mesmo. Se você estiver lendo isso, então pare! Saiba que sou uma cientista metade humana, metade ciborgue e, bem, isso me dá algumas vantagens numa briga. Tudo bem, eu nem brigo, mas não vai dizer que lutar com uma pessoa com aprimoramentos corporais não coloca um pouco de medo, vai?
+Eu consigo até viajar por portais espaciais!!
+É engraçado que a maioria das pessoas nem sabe o que é isso. Com certeza não faço parte desse grupo, tendo em vista que passei os últimos anos da minha vida continuando os estudos brilhantes do meu pai sobre esse fenômeno cósmico.
+Nossa, falando assim pareço muito velha, mas tenho só 10111 anos…
+Relaxa, essa é só minha idade em binário ;)
+A verdade é que estou escrevendo isso aqui porque vi em algum lugar que escrever desestressa. E com minha pesquisa atual, é disso que estou mais precisando.
+O problema energético do planeta Terra está cada vez pior e, se nada for feito, toda a civilização está ameaçada a colapsar. Depois de quase dois mil e quinhentos anos de desenvolvimento tecnológico, não dá para voltar atrás.
+É por essa razão que eu - e minha melhor amiga e companheira de profissão Layla - estamos apostando tudo na energia vinda de uma estrela de outra galáxia. E o portal que meu pai descobriu é a nossa melhor chance de chegar lá e conseguir uma nova fonte energética pra Terra.
+Acho que estamos mais perto do que nunca de descobrir a verdade."
 
 [node name="DialogicTrigger" type="Area2D" parent="."]
 position = Vector2(602, 217)

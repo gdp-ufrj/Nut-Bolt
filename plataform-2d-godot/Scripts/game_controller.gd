@@ -29,6 +29,7 @@ const music_fases = preload("res://Audio/Floresta_soundtrack/mus_solarpunk_loop.
 
 #Funcao chamada quando a cena começa a ser processada
 func _ready():
+	print("GameController iniciado")
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
 	current_index = 0
 	_load_level(current_index)
@@ -86,6 +87,7 @@ func _remove_current_level():
 
 #Funcao para carregar um nivel baseado no indice
 func _load_level(index: int):
+	print("Carregando nível:", index)
 	#Obtem o caminho da cena do nivel baseado no indice
 	var level_path = level_paths[index]
 	#Carrega a cena do nivel (arquivo .tscn)

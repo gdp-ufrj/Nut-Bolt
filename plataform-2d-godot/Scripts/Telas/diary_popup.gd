@@ -1,16 +1,17 @@
 extends CanvasLayer
 
-@onready var label = $Panel/DiaryLabel
-@onready var button = $Panel/Fechar
+@onready var text_box: RichTextLabel = $Panel/ScrollContainer/MarginContainer/VBoxContainer/DiaryText
+@onready var button: Button = $Panel/ScrollContainer/MarginContainer/VBoxContainer/Fechar
+
+var is_showing := false
 
 func _ready():
 	hide()
 	button.pressed.connect(_on_close_pressed)
 
-var is_showing := false  # controla se o popup está visível
-
 func show_text(text: String) -> void:
-	label.text = text
+	text_box.clear()
+	text_box.append_text(text)
 	is_showing = true
 	show()
 	get_tree().paused = true
