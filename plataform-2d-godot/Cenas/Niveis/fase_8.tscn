@@ -14,11 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="8_1jqln"]
 [ext_resource type="Texture2D" uid="uid://bnry4gy1bo1x4" path="res://Sprites/Interagíveis/Floresta/Cuspidora.png" id="13_a6tf8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgn1m"]
-shader = ExtResource("8_a6tf8")
-shader_parameter/speed = 0.0005
-shader_parameter/step_interval = 0.2
-
 [sub_resource type="Animation" id="Animation_l40v3"]
 length = 0.001
 tracks/0/type = "value"
@@ -640,14 +635,6 @@ texture = ExtResource("4_5gamx")
 position = Vector2(575, 40)
 metadata/_edit_lock_ = true
 
-[node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(253, 296)
-metadata/_edit_lock_ = true
-
-[node name="player_2_spawn" type="Marker2D" parent="."]
-position = Vector2(282, 296)
-metadata/_edit_lock_ = true
-
 [node name="Chão" type="Node2D" parent="."]
 z_index = -1
 metadata/_edit_lock_ = true
@@ -755,44 +742,6 @@ position = Vector2(69, 260)
 [node name="Espinho4" parent="Espinhos" instance=ExtResource("3_0flw8")]
 position = Vector2(69, 250)
 
-[node name="Background" type="Node2D" parent="."]
-z_index = -3
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
-
-[node name="Céu" type="Sprite2D" parent="Background"]
-z_index = -5
-position = Vector2(320, 180)
-texture = ExtResource("4_1jqln")
-
-[node name="MatoVermelho" type="Sprite2D" parent="Background"]
-position = Vector2(320, 190)
-scale = Vector2(1.00228, 1)
-texture = ExtResource("5_652w5")
-
-[node name="MontanhaFrente" type="Sprite2D" parent="Background"]
-z_index = -2
-position = Vector2(320, 190)
-texture = ExtResource("6_jmhkt")
-
-[node name="MontanhaFundo" type="Sprite2D" parent="Background"]
-z_index = -3
-position = Vector2(293, 189)
-texture = ExtResource("7_gf1l0")
-
-[node name="Clouds" type="Sprite2D" parent="Background"]
-z_index = -4
-texture_repeat = 2
-material = SubResource("ShaderMaterial_cgn1m")
-position = Vector2(320, 180)
-texture = ExtResource("9_5gamx")
-
-[node name="Roteador" parent="." instance=ExtResource("10_652w5")]
-position = Vector2(76, 188)
-metadata/_edit_lock_ = true
-
-[node name="bola_espinho2" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(385, 350)
 [node name="Coletavel" parent="." instance=ExtResource("4_l40v3")]
 position = Vector2(40, 207)
 
@@ -838,20 +787,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_f5200")
 }
 
-[node name="bola_espinho" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(325, 350)
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho"]
 [node name="Animation2" type="AnimationPlayer" parent="Paredes_retrateis/Animacoes"]
 root_node = NodePath("../../PR1")
 libraries = {
 &"": SubResource("AnimationLibrary_slsr3")
 }
 
-[node name="bola_espinho3" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(490, 105)
-metadata/_edit_lock_ = true
 [node name="Plataformas_espirradas" type="Node2D" parent="."]
 
 [node name="PE1" type="AnimatableBody2D" parent="Plataformas_espirradas"]
@@ -925,18 +866,11 @@ libraries = {
 }
 speed_scale = 0.8
 
-[node name="bola_espinho4" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(265, 135)
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho4"]
 [node name="Animation2" type="AnimationPlayer" parent="Plataformas_espirradas/Animacoes/plataformas"]
 libraries = {
 &"": SubResource("AnimationLibrary_yg4jk")
 }
 
-[node name="bola_espinho5" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(135, 135)
 [node name="player_1_spawn" type="Marker2D" parent="."]
 position = Vector2(290, 300)
 metadata/_edit_lock_ = true
@@ -945,28 +879,5 @@ metadata/_edit_lock_ = true
 position = Vector2(255, 300)
 metadata/_edit_lock_ = true
 
-[node name="bola_espinho6" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(255, 135)
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho6"]
-libraries = {
-&"": SubResource("AnimationLibrary_cgn1m")
-}
-autoplay = "animacao_bola_cima"
-
-[node name="bola_espinho7" parent="." instance=ExtResource("2_2mws8")]
-position = Vector2(155, 245)
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bola_espinho7"]
-libraries = {
-&"": SubResource("AnimationLibrary_3d31s")
-}
-autoplay = "bola_elevacao_baixo"
-
-[node name="Porta" parent="." instance=ExtResource("11_jmhkt")]
-position = Vector2(573, 38)
-metadata/_edit_lock_ = true
 [connection signal="body_entered" from="Plataformas_espirradas/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]
