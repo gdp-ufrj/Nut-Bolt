@@ -17,7 +17,7 @@
 &"portraits": {
 "Normal": {
 "export_overrides": {
-"image": "\"res://Sprites/Players/Redondo/Nut.png\""
+"image": "\"res://Sprites/Players/Redondo/player azul portrait.jpg\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
