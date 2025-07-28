@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://db4v1qr8g4tu"
+path="res://.godot/imported/Música Créditos.ogg-99a534652fa200cee929a0a5314430cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Creditos/Música Créditos.ogg"
+dest_files=["res://.godot/imported/Música Créditos.ogg-99a534652fa200cee929a0a5314430cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
