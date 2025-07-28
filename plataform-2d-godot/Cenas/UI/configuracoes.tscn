@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://2ua5jhq2gtjs"]
+[gd_scene load_steps=11 format=3 uid="uid://2ua5jhq2gtjs"]
 
 [ext_resource type="Script" uid="uid://bnubrkegu8u2r" path="res://Scripts/Telas/opcoes_menu.gd" id="1_lh4r2"]
 [ext_resource type="Script" uid="uid://dyykl3rb76gha" path="res://Scripts/Telas/audio_controller.gd" id="2_f6dp4"]
+[ext_resource type="FontFile" uid="uid://r08b7n86gfee" path="res://Dialogic/Estilos/nokiafc22.ttf" id="2_fp8vv"]
 [ext_resource type="Script" uid="uid://4oalte541pyc" path="res://Scripts/Telas/check_button.gd" id="3_fp8vv"]
 [ext_resource type="Script" uid="uid://b3g0p3661k1kj" path="res://Scripts/Telas/sfx.gd" id="4_l5ip4"]
 
@@ -48,6 +49,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 57.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fp8vv")
 theme_override_font_sizes/font_size = 32
 text = "Configurações"
 horizontal_alignment = 1
@@ -58,6 +60,7 @@ offset_left = 288.0
 offset_top = 321.0
 offset_right = 343.0
 offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 text = "Voltar"
 
 [node name="Audio_Controller" type="HSlider" parent="Configuracoes"]
@@ -77,10 +80,11 @@ audio_bus_name = "Music"
 
 [node name="Fullscreen" type="CheckButton" parent="Configuracoes"]
 layout_mode = 0
-offset_left = 124.0
+offset_left = 113.0
 offset_top = 155.0
-offset_right = 333.0
+offset_right = 439.0
 offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 text = "Fullscreen"
 script = ExtResource("3_fp8vv")
 
@@ -90,6 +94,7 @@ offset_left = 125.0
 offset_top = 89.0
 offset_right = 171.0
 offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 text = "Music"
 
 [node name="SFX" type="HSlider" parent="Configuracoes"]
@@ -109,10 +114,11 @@ audio_bus_name = "SFX"
 
 [node name="Label2" type="Label" parent="Configuracoes"]
 layout_mode = 0
-offset_left = 139.0
+offset_left = 133.0
 offset_top = 119.0
-offset_right = 179.0
+offset_right = 173.0
 offset_bottom = 142.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 text = "SFX"
 
 [node name="Resolution" type="OptionButton" parent="Configuracoes"]
@@ -121,13 +127,15 @@ offset_left = 225.0
 offset_top = 195.0
 offset_right = 436.0
 offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 
 [node name="Label3" type="Label" parent="Configuracoes"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 194.0
-offset_right = 213.0
-offset_bottom = 217.0
+offset_left = 116.0
+offset_top = 196.0
+offset_right = 218.0
+offset_bottom = 219.0
+theme_override_fonts/font = ExtResource("2_fp8vv")
 text = "Resolution"
 
 [connection signal="pressed" from="Configuracoes/Voltar" to="." method="_on_voltar_pressed"]
