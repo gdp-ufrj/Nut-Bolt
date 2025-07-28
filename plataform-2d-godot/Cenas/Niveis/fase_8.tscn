@@ -742,9 +742,6 @@ position = Vector2(69, 260)
 [node name="Espinho4" parent="Espinhos" instance=ExtResource("3_0flw8")]
 position = Vector2(69, 250)
 
-[node name="Coletavel" parent="." instance=ExtResource("4_l40v3")]
-position = Vector2(40, 207)
-
 [node name="Roteador" parent="." instance=ExtResource("5_c2a62")]
 position = Vector2(60, 180)
 metadata/_edit_lock_ = true
@@ -880,6 +877,32 @@ metadata/_edit_lock_ = true
 [node name="player_2_spawn" type="Marker2D" parent="."]
 position = Vector2(255, 300)
 metadata/_edit_lock_ = true
+
+[node name="Coletavel" parent="." instance=ExtResource("4_l40v3")]
+position = Vector2(40, 207)
+diary_text = "Dia 18 de outubro de 2489
+
+Faz pouco mais de uma semana que eu redirecionei meus esforços para entender este planeta para além do que esperava quando vim pra cá. Não me conformo, nem vou acreditar que não há nada de especial neste lugar que não faça valer todo o trabalho para chegar aqui. Por esse motivo, até que se esgotem minhas tentativas, vou me ater ao fato de ter uma oportunidade única de aprender com tantas novidades. 
+De fato, cada vez que descubro mais sobre a natureza desse planeta, mais fico fascinada! Embora seja difícil explorar muita coisa… A vegetação é densa demais, como nunca vi igual, fazendo com que eu mal consiga avançar para além dos arredores onde a nave e meus equipamentos de pesquisa estão localizados. O mais diferente em relação ao planeta Terra é que lá estamos acostumados com a grande maioria das plantas sendo seres vivos fixos. Aqui é como se elas se movimentassem por vontade própria. Minha próxima afirmação põe em dúvida minha própria sanidade, mas me arrisco a dizer que possa existir uma consciência única por trás de toda a flora. 
+Estou particularmente intrigada com uma jazida de um mineral exótico que acabei encontrando aqui por perto durante uma de minhas andanças. Após alguns testes, constatei que era um elemento novo, ainda não listado na tabela periódica. Fiquei tão animada com a descoberta, quanto estou para batizá-lo. 
+Infelizmente, tirando a raridade e beleza que superam os diamantes, não parece haver ainda alguma propriedade emocionante a respeito desse novo elemento.
+"
+diary_id = 9
+
+[node name="Coletavel2" parent="." instance=ExtResource("4_l40v3")]
+visibility_layer = 1
+position = Vector2(605, 126)
+rotation = -3.13213
+diary_text = "Relatório de Elemento: Apeiron
+
+Após uma noite de tempestade, percebi um brilho intenso e peculiar vindo do lado de fora da nave. Não só isso, como também ouvi um cintilar de cristais que era quase mágico. Ao sair para investigar, tive a grande surpresa de encontrar a jazida do elemento que descobri repleta de prismas energizados. Logo supus que eles haviam de ter captado a descarga elétrica de um raio durante a tempestade. O que me pareceu - e viria a constatar futuramente - foi que o elemento reagiu com a eletricidade formando um tipo de prismório. Como se tal acontecimento já não tivesse me proporcionado grande espanto, horas depois, observei que essa energia ainda não tinha se dissipado. Isso significa que o prisma possui uma propriedade única de armazenamento de energia. Dizer que essa é uma constatação promissora para minha pesquisa é um eufemismo absurdo. Ainda mais levando em consideração os resultados dos experimentos que vou relatar agora. A combinação não só da eletricidade do raio, como também da radiação de espectro desconhecido da estrela ativam compostos do elemento que reagem em uma cadeia retroalimentativa. Estou falando de energia infinita!!! Nem nos meus melhores sonhos eu poderia imaginar isso sendo possível… 
+Resolvi batizar o elemento de Apeiron: o elemento do infinito. E, em homenagem a essa descoberta maravilhosa, apelidei o planeta de Apeirokméia. 
+
+Tudo estaria perfeito não fosse por um defeito crítico dos exemplares do prisma encontrados na jazida. Devido a uma má formação, algumas ligações químicas ficaram instáveis fazendo com que, após 3 dias, eles se apagassem. Por outro lado, tenho certeza que é questão de refinar algumas características, para que sua formação se dê em condições ideias e a energia consiga ser armazenada. 
+Sei que sou perfeitamente capaz de realizar esses ajustes, mas para isso, preciso de mais material de estudo. A quantidade de Apeiron disponível é muito pequena para os testes que ainda precisam ser feitos e não encontrei mais amostras dentro dos limites da natureza que consigo explorar. 
+Foi quando lembrei dos dois robôzinhos feitos por mim e por Layla, os que ela me deixou de recordação. Sabe o que dizem, se a vida te dá máquinas altamente eficientes e tecnológicas, use-as para ajudar no seu trabalho. O ditado não é bem assim, mas poderia ser… Fiz algumas modificações úteis e programei os robôs para encontrarem mais Apeiron para mim. Por fim, usei o restante da minha reserva do prisma para ligá-los. Depois que eles começaram a falar - e a brigar - entre si, tive certeza que este deve ser mesmo um sonho muito louco. Enquanto não acordo dele, vou treinar essa dupla inusitada para completarem a missão e se darem bem. Façam suas apostas do que é mais difícil de funcionar em apenas três dias, antes que eles percam a energia. Eu já tenho meu palpite…
+"
+diary_id = 10
 
 [connection signal="body_entered" from="Plataformas_espirradas/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]

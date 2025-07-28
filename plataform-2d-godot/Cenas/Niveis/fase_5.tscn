@@ -212,3 +212,8 @@ position = Vector2(630, 81)
 
 [node name="Coletavel" parent="." instance=ExtResource("11_1m13u")]
 position = Vector2(532, 254)
+diary_text = "Estou escrevendo isso minutos antes do momento mais importante da minha carreira. É ainda mais difícil não se emocionar com isso, já que faz tempo que não consigo distinguir a linha entre minha pesquisa e o restante da minha vida. Vendo a nave prestes a entrar no portal e realizar o maior sonho do meu pai, eu tento enxergar meu próprio sonho em algum lugar no horizonte. É uma pena que ele não esteja mais aqui para ver isso também. 
+
+Em breve qualquer comunicação que eu tenha com o planeta Terra será perdida, mas desde que entrei na nave e confirmei as condições de decolagem, não usei o rádio transmissor uma vez sequer. Também não tentaram fazer contato, o que eu já esperava depois da minha despedida de Layla. Foi bem difícil, porque independentemente do quão preparadas estamos para esta missão, o medo de nunca mais voltar ofusca em minha mente a segurança que nossos cálculos minuciosos deveriam garantir. Eu mal contive as lágrimas ao abraçar minha amiga pela última vez em sabe se lá quanto tempo. Seus olhos eram reflexos dos meus na angústia, no receio e nas coisas que não estávamos preparadas para dizer. Tive medo de que se eu contasse sobre o quão importante ela é na minha vida e sobre como ela se tornou minha família após a morte do meu pai, isso significasse que eu não teria outra oportunidade de o dizer. Agora, pensando mais claramente, gostaria de ter dito tudo que estava em meu coração mesmo assim. Infelizmente, não adianta tentar contato, as últimas palavras de Layla pra mim foram pra dizer que ela iria para longe do laboratório, antes que mudasse de ideia…
+"
+diary_id = 5

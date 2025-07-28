@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="3_v0u23"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_epc6f"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="6_orrl7"]
-[ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
+[ext_resource type="Script" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="11_7jq2t"]
 [ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="12_gas2a"]
@@ -247,7 +247,7 @@ shape = SubResource("RectangleShape2D_0df2m")
 
 [node name="Coletavel" parent="." instance=ExtResource("14_unywo")]
 visibility_layer = 1
-position = Vector2(192, 216)
+position = Vector2(192, 223)
 diary_text = "Este diário pertence à Aurora, mas literalmente (quase) ninguém me chama assim, então pode ser só Auri mesmo. Se você estiver lendo isso, então pare! Saiba que sou uma cientista metade humana, metade ciborgue e, bem, isso me dá algumas vantagens numa briga. Tudo bem, eu nem brigo, mas não vai dizer que lutar com uma pessoa com aprimoramentos corporais não coloca um pouco de medo, vai?
 Eu consigo até viajar por portais espaciais!!
 É engraçado que a maioria das pessoas nem sabe o que é isso. Com certeza não faço parte desse grupo, tendo em vista que passei os últimos anos da minha vida continuando os estudos brilhantes do meu pai sobre esse fenômeno cósmico.
