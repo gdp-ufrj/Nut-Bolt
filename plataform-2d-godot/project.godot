@@ -24,7 +24,7 @@ DiaryUI="*res://Cenas/UI/diary_popup.tscn"
 
 directories/dch_directory={
 "Auri": "res://Dialogic/Personagens/Auri.dch",
-"Bolt": "res://Bolt.dch",
+"Bolt": "res://Dialogic/Personagens/Bolt.dch",
 "Nut": "res://Dialogic/Personagens/Nut.dch"
 }
 directories/dtl_directory={

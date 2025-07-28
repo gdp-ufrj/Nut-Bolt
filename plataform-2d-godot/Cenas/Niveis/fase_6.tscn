@@ -16,21 +16,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52l3n"]
 size = Vector2(10, 160)
 
-[sub_resource type="Animation" id="Animation_s3qno"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(575, 90)]
-}
-
 [sub_resource type="Animation" id="Animation_iof7b"]
 resource_name = "Abrir"
 length = 2.0
@@ -47,16 +32,7 @@ tracks/0/keys = {
 "values": [Vector2(575, 90), Vector2(575, -80)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvjm7"]
-_data = {
-&"Abrir": SubResource("Animation_iof7b"),
-&"RESET": SubResource("Animation_s3qno")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orrl7"]
-size = Vector2(50, 10)
-
-[sub_resource type="Animation" id="Animation_orrl7"]
+[sub_resource type="Animation" id="Animation_s3qno"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -68,8 +44,17 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(575, 90)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvjm7"]
+_data = {
+&"Abrir": SubResource("Animation_iof7b"),
+&"RESET": SubResource("Animation_s3qno")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orrl7"]
+size = Vector2(50, 10)
 
 [sub_resource type="Animation" id="Animation_o8ei5"]
 resource_name = "Abrir"
@@ -87,16 +72,7 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(50, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jedf1"]
-_data = {
-&"Abrir": SubResource("Animation_o8ei5"),
-&"RESET": SubResource("Animation_orrl7")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jedf1"]
-size = Vector2(10, 50)
-
-[sub_resource type="Animation" id="Animation_5c7np"]
+[sub_resource type="Animation" id="Animation_orrl7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -110,6 +86,15 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jedf1"]
+_data = {
+&"Abrir": SubResource("Animation_o8ei5"),
+&"RESET": SubResource("Animation_orrl7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jedf1"]
+size = Vector2(10, 50)
 
 [sub_resource type="Animation" id="Animation_jedf1"]
 resource_name = "Abrir"
@@ -127,16 +112,7 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 50)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm0w7"]
-_data = {
-&"Abrir": SubResource("Animation_jedf1"),
-&"RESET": SubResource("Animation_5c7np")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7np"]
-size = Vector2(10, 50)
-
-[sub_resource type="Animation" id="Animation_kdbq7"]
+[sub_resource type="Animation" id="Animation_5c7np"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -150,6 +126,15 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm0w7"]
+_data = {
+&"Abrir": SubResource("Animation_jedf1"),
+&"RESET": SubResource("Animation_5c7np")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7np"]
+size = Vector2(10, 50)
 
 [sub_resource type="Animation" id="Animation_pm0w7"]
 resource_name = "Abrir"
@@ -167,16 +152,7 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 49)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iof7b"]
-_data = {
-&"Abrir": SubResource("Animation_pm0w7"),
-&"RESET": SubResource("Animation_kdbq7")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ei5"]
-size = Vector2(60, 11)
-
-[sub_resource type="Animation" id="Animation_r5t60"]
+[sub_resource type="Animation" id="Animation_kdbq7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -190,6 +166,15 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iof7b"]
+_data = {
+&"Abrir": SubResource("Animation_pm0w7"),
+&"RESET": SubResource("Animation_kdbq7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ei5"]
+size = Vector2(60, 11)
 
 [sub_resource type="Animation" id="Animation_rvjm7"]
 resource_name = "Abrir"
@@ -205,6 +190,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.4, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-62, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r5t60"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2dij"]

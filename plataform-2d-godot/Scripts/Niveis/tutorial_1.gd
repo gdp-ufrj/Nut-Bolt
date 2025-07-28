@@ -24,8 +24,12 @@ func _ready():
 	# Espera o Dialogic estar pronto
 	await get_tree().process_frame
 
+	#permite que o Dialogic funcione mesmo se o jogo estiver pausado
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	if Dialogic.current_timeline == null:
 		Dialogic.start("Antes de começar a fase 1")
+
 
 func _input(event: InputEvent):
 #ve se o dialogic esta rodando

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://c7hamugihjp7o"]
+[gd_scene load_steps=30 format=4 uid="uid://c7hamugihjp7o"]
 
 [ext_resource type="Script" uid="uid://bqgrlnirhmdri" path="res://Scripts/Niveis/tutorial_2.gd" id="1_567s1"]
 [ext_resource type="PackedScene" uid="uid://bih7god6r8j2v" path="res://Cenas/Entes/porta.tscn" id="2_c7i80"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="7_6r0a3"]
 [ext_resource type="Texture2D" uid="uid://d3dwlfsq1y3mw" path="res://Sprites/Backgrounds/Plataforma1_Cristal.png" id="8_yddrn"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_sque7"]
+[ext_resource type="Script" uid="uid://brmmpsubaswuk" path="res://Scripts/Entes/dt_coletavel_2.gd" id="15_lwefe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nayi6"]
 shader = ExtResource("4_sque7")
@@ -156,6 +157,8 @@ normal = Vector2(-1, 0)
 normal = Vector2(0, 1)
 distance = 3.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdn0s"]
+
 [node name="Fase_2" type="Node2D"]
 script = ExtResource("1_567s1")
 
@@ -293,5 +296,14 @@ Dizem que a maçã não cai longe da árvore e isso deve explicar eu ter herdado
 Ela sempre soube que queria trabalhar com isso e tinha o fascínio pelo universo que meu pai sempre sonhou que eu tivesse. Eu, por outro lado, sabia que estudar a geração de energia elétrica era o que realmente fazia brilhar meus olhos. Com o desenvolvimento tecnológico irrefreável, essa se tornou uma das questões mais urgentes da humanidade. Na última década, especialmente, depois que foi criado o Protocolo Mundial da Água, as normas para uso dos recursos hídricos se tornaram bastante rígidas, o que impactou drasticamente as matrizes energéticas mais importantes. Foi quando uma colega - que confesso nem ir muito com a cara na época - da minha turma me apresentou o projeto dela. No meio dos seus estudos sobre o portais, ela captou grandes quantidades de energia vindas do único que é acessível, descoberto por meu pai. Desde então, eu e ela fazemos nossa pesquisa com os equipamentos de última geração do laboratório que pertencia a ele.
 "
 
+[node name="DTColetavel2" type="Area2D" parent="."]
+position = Vector2(602, 217)
+script = ExtResource("15_lwefe")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DTColetavel2"]
+shape = SubResource("RectangleShape2D_fdn0s")
+
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
+[connection signal="body_entered" from="DTColetavel2" to="DTColetavel2" method="_on_body_entered"]

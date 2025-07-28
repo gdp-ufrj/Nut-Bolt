@@ -1,7 +1,7 @@
 extends Area2D
 
 @export_multiline var diary_text: String
-@export var timeline: String = "DColetavel1"
+@export var timeline: String = "DColetavel2"
 var ja_tocou := false
 
 func _ready():
@@ -19,5 +19,3 @@ func _on_diario_fechado():
 	
 	if Dialogic.current_timeline == null:
 		Dialogic.start(timeline)
-
-		

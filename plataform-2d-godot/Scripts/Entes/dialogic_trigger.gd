@@ -3,6 +3,10 @@ extends Area2D
 @export var timeline : String = "Apos a primeira fase"
 var ja_tocou := false
 
+
+func _ready():
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("Players") and not ja_tocou:
 		ja_tocou = true
