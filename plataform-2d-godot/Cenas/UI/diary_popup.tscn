@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bok564q1jp5re"]
+[gd_scene load_steps=3 format=3 uid="uid://bok564q1jp5re"]
 
 [ext_resource type="Script" uid="uid://cc6j87550mmrv" path="res://Scripts/Telas/diary_popup.gd" id="1_qghet"]
+[ext_resource type="FontFile" uid="uid://r08b7n86gfee" path="res://Dialogic/Estilos/nokiafc22.ttf" id="2_jbsci"]
 
 [node name="DiaryPopup" type="CanvasLayer"]
 script = ExtResource("1_qghet")
@@ -46,6 +47,7 @@ alignment = 1
 process_mode = 2
 custom_minimum_size = Vector2(580, 320)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_jbsci")
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
