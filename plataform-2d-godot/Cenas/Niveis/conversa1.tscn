@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4xkoweb71lnv"]
+[gd_scene load_steps=23 format=3 uid="uid://f31yrk7tyqik"]
 
-[ext_resource type="Shader" uid="uid://cp34rmnf7nvo3" path="res://Sprites/Shaders/BG_scroll1.gdshader" id="1_af6we"]
+[ext_resource type="Shader" path="res://Sprites/Shaders/BG_scroll1.gdshader" id="1_af6we"]
 [ext_resource type="Texture2D" uid="uid://btopt27f046fq" path="res://Sprites/Backgrounds/fundo_conversa1.png" id="2_s06wq"]
 [ext_resource type="Texture2D" uid="uid://dqgt04odlo28y" path="res://Sprites/Backgrounds/gradiente.png" id="3_74eli"]
 [ext_resource type="Texture2D" uid="uid://d6gsgjl14ecc" path="res://Sprites/Players/Redondo/walk.png" id="4_vdwap"]

@@ -22,7 +22,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yaun"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63q1r"]
-radius = 75.0
+radius = 49.0
 
 [sub_resource type="Animation" id="Animation_0yaun"]
 resource_name = "Idle"
