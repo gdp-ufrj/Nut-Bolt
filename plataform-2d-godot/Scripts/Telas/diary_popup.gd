@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal diario_fechado
-
 @onready var text_box: RichTextLabel = $Panel/ScrollContainer/MarginContainer/VBoxContainer/DiaryText
 @onready var button: Button = $Panel/ScrollContainer/MarginContainer/VBoxContainer/Fechar
 
@@ -23,7 +21,6 @@ func _on_close_pressed():
 	get_tree().paused = false
 	hide()
 	is_showing = false
-	emit_signal("diario_fechado")
 	
 func reset():
 	hide()
