@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://daaynr4hgw2of" path="res://Scripts/Niveis/cutscene_inicial.gd" id="1_8mf8u"]
 [ext_resource type="Texture2D" uid="uid://bypigew1mab44" path="res://Sprites/Cutscene/TemplateNovoCutscene1.png" id="2_un08y"]
-[ext_resource type="FontFile" uid="uid://bbf2udwkeuyf6" path="res://Sprites/Cutscene/Fonte_Letras/GravityBold8.ttf" id="3_1fr0s"]
+[ext_resource type="FontFile" uid="uid://r08b7n86gfee" path="res://Dialogic/Estilos/nokiafc22.ttf" id="3_nuns1"]
 [ext_resource type="AudioStream" uid="uid://d0kn7joht50sk" path="res://Audio/Cutscene/Cutscene.ogg" id="4_nuns1"]
 
 [node name="Cutscene_inicial" type="Node2D"]
@@ -25,8 +25,8 @@ offset_right = 5.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.918471, 0.564782, 3.85046e-07, 1)
-theme_override_fonts/font = ExtResource("3_1fr0s")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_nuns1")
 horizontal_alignment = 1
 
 [node name="TypingTimer" type="Timer" parent="."]
