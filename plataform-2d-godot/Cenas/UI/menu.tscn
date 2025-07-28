@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://co6ao4k02l5al"]
+[gd_scene load_steps=14 format=3 uid="uid://co6ao4k02l5al"]
 
 [ext_resource type="Script" uid="uid://gw1nylhtltn" path="res://Scripts/Telas/menu.gd" id="1_pveh2"]
+[ext_resource type="Texture2D" uid="uid://c0wy5w1b7utbp" path="res://Sprites/Elementos UI/título grande.png" id="2_1b1oe"]
 [ext_resource type="Texture2D" uid="uid://quhutqtwhswk" path="res://Sprites/Elementos UI/Menu Inicial.png" id="2_hveky"]
 [ext_resource type="Texture2D" uid="uid://dwyu1yt0nnobj" path="res://Sprites/Elementos UI/Botao_Novo_Jogo.png" id="3_dh8gg"]
 [ext_resource type="Texture2D" uid="uid://dgit6gksdo5k1" path="res://Sprites/Elementos UI/Menu Inicial_base2.png" id="3_isfkn"]
@@ -26,6 +27,11 @@ script = ExtResource("1_pveh2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(312, 41)
+scale = Vector2(0.649206, 0.689474)
+texture = ExtResource("2_1b1oe")
+
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 z_index = -1
 position = Vector2(317, 178)
@@ -43,19 +49,12 @@ anchor_left = 0.139
 anchor_top = -0.272
 anchor_right = 0.842
 anchor_bottom = 0.931
-offset_left = 0.0400009
-offset_top = -0.0799942
-offset_right = 0.119934
-offset_bottom = -0.160034
+offset_left = 0.119995
+offset_top = 44.76
+offset_right = 0.199829
+offset_bottom = 44.6799
 size_flags_horizontal = 4
 alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
-text = "Prismante"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2

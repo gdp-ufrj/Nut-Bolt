@@ -292,6 +292,7 @@ Dizem que a maçã não cai longe da árvore e isso deve explicar eu ter herdado
 
 Ela sempre soube que queria trabalhar com isso e tinha o fascínio pelo universo que meu pai sempre sonhou que eu tivesse. Eu, por outro lado, sabia que estudar a geração de energia elétrica era o que realmente fazia brilhar meus olhos. Com o desenvolvimento tecnológico irrefreável, essa se tornou uma das questões mais urgentes da humanidade. Na última década, especialmente, depois que foi criado o Protocolo Mundial da Água, as normas para uso dos recursos hídricos se tornaram bastante rígidas, o que impactou drasticamente as matrizes energéticas mais importantes. Foi quando uma colega - que confesso nem ir muito com a cara na época - da minha turma me apresentou o projeto dela. No meio dos seus estudos sobre o portais, ela captou grandes quantidades de energia vindas do único que é acessível, descoberto por meu pai. Desde então, eu e ela fazemos nossa pesquisa com os equipamentos de última geração do laboratório que pertencia a ele.
 "
+diary_id = 2
 
 [connection signal="body_entered" from="Botao" to="." method="_on_botao_body_entered"]
 [connection signal="body_exited" from="Botao" to="." method="_on_botao_body_exited"]
