@@ -879,7 +879,7 @@ position = Vector2(255, 300)
 metadata/_edit_lock_ = true
 
 [node name="Coletavel" parent="." instance=ExtResource("4_l40v3")]
-position = Vector2(40, 207)
+position = Vector2(40, 203)
 diary_text = "Dia 18 de outubro de 2489
 
 Faz pouco mais de uma semana que eu redirecionei meus esforços para entender este planeta para além do que esperava quando vim pra cá. Não me conformo, nem vou acreditar que não há nada de especial neste lugar que não faça valer todo o trabalho para chegar aqui. Por esse motivo, até que se esgotem minhas tentativas, vou me ater ao fato de ter uma oportunidade única de aprender com tantas novidades. 

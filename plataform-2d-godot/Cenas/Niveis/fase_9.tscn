@@ -1470,7 +1470,21 @@ tile_map_data = PackedByteArray("AAA1AA8AAwAAAAAAAAA8AA8AAwACAAAAAAA2AA8AAwABAAA
 
 [node name="Coletavel" parent="." instance=ExtResource("17_e8stj")]
 z_index = 1
-position = Vector2(620, 294)
+position = Vector2(622, 293)
+rotation = -0.0111821
+diary_text = "Querida Aurora,
+
+Pela forma que estou a chamando, você já sabe que o assunto é delicado. Gostaria que houvesse uma explicação bonita para ter deixado de te contar algumas coisas, mas não tenho. Por isso não peço seu perdão, não o mereço depois do que fiz. Se você está lendo isso é porque fez a viagem e percebeu que a radiação da estrela é insuficiente para gerar energia e abastecer o planeta Terra. Sabia que em algum momento você ia acabar mexendo nas minhas anotações pessoais para obter respostas, por mais relutante que ficasse. Então deixo aqui alguns esclarecimentos.
+	Se não posso pedir suas desculpas, desejo que você tente entender minhas motivações, ao menos em parte. Acontece que enquanto eu estudava a energia vinda do portal, fiz uma descoberta que mudou tudo. O que estávamos captando não vinha da estrela, mas do próprio portal. Estudei as possibilidades em segredo e encontrei uma forma de gerar energia suficiente para abastecer a Terra por pelo menos mais uma década. Tem noção do que é isso? Achar que estava tudo perdido e de repente encontrar a oportunidade da minha carreira? E tudo o que eu precisaria fazer era destruir o portal, a fonte. É um processo que aconteceria naturalmente em centenas de anos, mas eu não tinha esse tempo todo. Por outro lado, causar uma perturbação na curvatura do espaço tempo no ângulo certo faria o trabalho num piscar de olhos. 
+	Eu só precisava achar o ponto ideal e executar o plano levando para as coordenadas certas um objeto com campo gravitacional forte o suficiente. Foi quando comecei a perceber que você seria uma ameaça para o futuro brilhante que eu enxergava. Em algum momento eu soube que não poderia te contar, você jamais concordaria com isso. A única máquina preparada para atravessar um portal espacial era a nave do seu pai, projetada com tal finalidade. Percebe que eu não tinha escolha? Eu te contaria a verdade e você iria ofuscá-la com suas fantasias científicas. Ia passar a vida igual ao seu pai, procurando algo revolucionário que nunca seria encontrado. Você via tanto potencial nessa formação cósmica “excepcional” quanto ele. Não ia sacrificar o grande achado do seu maior herói, nem se fosse para gerar energia por mais 10 anos. Tudo por uma esperança boba em uma solução que não existe.
+Você não pode salvar o mundo. Nenhum de nós pode. Se soubesse a verdade sobre o homem que você tanto admira e seus ideais, veria a realidade. Seu pai sempre contava a história sobre como salvou a sua vida modificando seu corpo humano e a transformando em uma ciborgue. Era tudo mentira. Você não era um bebê frágil, pelo contrário, era o mais saudável. Por esse motivo foi escolhida para servir aos experimentos dele, ao sonho maluco de entrar no portal. Algo que ele e suas limitações jamais poderiam realizar. 
+E os outros filhos de seu pai, os que não eram úteis? Eram um mal necessário, em prol de um “bem maior”. O que ele não sabia é que não conseguiria se livrar de todos nós. 
+Não é nada pessoal, eu realmente acabei gostando de você. Só fiz o que precisava ser feito. 
+
+Adeus,
+Layla
+"
+diary_id = 11
 
 [connection signal="body_entered" from="Plataformas_espirradas/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]

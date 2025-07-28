@@ -285,7 +285,7 @@ position = Vector2(296, -1)
 shape = SubResource("WorldBoundaryShape2D_sque7")
 
 [node name="Coletavel" parent="." instance=ExtResource("14_sque7")]
-position = Vector2(157, 300)
+position = Vector2(157, 306)
 diary_text = "Não tem como começar a falar sobre mim em um diário sem falar da Layla. Nossa amizade começou há quase 5 anos, quando estávamos na faculdade. Desde então, é como se eu de repente tivesse uma irmã.
 
 Dizem que a maçã não cai longe da árvore e isso deve explicar eu ter herdado o amor do meu pai pela ciência. Se não foi isso, com certeza foi o fato de ter virado parte de mim, quando ele adaptou meu corpo com peças robóticas para eu sobreviver quando era um bebê. É claro que havia um porém. Meu pai foi um pesquisador da exploração espacial, o maior da atualidade. Só que eu nunca havia me interessado muito pela cosmologia, o que pra ele era uma grande frustração no meio de todo o orgulho que sentia por mim. Não tinha me interessado até conhecer a Layla.
