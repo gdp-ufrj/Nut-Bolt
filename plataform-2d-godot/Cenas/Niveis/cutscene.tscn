@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cedvhv4mqhbjr"]
+[gd_scene load_steps=4 format=3 uid="uid://cedvhv4mqhbjr"]
 
 [ext_resource type="Script" uid="uid://daaynr4hgw2of" path="res://Scripts/Niveis/cutscene_inicial.gd" id="1_8mf8u"]
 [ext_resource type="Texture2D" uid="uid://bypigew1mab44" path="res://Sprites/Cutscene/TemplateNovoCutscene1.png" id="2_un08y"]
 [ext_resource type="FontFile" uid="uid://bbf2udwkeuyf6" path="res://Sprites/Cutscene/Fonte_Letras/GravityBold8.ttf" id="3_1fr0s"]
-[ext_resource type="AudioStream" uid="uid://d0lyu22pshhwi" path="res://Audio/Cutscene/Cutscene.ogg" id="4_nuns1"]
 
 [node name="Cutscene_inicial" type="Node2D"]
 script = ExtResource("1_8mf8u")
@@ -30,9 +29,3 @@ theme_override_fonts/font = ExtResource("3_1fr0s")
 horizontal_alignment = 1
 
 [node name="TypingTimer" type="Timer" parent="."]
-
-[node name="Music_cutscene" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_nuns1")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
