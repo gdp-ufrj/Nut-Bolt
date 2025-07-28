@@ -31,7 +31,7 @@ const music_fases = preload("res://Audio/Floresta_soundtrack/mus_solarpunk_loop.
 func _ready():
 	print("GameController iniciado")
 	#Inicializa o indice do nivel atual e carrega o primeiro nivel
-	current_index = 4
+	current_index = 5
 	_load_level(current_index)
 
 #Funcao chamada sempre que uma acao de input não tratada acontece (como pressionar teclas)
