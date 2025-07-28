@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://db3gdx3n0lhxo"]
+[gd_scene load_steps=77 format=4 uid="uid://db3gdx3n0lhxo"]
 
 [ext_resource type="PackedScene" uid="uid://0ddsb5jtse0f" path="res://Cenas/Ambiente/tileset_chao.tscn" id="1_7gppo"]
 [ext_resource type="Script" uid="uid://cl5ts0lgni8pw" path="res://Scripts/Niveis/fase_9.gd" id="1_k4o3u"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b8dh2ffn0pd4l" path="res://Cenas/Entes/espinho.tscn" id="12_7oeep"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="13_brcgj"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="14_dcgoj"]
+[ext_resource type="Script" uid="uid://7o7age0xt7iq" path="res://Scripts/Entes/fase_final.gd" id="16_e8stj"]
 [ext_resource type="Texture2D" uid="uid://bnry4gy1bo1x4" path="res://Sprites/Interagíveis/Floresta/Cuspidora.png" id="16_liyfq"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="17_e8stj"]
 
@@ -661,6 +662,8 @@ size = Vector2(80, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yttbv"]
 size = Vector2(80, 10)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w5l3q"]
+
 [node name="Fase_9" type="Node2D"]
 script = ExtResource("1_k4o3u")
 
@@ -768,10 +771,10 @@ position = Vector2(571, 199)
 metadata/_edit_lock_ = true
 
 [node name="player_2_spawn" type="Marker2D" parent="."]
-position = Vector2(50, 60)
+position = Vector2(51, 51)
 
 [node name="player_1_spawn" type="Marker2D" parent="."]
-position = Vector2(310, 120)
+position = Vector2(64, 315)
 
 [node name="Roteador1" parent="." instance=ExtResource("11_mbxvd")]
 position = Vector2(86, 42)
@@ -1486,9 +1489,18 @@ Layla
 "
 diary_id = 11
 
+[node name="FaseFinal" type="Area2D" parent="."]
+position = Vector2(570, 205)
+script = ExtResource("16_e8stj")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FaseFinal"]
+shape = SubResource("CircleShape2D_w5l3q")
+
 [connection signal="body_entered" from="Plataformas_espirradas/PE1/trigger1" to="." method="_on_trigger_1_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE2/trigger2" to="." method="_on_trigger_2_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE3/trigger3" to="." method="_on_trigger_3_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE4/trigger4" to="." method="_on_trigger_4_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE5/trigger5" to="." method="_on_trigger_5_body_entered"]
 [connection signal="body_entered" from="Plataformas_espirradas/PE6/trigger6" to="." method="_on_trigger_6_body_entered"]
+[connection signal="body_entered" from="FaseFinal" to="FaseFinal" method="_on_body_entered"]

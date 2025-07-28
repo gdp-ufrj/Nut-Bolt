@@ -53,3 +53,7 @@ func has_both_players() -> bool:
 
 func _on_abre_e_fecha_animation_finished() -> void:
 	animacao_terminou = true
+
+
+func _on_fase_final_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
