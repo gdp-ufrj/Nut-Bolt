@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cg0iyugvxt7cr" path="res://Cenas/Entes/Roteador.tscn" id="3_v0u23"]
 [ext_resource type="Texture2D" uid="uid://pr3hlf7cmhty" path="res://Sprites/Backgrounds/MVP_clouds.png" id="5_epc6f"]
 [ext_resource type="PackedScene" uid="uid://bqbxnpowjnvbq" path="res://Cenas/Entes/botao.tscn" id="6_orrl7"]
-[ext_resource type="Script" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
+[ext_resource type="Script" uid="uid://26crpvkn8re7" path="res://Scripts/Entes/plataforma_movel.gd" id="10_8jdr4"]
 [ext_resource type="PackedScene" uid="uid://dpqe8ehe4j6el" path="res://Cenas/Ambiente/tileset_plataforma.tscn" id="11_7jq2t"]
 [ext_resource type="Shader" uid="uid://6yucnp7stuyd" path="res://Scripts/Niveis/BG_scroll.gdshader" id="11_i2dij"]
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="12_gas2a"]
