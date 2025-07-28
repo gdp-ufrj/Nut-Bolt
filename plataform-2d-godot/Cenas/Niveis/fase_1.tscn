@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://byxxskd1s8gpx" path="res://Audio/Plataforma - Tutorial 2/Descer plataforma- ideia 1.mp3" id="12_gas2a"]
 [ext_resource type="AudioStream" uid="uid://cppnrfbqrxf83" path="res://Audio/Plataforma - Tutorial 2/Subir plataforma- ideia 1.mp3" id="13_te4x7"]
 [ext_resource type="PackedScene" uid="uid://ib1vw877v0g7" path="res://Cenas/Entes/coletavel.tscn" id="14_unywo"]
-[ext_resource type="Script" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
+[ext_resource type="Script" uid="uid://pwq1peoudb6g" path="res://Scripts/Entes/dialogic_trigger.gd" id="15_055v3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6qdqy"]
 shader = ExtResource("11_i2dij")

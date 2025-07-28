@@ -34,9 +34,13 @@ func _ready():
 func show_pause_menu():
 	panel.visible = true  #Torna o painel visivel, mostrando o menu de pausa
 	get_tree().paused = true #Pausa o jogo, bloqueando a execucao dos processos e fisica
-	
 	if panel.visible == true:
 		sound.play()
+	
+	#Pausa a musica de fundo
+	var controller = get_tree().get_root().get_node_or_null(\"Game Controller\")
+	if controller:
+		controller.music_player.stream_paused = true
 
 #Funcao para esconder o menu de pausa
 func hide_pause_menu():
@@ -44,6 +48,11 @@ func hide_pause_menu():
 	panel.visible = false
 	#Despausa o jogo, permitindo que a execucao e a fisica continuem normalmente
 	get_tree().paused = false
+	
+	#Retoma a música de fundo
+	var controller = get_tree().get_root().get_node_or_null(\"Game Controller\")
+	if controller:
+		controller.music_player.stream_paused = false
 
 #Função chamada quando o botao \"Continuar\" e pressionado
 func _on_continuar_pressed() -> void:
@@ -96,6 +105,7 @@ func _on_botao_hover():
 		pode_tocar_hover = false
 		await get_tree().create_timer(0.1).timeout
 		pode_tocar_hover = true
+		
 "
 
 [node name="Pause_menu" type="CanvasLayer"]

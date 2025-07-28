@@ -111,12 +111,14 @@ texture_mode = 2
 script = ExtResource("6_dg2gn")
 
 [node name="SoundTrack_laboratorio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("7_i7hoh")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
 [node name="SoundTrack_floresta" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("8_1ob22")
 bus = &"Music"
 

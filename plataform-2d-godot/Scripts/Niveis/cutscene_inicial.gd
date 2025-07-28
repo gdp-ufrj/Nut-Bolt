@@ -10,35 +10,60 @@ var cutscene_data = [
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene1.png"),
 		"falas": [
 			"Essa sou eu, Auri\nme despedindo da minha parceira de pesquisa...",
-			"e indo em busca da solução para a catástrofe energética que ameaça nosso planeta."
+			"e indo em busca da solução para a catástrofe \nenergética que ameaça nosso planeta."
 		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene2.png"),
 		"falas": [
-			"Não vou mentir, deixar minha melhor amiga na Terra...",
-			"e atravessar um portal para outra galáxia não foi nada fácil…"
+			"Não vou mentir\n deixar minha melhor amiga na Terra...",
+			"e atravessar um portal\n para outra galáxia não foi nada fácil…",
+			
+			"Querida Auri, \nNós duas fizemos esses robôs no final da faculdade", 
+			"lembra?  Tínhamos tantos  sonhos e\n jamais poderíamos ter imaginado\n tudo o que viria a acontecer desde então.",
+			"Espero que entenda que estamos fazendo\n isso por essas duas melhores amigas que sabiam\n que iam conquistar o mundo um dia.",
+			"Deixo essas recordações com o desejo de serem\n essas as memórias que você guarda de mim…",
+			"Sei que vai dar um jeito\n você sempre consegue.\n Boa sorte, Layla.",
+
 		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene3.png"),
-		"falas": ["Boa sorte!"]
+		"falas": [
+			"Bem, imaginem minha sorte",
+			"quando a nave passou pelo portal e colapsou a saída!",
+			"E junto com ela,\n se foi qualquer esperança de voltar para casa…",
+		
+		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene4.png"),
-		"falas": ["Boa sorte!"]
+		"falas": [ 
+			"Foi assim que cheguei no planeta\n mais extraordinário do universo",
+			"Apeirokméia.\n Mas essa história eu conto melhor mais tarde."
+		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene5.png"),
-		"falas": ["Boa sorte!"]
+		"falas": [
+			"Acontece que meu plano para gerar energia\n também não estava saindo como esperado…"
+		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene6.png"),
-		"falas": ["Boa sorte!"]
+		"falas": [
+			"Porém, tudo mudou em uma noite de tempestade",
+			"quando um raio atingiu uma jazida\n de um mineral desconhecido nos arredores da nave",
+			"Assim formou-se um novo elemento\n com propriedades jamais vistas:\n o Apeiron"
+		]
 	},
 	{
 		"imagem": preload("res://Sprites/Cutscene/TemplateNovoCutscene7.png"),
-		"falas": ["Boa sorte!"]
+		"falas": [
+			"Depois disso, ainda tive a surpresa de ganhar\n dois companheiros robôs para ajudar na minha missão.",
+			"E foi dessa forma que Nut e Bolt\n  entraram na minha história",
+			"E essa história está só começando…"
+		]
 	}
 ]
 
@@ -46,7 +71,7 @@ var imagem_atual := 0
 var fala_atual := 0
 var texto_completo: String = ""
 var indice_letra: int = 0
-var velocidade: float = 0.03  # tempo entre letras
+var velocidade: float = 0.06  # tempo entre letras
 
 func _ready():
 	typing_timer.timeout.connect(_on_typing_timer_timeout)
