@@ -30,11 +30,13 @@ scene = ExtResource("4_j7cyc")
 overrides = {
 "box_distance": "5.0",
 "box_size": "Vector2(600, 140)",
+"custom_bold_font": "\"res://Dialogic/Estilos/nokiafc22.ttf\"",
+"custom_normal_font": "\"res://Dialogic/Estilos/nokiafc22.ttf\"",
 "name_label_custom_size": "10.0",
 "name_label_customfont": "\"res://Dialogic/Estilos/GravityBold8.ttf\"",
 "name_label_use_global_font": "false",
 "name_label_use_global_size": "false",
-"text_custom_size": "9.0",
+"text_custom_size": "12.0",
 "text_use_global_size": "false",
 "use_global_fonts": "false"
 }
