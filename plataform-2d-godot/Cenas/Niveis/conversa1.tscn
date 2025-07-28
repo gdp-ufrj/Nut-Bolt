@@ -1,0 +1,164 @@
+[gd_scene load_steps=23 format=3 uid="uid://c4xkoweb71lnv"]
+
+[ext_resource type="Shader" uid="uid://cp34rmnf7nvo3" path="res://Sprites/Shaders/BG_scroll1.gdshader" id="1_af6we"]
+[ext_resource type="Texture2D" uid="uid://btopt27f046fq" path="res://Sprites/Backgrounds/fundo_conversa1.png" id="2_s06wq"]
+[ext_resource type="Texture2D" uid="uid://dqgt04odlo28y" path="res://Sprites/Backgrounds/gradiente.png" id="3_74eli"]
+[ext_resource type="Texture2D" uid="uid://d6gsgjl14ecc" path="res://Sprites/Players/Redondo/walk.png" id="4_vdwap"]
+[ext_resource type="Texture2D" uid="uid://bxgcqhj7lud2p" path="res://Sprites/Players/Quadrado/Corrida.png" id="5_ypw1u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1w6k"]
+shader = ExtResource("1_af6we")
+shader_parameter/speed = 0.4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuk4s"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqlyn"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkd63"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvhho"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg6jq"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vahlw"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y0x7"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwnnj"]
+atlas = ExtResource("4_vdwap")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bslyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuk4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqlyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkd63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvhho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg6jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vahlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y0x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwnnj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37j6e"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(0, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0hp5"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tseqr"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(40, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30s5n"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(60, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkqs2"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(80, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04cic"]
+atlas = ExtResource("5_ypw1u")
+region = Rect2(100, 0, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3sg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37j6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0hp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tseqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30s5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkqs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04cic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Conversa1" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_w1w6k")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_s06wq")
+stretch_mode = 1
+
+[node name="GradienteR" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 540.0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_74eli")
+stretch_mode = 1
+flip_h = true
+
+[node name="GradienteL" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 360.0
+texture = ExtResource("3_74eli")
+stretch_mode = 1
+
+[node name="Player1_walk" type="AnimatedSprite2D" parent="."]
+position = Vector2(352, 198)
+sprite_frames = SubResource("SpriteFrames_bslyx")
+autoplay = "default"
+frame_progress = 0.969619
+
+[node name="Player2_walk" type="AnimatedSprite2D" parent="."]
+position = Vector2(290, 198)
+sprite_frames = SubResource("SpriteFrames_l3sg4")
+autoplay = "default"
+frame_progress = 0.0393898
