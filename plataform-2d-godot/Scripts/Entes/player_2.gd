@@ -325,4 +325,4 @@ func _on_game_controller_restart() -> void:
 
 
 func _on_game_controller_fase_carregada() -> void:
-	self.set_process_mode(self.PROCESS_MODE_INHERIT)
+	self.set_process_mode(self.PROCESS_MODE_ALWAYS)
