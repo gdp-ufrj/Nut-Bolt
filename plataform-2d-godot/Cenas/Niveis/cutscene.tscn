@@ -34,4 +34,5 @@ horizontal_alignment = 1
 [node name="Musica_cutscene" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_nuns1")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
